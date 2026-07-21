@@ -32,6 +32,35 @@
         </address>
       </div>
 
+      <!-- Col 4: Newsletter -->
+      <div class="footer-col footer-newsletter">
+        <h4><?= __t('footer.newsletter.heading') ?></h4>
+        <p class="footer-newsletter__desc"><?= __t('footer.newsletter.desc') ?></p>
+        <form
+          class="footer-newsletter__form"
+          id="newsletter-form"
+          novalidate
+          data-action="/newsletter"
+          data-msg-ok="<?= __t('footer.newsletter.success') ?>"
+          data-msg-err="<?= __t('footer.newsletter.error') ?>"
+          data-msg-invalid="<?= __t('footer.newsletter.error_email') ?>">
+          <!-- Honeypot — leave blank -->
+          <input type="text" name="hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+          <div class="footer-newsletter__field">
+            <label for="nl-email" class="sr-only"><?= __t('footer.newsletter.placeholder') ?></label>
+            <input
+              type="email"
+              id="nl-email"
+              name="email"
+              placeholder="<?= __t('footer.newsletter.placeholder') ?>"
+              required
+              autocomplete="email">
+            <button type="submit"><?= __t('footer.newsletter.btn') ?></button>
+          </div>
+          <p class="footer-newsletter__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
     </div><!-- /.footer-grid -->
 
     <!-- Bottom bar -->
