@@ -193,6 +193,7 @@
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       show(msgBad, 'err'); return;
     }
+    const originalLabel = btn.textContent;
     btn.disabled = true;
     btn.textContent = '…';
     try {
@@ -205,7 +206,7 @@
       show(msgErr, 'err');
     } finally {
       btn.disabled = false;
-      if (btn.style.display !== 'none') btn.textContent = form.querySelector('button').textContent || 'Subscribe';
+      if (btn.style.display !== 'none') btn.textContent = originalLabel;
     }
   });
 
