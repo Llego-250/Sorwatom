@@ -126,4 +126,92 @@
 
 /* Screen-reader utility */
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* Newsletter column */
+.footer-newsletter__desc {
+  font-size: var(--step--1);
+  color: rgba(255,255,255,.65);
+  line-height: 1.6;
+  margin: 0 0 var(--space-sm);
+}
+.footer-newsletter__field {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.footer-newsletter__field:focus-within { border-color: var(--col-accent); }
+.footer-newsletter__field input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  background: rgba(255,255,255,.07);
+  border: none;
+  color: #fff;
+  font-size: var(--step--1);
+  outline: none;
+}
+.footer-newsletter__field input[type="email"]::placeholder { color: rgba(255,255,255,.35); }
+.footer-newsletter__field button {
+  padding: 9px 14px;
+  background: var(--col-accent);
+  color: #fff;
+  border: none;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .04em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s;
+}
+.footer-newsletter__field button:hover { background: color-mix(in srgb, var(--col-accent) 85%, #fff); }
+.footer-newsletter__msg {
+  margin: 8px 0 0;
+  font-size: var(--step--1);
+  min-height: 1.4em;
+  line-height: 1.4;
+}
+.footer-newsletter__msg--ok  { color: #6ee7b7; }
+.footer-newsletter__msg--err { color: #fca5a5; }
 </style>
+
+<script>
+(function () {
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
+  const msg      = form.querySelector('.footer-newsletter__msg');
+  const btn      = form.querySelector('button[type="submit"]');
+  const msgOk    = form.dataset.msgOk;
+  const msgErr   = form.dataset.msgErr;
+  const msgBad   = form.dataset.msgInvalid;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const email = form.querySelector('#nl-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      show(msgBad, 'err'); return;
+    }
+    btn.disabled = true;
+    btn.textContent = '…';
+    try {
+      const fd = new FormData(form);
+      const res = await fetch(form.dataset.action, { method: 'POST', body: fd });
+      const json = await res.json();
+      show(json.ok ? msgOk : (json.message || msgErr), json.ok ? 'ok' : 'err');
+      if (json.ok) { form.querySelector('#nl-email').value = ''; btn.style.display = 'none'; }
+    } catch (_) {
+      show(msgErr, 'err');
+    } finally {
+      btn.disabled = false;
+      if (btn.style.display !== 'none') btn.textContent = form.querySelector('button').textContent || 'Subscribe';
+    }
+  });
+
+  function show(text, type) {
+    msg.textContent = text;
+    msg.className = 'footer-newsletter__msg footer-newsletter__msg--' + type;
+  }
+})();
+</script>

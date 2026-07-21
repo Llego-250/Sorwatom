@@ -25,6 +25,15 @@
             'contact' => 'Wasiliana Nasi',
         ],
         'lang_label' => 'Lugha',
+        'newsletter' => [
+            'heading'     => 'Baki Ukijulishwa',
+            'desc'        => 'Pata mapishi, habari na hadithi kutoka Maziwa Makuu — moja kwa moja kwenye barua pepe yako.',
+            'placeholder' => 'Anwani yako ya barua pepe',
+            'btn'         => 'Jiandikishe',
+            'success'     => 'Uko kwenye orodha — karibu!',
+            'error'       => 'Hitilafu imetokea. Tafadhali jaribu tena.',
+            'error_email' => 'Tafadhali weka anwani sahihi ya barua pepe.',
+        ],
     ],
 
     'home' => [

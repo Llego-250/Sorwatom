@@ -25,6 +25,15 @@
             'contact' => 'Nous Contacter',
         ],
         'lang_label' => 'Langue',
+        'newsletter' => [
+            'heading'     => 'Restez Informé',
+            'desc'        => 'Recevez recettes, actualités et histoires des Grands Lacs directement dans votre boîte mail.',
+            'placeholder' => 'Votre adresse e-mail',
+            'btn'         => "S'abonner",
+            'success'     => 'Vous êtes sur la liste — bienvenue !',
+            'error'       => "Une erreur s'est produite. Veuillez réessayer.",
+            'error_email' => 'Veuillez saisir une adresse e-mail valide.',
+        ],
     ],
 
     'home' => [

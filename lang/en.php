@@ -25,6 +25,15 @@
             'contact' => 'Get in Touch',
         ],
         'lang_label' => 'Language',
+        'newsletter' => [
+            'heading'     => 'Stay Updated',
+            'desc'        => 'Get recipes, news and stories from the Great Lakes — straight to your inbox.',
+            'placeholder' => 'Your email address',
+            'btn'         => 'Subscribe',
+            'success'     => "You're on the list — welcome!",
+            'error'       => 'Something went wrong. Please try again.',
+            'error_email' => 'Please enter a valid email address.',
+        ],
     ],
 
     'home' => [
