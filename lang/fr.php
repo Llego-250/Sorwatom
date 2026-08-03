@@ -271,4 +271,14 @@
         's6' => ['heading' => 'Vos Droits',                   'body' => 'Vous avez le droit d\'accéder, corriger ou supprimer vos données personnelles. Écrivez à info@sorwatom.com.'],
         's7' => ['heading' => 'Contact',                      'body' => 'Responsable du traitement : Sorwatom Agribusiness, Kigali, Rwanda. Email : info@sorwatom.com'],
     ],
+
+    'popup' => [
+        'badge'            => 'Rejoignez Notre Communauté',
+        'title'            => 'Restez Connecté avec <em>Sorwatomo</em>',
+        'subtitle'         => 'Abonnez-vous à notre newsletter pour des recettes exclusives, des actualités et connectez-vous avec nous sur les réseaux sociaux.',
+        'newsletter_title' => "S'abonner à la Newsletter",
+        'social_title'     => 'Suivez-nous sur les Réseaux Sociaux',
+        'maybe_later'      => 'Plus tard',
+        'close'            => 'Fermer',
+    ],
 ];

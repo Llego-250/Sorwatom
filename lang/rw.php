@@ -173,4 +173,14 @@
         's6' => ['heading' => 'Uburenganzira Bwawe',          'body' => "Ufite uburenganzira bwo kugera, gukososha cyangwa gusaba gukuraho amakuru yawe bwite. Ohereza imeyili kuri info@sorwatom.com."],
         's7' => ['heading' => 'Itumanahana',                  'body' => "Uwungirije amakuru: Sorwatom Agribusiness, Kigali, Rwanda. Imeyili: info@sorwatom.com"],
     ],
+
+    'popup' => [
+        'badge'            => 'Injira mu Muryango Wacu',
+        'title'            => 'Guma Wubaka Umubano na <em>Sorwatomo</em>',
+        'subtitle'         => 'Iyandikishe ku kinyamakuru cyacu kugira ngo ubone gukora amafunguro, amakuru mashya no kutukurikirana ku mbuga nkoranyambaga.',
+        'newsletter_title' => 'Iyandikishe ku Kinyamakuru',
+        'social_title'     => 'Tukurikirane ku Mbuga Nkoranyambaga',
+        'maybe_later'      => 'Ubutaha',
+        'close'            => 'Funga',
+    ],
 ];

@@ -268,4 +268,14 @@
         's6' => ['heading' => 'Haki Zako',                 'body' => 'Una haki ya kufikia, kurekebisha au kuomba kufutwa kwa data yako yoyote ya kibinafsi. Tuma barua pepe kwa info@sorwatom.com.'],
         's7' => ['heading' => 'Mawasiliano',               'body' => 'Mdhibiti wa data: Sorwatom Agribusiness, Kigali, Rwanda. Barua pepe: info@sorwatom.com'],
     ],
+
+    'popup' => [
+        'badge'            => 'Jiunge na Jamii Yetu',
+        'title'            => 'Baki Nasi na <em>Sorwatomo</em>',
+        'subtitle'         => 'Jiandikishe kwa jarida letu kupata mapishi ya kipekee na habari mpya, na uunganishe nasi kwenye mitandao ya kijamii.',
+        'newsletter_title' => 'Jiandikishe kwa Jarida',
+        'social_title'     => 'Tufuate Kwenye Mitandao ya Kijamii',
+        'maybe_later'      => 'Baadaye',
+        'close'            => 'Funga',
+    ],
 ];

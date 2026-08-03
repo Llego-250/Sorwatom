@@ -56,7 +56,7 @@
         ],
         'offerings' => [
             'eyebrow'   => 'Signature Offerings',
-            'heading'   => 'The taste of the <em>Great Lakes.</em>',
+            'heading'   => 'The taste for <em>Great Lakes.</em>',
             'view_all'  => 'View Full Catalog',
             'paste'    => ['cat' => 'Tomato Paste',  'name' => 'Tomato Paste 70g',  'desc' => 'Double-concentrated, 100% natural tomato paste in an easy-open flexible sachet.'],
             'ketchup'  => ['cat' => 'Ketchup',       'name' => 'Heirloom Ketchup',  'desc' => 'Slow-cooked from vine-ripened tomatoes with a naturally balanced sweetness.'],
@@ -287,5 +287,15 @@
         's5' => ['heading' => 'Data Retention',        'body' => 'Inquiry submissions are kept for up to 24 months to allow for follow-up, then securely deleted. You may request deletion at any time.'],
         's6' => ['heading' => 'Your Rights',           'body' => 'You have the right to access, correct, or request deletion of any personal data we hold about you. Email info@sorwatom.com and we will respond within 30 days.'],
         's7' => ['heading' => 'Contact',               'body' => 'Data controller: Sorwatom Agribusiness, Kigali, Rwanda. Email: info@sorwatom.com'],
+    ],
+
+    'popup' => [
+        'badge'            => 'Join Our Community',
+        'title'            => 'Stay Connected with <em>Sorwatomo</em>',
+        'subtitle'         => 'Subscribe to our newsletter for exclusive recipes, fresh harvest updates & news, and connect with us on social media.',
+        'newsletter_title' => 'Subscribe to Newsletter',
+        'social_title'     => 'Follow Us On Social Media',
+        'maybe_later'      => 'Maybe Later',
+        'close'            => 'Close popup',
     ],
 ];
