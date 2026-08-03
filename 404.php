@@ -10,22 +10,18 @@ include 'partials/_head.php';
 
 <body class="<?= htmlspecialchars($body_class) ?>">
 
-<?php include 'partials/nav.php'; ?>
-
 <main id="main-content">
-
-<center>
   <section class="section-404" aria-label="Page not found">
     <div class="container">
-      <div class="404-grid">
+      <div class="err-page-grid">
 
         <!-- 404 Mascot Image -->
-        <div class="404-img-wrap reveal" data-delay="1">
-          <div class="404-img-glow" aria-hidden="true"></div>
+        <div class="err-page-img-wrap reveal" data-delay="1">
+          <div class="err-page-img-glow" aria-hidden="true"></div>
           <img
             src="/assets/img/404.png"
             alt="Sorwatom 404 — Page not found"
-            class="404-img"
+            class="err-page-img"
             width="560"
             height="380"
             loading="eager"
@@ -34,38 +30,51 @@ include 'partials/_head.php';
         </div>
 
         <!-- 404 Text & Actions -->
-        <div class="404-content reveal" data-delay="2">
+        <div class="err-page-content reveal" data-delay="2">
           <span class="eyebrow eyebrow--light"><?= __t('404.eyebrow') ?></span>
-          <h1 class="404-title"><?= __r('404.title') ?></h1>
-          <p class="404-subtitle"><?= __t('404.subtitle') ?></p>
-          <div class="404-actions">
+          <h1 class="err-page-title"><?= __r('404.title') ?></h1>
+          <p class="err-page-subtitle"><?= __t('404.subtitle') ?></p>
+          <div class="err-page-actions">
             <a href="/" class="btn btn--primary"><?= __t('404.btn_home') ?></a>
             <a href="/products" class="btn btn--ghost"><?= __t('404.btn_catalog') ?></a>
           </div>
         </div>
 
-      </div><!-- /.404-grid -->
+      </div><!-- /.err-page-grid -->
     </div><!-- /.container -->
   </section>
-</center>
-
 </main>
 
 <style>
+html, body {
+  height: 100%;
+}
+
 .page-404 {
   background: var(--col-ground, #0d1e12);
   color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
-.section-404 {
+#main-content {
   flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(5rem, 12vh, 8rem) 0 clamp(4rem, 8vh, 6rem);
+}
+
+.section-404 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -73,43 +82,46 @@ include 'partials/_head.php';
 .section-404::before {
   content: '';
   position: absolute;
-  top: -20%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 1000px;
+  transform: translate(-50%, -50%);
+  width: 900px;
   height: 600px;
-  background: radial-gradient(ellipse at center, rgba(200, 146, 58, 0.12) 0%, rgba(13, 30, 18, 0) 70%);
+  background: radial-gradient(ellipse at center, rgba(200, 146, 58, 0.15) 0%, rgba(13, 30, 18, 0) 70%);
   pointer-events: none;
 }
 
-.404-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
+.err-page-grid {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
-  max-width: 1080px;
+  justify-content: center;
+  text-align: center;
+  max-width: 680px;
   margin: 0 auto;
+  gap: 1.5rem;
 }
 
-.404-img-wrap {
+.err-page-img-wrap {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-.404-img-glow {
+.err-page-img-glow {
   position: absolute;
   inset: -10%;
   background: radial-gradient(circle, rgba(200, 146, 58, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
   border-radius: 50%;
-  filter: blur(20px);
+  filter: blur(25px);
   pointer-events: none;
 }
 
-.404-img {
+.err-page-img {
   width: 100%;
-  max-width: 460px;
+  max-width: 420px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
@@ -121,13 +133,14 @@ include 'partials/_head.php';
   50% { transform: translateY(-10px); }
 }
 
-.404-content {
+.err-page-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
-.404-title {
+.err-page-title {
   font-family: var(--font-display, serif);
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   font-weight: 600;
@@ -136,47 +149,27 @@ include 'partials/_head.php';
   color: #ffffff;
 }
 
-.404-title em {
+.err-page-title em {
   font-style: italic;
   color: var(--col-accent, #c8923a);
 }
 
-.404-subtitle {
+.err-page-subtitle {
   font-size: var(--step-0, 1.1rem);
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
   max-width: 480px;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
 }
 
-.404-actions {
+.err-page-actions {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
-
-@media (max-width: 868px) {
-  .404-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .404-content {
-    align-items: center;
-  }
-  .404-subtitle {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .404-actions {
-    justify-content: center;
-  }
-  .404-img {
-    max-width: 320px;
-  }
-}
 </style>
-
-<?php include 'partials/footer.php'; ?>
 
 <?php include 'partials/_scripts.php'; ?>
 
