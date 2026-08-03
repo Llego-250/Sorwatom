@@ -87,20 +87,11 @@ include 'partials/_head.php';
               <span><?= __t('contact.offices.hours') ?></span>
             </div>
           </article>
-          <article class="office-card" aria-label="Burundi office">
-            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇧🇮</span><?= __t('contact.offices.bi') ?></div>
-            <p class="office-card__number">+257 76 779 999</p>
+          <article class="office-card" aria-label="Burundi & DRC presence">
+            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇧🇮 🇨🇩</span> Regional Operations</div>
             <div class="office-card__detail">
-              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              <span><?= __t('contact.offices.hours') ?></span>
-            </div>
-          </article>
-          <article class="office-card" aria-label="DRC office">
-            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇨🇩</span><?= __t('contact.offices.cd') ?></div>
-            <p class="office-card__number">+243 999 906 50</p>
-            <div class="office-card__detail">
-              <a href="mailto:info@sorwatom.com">info@sorwatom.com</a><br>
-              <span><?= __t('contact.offices.hours') ?></span>
+              Burundi &amp; Eastern DRC<br>
+              <span>Contact HQ for local distribution</span>
             </div>
           </article>
         </div>
