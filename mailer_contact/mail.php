@@ -26,6 +26,7 @@ class mail {
             try {
                 $mail = new PHPMailer;
                 $mail->isSMTP();
+                $mail->Timeout    = 3; // 3s timeout
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth   = true;
                 $mail->Host       = SMTP_HOST;
