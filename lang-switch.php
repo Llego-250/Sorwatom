@@ -1,7 +1,7 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-$allowed = ['en', 'fr', 'sw'];
+$allowed = ['en', 'fr', 'rw', 'sw'];
 $lang    = $_GET['lang'] ?? $_POST['lang'] ?? 'en';
 
 if (in_array($lang, $allowed, true)) {
