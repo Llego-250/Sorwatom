@@ -199,4 +199,12 @@
         'btn_home'    => 'Subira Ahabanza',
         'btn_catalog' => 'Reba Ibicuruzwa',
     ],
+
+    '401' => [
+        'eyebrow'     => 'IKOSA RYA 401',
+        'title'       => 'Gusaba <em>injira.</em>',
+        'subtitle'    => 'Ugerageza kwinjira ahabujijwe, ugomba kubanza kwinjira nka konte yemewe.',
+        'btn_home'    => 'Subira Ahabanza',
+        'btn_catalog' => 'Reba Ibicuruzwa',
+    ],
 ];

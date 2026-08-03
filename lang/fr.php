@@ -297,4 +297,12 @@
         'btn_home'    => 'Retour à l\'Accueil',
         'btn_catalog' => 'Explorer la Collection',
     ],
+
+    '401' => [
+        'eyebrow'     => 'ERREUR 401',
+        'title'       => 'Authentification <em>requise.</em>',
+        'subtitle'    => "Vous devez vous connecter avec des identifiants valides pour voir cette page.",
+        'btn_home'    => 'Retour à l\'Accueil',
+        'btn_catalog' => 'Explorer la Collection',
+    ],
 ];

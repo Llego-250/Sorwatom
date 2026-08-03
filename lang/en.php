@@ -314,4 +314,12 @@
         'btn_home'    => 'Back to Home',
         'btn_catalog' => 'Explore Collection',
     ],
+
+    '401' => [
+        'eyebrow'     => '401 ERROR',
+        'title'       => 'Authentication <em>Required.</em>',
+        'subtitle'    => 'You need to log in with valid credentials to view this page.',
+        'btn_home'    => 'Back to Home',
+        'btn_catalog' => 'Explore Collection',
+    ],
 ];
