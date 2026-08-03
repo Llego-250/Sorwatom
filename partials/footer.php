@@ -66,29 +66,13 @@
     <!-- Bottom bar -->
     <div class="footer-bottom">
       <p>&copy; <?= date('Y') ?> <?= __t('footer.rights') ?></p>
-      <nav class="footer-bottom__right" aria-label="Social, legal and language">
+      <nav class="footer-bottom__right" aria-label="Social and legal">
         <div class="footer-social">
           <a href="https://www.instagram.com/sorwatom_rw/" rel="noopener noreferrer" aria-label="Sorwatomo on Instagram">INSTAGRAM</a>
           <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" rel="noopener noreferrer" aria-label="Sorwatomo on LinkedIn">LINKEDIN</a>
           <a href="https://www.facebook.com/SORWATOM/" rel="noopener noreferrer" aria-label="Sorwatomo on Facebook">FACEBOOK</a>
           <a href="https://www.X.com/sorwatom/" rel="noopener noreferrer" aria-label="Sorwatomo on Twitter">TWITTER</a>
           <a href="/privacy"><?= __t('footer.privacy') ?></a>
-        </div>
-
-        <!-- Language switcher -->
-        <div class="lang-switcher" role="group" aria-label="<?= __t('footer.lang_label') ?>">
-          <?php
-          global $LANG_CODE, $LANG;
-          $langs = ['en' => 'EN', 'fr' => 'FR', 'rw' => 'RW', 'sw' => 'SW'];
-          foreach ($langs as $code => $label):
-          ?>
-          <a
-            href="/lang-switch.php?lang=<?= $code ?>"
-            class="lang-switcher__btn<?= $LANG_CODE === $code ? ' lang-switcher__btn--active' : '' ?>"
-            aria-label="<?= htmlspecialchars($LANG['lang'][$code] ?? $label) ?>"
-            <?= $LANG_CODE === $code ? 'aria-current="true"' : '' ?>
-          ><?= $label ?></a>
-          <?php endforeach; ?>
         </div>
       </nav>
     </div>
@@ -108,23 +92,6 @@
 
 /* Bottom bar layout */
 .footer-bottom__right { display:flex; align-items:center; gap:var(--space-md); flex-wrap:wrap; }
-
-/* Language switcher */
-.lang-switcher { display:flex; align-items:center; gap:4px; }
-.lang-switcher__btn {
-  display:inline-block;
-  padding:4px 9px;
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.08em;
-  color:rgba(255,255,255,.5);
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:4px;
-  transition:color .15s, border-color .15s, background .15s;
-}
-.lang-switcher__btn:hover { color:white; border-color:rgba(255,255,255,.4); }
-.lang-switcher__btn--active { color:var(--col-accent); border-color:var(--col-accent); background:rgba(200,146,58,.1); }
 
 /* Screen-reader utility */
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
