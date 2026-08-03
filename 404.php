@@ -176,7 +176,7 @@ include 'partials/_head.php';
 }
 </style>
 
-<!-- <?php include 'partials/footer.php'; ?> -->
+<?php include 'partials/footer.php'; ?>
 
 <?php include 'partials/_scripts.php'; ?>
 
