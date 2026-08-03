@@ -281,4 +281,12 @@
         'maybe_later'      => 'Plus tard',
         'close'            => 'Fermer',
     ],
+
+    '404' => [
+        'eyebrow'     => 'ERREUR 404',
+        'title'       => 'Oups ! Page <em>introuvable.</em>',
+        'subtitle'    => "La page que vous recherchez a été déplacée, supprimée ou n'existe pas.",
+        'btn_home'    => 'Retour à l\'Accueil',
+        'btn_catalog' => 'Explorer la Collection',
+    ],
 ];

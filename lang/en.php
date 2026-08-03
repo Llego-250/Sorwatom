@@ -298,4 +298,12 @@
         'maybe_later'      => 'Maybe Later',
         'close'            => 'Close popup',
     ],
+
+    '404' => [
+        'eyebrow'     => '404 ERROR',
+        'title'       => 'Oops! Page <em>squished.</em>',
+        'subtitle'    => 'The page you are looking for has moved, been removed, or does not exist.',
+        'btn_home'    => 'Back to Home',
+        'btn_catalog' => 'Explore Collection',
+    ],
 ];

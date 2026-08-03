@@ -278,4 +278,12 @@
         'maybe_later'      => 'Baadaye',
         'close'            => 'Funga',
     ],
+
+    '404' => [
+        'eyebrow'     => 'KOSA LA 404',
+        'title'       => 'Ole! Ukurasa <em>haukupatikana.</em>',
+        'subtitle'    => 'Ukurasa unaoutafuta umehamishwa, umefutwa, au haupo kabisa.',
+        'btn_home'    => 'Rudi Nyumbani',
+        'btn_catalog' => 'Tazama Bidhaa',
+    ],
 ];

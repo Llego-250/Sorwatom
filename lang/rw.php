@@ -183,4 +183,12 @@
         'maybe_later'      => 'Ubutaha',
         'close'            => 'Funga',
     ],
+
+    '404' => [
+        'eyebrow'     => 'IKOSA RYA 404',
+        'title'       => 'Ujye he! Urupage <em>ntirubonetse.</em>',
+        'subtitle'    => 'Urupage ushaka rwimuwe, rwasibwe, cyangwa ntirwigeze rubaho.',
+        'btn_home'    => 'Subira Ahabanza',
+        'btn_catalog' => 'Reba Ibicuruzwa',
+    ],
 ];
