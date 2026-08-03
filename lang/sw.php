@@ -114,9 +114,9 @@
         'team' => [
             'eyebrow' => 'Watu Nyuma Yake',
             'heading' => 'Uongozi &amp; <em>Umiliki.</em>',
-            'dillux'  => ['role' => 'Mwanahisa',          'name' => 'Dillux SA',     'bio' => 'Kampuni ya uwekezaji wa hisa binafsi yenye makao Mauritius, iliyoanzishwa Mei 2009, ikizingatia Afrika Mashariki na Kati.'],
-            'kibera'  => ['role' => 'Mwenyekiti',          'name' => 'James Kibera', 'bio' => 'Alianza kazi yake na Citibank Kenya kama Msimamizi wa Mafunzo mwaka 1992. Anajibika kwa mkakati wa mali na madeni ya benki na usimamizi wa fedha za kigeni.'],
-            'kumar'   => ['role' => 'Mkurugenzi Mtendaji', 'name' => 'Vip Kumar',    'bio' => 'Zaidi ya miaka 25 ya uzoefu wa kitaalamu wa uongozi na usimamizi katika ngazi za kimataifa, shirika, SME na maendeleo Afrika Kusini mwa Jangwa la Sahara.'],
+            'dillux'  => ['role' => 'Mwanahisa',          'name' => 'Dillux SA',     'bio' => 'Kampuni ya uwekezaji wa hisa binafsi yenye makao Mauritius ikizingatia Afrika Mashariki na Kati, ikilenga kukuza ajira na utajiri katika sekta zenye ukuaji wa juu.'],
+            'kibera'  => ['role' => 'Mwenyekiti',          'name' => 'James Kibera', 'bio' => 'Falsafa yetu iliyokuzwa ni kuzalisha bidhaa za kila siku zinazovutia na rahisi kutumia zinazotoa thamani, kwa kuwasikiliza wateja na walaji na kuchanganya na teknolojia ya kisasa.'],
+            'kumar'   => ['role' => 'Mkurugenzi Mtendaji', 'name' => 'Vip Kumar',    'bio' => 'Zaidi ya miaka 25 ya uzoefu wa uongozi wa kitaalamu. Utaalamu wake upo katika masoko ya FMCG katika Afrika Mashariki.'],
         ],
     ],
 

@@ -114,9 +114,9 @@
         'team' => [
             'eyebrow' => 'The People Behind It',
             'heading' => 'Leadership &amp; <em>Ownership.</em>',
-            'dillux'  => ['role' => 'Shareholder',      'name' => 'Dillux SA',     'bio' => 'A Mauritius-based private equity company founded in May 2009, with a focus on East and Central Africa. Dillux invests in high-growth industries that have a strong track record of profitability or strong prospects for future growth.'],
-            'kibera'  => ['role' => 'Chairman',          'name' => 'James Kibera', 'bio' => 'Started his career with Citibank Kenya as a Trainee Manager in 1992 and became a full manager within two years. Responsible for bank asset and liability strategy, credit structuring, and foreign exchange management across agriculture, industry, and services sectors.'],
-            'kumar'   => ['role' => 'Managing Director', 'name' => 'Vip Kumar',    'bio' => 'Over 25 years of professional leadership and management expertise at multinational, corporate, SME, and developmental levels across Sub-Saharan Africa.'],
+            'dillux'  => ['role' => 'Shareholder',      'name' => 'Dillux SA',     'bio' => 'A Mauritius-based Private Equity Company focusing on the East and Central African region. Dillux approaches investments in high-growth industries that have a strong track record of profitability or good prospects of future profitability, promoting employment and wealth creation with target company sizes within $5.0–$15.0 million.'],
+            'kibera'  => ['role' => 'Chairman',          'name' => 'James Kibera', 'bio' => 'Our cultivated philosophy is to produce everyday products that are attractive and convenient to use that provide value and utility. We achieve this by listening to our Trade customers as well as consumers, combining that to set the standard within the marketplace’s latest technological developments.'],
+            'kumar'   => ['role' => 'Managing Director', 'name' => 'Vip Kumar',    'bio' => 'Vip Kumar has over 25 years of professional leadership and management expertise at multinational, corporate, SME, and developmental levels. His forte is within FMCG underserved markets within developing and emerging economies within the Eastern Africa Region.'],
         ],
     ],
 

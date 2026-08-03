@@ -114,9 +114,9 @@
         'team' => [
             'eyebrow' => 'Les Personnes Derrière',
             'heading' => 'Direction &amp; <em>Actionnariat.</em>',
-            'dillux'  => ['role' => 'Actionnaire',         'name' => 'Dillux SA',     'bio' => "Société de capital-investissement basée à Maurice, fondée en mai 2009, axée sur l'Afrique orientale et centrale."],
-            'kibera'  => ['role' => 'Président du Conseil', 'name' => 'James Kibera', 'bio' => "A débuté sa carrière à la Citibank Kenya en 1992. Responsable de la stratégie actif-passif, du crédit structuré et de la gestion des devises étrangères."],
-            'kumar'   => ['role' => 'Directeur Général',    'name' => 'Vip Kumar',    'bio' => "Plus de 25 ans d'expertise en leadership professionnel à des niveaux multinational, corporatif et développemental en Afrique subsaharienne."],
+            'dillux'  => ['role' => 'Actionnaire',         'name' => 'Dillux SA',     'bio' => "Société de capital-investissement basée à Maurice axée sur l'Afrique orientale et centrale. Dillux investit dans des secteurs à fort potentiel de croissance pour promouvoir l'emploi et la création de richesse, ciblant des entreprises de 5,0 à 15,0 millions de dollars."],
+            'kibera'  => ['role' => 'Président du Conseil', 'name' => 'James Kibera', 'bio' => "Notre philosophie cultivée est de fabriquer des produits quotidiens attrayants et pratiques qui offrent valeur et utilité, en écoutant nos clients et consommateurs tout en intégrant les dernières avancées technologiques du marché."],
+            'kumar'   => ['role' => 'Directeur Général',    'name' => 'Vip Kumar',    'bio' => "Plus de 25 ans d'expertise en leadership professionnel à des niveaux multinational, corporatif et développemental. Son point fort réside dans les marchés FMCG peu desservis en Afrique de l'Est."],
         ],
     ],
 

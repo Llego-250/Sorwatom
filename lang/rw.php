@@ -105,9 +105,9 @@
         'team' => [
             'eyebrow' => 'Abantu Bari Inyuma',
             'heading' => 'Ubuyobozi &amp; <em>Ubwigenge.</em>',
-            'dillux'  => ['role' => 'Umushoramari',           'name' => 'Dillux SA',     'bio' => "Ikigo cy'imari cya Mauritius cyashyizweho mu Gicurasi 2009, gifite intego ku Burasirazuba bwa Afurika n'Afurika y'Hagati."],
-            'kibera'  => ['role' => 'Perezida w\'Inama',      'name' => 'James Kibera', 'bio' => "Yatangiye akazi ke na Citibank Kenya nka Muyobozi w'Imbuto mu 1992. Afite inshingano z'ingamba z'umutungo n'imyende ya banki no gucunga amafaranga y'amahanga."],
-            'kumar'   => ['role' => 'Umuyobozi Mukuru',       'name' => 'Vip Kumar',    'bio' => "Imyaka irenga 25 y'uburambe bw'ubuyobozi n'imiyoborere ku rwego rw'mpuzamahanga, uruganda, SME no gutera imbere mu Afurika y'Epfo y'ubutayu bwa Sahara."],
+            'dillux'  => ['role' => 'Umushoramari',           'name' => 'Dillux SA',     'bio' => "Ikigo cy'imari cya Mauritius cyibanda ku Burasirazuba bwa Afurika n'Afurika y'Hagati, gishora imari mu nganda zifite umuvuduko mu ntego yo guhanga imirimo n'ubukire."],
+            'kibera'  => ['role' => 'Perezida w\'Inama',      'name' => 'James Kibera', 'bio' => "Intego yacu ni ugukora ibicuruzwa bya buri munsi bikungahaye kandi byoroshye gukoresha bitanga agaciro n'umuvaro, twumva abaguzi n'abakiriya bacu tugendana n'ikoranabuhanga rya none."],
+            'kumar'   => ['role' => 'Umuyobozi Mukuru',       'name' => 'Vip Kumar',    'bio' => "Imyaka irenga 25 y'uburambe bw'ubuyobozi n'imiyoborere ku rwego rw'mpuzamahanga n'uruganda mu masoko ya FMCG mu Burasirazuba bwa Afurika."],
         ],
     ],
 
