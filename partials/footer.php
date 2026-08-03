@@ -79,7 +79,7 @@
         <div class="lang-switcher" role="group" aria-label="<?= __t('footer.lang_label') ?>">
           <?php
           global $LANG_CODE, $LANG;
-          $langs = ['en' => 'EN', 'fr' => 'FR', 'sw' => 'SW'];
+          $langs = ['en' => 'EN', 'fr' => 'FR', 'rw' => 'RW', 'sw' => 'SW'];
           foreach ($langs as $code => $label):
           ?>
           <a
@@ -95,6 +95,8 @@
 
   </div><!-- /.container -->
 </footer>
+
+<?php include __DIR__ . '/popup-card.php'; ?>
 
 <style>
 .footer-brand__logo-link { display:inline-block; text-decoration:none; margin-bottom:var(--space-sm); }
