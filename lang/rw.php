@@ -191,4 +191,12 @@
         'btn_home'    => 'Subira Ahabanza',
         'btn_catalog' => 'Reba Ibicuruzwa',
     ],
+
+    '403' => [
+        'eyebrow'     => 'IKOSA RYA 403',
+        'title'       => 'Ntaburenganzira <em>bujyanye.</em>',
+        'subtitle'    => 'Nta burenganzira ufite bwo kwinjira aha hantu cyangwa kuri iki gicuruzwa.',
+        'btn_home'    => 'Subira Ahabanza',
+        'btn_catalog' => 'Reba Ibicuruzwa',
+    ],
 ];

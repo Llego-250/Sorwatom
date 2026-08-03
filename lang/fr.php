@@ -289,4 +289,12 @@
         'btn_home'    => 'Retour à l\'Accueil',
         'btn_catalog' => 'Explorer la Collection',
     ],
+
+    '403' => [
+        'eyebrow'     => 'ERREUR 403',
+        'title'       => 'Accès <em>interdit.</em>',
+        'subtitle'    => "Vous n'avez pas la permission d'accéder à cette zone ou ressource.",
+        'btn_home'    => 'Retour à l\'Accueil',
+        'btn_catalog' => 'Explorer la Collection',
+    ],
 ];

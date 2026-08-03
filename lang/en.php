@@ -306,4 +306,12 @@
         'btn_home'    => 'Back to Home',
         'btn_catalog' => 'Explore Collection',
     ],
+
+    '403' => [
+        'eyebrow'     => '403 ERROR',
+        'title'       => 'Access <em>Forbidden.</em>',
+        'subtitle'    => 'You do not have permission to access this area or resource.',
+        'btn_home'    => 'Back to Home',
+        'btn_catalog' => 'Explore Collection',
+    ],
 ];

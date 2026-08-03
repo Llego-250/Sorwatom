@@ -286,4 +286,12 @@
         'btn_home'    => 'Rudi Nyumbani',
         'btn_catalog' => 'Tazama Bidhaa',
     ],
+
+    '403' => [
+        'eyebrow'     => 'KOSA LA 403',
+        'title'       => 'Ufikiaji <em>umepigwa marufuku.</em>',
+        'subtitle'    => 'Huna ruhusa ya kufikia eneo hili au rasilimali hii.',
+        'btn_home'    => 'Rudi Nyumbani',
+        'btn_catalog' => 'Tazama Bidhaa',
+    ],
 ];
