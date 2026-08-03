@@ -14,6 +14,7 @@ include 'partials/_head.php';
 
 <main id="main-content">
 
+<center>
   <section class="section-404" aria-label="Page not found">
     <div class="container">
       <div class="404-grid">
@@ -46,6 +47,7 @@ include 'partials/_head.php';
       </div><!-- /.404-grid -->
     </div><!-- /.container -->
   </section>
+</center>
 
 </main>
 
