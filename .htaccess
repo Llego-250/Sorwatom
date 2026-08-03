@@ -1,4 +1,5 @@
 ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
 
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^sorwatom\.com [NC]
