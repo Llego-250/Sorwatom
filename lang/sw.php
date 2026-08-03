@@ -294,4 +294,12 @@
         'btn_home'    => 'Rudi Nyumbani',
         'btn_catalog' => 'Tazama Bidhaa',
     ],
+
+    '401' => [
+        'eyebrow'     => 'KOSA LA 401',
+        'title'       => 'Uthibitisho <em>unahitajika.</em>',
+        'subtitle'    => 'Unahitaji kuingia na vitambulisho halali ili kutazama ukurasa huu.',
+        'btn_home'    => 'Rudi Nyumbani',
+        'btn_catalog' => 'Tazama Bidhaa',
+    ],
 ];
