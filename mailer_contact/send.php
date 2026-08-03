@@ -63,7 +63,7 @@ $sent = false;
 try {
     if (class_exists('mail')) {
         $mailObj = new mail();
-        $sent = $mailObj->send('info@sorwatom.com', $subject, $body);
+        $sent = $mailObj->send('solideaze@gmail.com', $subject, $body);
     }
 } catch (Throwable $e) {
     $sent = false;

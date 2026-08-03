@@ -33,7 +33,7 @@ class mail {
                 $mail->Port       = SMTP_PORT;
                 $mail->Username   = defined('SMTP_USERNAME') ? SMTP_USERNAME : (defined('SMTP_EMAIL') ? SMTP_EMAIL : '');
                 $mail->Password   = defined('SMTP_PASSWORD') ? SMTP_PASSWORD : '';
-                $mail->setFrom(defined('SMTP_EMAIL') ? SMTP_EMAIL : 'info@sorwatom.com');
+                $mail->setFrom(defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com');
                 $mail->addAddress($email);
                 $mail->Subject = $subject;
                 $mail->Body    = $body;
@@ -46,7 +46,7 @@ class mail {
             }
         }
 
-        $from = defined('SMTP_EMAIL') ? SMTP_EMAIL : 'info@sorwatom.com';
+        $from = defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com';
         return @mail($email, $subject, $body, 'From: ' . $from);
     }
 }
