@@ -71,30 +71,35 @@ $mainGalleryImage = $galleryImages[0];
     .product-hero h1 { font-size: 30px; }
 }
 .product-img-main {
-    background: #f5f7f5;
-    border-radius: 12px;
-    padding: 40px;
-    aspect-ratio: 1;
+    background: linear-gradient(180deg, #e5d7cc 0%, #d8d0ca 100%);
+    border-radius: 24px;
+    padding: 0;
+    aspect-ratio: 1.12;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     overflow: hidden;
+    border: 1px solid rgba(26, 58, 46, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25);
 }
 .product-img-main img.product-main-img {
-    max-height: 360px;
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: opacity 0.25s ease;
 }
 .product-thumb-strip {
     display: flex;
     gap: 12px;
     margin-top: 16px;
+    flex-wrap: wrap;
 }
 .product-thumb {
     flex: 1;
+    min-width: 90px;
     background: #f5f7f5;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 12px;
     border: 2px solid transparent;
     cursor: pointer;
