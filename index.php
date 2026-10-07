@@ -77,17 +77,18 @@ include 'partials/_head.php';
 
 
   <!-- SECTION 4 — SIGNATURE OFFERINGS -->
-  <section class="section" style="background:var(--col-surface-2);" aria-labelledby="offerings-heading">
+  <section class="section signature-offerings" aria-labelledby="offerings-heading">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header signature-offerings__header">
         <div class="section-header__body">
           <span class="eyebrow"><?= __t('home.offerings.eyebrow') ?></span>
-          <h2 id="offerings-heading"><?= __r('home.offerings.heading') ?></h2>
+          <h2 id="offerings-heading" class="signature-offerings__title"><?= __r('home.offerings.heading') ?></h2>
         </div>
         <a href="/products" class="section-header__link"><?= __t('home.offerings.view_all') ?></a>
       </div>
-      <div class="grid-3">
-        <a href="/product-tomato-paste" class="product-card reveal" data-delay="1" aria-label="<?= __t('home.offerings.paste.name') ?> — view product">
+
+      <div class="signature-offerings__grid grid-3">
+        <a href="/product-tomato-paste" class="product-card product-card--signature reveal" data-delay="1" aria-label="<?= __t('home.offerings.paste.name') ?> — view product">
           <div class="product-card__img-wrap">
             <div class="product-card__badges"><span class="badge badge--dark">Bestseller</span></div>
             <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste 70g sachet" loading="lazy" width="400" height="400">
@@ -98,7 +99,8 @@ include 'partials/_head.php';
             <p class="product-card__desc"><?= __t('home.offerings.paste.desc') ?></p>
           </div>
         </a>
-        <a href="/product-ketchup" class="product-card reveal" data-delay="2" aria-label="<?= __t('home.offerings.ketchup.name') ?> — view product">
+
+        <a href="/product-ketchup" class="product-card product-card--signature reveal" data-delay="2" aria-label="<?= __t('home.offerings.ketchup.name') ?> — view product">
           <div class="product-card__img-wrap">
             <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup bottle" loading="lazy" width="400" height="400">
           </div>
@@ -108,7 +110,8 @@ include 'partials/_head.php';
             <p class="product-card__desc"><?= __t('home.offerings.ketchup.desc') ?></p>
           </div>
         </a>
-        <a href="/product-masala" class="product-card reveal" data-delay="3" aria-label="<?= __t('home.offerings.masala.name') ?> — view product">
+
+        <a href="/product-masala" class="product-card product-card--signature reveal" data-delay="3" aria-label="<?= __t('home.offerings.masala.name') ?> — view product">
           <div class="product-card__img-wrap">
             <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala packet" loading="lazy" width="400" height="400">
           </div>
