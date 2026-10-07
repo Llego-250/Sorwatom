@@ -5,6 +5,21 @@ $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-vinegar';
 $current_page     = 'products';
 include 'partials/_head.php';
+
+$gallerySources = ['assets/img/products/vinegar'];
+$galleryImages = [];
+foreach ($gallerySources as $dir) {
+    $matches = glob($dir . '/*.{png,jpg,jpeg,webp}', GLOB_BRACE);
+    if ($matches) {
+        foreach ($matches as $match) {
+            $galleryImages[] = $match;
+        }
+    }
+}
+if (empty($galleryImages)) {
+    $galleryImages = ['assets/img/products/vinegar.png'];
+}
+$mainGalleryImage = $galleryImages[0];
 ?>
 <style>
 /* ── Product Detail Layout ─────────────────────────────────────────── */
@@ -61,7 +76,29 @@ include 'partials/_head.php';
     max-height: 360px;
     width: 100%;
     object-fit: contain;
+    transition: opacity 0.25s ease;
 }
+.product-thumb-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+.product-thumb {
+    flex: 1;
+    min-width: 90px;
+    background: #f5f7f5;
+    border-radius: 8px;
+    padding: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+    text-align: center;
+}
+.product-thumb:hover { transform: translateY(-2px); }
+.product-thumb.active { border-color: #1a7a50; }
+.product-thumb img { max-height: 70px; width: 100%; object-fit: contain; display: block; margin: 0 auto 6px; }
+.product-thumb span { font-size: 11px; font-weight: 600; color: #555; letter-spacing: 0.5px; text-transform: uppercase; }
 .badge {
     display: inline-block;
     padding: 4px 14px;
