@@ -112,7 +112,7 @@ include 'partials/_head.php';
         <h2 id="team-heading"><?= __r('about.team.heading') ?></h2>
       </header>
       <div class="team-grid">
-        <?php foreach (['dillux','kibera','kumar'] as $i => $m): ?>
+        <?php foreach (['dillux','kumar'] as $i => $m): ?>
         <article class="team-card reveal" data-delay="<?= $i+1 ?>">
           <span class="team-card__role"><?= __t('about.team.'.$m.'.role') ?></span>
           <h3 class="team-card__name"><?= __t('about.team.'.$m.'.name') ?></h3>
