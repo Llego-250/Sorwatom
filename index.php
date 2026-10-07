@@ -8,6 +8,50 @@ $hero_img         = 'hero-tomato';
 $hero_img_mobile  = 'hero_tomato.webp';
 include 'partials/_head.php';
 ?>
+<style>
+  .page-home {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    width: clamp(220px, 34vw, 520px);
+    height: clamp(220px, 34vw, 520px);
+    border-radius: 50%;
+    background: rgba(180, 28, 24, 0.2);
+    box-shadow: 0 0 70px rgba(180, 28, 24, 0.22);
+    filter: blur(18px);
+    z-index: 0;
+    pointer-events: none;
+    animation: heroOrbFloat 16s ease-in-out infinite alternate;
+  }
+
+  .hero {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes heroOrbFloat {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-18px, 18px) scale(1.06);
+    }
+    100% {
+      transform: translate(22px, -12px) scale(0.96);
+    }
+  }
+</style>
+
 <body class="<?= $body_class ?>">
 
 <?php include 'partials/nav.php'; ?>
@@ -16,6 +60,7 @@ include 'partials/_head.php';
 
   <!-- SECTION 1 — HERO -->
   <section class="hero hero--full" aria-label="Homepage hero">
+    <div class="hero-orb" aria-hidden="true"></div>
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/hero_tomato.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/hero-tomato.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
