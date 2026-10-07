@@ -55,16 +55,11 @@ include 'partials/_head.php';
     <div class="container">
       <span class="eyebrow"><?= __t('home.why.eyebrow') ?></span>
       <h2 id="why-heading" style="max-width:560px; margin-bottom:var(--space-xl);"><?= __r('home.why.heading') ?></h2>
-      <div class="grid-4">
+      <div class="grid-3">
         <article class="pillar reveal" data-delay="1">
           <span class="pillar__num" aria-hidden="true">01</span>
           <h3 class="pillar__title"><?= __t('home.why.p1.title') ?></h3>
           <p class="pillar__desc"><?= __t('home.why.p1.desc') ?></p>
-        </article>
-        <article class="pillar reveal" data-delay="2">
-          <span class="pillar__num" aria-hidden="true">02</span>
-          <h3 class="pillar__title"><?= __t('home.why.p2.title') ?></h3>
-          <p class="pillar__desc"><?= __t('home.why.p2.desc') ?></p>
         </article>
         <article class="pillar reveal" data-delay="3">
           <span class="pillar__num" aria-hidden="true">03</span>

@@ -4,7 +4,7 @@
     'nav' => [
         'home'       => 'Home',
         'collection' => 'Collection',
-        'story'      => 'Our Story',
+        'story'      => 'About us',
         'journal'    => 'Journal',
         'contact'    => 'Contact',
         'open_menu'  => 'Open menu',
@@ -19,7 +19,7 @@
         'rights'   => 'SORWATOMO AGRIBUSINESS. ALL RIGHTS RESERVED.',
         'privacy'  => 'Privacy',
         'link' => [
-            'story'   => 'Our Story',
+            'story'   => 'About us',
             'catalog' => 'Product Catalog',
             'journal' => 'Journal',
             'contact' => 'Get in Touch',
@@ -40,15 +40,15 @@
         'hero' => [
             'eyebrow'  => 'From Seed to Spoon',
             'title'    => 'Pure <em>Harvest.</em>',
-            'subtitle' => 'Experience the richness of 100% natural agribusiness products, crafted with traditional wisdom and modern precision in the heart of East Africa.',
+            'subtitle' => 'Experience the richness of 100% natural agribusiness products, crafted with traditional wisdom and modern care in the heart of East Africa.',
             'explore'  => 'Explore Collection',
-            'story'    => 'Our Story',
+            'story'    => 'About us',
             'scroll'   => 'Scroll',
         ],
         'ticker' => '100% Natural &middot; Since 1984 &middot; Great Lakes Grown &middot; International Standards &middot;&nbsp;',
         'why' => [
             'eyebrow'  => 'Why Sorwatom',
-            'heading'  => 'Crafted with precision, <em>delivered with pride.</em>',
+            'heading'  => 'Crafted with care, <em>delivered with pride.</em>',
             'p1' => ['title' => '100% Natural',      'desc' => 'No synthetic additives, no preservatives. Nothing artificial — ever.'],
             'p2' => ['title' => 'Italian Precision',  'desc' => 'State-of-the-art Italian processing technology ensures peak quality in every batch we make.'],
             'p3' => ['title' => 'Certified Quality',  'desc' => 'ISO certified processes meeting the highest international food safety benchmarks.'],
@@ -63,7 +63,7 @@
             'masala'   => ['cat' => 'Spice Blend',   'name' => 'Pilau Masala',      'desc' => 'An aromatic blend of whole spices, ground fresh for authentic East African depth.'],
         ],
         'story' => [
-            'eyebrow'  => 'Our Story',
+            'eyebrow'  => 'About us',
             'heading'  => "Eastern Africa's leading <em>agribusiness manufacturer.</em>",
             'badge_v'  => '{years}+',
             'badge_l'  => 'Years of Heritage',
@@ -104,7 +104,7 @@
             'region_cd'   => 'Eastern DRC',
         ],
         'journey' => [
-            'eyebrow' => 'Our Journey',
+            'eyebrow' => 'Brands',
             'heading' => 'A heritage of <em>flavour.</em>',
             'm1' => ['year' => '1984', 'title' => 'Founded in the Great Lakes',  'desc' => 'A group of visionary investors set out to transform local fresh tomatoes into world-class tomato paste — building from the soil up in one of Africa\'s most fertile agricultural regions.'],
             'm2' => ['year' => '2004', 'title' => 'Italian Processing Line',     'desc' => 'Upgraded to the best available Italian processing and packing technology — the only sub-Saharan paste manufacturer using flexible four-layer film sachets, setting a new regional standard for quality and shelf life.'],
@@ -112,7 +112,7 @@
             'm4' => ['year' => 'Today','title' => 'Pan-African Ambitions',       'desc' => 'Under professional management with 80+ years of combined African agribusiness expertise, expanding strategically across sub-Saharan Africa — anchored by the same commitment to purity that started it all.'],
         ],
         'team' => [
-            'eyebrow' => 'The People Behind It',
+            'eyebrow' => 'The people behind it',
             'heading' => 'Leadership &amp; <em>Ownership.</em>',
             'dillux'  => ['role' => 'Shareholder',      'name' => 'Dillux SA',     'bio' => 'A Mauritius-based Private Equity Company focusing on the East and Central African region. Dillux approaches investments in high-growth industries that have a strong track record of profitability or good prospects of future profitability, promoting employment and wealth creation with target company sizes within $5.0–$15.0 million.'],
             'kibera'  => ['role' => 'Chairman',          'name' => 'James Kibera', 'bio' => 'Our cultivated philosophy is to produce everyday products that are attractive and convenient to use that provide value and utility. We achieve this by listening to our Trade customers as well as consumers, combining that to set the standard within the marketplace’s latest technological developments.'],

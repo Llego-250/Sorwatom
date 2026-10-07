@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'Our Heritage — Sorwatom';
+$page_title       = 'About us — Sorwatom';
 $page_description = 'Forty years of pure craft — Sorwatom\'s story from 1984 to today. East Africa\'s leading agribusiness manufacturer.';
 $page_css         = ['pages/about.css'];
 $body_class       = 'page-about';
