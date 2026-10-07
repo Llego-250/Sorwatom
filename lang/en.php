@@ -50,7 +50,6 @@
             'eyebrow'  => 'Why Sorwatom',
             'heading'  => 'Crafted with care, <em>delivered with pride.</em>',
             'p1' => ['title' => '100% Natural',      'desc' => 'No synthetic additives, no preservatives. Nothing artificial — ever.'],
-            'p2' => ['title' => 'Italian Precision',  'desc' => 'State-of-the-art Italian processing technology ensures peak quality in every batch we make.'],
             'p3' => ['title' => 'Certified Quality',  'desc' => 'ISO certified processes meeting the highest international food safety benchmarks.'],
             'p4' => ['title' => 'Global Standards',   'desc' => 'Rigorous quality control aligned with international food industry requirements.'],
         ],
