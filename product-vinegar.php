@@ -339,12 +339,6 @@ $mainGalleryImage = $galleryImages[0];
                     <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f4') ?></li>
                 </ul>
 
-                <p class="sp-variant-heading">Available formats</p>
-                <div class="sp-variant-list" aria-label="Available formats">
-                    <button type="button" class="sp-variant is-selected" data-img="assets/img/products/vinegar.png" data-name="500ml Bottle">500ml Bottle</button>
-                    <button type="button" class="sp-variant" data-img="assets/img/products/vinegar.webp" data-name="1L Bottle">1L Bottle</button>
-                </div>
-
                 <div class="product-detail__actions">
                     <a href="/contact?inquiry=vinegar" class="btn-primary-green"><?= __t('pd.req_quote') ?></a>
                     <a href="/products" class="btn-outline-dark"><?= __t('pd.view_all') ?></a>

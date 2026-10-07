@@ -883,13 +883,6 @@ $mainGalleryImage = $galleryImages[0];
                     <li><span class="feat-check">✓</span> <?= __t('pd.tomato.f4') ?></li>
                 </ul>
 
-                <p class="sp-variant-heading">Available formats</p>
-                <div class="sp-variant-list" aria-label="Available package formats">
-                    <span class="sp-variant is-selected">50g Sachet</span>
-                    <span class="sp-variant">70g Sachet</span>
-                    <span class="sp-variant">800g Tin</span>
-                </div>
-
                 <div class="product-detail__actions">
                     <a href="/contact?inquiry=tomato-paste" class="btn-primary-green">
                         <?= __t('pd.req_quote') ?> <span aria-hidden="true">→</span>

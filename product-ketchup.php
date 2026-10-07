@@ -339,12 +339,6 @@ $mainGalleryImage = $galleryImages[0];
                     <li><span class="feat-check">&#10003;</span> <?= __r('pd.ketchup.f4') ?></li>
                 </ul>
 
-                <p class="sp-variant-heading">Available formats</p>
-                <div class="sp-variant-list" aria-label="Available formats">
-                    <button type="button" class="sp-variant is-selected" data-img="assets/img/products/ketchup.png" data-name="350g Bottle">350g Bottle</button>
-                    <button type="button" class="sp-variant" data-img="assets/img/products/ketchup.webp" data-name="700g Bottle">700g Bottle</button>
-                </div>
-
                 <div class="product-detail__actions">
                     <a href="/contact?inquiry=ketchup" class="btn-primary-green"><?= __t('pd.req_quote') ?></a>
                     <a href="/products" class="btn-outline-dark"><?= __t('pd.view_all') ?></a>

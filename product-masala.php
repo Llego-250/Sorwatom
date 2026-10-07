@@ -339,12 +339,6 @@ $mainGalleryImage = $galleryImages[0];
                     <li><span class="feat-check">&#10003;</span> <?= __r('pd.masala.f4') ?></li>
                 </ul>
 
-                <p class="sp-variant-heading">Available formats</p>
-                <div class="sp-variant-list" aria-label="Available formats">
-                    <button type="button" class="sp-variant is-selected" data-img="assets/img/products/masala.png" data-name="50g Pouch">50g Pouch</button>
-                    <button type="button" class="sp-variant" data-img="assets/img/products/masala.webp" data-name="100g Pouch">100g Pouch</button>
-                </div>
-
                 <div class="product-detail__actions">
                     <a href="/contact?inquiry=masala" class="btn-primary-green"><?= __t('pd.req_quote') ?></a>
                     <a href="/products" class="btn-outline-dark"><?= __t('pd.view_all') ?></a>
