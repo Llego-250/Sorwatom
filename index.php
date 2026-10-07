@@ -123,7 +123,7 @@ include 'partials/_head.php';
   </section>
 
 
-  <!-- SECTION 5 — OUR STORY -->
+  <!-- SECTION 5 — ABOUT US -->
   <?php $heritage_years = date('Y') - 1984; ?>
   <section class="section section--lg" aria-labelledby="story-heading">
     <div class="container">
