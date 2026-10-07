@@ -63,42 +63,92 @@ $mainGalleryImage = $galleryImages[0];
     .product-hero h1 { font-size: 30px; }
 }
 .product-img-main {
+    position: relative;
     background: #f5f7f5;
-    border-radius: 12px;
-    padding: 40px;
-    aspect-ratio: 1;
+    border-radius: 28px;
+    padding: 34px;
+    aspect-ratio: 1 / .88;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    border: 1px solid #e4ebe6;
+    box-shadow: 0 18px 55px rgba(13, 48, 34, .10);
 }
 .product-img-main img.product-main-img {
-    max-height: 360px;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     transition: opacity 0.25s ease;
+    filter: drop-shadow(0 20px 22px rgba(20, 54, 38, .14));
 }
 .product-thumb-strip {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     margin-top: 16px;
-    flex-wrap: wrap;
 }
 .product-thumb {
-    flex: 1;
-    min-width: 90px;
+    position: relative;
+    min-height: 126px;
     background: #f5f7f5;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 12px;
-    border: 2px solid transparent;
+    border: 1.5px solid #e4ebe6;
     cursor: pointer;
     transition: border-color 0.2s, transform 0.15s;
     text-align: center;
 }
 .product-thumb:hover { transform: translateY(-2px); }
-.product-thumb.active { border-color: #1a7a50; }
-.product-thumb img { max-height: 70px; width: 100%; object-fit: contain; display: block; margin: 0 auto 6px; }
-.product-thumb span { font-size: 11px; font-weight: 600; color: #555; letter-spacing: 0.5px; text-transform: uppercase; }
+.product-thumb.active { border-color: #1a7a50; background: #fff; box-shadow: 0 8px 24px rgba(23, 106, 74, .10); }
+.product-thumb.active::after {
+    content: "✓";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #1d8159;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+}
+.product-thumb img { width: 100%; height: 78px; object-fit: contain; display: block; margin: 0 auto 7px; }
+.product-thumb span { font-size: 10px; font-weight: 800; color: #5c6962; letter-spacing: .09em; text-transform: uppercase; }
+.sp-variant-heading {
+    margin: 0 0 10px;
+    color: #22362b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.sp-variant-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 27px;
+}
+.sp-variant {
+    appearance: none;
+    padding: 9px 13px;
+    border: 1px solid #dfe8e2;
+    border-radius: 10px;
+    background: #fff;
+    color: #3e4d45;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.sp-variant.is-selected {
+    border-color: #1d8159;
+    background: #f3f9f5;
+    color: #124632;
+}
 .badge {
     display: inline-block;
     padding: 4px 14px;
@@ -288,6 +338,13 @@ $mainGalleryImage = $galleryImages[0];
                     <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f3') ?></li>
                     <li><span class="feat-check">&#10003;</span> <?= __t('pd.vinegar.f4') ?></li>
                 </ul>
+
+                <p class="sp-variant-heading">Available formats</p>
+                <div class="sp-variant-list" aria-label="Available formats">
+                    <button type="button" class="sp-variant is-selected" data-img="assets/img/products/vinegar.png" data-name="500ml Bottle">500ml Bottle</button>
+                    <button type="button" class="sp-variant" data-img="assets/img/products/vinegar.webp" data-name="1L Bottle">1L Bottle</button>
+                </div>
+
                 <div class="product-detail__actions">
                     <a href="/contact?inquiry=vinegar" class="btn-primary-green"><?= __t('pd.req_quote') ?></a>
                     <a href="/products" class="btn-outline-dark"><?= __t('pd.view_all') ?></a>
@@ -358,6 +415,22 @@ function switchImg(thumb) {
         mainImg.style.opacity = '1';
     }, 150);
 }
+
+var formatButtons = document.querySelectorAll('.sp-variant');
+formatButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        formatButtons.forEach(function(btn) { btn.classList.remove('is-selected'); });
+        button.classList.add('is-selected');
+        var mainImg = document.getElementById('mainProductImg');
+        if (!mainImg) return;
+        mainImg.style.opacity = '0';
+        setTimeout(function() {
+            mainImg.src = button.dataset.img;
+            mainImg.alt = button.dataset.name || 'Sorwatom Pure White Vinegar product image';
+            mainImg.style.opacity = '1';
+        }, 110);
+    });
+});
 </script>
 </body>
 </html>
