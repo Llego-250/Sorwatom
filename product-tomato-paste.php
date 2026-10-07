@@ -5,6 +5,29 @@ $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-tomato-paste';
 $current_page     = 'products';
 include 'partials/_head.php';
+
+$gallerySources = [
+    'assets/img/products/tomatoes_paste_50g',
+    'assets/img/products/tomatoes_paste_70g',
+    'assets/img/products/tomatoes_paste_800g',
+];
+$galleryImages = [];
+foreach ($gallerySources as $dir) {
+    $matches = glob($dir . '/*.{png,jpg,jpeg,webp}', GLOB_BRACE);
+    if ($matches) {
+        foreach ($matches as $match) {
+            $galleryImages[] = $match;
+        }
+    }
+}
+if (empty($galleryImages)) {
+    $galleryImages = [
+        'assets/img/products/tomatoes_paste_70g.png',
+        'assets/img/products/tomatoes_paste_50g.png',
+        'assets/img/products/tomatoes_paste_800g.png',
+    ];
+}
+$mainGalleryImage = $galleryImages[0];
 ?>
 <style>
 /* ── Product Detail Layout ─────────────────────────────────────────── */
@@ -257,24 +280,18 @@ include 'partials/_head.php';
                 <div class="product-img-main">
                     <img
                         id="mainProductImg"
-                        src="assets/img/products/tomatoes_paste_70g.png"
-                        alt="Sorwatom Tomato Paste 70g Sachet"
+                        src="<?= htmlspecialchars($mainGalleryImage) ?>"
+                        alt="Sorwatom Tomato Paste product image"
                         loading="eager"
                         class="product-main-img">
                 </div>
                 <div class="product-thumb-strip">
-                    <div class="product-thumb active" data-img="assets/img/products/tomatoes_paste_50g.png" data-alt="Sorwatom Tomato Paste 50g Sachet" onclick="switchImg(this)">
-                        <img src="assets/img/products/tomatoes_paste_50g.png" alt="50g Sachet" loading="lazy" decoding="async">
-                        <span><?= __t('pd.tomato.thumb1') ?></span>
-                    </div>
-                    <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_70g.png" data-alt="Sorwatom Tomato Paste 70g Sachet" onclick="switchImg(this)">
-                        <img src="assets/img/products/tomatoes_paste_70g.png" alt="70g Sachet" loading="lazy" decoding="async">
-                        <span><?= __t('pd.tomato.thumb2') ?></span>
-                    </div>
-                    <div class="product-thumb" data-img="assets/img/products/tomatoes_paste_800g.png" data-alt="Sorwatom Tomato Paste 800g Tin" onclick="switchImg(this)">
-                        <img src="assets/img/products/tomatoes_paste_800g.png" alt="800g Tin" loading="lazy" decoding="async">
-                        <span><?= __t('pd.tomato.thumb3') ?></span>
-                    </div>
+                    <?php foreach ($galleryImages as $index => $galleryImage): ?>
+                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="Sorwatom Tomato Paste product image" onclick="switchImg(this)">
+                            <img src="<?= htmlspecialchars($galleryImage) ?>" alt="Sorwatom Tomato Paste variant" loading="lazy" decoding="async">
+                            <span><?= __t('pd.tomato.thumb' . ($index + 1)) ?></span>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

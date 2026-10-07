@@ -224,10 +224,19 @@ include 'partials/_head.php';
             <div class="product-detail__gallery">
                 <div class="product-img-main">
                     <img
-                        src="assets/img/products/vinegar.png"
-                        alt="Sorwatom Pure White Vinegar Glass Bottle"
+                        id="mainProductImg"
+                        src="<?= htmlspecialchars($mainGalleryImage) ?>"
+                        alt="Sorwatom Pure White Vinegar product image"
                         loading="eager"
                         class="product-main-img">
+                </div>
+                <div class="product-thumb-strip">
+                    <?php foreach ($galleryImages as $index => $galleryImage): ?>
+                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="Sorwatom Pure White Vinegar product image" onclick="switchImg(this)">
+                            <img src="<?= htmlspecialchars($galleryImage) ?>" alt="Sorwatom Pure White Vinegar variant" loading="lazy" decoding="async">
+                            <span>Variant <?= $index + 1 ?></span>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
@@ -298,5 +307,20 @@ include 'partials/_head.php';
 <?php include 'partials/footer.php'; ?>
 
 <?php include 'partials/_scripts.php'; ?>
+<script>
+function switchImg(thumb) {
+    var thumbs = document.querySelectorAll('.product-thumb');
+    thumbs.forEach(function(t) { t.classList.remove('active'); });
+    thumb.classList.add('active');
+    var mainImg = document.getElementById('mainProductImg');
+    if (!mainImg) return;
+    mainImg.style.opacity = '0';
+    setTimeout(function() {
+        mainImg.src = thumb.getAttribute('data-img');
+        mainImg.alt = thumb.getAttribute('data-alt');
+        mainImg.style.opacity = '1';
+    }, 150);
+}
+</script>
 </body>
 </html>

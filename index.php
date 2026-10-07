@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'Sorwatomo — Pure Harvest from the Great Lakes';
+$page_title       = 'Sorwatom — Pure Harvest from the Great Lakes';
 $page_description = 'Sorwatom produces 100% natural tomato paste, ketchup, masala and vinegar crafted in the heart of East Africa since 1984.';
 $page_css         = ['pages/home.css'];
 $body_class       = 'page-home';
