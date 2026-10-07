@@ -84,7 +84,7 @@ include 'partials/_head.php';
   </section>
 
 
-  <!-- SECTION 3 — Our Journey -->
+  <!-- SECTION 3 — Brands -->
   <section class="section principles-section on-dark" aria-labelledby="journey-heading">
     <div class="container">
       <header class="section-header reveal">
