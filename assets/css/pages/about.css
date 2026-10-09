@@ -199,6 +199,10 @@
 }
 
 /* Story section body copy spacing */
+.page-about #promise-heading {
+  margin-bottom: var(--space-lg);
+}
+
 .page-about #promise-heading .promise-heading__line {
   white-space: nowrap;
 }
