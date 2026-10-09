@@ -110,6 +110,9 @@
             'kibera'  => ['role' => 'Perezida w\'Inama',      'name' => 'James Kibera', 'bio' => "Intego yacu ni ugukora ibicuruzwa bya buri munsi bikungahaye kandi byoroshye gukoresha bitanga agaciro n'umuvaro, twumva abaguzi n'abakiriya bacu tugendana n'ikoranabuhanga rya none."],
             'kumar'   => ['role' => 'Umuyobozi Mukuru',       'name' => 'Vip Kumar',    'bio' => "Imyaka irenga 25 y'uburambe bw'ubuyobozi n'imiyoborere ku rwego rw'mpuzamahanga n'uruganda mu masoko ya FMCG mu Burasirazuba bwa Afurika."],
         ],
+        'certifications' => [
+            'eyebrow' => 'Certifications',
+        ],
     ],
 
     'products' => [

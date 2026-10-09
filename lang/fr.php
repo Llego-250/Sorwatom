@@ -119,6 +119,9 @@
             'kibera'  => ['role' => 'Président du Conseil', 'name' => 'James Kibera', 'bio' => "Notre philosophie cultivée est de fabriquer des produits quotidiens attrayants et pratiques qui offrent valeur et utilité, en écoutant nos clients et consommateurs tout en intégrant les dernières avancées technologiques du marché."],
             'kumar'   => ['role' => 'Directeur Général',    'name' => 'Vip Kumar',    'bio' => "Plus de 25 ans d'expertise en leadership professionnel à des niveaux multinational, corporatif et développemental. Son point fort réside dans les marchés FMCG peu desservis en Afrique de l'Est."],
         ],
+        'certifications' => [
+            'eyebrow' => 'Certifications',
+        ],
     ],
 
     'products' => [

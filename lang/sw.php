@@ -119,6 +119,9 @@
             'kibera'  => ['role' => 'Mwenyekiti',          'name' => 'James Kibera', 'bio' => 'Falsafa yetu iliyokuzwa ni kuzalisha bidhaa za kila siku zinazovutia na rahisi kutumia zinazotoa thamani, kwa kuwasikiliza wateja na walaji na kuchanganya na teknolojia ya kisasa.'],
             'kumar'   => ['role' => 'Mkurugenzi Mtendaji', 'name' => 'Vip Kumar',    'bio' => 'Zaidi ya miaka 25 ya uzoefu wa uongozi wa kitaalamu. Utaalamu wake upo katika masoko ya FMCG katika Afrika Mashariki.'],
         ],
+        'certifications' => [
+            'eyebrow' => 'Certifications',
+        ],
     ],
 
     'products' => [

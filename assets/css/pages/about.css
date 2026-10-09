@@ -353,6 +353,117 @@
 
 
 /* ----------------------------------------------------------
+   CERTIFICATIONS — scrolling pills with hover details
+   ---------------------------------------------------------- */
+.certifications-section {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--col-border);
+}
+
+.certifications-section__header {
+  margin-bottom: var(--space-md);
+}
+
+.certifications-section__header .eyebrow {
+  margin-bottom: 0;
+}
+
+.cert-marquee {
+  overflow: hidden;
+  padding-block: var(--space-sm) var(--space-md);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.cert-marquee__track {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  width: max-content;
+  animation: cert-marquee-scroll 90s linear infinite;
+}
+
+.cert-marquee:hover .cert-marquee__track,
+.cert-marquee:focus-within .cert-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes cert-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.cert-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--col-border);
+  background: var(--col-surface-2);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--col-text);
+  cursor: default;
+  text-align: left;
+  line-height: 1.35;
+  transition:
+    border-color var(--dur-fast),
+    box-shadow var(--dur-fast);
+  max-width: min(320px, 72vw);
+}
+
+.cert-pill:hover,
+.cert-pill:focus-visible {
+  border-color: var(--col-accent);
+  box-shadow: 0 8px 22px rgba(13, 30, 18, 0.08);
+  z-index: 2;
+  outline: none;
+}
+
+.cert-pill__label {
+  white-space: nowrap;
+}
+
+.cert-pill__tip {
+  display: none;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--col-text-muted);
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.cert-pill:hover .cert-pill__tip,
+.cert-pill:focus-visible .cert-pill__tip {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: visible;
+  }
+
+  .cert-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-inline: var(--space-md);
+  }
+
+  .cert-pill__tip {
+    display: block;
+  }
+}
+
+
+/* ----------------------------------------------------------
    RESPONSIVE — mobile adjustments
    ---------------------------------------------------------- */
 @media (max-width: 768px) {
