@@ -89,39 +89,45 @@ include 'partials/_head.php';
       </div>
 
       <div class="signature-offerings__grid grid-3">
-        <a href="/product-tomato-paste" class="product-card product-card--signature reveal" data-delay="1" aria-label="<?= __t('home.offerings.paste.name') ?> — view product">
-          <div class="product-card__img-wrap">
-            <div class="product-card__badges"><span class="badge badge--dark">Bestseller</span></div>
-            <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste 70g sachet" loading="lazy" width="400" height="400">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category"><?= __t('home.offerings.paste.cat') ?></p>
-            <h3 class="product-card__name"><?= __t('home.offerings.paste.name') ?></h3>
-            <p class="product-card__desc"><?= __t('home.offerings.paste.desc') ?></p>
-          </div>
-        </a>
+        <article class="product-card product-card--signature reveal" data-delay="1">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('home.offerings.paste.name') ?> — view product">
+            <div class="product-card__img-wrap">
+              <div class="product-card__badges"><span class="badge badge--dark">Bestseller</span></div>
+              <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste 70g sachet" loading="lazy" width="400" height="400">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category"><?= __t('home.offerings.paste.cat') ?></p>
+              <h3 class="product-card__name"><?= __t('home.offerings.paste.name') ?></h3>
+              <p class="product-card__desc"><?= __t('home.offerings.paste.desc') ?></p>
+            </div>
+          </a>
+        </article>
 
-        <a href="/product-ketchup" class="product-card product-card--signature reveal" data-delay="2" aria-label="<?= __t('home.offerings.ketchup.name') ?> — view product">
-          <div class="product-card__img-wrap">
-            <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup bottle" loading="lazy" width="400" height="400">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category"><?= __t('home.offerings.ketchup.cat') ?></p>
-            <h3 class="product-card__name"><?= __t('home.offerings.ketchup.name') ?></h3>
-            <p class="product-card__desc"><?= __t('home.offerings.ketchup.desc') ?></p>
-          </div>
-        </a>
+        <article class="product-card product-card--signature reveal" data-delay="2">
+          <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('home.offerings.ketchup.name') ?> — view product">
+            <div class="product-card__img-wrap">
+              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup bottle" loading="lazy" width="400" height="400">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category"><?= __t('home.offerings.ketchup.cat') ?></p>
+              <h3 class="product-card__name"><?= __t('home.offerings.ketchup.name') ?></h3>
+              <p class="product-card__desc"><?= __t('home.offerings.ketchup.desc') ?></p>
+            </div>
+          </a>
+        </article>
 
-        <a href="/product-masala" class="product-card product-card--signature reveal" data-delay="3" aria-label="<?= __t('home.offerings.masala.name') ?> — view product">
-          <div class="product-card__img-wrap">
-            <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala packet" loading="lazy" width="400" height="400">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category"><?= __t('home.offerings.masala.cat') ?></p>
-            <h3 class="product-card__name"><?= __t('home.offerings.masala.name') ?></h3>
-            <p class="product-card__desc"><?= __t('home.offerings.masala.desc') ?></p>
-          </div>
-        </a>
+        <article class="product-card product-card--signature reveal" data-delay="3">
+          <a href="/product-masala" class="product-card__link" aria-label="<?= __t('home.offerings.masala.name') ?> — view product">
+            <div class="product-card__img-wrap">
+              <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala packet" loading="lazy" width="400" height="400">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category"><?= __t('home.offerings.masala.cat') ?></p>
+              <h3 class="product-card__name"><?= __t('home.offerings.masala.name') ?></h3>
+              <p class="product-card__desc"><?= __t('home.offerings.masala.desc') ?></p>
+            </div>
+          </a>
+        </article>
       </div>
     </div>
   </section>

@@ -475,6 +475,19 @@
    PRODUCT CARD
    ============================================================ */
 
+/* Card body link — no underline on title, description, etc. */
+.product-card__link {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card__link:hover {
+  color: inherit;
+}
+
 .product-card {
   background: var(--col-surface-2);
   border-radius: var(--radius-md);

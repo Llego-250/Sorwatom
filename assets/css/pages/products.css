@@ -69,24 +69,6 @@
 
 
 /* ----------------------------------------------------------
-   PRODUCT CARD LINK WRAPPER
-   The entire card is wrapped in an <a>; reset decoration
-   so the card body doesn't inherit underline or blue colour.
-   ---------------------------------------------------------- */
-.product-card__link {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-decoration: none;
-  color: inherit;
-}
-
-.product-card__link:hover {
-  color: inherit;
-}
-
-
-/* ----------------------------------------------------------
    PRODUCT CARD — ledger-style aesthetic risk
    Each card reads as a row in an ingredient ledger:
    left accent bar reveals on hover, card is flush-cornered.

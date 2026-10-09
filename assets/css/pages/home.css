@@ -258,7 +258,7 @@
 
 .signature-offerings .product-card__body {
   background: transparent;
-  padding: 1.25rem 1.25rem 0;
+  padding: 1.25rem;
   border-top: none;
 }
 
@@ -273,9 +273,10 @@
 .signature-offerings .product-card__name {
   font-size: clamp(1.8rem, 2.2vw, 2.3rem);
   line-height: 1.1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0;
   font-family: var(--font-display);
   font-weight: 400;
+  color: var(--col-text);
 }
 
 .signature-offerings .product-card__desc {
@@ -283,6 +284,8 @@
   line-height: 1.5;
   color: rgba(28, 35, 31, 0.75);
   max-width: 24rem;
+  flex: none;
+  margin-top: 0.65rem;
 }
 
 .signature-offerings .product-card__badges {
