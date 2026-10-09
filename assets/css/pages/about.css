@@ -285,15 +285,23 @@
 /* ----------------------------------------------------------
    TEAM SECTION
    ---------------------------------------------------------- */
+.team-section .section-header {
+  text-align: center;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-lg);
   margin-top: var(--space-xl);
+  max-width: 960px;
+  margin-inline: auto;
 }
 
 @media (max-width: 900px) {
-  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { max-width: 720px; }
 }
 
 @media (max-width: 560px) {
