@@ -1,5 +1,5 @@
 <?php
-$page_title       = 'Sorwatom — Pure Harvest from the Great Lakes';
+$page_title       = 'Sorwatom — Musosi Fresh from the Great Lakes';
 $page_description = 'Sorwatom produces 100% natural tomato paste, ketchup, masala and vinegar crafted in the heart of East Africa since 1984.';
 $page_css         = ['pages/home.css'];
 $body_class       = 'page-home';
@@ -8,49 +8,6 @@ $hero_img         = 'hero-tomato';
 $hero_img_mobile  = 'hero_tomato.webp';
 include 'partials/_head.php';
 ?>
-<style>
-  .page-home {
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  .hero-orb {
-    position: absolute;
-    top: 8%;
-    right: 10%;
-    width: clamp(220px, 34vw, 520px);
-    height: clamp(220px, 34vw, 520px);
-    border-radius: 50%;
-    background: rgba(180, 28, 24, 0.2);
-    box-shadow: 0 0 70px rgba(180, 28, 24, 0.22);
-    filter: blur(18px);
-    z-index: 0;
-    pointer-events: none;
-    animation: heroOrbFloat 16s ease-in-out infinite alternate;
-  }
-
-  .hero {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .hero__content {
-    position: relative;
-    z-index: 1;
-  }
-
-  @keyframes heroOrbFloat {
-    0% {
-      transform: translate(0, 0) scale(1);
-    }
-    50% {
-      transform: translate(-18px, 18px) scale(1.06);
-    }
-    100% {
-      transform: translate(22px, -12px) scale(0.96);
-    }
-  }
-</style>
 
 <body class="<?= $body_class ?>">
 
@@ -60,7 +17,6 @@ include 'partials/_head.php';
 
   <!-- SECTION 1 — HERO -->
   <section class="hero hero--full" aria-label="Homepage hero">
-    <div class="hero-orb" aria-hidden="true"></div>
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/hero_tomato.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/hero-tomato.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
@@ -107,14 +63,14 @@ include 'partials/_head.php';
           <p class="pillar__desc"><?= __t('home.why.p1.desc') ?></p>
         </article>
         <article class="pillar reveal" data-delay="3">
+          <span class="pillar__num" aria-hidden="true">02</span>
+          <h3 class="pillar__title"><?= __t('home.why.p2.title') ?></h3>
+          <p class="pillar__desc"><?= __t('home.why.p2.desc') ?></p>
+        </article>
+        <article class="pillar reveal" data-delay="4">
           <span class="pillar__num" aria-hidden="true">03</span>
           <h3 class="pillar__title"><?= __t('home.why.p3.title') ?></h3>
           <p class="pillar__desc"><?= __t('home.why.p3.desc') ?></p>
-        </article>
-        <article class="pillar reveal" data-delay="4">
-          <span class="pillar__num" aria-hidden="true">04</span>
-          <h3 class="pillar__title"><?= __t('home.why.p4.title') ?></h3>
-          <p class="pillar__desc"><?= __t('home.why.p4.desc') ?></p>
         </article>
       </div>
     </div>
@@ -147,7 +103,7 @@ include 'partials/_head.php';
 
         <a href="/product-ketchup" class="product-card product-card--signature reveal" data-delay="2" aria-label="<?= __t('home.offerings.ketchup.name') ?> — view product">
           <div class="product-card__img-wrap">
-            <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup bottle" loading="lazy" width="400" height="400">
+            <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup bottle" loading="lazy" width="400" height="400">
           </div>
           <div class="product-card__body">
             <p class="product-card__category"><?= __t('home.offerings.ketchup.cat') ?></p>

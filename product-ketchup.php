@@ -1,6 +1,6 @@
 <?php
-$page_title       = 'Heirloom Ketchup — Sorwatom';
-$page_description = 'Sorwatom Heirloom Tomato Ketchup — made from vine-ripened tomatoes with no artificial colours or high-fructose corn syrup. Available in 350g and 700g glass bottles.';
+$page_title       = 'Tomato Ketchup — Sorwatom';
+$page_description = 'Sorwatom Tomato Ketchup — made from vine-ripened tomatoes with no artificial colours or high-fructose corn syrup. Available in 350g and 700g glass bottles.';
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-ketchup';
 $current_page     = 'products';
@@ -294,7 +294,7 @@ $mainGalleryImage = $galleryImages[0];
 <?php include 'partials/nav.php'; ?>
 
 <!-- Hero -->
-<section class="hero hero--half product-hero" aria-label="Heirloom Ketchup">
+<section class="hero hero--half product-hero" aria-label="Tomato Ketchup">
     <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
         <span class="eyebrow eyebrow--light"><?= __t('pd.ketchup.hero_eyebrow') ?></span>
@@ -313,14 +313,14 @@ $mainGalleryImage = $galleryImages[0];
                     <img
                         id="mainProductImg"
                         src="<?= htmlspecialchars($mainGalleryImage) ?>"
-                        alt="Sorwatom Heirloom Ketchup image"
+                        alt="Sorwatom Tomato Ketchup image"
                         loading="eager"
                         class="product-main-img">
                 </div>
                 <div class="product-thumb-strip">
                     <?php foreach ($galleryImages as $index => $galleryImage): ?>
-                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="Sorwatom Heirloom Ketchup product image" onclick="switchImg(this)">
-                            <img src="<?= htmlspecialchars($galleryImage) ?>" alt="Sorwatom Heirloom Ketchup variant" loading="lazy" decoding="async">
+                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="Sorwatom Tomato Ketchup product image" onclick="switchImg(this)">
+                            <img src="<?= htmlspecialchars($galleryImage) ?>" alt="Sorwatom Tomato Ketchup variant" loading="lazy" decoding="async">
                             <span>Variant <?= $index + 1 ?></span>
                         </div>
                     <?php endforeach; ?>
@@ -420,7 +420,7 @@ formatButtons.forEach(function(button) {
         mainImg.style.opacity = '0';
         setTimeout(function() {
             mainImg.src = button.dataset.img;
-            mainImg.alt = button.dataset.name || 'Sorwatom Heirloom Ketchup product image';
+            mainImg.alt = button.dataset.name || 'Sorwatom Tomato Ketchup product image';
             mainImg.style.opacity = '1';
         }, 110);
     });

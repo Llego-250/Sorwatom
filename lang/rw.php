@@ -50,7 +50,7 @@
             'heading'   => 'Uburyohe bw\'<em>Ibirayi Bigari.</em>',
             'view_all'  => 'Reba Kataloge Yose',
             'paste'    => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste 70g', 'desc' => 'Imeze kabiri, 100% kamere mu mufuka woroshye gufungura.'],
-            'ketchup'  => ['cat' => 'Ketchup',      'name' => 'Ketchup ya Heirloom', 'desc' => 'Yoze bugufi mu nyanya zasohotse ku muzabibu, n\'uburyohe budateye inzigo.'],
+            'ketchup'  => ['cat' => 'Ketchup',      'name' => 'Ketchup ya Tomato', 'desc' => 'Yoze bugufi mu nyanya zasohotse ku muzabibu, n\'uburyohe budateye inzigo.'],
             'masala'   => ['cat' => 'Urukurikirane rw\'Ibirungo', 'name' => 'Pilau Masala', 'desc' => 'Urukurikirane rw\'ibirungo by\'intwari, rwirashe bishya kugira ngo bihe ubujiji bw\'ukuri bw\'Afurika y\'Iburasirazuba.'],
         ],
         'story' => [
@@ -118,7 +118,7 @@
         'p50'    => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 50g',  'desc' => "Yakozwe nk'amabwiriza y'ingenzi nk'igicuruzwa cyacu gikuru cya 70g."],
         'p70'    => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 70g',  'desc' => "Paste y'inyanya emejwe kabiri ya SORWATOM yakozwe n'inyanya zasohotse kamere ku bwihindurize."],
         'p800'   => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 800g', 'desc' => "Yakozwe ku nganda z'ubushingantahe — agakopo kacu ka 800g kagumya imbaraga imwe kamere."],
-        'ketchup'=> ['cat' => 'Ibikorwa', 'name' => 'Ketchup ya Heirloom', 'desc' => "Yakozwe mu nyanya zasohotse ku muzabibu kugirango ihe iherezo ry'imbangikane, umunyu n'uburyohe kamere."],
+        'ketchup'=> ['cat' => 'Ibikorwa', 'name' => 'Ketchup ya Tomato', 'desc' => "Yakozwe mu nyanya zasohotse ku muzabibu kugirango ihe iherezo ry'imbangikane, umunyu n'uburyohe kamere."],
         'vinegar'=> ['cat' => 'Ibikorwa', 'name' => 'Inzoga Nziza',        'desc' => "Yatunganyirijwe mu bikoresho byo hejuru cyane, ishoboka bihagije mu guteka no kuzigama."],
         'masala' => ['cat' => 'Ibirungo', 'name' => 'Pilau Masala',        'desc' => "Ikintu cyacu gikunda cyane — urukurikirane rw'ibisabe bikomeye n'ibishya, umutima w'ubugali bwo gusezerera Afurika y'Iburasirazuba."],
         'format' => ['sachet_50' => 'Umufuka · 50 g', 'sachet_70' => 'Umufuka · 70 g', 'tin_800' => 'Agakopo · 800 g', 'glass' => "Icupa ry'Gilasi", 'pouch' => "Umufuka w'Ibirungo"],

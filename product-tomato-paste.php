@@ -924,7 +924,7 @@ $mainGalleryImage = $galleryImages[0];
 
             <a href="/product-ketchup" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup" loading="lazy" decoding="async">
+                    <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.ketchup_label') ?></span>

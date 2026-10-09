@@ -1,6 +1,6 @@
 <header class="admin-header">
   <a href="/admin" class="admin-brand">
-    <img src="/assets/img/logo.png" alt="Sorwatom" height="32" style="filter:none">
+    <img src="/assets/img/logo.png" alt="Sorwatom" height="34" style="filter:none">
     <span>Admin</span>
   </a>
   <nav class="admin-nav">

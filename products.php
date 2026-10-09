@@ -99,7 +99,7 @@ include 'partials/_head.php';
         <article class="product-card reveal" data-category="condiments" data-delay="4">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('products.ketchup.name') ?> — view product details">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/ketchup.png" alt="Sorwatom Heirloom Ketchup glass bottle" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup glass bottle" loading="lazy" width="400" height="400">
               <div class="product-card__badges" aria-hidden="true"><span class="badge badge--outline"><?= __t('products.badge.glass') ?></span></div>
             </div>
             <div class="product-card__body">
