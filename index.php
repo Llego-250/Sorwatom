@@ -146,12 +146,14 @@ include 'partials/_head.php';
           </div>
         </div>
         <div class="story-text reveal" data-delay="2">
-          <div>
+          <div class="story-text__intro">
             <span class="eyebrow"><?= __t('home.story.eyebrow') ?></span>
-            <h2 id="story-heading"><?= __r('home.story.heading') ?></h2>
+            <h2 id="story-heading" class="story-text__title"><?= __r('home.story.title') ?></h2>
           </div>
-          <p><?= __t('home.story.p1') ?></p>
-          <p><?= __t('home.story.p2') ?></p>
+          <div class="story-text__block">
+            <p><?= __t('home.story.p1') ?></p>
+            <p><?= __t('home.story.p2') ?></p>
+          </div>
           <a href="/about" class="btn--text"><?= __t('home.story.cta') ?></a>
         </div>
       </div>
