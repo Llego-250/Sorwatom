@@ -268,6 +268,8 @@
   text-transform: uppercase;
   color: rgba(28, 35, 31, 0.7);
   margin-bottom: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .signature-offerings .product-card__name {
@@ -277,6 +279,8 @@
   font-family: var(--font-display);
   font-weight: 400;
   color: var(--col-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .signature-offerings .product-card__desc {
@@ -286,6 +290,7 @@
   max-width: 24rem;
   flex: none;
   margin-top: 0.65rem;
+  text-decoration: none;
 }
 
 .signature-offerings .product-card__badges {
