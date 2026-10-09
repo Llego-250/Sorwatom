@@ -216,7 +216,7 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--col-text);
-  max-width: 18ch;
+  max-width: 20ch;
 }
 
 .story-text__block {

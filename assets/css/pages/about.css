@@ -199,6 +199,16 @@
 }
 
 /* Story section body copy spacing */
+.page-about #promise-heading .promise-heading__line {
+  white-space: nowrap;
+}
+
+@media (max-width: 479px) {
+  .page-about #promise-heading .promise-heading__line {
+    white-space: normal;
+  }
+}
+
 .story-text .brand-statement {
   font-size: var(--step-1);
   text-align: left;

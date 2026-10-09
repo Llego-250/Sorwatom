@@ -12,7 +12,7 @@
     ],
 
     'footer' => [
-        'tagline'  => "The Great Lakes' leading agribusiness — producing extraordinary flavour profiles for the modern global palate since 1984.",
+        'tagline'  => "The Great Lakes' leading agribusiness — Delivering exceptional supply chain solutions to the modern EAC since 1984.",
         'explore'  => 'Explore',
         'hq'       => 'Headquarters',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
@@ -92,7 +92,7 @@
         ],
         'promise' => [
             'eyebrow'  => 'Our promise',
-            'heading'  => 'Quality you can trust, <em>every day.</em>',
+            'heading'  => '<span class="promise-heading__line">Quality you can trust,&nbsp;<em>every day.</em></span>',
             'p1'       => 'SORWATOM is dedicated to bringing exceptional quality food products to the market, upholding rigorous quality standards at every step. We place the consumer at the heart of everything we do, offering reliability, integrity and unwavering focus on what matters most to those we serve.',
             'p2'       => 'We are committed to true customer satisfaction and the best food product value within the region, delivered through reliable service, consistent availability and affordable pricing — all without compromising on quality. This commitment encompasses our strong trade relations and dedicated retailer support that keep our products within easy reach of every household and backed by total consumer satisfaction.',
             'p3'       => 'Our success is built on more than 60 years of combined African agribusiness expertise and FMCG know-how, backed by a professional approach to our operations in Rwanda, Burundi and Eastern DRC.',
