@@ -16,7 +16,7 @@
         'explore'  => 'Explorer',
         'hq'       => 'Siège Social',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
-        'rights'   => 'SORWATOMO AGRIBUSINESS. TOUS DROITS RÉSERVÉS.',
+        'rights'   => 'Sorwatom AGRIBUSINESS. TOUS DROITS RÉSERVÉS.',
         'privacy'  => 'Confidentialité',
         'link' => [
             'story'   => 'Notre Histoire',
@@ -275,7 +275,7 @@
 
     'popup' => [
         'badge'            => 'Rejoignez Notre Communauté',
-        'title'            => 'Restez Connecté avec <em>Sorwatomo</em>',
+        'title'            => 'Restez Connecté avec <em>Sorwatom</em>',
         'subtitle'         => 'Abonnez-vous à notre newsletter pour des recettes exclusives, des actualités et connectez-vous avec nous sur les réseaux sociaux.',
         'newsletter_title' => "S'abonner à la Newsletter",
         'social_title'     => 'Suivez-nous sur les Réseaux Sociaux',

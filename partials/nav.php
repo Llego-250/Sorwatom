@@ -15,7 +15,7 @@ $top_langs = [
     <div class="site-nav__inner">
 
       <!-- Logo -->
-      <a href="/" class="nav-logo" aria-label="Sorwatomo — Home">
+      <a href="/" class="nav-logo" aria-label="Sorwatom — Home">
         <img src="/assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48" loading="eager" decoding="async">
       </a>
 

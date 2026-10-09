@@ -1,6 +1,6 @@
 <?php
 http_response_code(403);
-$page_title       = '403 — Access Forbidden | Sorwatomo';
+$page_title       = '403 — Access Forbidden | Sorwatom';
 $page_description = 'You do not have permission to access this area or resource.';
 $page_css         = [];
 $body_class       = 'page-403';

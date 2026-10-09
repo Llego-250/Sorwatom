@@ -1,6 +1,6 @@
 <?php
 $page_title       = 'Tomato Ketchup — Sorwatom';
-$page_description = 'Sorwatom Tomato Ketchup — made from vine-ripened tomatoes with no artificial colours or high-fructose corn syrup. Available in 350g and 700g glass bottles.';
+$page_description = 'Sorwatom Tomato Ketchup — made from vine-ripened tomatoes with no artificial colours or high-fructose corn syrup. Available in 350g and 700g prastic bottless.';
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-ketchup';
 $current_page     = 'products';

@@ -49,10 +49,6 @@ include 'partials/_head.php';
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('products.p50.name') ?> — view product details">
             <div class="product-card__img-wrap">
               <img src="assets/img/products/tomatoes_paste_50g.png" alt="Sorwatom Tomato Paste 50g sachet" loading="lazy" width="400" height="400">
-              <div class="product-card__badges" aria-hidden="true">
-                <span class="badge badge--outline"><?= __t('products.badge.sachet') ?></span>
-                <span class="badge badge--dark"><?= __t('products.badge.travel') ?></span>
-              </div>
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p50.cat') ?></p>
@@ -68,7 +64,6 @@ include 'partials/_head.php';
             <div class="product-card__img-wrap">
               <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste 70g sachet" loading="lazy" width="400" height="400">
               <div class="product-card__badges" aria-hidden="true">
-                <span class="badge badge--outline"><?= __t('products.badge.sachet') ?></span>
                 <span class="badge badge--accent"><?= __t('products.badge.bestseller') ?></span>
               </div>
             </div>
@@ -85,7 +80,6 @@ include 'partials/_head.php';
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('products.p800.name') ?> — view product details">
             <div class="product-card__img-wrap">
               <img src="assets/img/products/tomatoes_paste_800g.png" alt="Sorwatom Tomato Paste 800g tin" loading="lazy" width="400" height="400">
-              <div class="product-card__badges" aria-hidden="true"><span class="badge badge--outline"><?= __t('products.badge.tin') ?></span></div>
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p800.cat') ?></p>
@@ -99,8 +93,7 @@ include 'partials/_head.php';
         <article class="product-card reveal" data-category="condiments" data-delay="4">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('products.ketchup.name') ?> — view product details">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup glass bottle" loading="lazy" width="400" height="400">
-              <div class="product-card__badges" aria-hidden="true"><span class="badge badge--outline"><?= __t('products.badge.glass') ?></span></div>
+              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup prastic bottles" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.ketchup.cat') ?></p>
@@ -114,8 +107,7 @@ include 'partials/_head.php';
         <article class="product-card reveal" data-category="condiments" data-delay="1">
           <a href="/product-vinegar" class="product-card__link" aria-label="<?= __t('products.vinegar.name') ?> — view product details">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar glass bottle" loading="lazy" width="400" height="400">
-              <div class="product-card__badges" aria-hidden="true"><span class="badge badge--outline"><?= __t('products.badge.glass') ?></span></div>
+              <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar prastic bottles" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.vinegar.cat') ?></p>
@@ -130,7 +122,6 @@ include 'partials/_head.php';
           <a href="/product-masala" class="product-card__link" aria-label="<?= __t('products.masala.name') ?> — view product details">
             <div class="product-card__img-wrap">
               <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala spice pouch" loading="lazy" width="400" height="400">
-              <div class="product-card__badges" aria-hidden="true"><span class="badge badge--outline"><?= __t('products.badge.pouch') ?></span></div>
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.masala.cat') ?></p>

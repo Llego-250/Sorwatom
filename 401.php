@@ -1,6 +1,6 @@
 <?php
 http_response_code(401);
-$page_title       = '401 — Unauthorized | Sorwatomo';
+$page_title       = '401 — Unauthorized | Sorwatom';
 $page_description = 'You need to log in with valid credentials to view this page.';
 $page_css         = [];
 $body_class       = 'page-401';

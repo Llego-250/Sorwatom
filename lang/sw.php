@@ -16,7 +16,7 @@
         'explore'  => 'Chunguza',
         'hq'       => 'Makao Makuu',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
-        'rights'   => 'SORWATOMO AGRIBUSINESS. HAKI ZOTE ZIMEHIFADHIWA.',
+        'rights'   => 'Sorwatom AGRIBUSINESS. HAKI ZOTE ZIMEHIFADHIWA.',
         'privacy'  => 'Faragha',
         'link' => [
             'story'   => 'Hadithi Yetu',
@@ -272,7 +272,7 @@
 
     'popup' => [
         'badge'            => 'Jiunge na Jamii Yetu',
-        'title'            => 'Baki Nasi na <em>Sorwatomo</em>',
+        'title'            => 'Baki Nasi na <em>Sorwatom</em>',
         'subtitle'         => 'Jiandikishe kwa jarida letu kupata mapishi ya kipekee na habari mpya, na uunganishe nasi kwenye mitandao ya kijamii.',
         'newsletter_title' => 'Jiandikishe kwa Jarida',
         'social_title'     => 'Tufuate Kwenye Mitandao ya Kijamii',

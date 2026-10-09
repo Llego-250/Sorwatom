@@ -1,6 +1,6 @@
 <?php
 http_response_code(404);
-$page_title       = '404 — Page Not Found | Sorwatomo';
+$page_title       = '404 — Page Not Found | Sorwatom';
 $page_description = 'The page you are looking for does not exist or has been moved.';
 $page_css         = [];
 $body_class       = 'page-404';

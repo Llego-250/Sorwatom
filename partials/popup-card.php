@@ -53,7 +53,7 @@
       <div class="popup-social-box">
         <h3 class="popup-section-label"><?= __t('popup.social_title') ?></h3>
         <div class="popup-social-grid">
-          <a href="https://www.instagram.com/sorwatom_rw/" target="_blank" rel="noopener noreferrer" class="popup-social-card insta" aria-label="Sorwatomo on Instagram">
+          <a href="https://www.instagram.com/sorwatom_rw/" target="_blank" rel="noopener noreferrer" class="popup-social-card insta" aria-label="Sorwatom on Instagram">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -64,7 +64,7 @@
             <span>Instagram</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" target="_blank" rel="noopener noreferrer" class="popup-social-card linkedin" aria-label="Sorwatomo on LinkedIn">
+          <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" target="_blank" rel="noopener noreferrer" class="popup-social-card linkedin" aria-label="Sorwatom on LinkedIn">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -75,7 +75,7 @@
             <span>LinkedIn</span>
           </a>
 
-          <a href="https://www.facebook.com/SORWATOM/" target="_blank" rel="noopener noreferrer" class="popup-social-card fb" aria-label="Sorwatomo on Facebook">
+          <a href="https://www.facebook.com/SORWATOM/" target="_blank" rel="noopener noreferrer" class="popup-social-card fb" aria-label="Sorwatom on Facebook">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -84,7 +84,7 @@
             <span>Facebook</span>
           </a>
 
-          <a href="https://www.X.com/sorwatom/" target="_blank" rel="noopener noreferrer" class="popup-social-card twitter" aria-label="Sorwatomo on Twitter (X)">
+          <a href="https://www.X.com/sorwatom/" target="_blank" rel="noopener noreferrer" class="popup-social-card twitter" aria-label="Sorwatom on Twitter (X)">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>

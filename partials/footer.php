@@ -5,7 +5,7 @@
 
       <!-- Col 1: Brand -->
       <div class="footer-brand footer-col">
-        <a href="/" class="footer-brand__logo-link" aria-label="Sorwatomo — Home">
+        <a href="/" class="footer-brand__logo-link" aria-label="Sorwatom — Home">
           <img src="/assets/img/logo.png" alt="Sorwatom" class="footer-brand__logo-img" width="130" height="44" loading="lazy" decoding="async" style="filter:none">
         </a>
         <p><?= __t('footer.tagline') ?></p>
@@ -27,7 +27,7 @@
         <h4><?= __t('footer.hq') ?></h4>
         <address class="footer-address">
           <p><?= __r('footer.address') ?></p>
-          <p><a href="tel:+250787160000">(+250) 787 160 000</a></p>
+          <p><a href="https://wa.me/250787160000" target="_blank" rel="noopener noreferrer">+250 787 160 000</a></p>
           <p><a href="mailto:info@sorwatom.com">info@sorwatom.com</a></p>
         </address>
       </div>
@@ -68,10 +68,10 @@
       <p>&copy; <?= date('Y') ?> <?= __t('footer.rights') ?></p>
       <nav class="footer-bottom__right" aria-label="Social and legal">
         <div class="footer-social">
-          <a href="https://www.instagram.com/sorwatom_rw/" rel="noopener noreferrer" aria-label="Sorwatomo on Instagram">INSTAGRAM</a>
-          <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" rel="noopener noreferrer" aria-label="Sorwatomo on LinkedIn">LINKEDIN</a>
-          <a href="https://www.facebook.com/SORWATOM/" rel="noopener noreferrer" aria-label="Sorwatomo on Facebook">FACEBOOK</a>
-          <a href="https://www.X.com/sorwatom/" rel="noopener noreferrer" aria-label="Sorwatomo on Twitter">TWITTER</a>
+          <a href="https://www.instagram.com/sorwatom_rw/" rel="noopener noreferrer" aria-label="Sorwatom on Instagram">INSTAGRAM</a>
+          <a href="https://www.tiktok.com/@sorwatom_rw" rel="noopener noreferrer" aria-label="Sorwatom on Tiktok">TIKTOK</a>
+          <a href="https://www.facebook.com/SORWATOM/" rel="noopener noreferrer" aria-label="Sorwatom on Facebook">FACEBOOK</a>
+          <a href="https://www.X.com/sorwatom/" rel="noopener noreferrer" aria-label="Sorwatom on Twitter">TWITTER</a>
           <a href="/privacy"><?= __t('footer.privacy') ?></a>
         </div>
       </nav>

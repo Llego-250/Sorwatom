@@ -16,7 +16,7 @@
         'explore'  => 'Reba',
         'hq'       => 'Icyicaro Gikuru',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
-        'rights'   => 'SORWATOMO AGRIBUSINESS. UBURENGANZIRA BWOSE BUHARIWE.',
+        'rights'   => 'Sorwatom AGRIBUSINESS. UBURENGANZIRA BWOSE BUHARIWE.',
         'privacy'  => 'Ibanga',
         'link' => [
             'story'   => 'Inkuru Yacu',
@@ -86,7 +86,7 @@
         'promise' => [
             'eyebrow'     => 'Isezerano Ryacu',
             'heading'     => 'Paste Nziza <em>100% Kamere</em><br>Emejwe Kabiri.',
-            'p1'          => "Ikigo gitanga paste nziza y'inyanya 100% kamere emejwe kabiri 28–30% hifashishijwe umurongo wo gutera imbere wa Italiya. SORWATOMO irakomeza gukora paste y'inyanya y'ireme ryo hejuru kugirango irinde gutunga abakiriya.",
+            'p1'          => "Ikigo gitanga paste nziza y'inyanya 100% kamere emejwe kabiri 28–30% hifashishijwe umurongo wo gutera imbere wa Italiya. Sorwatom irakomeza gukora paste y'inyanya y'ireme ryo hejuru kugirango irinde gutunga abakiriya.",
             'p2'          => "Ibicuruzwa byacu bizi uburyohe bwiza, ubuhumuro bwiza n'amabara meza. Twatunganye ubuhanga bwo gukora paste y'inyanya 100% kamere y'ireme ryo hejuru — nta kintu cy'ikinyoma tukoreshamo.",
             'p3'          => "Ikigo ubu kirindwa n'inzobere z'inzobere zikorana uburambe bw'imyaka 60+ yateranijwe mu buhinzi-bucuruzi bwa Afurika — bifite ibikorwa by'inshuti bishyizweho muri Burundi, DRC na Rwanda.",
             'btn_partner' => 'Twungukane',
@@ -177,7 +177,7 @@
 
     'popup' => [
         'badge'            => 'Injira mu Muryango Wacu',
-        'title'            => 'Guma Wubaka Umubano na <em>Sorwatomo</em>',
+        'title'            => 'Guma Wubaka Umubano na <em>Sorwatom</em>',
         'subtitle'         => 'Iyandikishe ku kinyamakuru cyacu kugira ngo ubone gukora amafunguro, amakuru mashya no kutukurikirana ku mbuga nkoranyambaga.',
         'newsletter_title' => 'Iyandikishe ku Kinyamakuru',
         'social_title'     => 'Tukurikirane ku Mbuga Nkoranyambaga',
