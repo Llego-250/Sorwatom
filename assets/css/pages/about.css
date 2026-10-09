@@ -336,6 +336,14 @@
   line-height: 1.2;
 }
 
+.team-card__name .team-card__credentials {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 400;
+  color: var(--col-text-muted);
+  letter-spacing: 0.02em;
+}
+
 .team-card__bio {
   font-size: var(--step--1);
   color: var(--col-text-muted);

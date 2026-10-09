@@ -115,7 +115,7 @@ include 'partials/_head.php';
         <?php foreach (['dillux','kumar'] as $i => $m): ?>
         <article class="team-card reveal" data-delay="<?= $i+1 ?>">
           <span class="team-card__role"><?= __t('about.team.'.$m.'.role') ?></span>
-          <h3 class="team-card__name"><?= __t('about.team.'.$m.'.name') ?></h3>
+          <h3 class="team-card__name"><?= __r('about.team.'.$m.'.name') ?></h3>
           <p class="team-card__bio"><?= __t('about.team.'.$m.'.bio') ?></p>
         </article>
         <?php endforeach; ?>
