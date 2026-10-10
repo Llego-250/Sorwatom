@@ -7,7 +7,7 @@ require_once __DIR__ . '/_auth.php';
 require_once __DIR__ . '/../mailer_contact/mail.php';
 
 $loaded   = array_values(array_filter(get_included_files(), fn($f) => basename($f) === 'smtp_config.php'));
-$expected = realpath(dirname(__DIR__, 2)) . '/smtp_config.php';
+$web_root = realpath(dirname(__DIR__));
 $host     = defined('SMTP_HOST') ? (string) SMTP_HOST : '';
 $port     = defined('SMTP_PORT') ? (int) SMTP_PORT : 0;
 $from     = defined('SMTP_EMAIL') ? SMTP_EMAIL : '';
@@ -114,7 +114,7 @@ $h = fn($s) => htmlspecialchars((string) $s);
       <?php if ($loaded): ?>
         <?= $row('smtp_config.php', 'Found at <code>' . $h($loaded[0]) . '</code>', 'ok') ?>
       <?php else: ?>
-        <?= $row('smtp_config.php', 'Not found. Create it at <code>' . $h($expected) . '</code> (see below).', 'bad') ?>
+        <?= $row('smtp_config.php', 'Not found. Upload it into the website folder: <code>' . $h($web_root) . '/smtp_config.php</code> (see below).', 'bad') ?>
       <?php endif; ?>
       <?= $row('Server', $host !== '' ? $h($host) : 'missing', $host !== '' ? '' : 'bad') ?>
       <?= $row('Port / encryption', $port ? $port . ' / ' . (smtp_encryption() === 'ssl' ? 'SSL (direct TLS)' : 'STARTTLS') : 'missing', $port ? '' : 'bad') ?>
@@ -162,9 +162,10 @@ $h = fn($s) => htmlspecialchars((string) $s);
 
     <div class="section-title">smtp_config.php template</div>
     <p class="field-hint" style="margin-bottom:.6rem">
-      Put this file one folder <strong>above</strong> the website files (next to <code>htdocs</code>, not inside it),
-      so it can never be downloaded. For Gmail, turn on 2-Step Verification and create an App Password at
-      myaccount.google.com/apppasswords. Use that 16-character password, not your normal one.
+      Save this as <code>smtp_config.php</code> and upload it into the website folder (<code>htdocs</code> on InfinityFree),
+      next to <code>index.php</code>. Anyone opening it in a browser sees a blank page, and deploys leave it in place.
+      For Gmail, turn on 2-Step Verification and create an App Password at myaccount.google.com/apppasswords.
+      Use that 16-character password (no spaces), not your normal one.
     </p>
     <pre class="ec-code">&lt;?php
 define('SMTP_HOST',     'smtp.gmail.com');
