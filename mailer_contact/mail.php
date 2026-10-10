@@ -16,7 +16,18 @@ if (!defined('SMTP_HOST')) {
 }
 
 class mail {
-    function send($email, $subject, $body, $header = '') {
+    /**
+     * $options (all optional):
+     *   'alt'       => plain-text body; when set, $body is sent as HTML
+     *   'reply_to'  => [address, name]
+     *   'from_name' => sender display name
+     *   'embed'     => [cid => file path] for images referenced as src="cid:..."
+     */
+    function send($email, $subject, $body, $header = '', array $options = []) {
+        $isHtml   = isset($options['alt']);
+        $replyTo  = $options['reply_to'] ?? null;
+        $fromName = $options['from_name'] ?? '';
+
         $phpMailerPath = __DIR__ . '/mailer/PHPMailerAutoload.php';
         if (file_exists($phpMailerPath)) {
             require_once $phpMailerPath;
@@ -33,10 +44,23 @@ class mail {
                 $mail->Port       = SMTP_PORT;
                 $mail->Username   = defined('SMTP_USERNAME') ? SMTP_USERNAME : (defined('SMTP_EMAIL') ? SMTP_EMAIL : '');
                 $mail->Password   = defined('SMTP_PASSWORD') ? SMTP_PASSWORD : '';
-                $mail->setFrom(defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com');
+                $mail->CharSet    = 'UTF-8';
+                $mail->setFrom(defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com', $fromName);
                 $mail->addAddress($email);
+                if ($replyTo) {
+                    $mail->addReplyTo($replyTo[0], $replyTo[1] ?? '');
+                }
                 $mail->Subject = $subject;
                 $mail->Body    = $body;
+                if ($isHtml) {
+                    $mail->isHTML(true);
+                    $mail->AltBody = $options['alt'];
+                    foreach ($options['embed'] ?? [] as $cid => $path) {
+                        if (is_file($path)) {
+                            $mail->addEmbeddedImage($path, $cid);
+                        }
+                    }
+                }
 
                 if (@$mail->send()) {
                     return true;
@@ -46,8 +70,17 @@ class mail {
             }
         }
 
-        $from = defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com';
-        return @mail($email, $subject, $body, 'From: ' . $from);
+        $from    = defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com';
+        $headers = ['From: ' . ($fromName ? "$fromName <$from>" : $from)];
+        if ($replyTo) {
+            $headers[] = 'Reply-To: ' . $replyTo[0];
+        }
+        if ($isHtml) {
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-Type: text/html; charset=UTF-8';
+        }
+        $subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+        return @mail($email, $subject, $body, implode("\r\n", $headers));
     }
 }
 

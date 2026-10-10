@@ -25,13 +25,19 @@ if ($smtp_config_path) {
 }
 
 include_once __DIR__ . '/mail.php';
+include_once __DIR__ . '/template.php';
 
-$inquiry = isset($_POST['inquiry_type']) ? trim(htmlspecialchars($_POST['inquiry_type'])) : 'General';
-$name    = isset($_POST['name'])         ? trim(htmlspecialchars($_POST['name']))         : '';
-$company = isset($_POST['company'])      ? trim(htmlspecialchars($_POST['company']))      : '';
-$email   = isset($_POST['email'])        ? trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL)) : '';
-$mobile  = isset($_POST['mobile'])       ? trim(htmlspecialchars($_POST['mobile']))       : '';
-$message = isset($_POST['message'])      ? trim(htmlspecialchars($_POST['message']))      : '';
+// Raw values — escaping happens in the email template. Single-line fields have
+// newlines collapsed so they can't break the log format or mail headers.
+$field = static fn(string $key): string => isset($_POST[$key]) ? trim((string) $_POST[$key]) : '';
+$line  = static fn(string $key): string => preg_replace('/\s+/', ' ', $field($key));
+
+$inquiry = $line('inquiry_type') ?: 'General';
+$name    = $line('name');
+$company = $line('company');
+$email   = filter_var($field('email'), FILTER_SANITIZE_EMAIL);
+$mobile  = $line('mobile');
+$message = $field('message');
 
 if (!$name || !$email || !$message) {
     echo json_encode(['success' => false, 'message' => 'Required fields are missing.']);
@@ -48,22 +54,32 @@ $dataDir = dirname(__DIR__) . '/data';
 if (!is_dir($dataDir)) {
     @mkdir($dataDir, 0755, true);
 }
-$logEntry = date('Y-m-d H:i:s') . " | Name: $name | Email: $email | Mobile: $mobile | Company: $company | Type: $inquiry | Msg: $message\n";
+$logMessage = preg_replace('/\s+/', ' ', $message);
+$logEntry = date('Y-m-d H:i:s') . " | Name: $name | Email: $email | Mobile: $mobile | Company: $company | Type: $inquiry | Msg: $logMessage\n";
 @file_put_contents($dataDir . '/contact_inquiries.txt', $logEntry, FILE_APPEND);
 
-$subject = "[$inquiry] New inquiry from $name";
-$body  = "Inquiry Type: $inquiry\n";
-$body .= "Name: $name\n";
-$body .= $company ? "Company: $company\n" : '';
-$body .= "Email: $email\n";
-$body .= $mobile ? "Mobile: $mobile\n" : '';
-$body .= "\nMessage:\n$message";
+$emailData = [
+    'inquiry'  => $inquiry,
+    'name'     => $name,
+    'company'  => $company,
+    'email'    => $email,
+    'mobile'   => $mobile,
+    'message'  => $message,
+    'received' => new DateTime('now', new DateTimeZone('Africa/Kigali')),
+];
+
+$subject = 'New ' . contact_inquiry_label($inquiry) . " inquiry from $name" . ($company ? " ($company)" : '');
 
 $sent = false;
 try {
     if (class_exists('mail')) {
         $mailObj = new mail();
-        $sent = $mailObj->send('solideaze@gmail.com', $subject, $body);
+        $sent = $mailObj->send('solideaze@gmail.com', $subject, contact_email_html($emailData, 'cid:sorwatom-logo'), '', [
+            'alt'       => contact_email_text($emailData),
+            'reply_to'  => [$email, $name],
+            'from_name' => 'Sorwatom Website',
+            'embed'     => ['sorwatom-logo' => dirname(__DIR__) . '/assets/img/logo.png'],
+        ]);
     }
 } catch (Throwable $e) {
     $sent = false;
