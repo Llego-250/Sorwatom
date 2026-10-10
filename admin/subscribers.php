@@ -37,6 +37,7 @@ $unsubscribed = count($subscribers) - $active;
 
     <div class="page-header">
       <h1>Subscribers <span class="count-badge"><?= $active ?></span></h1>
+      <a href="/admin/email-check.php" class="btn-ghost">Email Check</a>
     </div>
 
     <?php if ($flash): ?>

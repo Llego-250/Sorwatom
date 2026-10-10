@@ -41,17 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'test') {
         $to = newsletter_normalize_email((string) ($_POST['test_email'] ?? ''));
         $ok = false;
+        $why = '';
         if ($to) {
             $_SESSION['nl_test_email'] = $to;
+            $mailer = new mail();
             try {
-                $ok = newsletter_send_post_to(newsletter_post_view($post), $to, new mail(), '[Test] ' . $post['title']);
+                $ok  = newsletter_send_post_to(newsletter_post_view($post), $to, $mailer, '[Test] ' . $post['title']);
+                $why = trim($mailer->error);
             } catch (Throwable $e) {
-                $ok = false;
+                $why = $e->getMessage();
             }
         }
         $_SESSION['nl_flash'] = $ok
             ? ['success', "Test email sent to $to. Check the inbox (and spam folder)."]
-            : ['error', $to ? "The test email to $to could not be sent. Check the SMTP settings in smtp_config.php." : 'Enter a valid email address for the test.'];
+            : ['error', $to ? "The test email to $to could not be sent. $why Open Email Check (link in the Newsletter panel) for details." : 'Enter a valid email address for the test.'];
         header('Location: /admin/post-edit.php?id=' . $post_id);
         exit;
     }
@@ -121,6 +124,7 @@ $status = newsletter_post_status($post_id);
           <input type="hidden" name="post" value="<?= $post_id ?>">
           <button type="submit" class="btn-primary">Retry failed emails</button>
         </form>
+        <a href="/admin/email-check.php" class="btn-ghost" id="nl-check" hidden>Open Email Check</a>
       </div>
 
       <p class="field-hint">Emails go out a few at a time. Keep this page open until it says “Done”. If you close it, sending pauses and you can resume from the post’s Newsletter panel.</p>
@@ -157,7 +161,8 @@ $status = newsletter_post_status($post_id);
 
   function finish(s) {
     if (s.failed > 0) {
-      message(s.failed + ' email(s) failed. Check the SMTP settings, then retry.', 'error');
+      message(s.failed + ' email(s) failed.' + (s.last_error ? ' Reason: ' + s.last_error : '') + ' Fix the problem (see Email Check), then retry.', 'error');
+      el('nl-check').hidden = false;
     } else if (s.sent === 0) {
       message('There are no active subscribers to email yet.', '');
     } else {

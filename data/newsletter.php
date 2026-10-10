@@ -324,6 +324,7 @@ function newsletter_send_batch(int $post_id, int $max = 8, int $seconds = 20): a
     $view   = newsletter_post_view($post);
     $mailer = new mail();
     $start  = time();
+    $error  = '';
 
     foreach ($pick->fetchAll() as $row) {
         if (time() - $start >= $seconds) break;
@@ -333,11 +334,12 @@ function newsletter_send_batch(int $post_id, int $max = 8, int $seconds = 20): a
         $ok = false;
         try {
             $ok = newsletter_send_post_to($view, $row['email'], $mailer);
+            if (!$ok) $error = trim($mailer->error);
         } catch (Throwable $e) {
-            // Recorded as failed below; the admin can retry.
+            $error = $e->getMessage();
         }
         ($ok ? $sent : $failed)->execute([$row['id']]);
     }
 
-    return newsletter_post_status($post_id);
+    return newsletter_post_status($post_id) + ['last_error' => $error];
 }

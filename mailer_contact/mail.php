@@ -1,13 +1,17 @@
 <?php
-// Locate smtp_config.php if not already loaded
-if (!defined('SMTP_HOST')) {
-    $possible_paths = [
+// smtp_config.php normally sits one level above the web root (next to htdocs /
+// public_html) so the SMTP password can never be downloaded.
+function smtp_config_paths(): array {
+    return [
         dirname(__DIR__, 2) . '/smtp_config.php',
         dirname(__DIR__) . '/smtp_config.php',
-        __DIR__ . '/../smtp_config.php',
-        __DIR__ . '/smtp_config.php'
+        __DIR__ . '/smtp_config.php',
     ];
-    foreach ($possible_paths as $path) {
+}
+
+// Locate smtp_config.php if not already loaded
+if (!defined('SMTP_HOST')) {
+    foreach (smtp_config_paths() as $path) {
         if (file_exists($path)) {
             require_once $path;
             break;
@@ -15,7 +19,19 @@ if (!defined('SMTP_HOST')) {
     }
 }
 
+// Port 465 expects TLS from the first byte; 587/25 start plain and upgrade with
+// STARTTLS. SMTP_SECURE in smtp_config.php overrides ('ssl' or 'tls').
+function smtp_encryption(): string {
+    if (defined('SMTP_SECURE')) return SMTP_SECURE;
+    return (int) (defined('SMTP_PORT') ? SMTP_PORT : 587) === 465 ? 'ssl' : 'tls';
+}
+
 class mail {
+    /** Why the last send() failed, or '' after a success. */
+    public $error = '';
+    /** SMTP conversation of the last send() when the 'debug' option is on. */
+    public $log = [];
+
     /**
      * $options (all optional):
      *   'alt'       => plain-text body; when set, $body is sent as HTML
@@ -23,30 +39,45 @@ class mail {
      *   'from_name' => sender display name
      *   'embed'     => [cid => file path] for images referenced as src="cid:..."
      *   'headers'   => [name => value] extra headers, e.g. List-Unsubscribe
+     *   'debug'     => true to record the SMTP conversation in $this->log
      */
     function send($email, $subject, $body, $header = '', array $options = []) {
         $isHtml   = isset($options['alt']);
         $replyTo  = $options['reply_to'] ?? null;
         $fromName = $options['from_name'] ?? '';
         $extra    = $options['headers'] ?? [];
+        $this->error = '';
+        $this->log   = [];
 
         $phpMailerPath = __DIR__ . '/mailer/PHPMailerAutoload.php';
         if (file_exists($phpMailerPath)) {
             require_once $phpMailerPath;
         }
 
-        if (class_exists('PHPMailer') && defined('SMTP_HOST')) {
+        if (!defined('SMTP_HOST') || SMTP_HOST === '') {
+            $this->error = 'SMTP is not configured (smtp_config.php not found or SMTP_HOST empty).';
+        } elseif (class_exists('PHPMailer')) {
             try {
                 $mail = new PHPMailer;
                 $mail->isSMTP();
-                $mail->Timeout    = 3; // 3s timeout
-                $mail->SMTPSecure = 'tls';
+                $mail->Timeout    = 10;
+                $mail->SMTPSecure = smtp_encryption();
                 $mail->SMTPAuth   = true;
                 $mail->Host       = SMTP_HOST;
                 $mail->Port       = SMTP_PORT;
                 $mail->Username   = defined('SMTP_USERNAME') ? SMTP_USERNAME : (defined('SMTP_EMAIL') ? SMTP_EMAIL : '');
                 $mail->Password   = defined('SMTP_PASSWORD') ? SMTP_PASSWORD : '';
                 $mail->CharSet    = 'UTF-8';
+                // Always listen to the SMTP conversation: PHPMailer's own ErrorInfo is just
+                // "SMTP connect() failed", the real reason (bad password, refused...) is in here.
+                $debug  = !empty($options['debug']);
+                $errors = [];
+                $mail->SMTPDebug   = 3;
+                $mail->Debugoutput = function ($line) use ($debug, &$errors) {
+                    $line = rtrim($line);
+                    if ($debug) $this->log[] = $line;
+                    if (preg_match('/SMTP ERROR|Connection failed|timed-out|Failed to connect/i', $line)) $errors[] = $line;
+                };
                 $mail->setFrom(defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com', $fromName);
                 $mail->addAddress($email);
                 if ($replyTo) {
@@ -72,11 +103,20 @@ class mail {
                 if (@$mail->send()) {
                     return true;
                 }
+                // Prefer the server's own reply ("SMTP ERROR: ... 535 ...") over PHPMailer's summary.
+                $server = array_values(array_filter($errors, fn($l) => strpos($l, 'SMTP ERROR') !== false));
+                $this->error = 'SMTP: ' . ($server[0] ?? $errors[0] ?? $mail->ErrorInfo);
             } catch (Throwable $e) {
-                // fall through to mail() fallback
+                $this->error = 'SMTP: ' . $e->getMessage();
             }
         }
 
+        // Fallback for hosts with a working mail(). Many (InfinityFree included)
+        // disable it, and on PHP 8 a disabled function doesn't exist at all.
+        if (!function_exists('mail')) {
+            $this->error .= ' PHP mail() is disabled on this server.';
+            return false;
+        }
         $from    = defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com';
         $headers = ['From: ' . ($fromName ? "$fromName <$from>" : $from)];
         if ($replyTo) {
@@ -90,7 +130,12 @@ class mail {
             $headers[] = 'Content-Type: text/html; charset=UTF-8';
         }
         $subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-        return @mail($email, $subject, $body, implode("\r\n", $headers));
+        if (@mail($email, $subject, $body, implode("\r\n", $headers))) {
+            $this->error = '';
+            return true;
+        }
+        $this->error .= ' PHP mail() fallback failed too.';
+        return false;
     }
 }
 

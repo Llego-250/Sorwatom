@@ -242,6 +242,7 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
                        value="<?= htmlspecialchars($_SESSION['nl_test_email'] ?? '') ?>" placeholder="you@example.com" required>
                 <button type="submit" form="newsletter-test-form" class="btn-ghost">Send</button>
               </div>
+              <p class="field-hint">Emails not arriving? <a href="/admin/email-check.php">Run the Email Check</a></p>
             </div>
             <?php endif; ?>
           </div>

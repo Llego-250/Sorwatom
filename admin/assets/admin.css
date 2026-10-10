@@ -645,3 +645,19 @@ textarea { resize: vertical; }
 .nl-message--error   { color: #991b1b; font-weight: 600; }
 .nl-actions { display: flex; gap: .5rem; margin-bottom: 1rem; }
 .nl-actions [hidden] { display: none; }
+
+/* ── Email check ─────────────────────────────────────────────── */
+.ec-table { margin-bottom: 1.75rem; }
+.ec-table th { width: 200px; text-transform: none; letter-spacing: 0; font-size: .85rem; color: var(--ad-muted); background: none; }
+.ec-table td { font-size: .875rem; }
+.ec-table code, .field-hint code { font-size: .8rem; background: var(--ad-bg); padding: .1rem .35rem; border-radius: 4px; word-break: break-all; }
+.ec-ok  { color: #065f46; font-weight: 600; }
+.ec-bad { color: #991b1b; font-weight: 600; }
+.ec-form { display: flex; gap: .5rem; max-width: 520px; margin-bottom: 1.25rem; }
+.ec-form input { flex: 1; min-width: 0; }
+.ec-log { margin-bottom: 1.75rem; }
+.ec-log summary { cursor: pointer; font-size: .85rem; font-weight: 600; margin-bottom: .5rem; }
+.ec-log pre, .ec-code {
+  background: #0d1e12; color: #e8e0d0; border-radius: var(--ad-radius);
+  padding: 1rem 1.1rem; font-size: .78rem; line-height: 1.55; overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+}
