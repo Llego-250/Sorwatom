@@ -55,9 +55,11 @@ class mail {
                 if ($isHtml) {
                     $mail->isHTML(true);
                     $mail->AltBody = $options['alt'];
+                    // addEmbeddedImage() hits get_magic_quotes_runtime() in this PHPMailer
+                    // version, which no longer exists on PHP 8 — embed from a string instead.
                     foreach ($options['embed'] ?? [] as $cid => $path) {
                         if (is_file($path)) {
-                            $mail->addEmbeddedImage($path, $cid);
+                            $mail->addStringEmbeddedImage(file_get_contents($path), $cid, basename($path));
                         }
                     }
                 }
