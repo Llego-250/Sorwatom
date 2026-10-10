@@ -77,7 +77,7 @@ $unsubscribed = count($subscribers) - $active;
           <td><?= htmlspecialchars($s['email']) ?></td>
           <td><?= $s['subscribed_at'] ? date('d M Y', strtotime($s['subscribed_at'])) : '—' ?></td>
           <td><span class="status-badge status-<?= $s['status'] ?>"><?= $s['status'] ?></span></td>
-          <td class="row-actions">
+          <td style="text-align:right">
             <?php if ($s['status'] === 'active'): ?>
             <form method="post" style="display:inline"
                   onsubmit="return confirm('Unsubscribe this address? They will stop receiving emails.')">

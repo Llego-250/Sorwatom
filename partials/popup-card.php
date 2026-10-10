@@ -64,7 +64,7 @@
             <span>Instagram</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/sorwatom-ltd-6b2a48177/" target="_blank" rel="noopener noreferrer" class="popup-social-card linkedin" aria-label="Sorwatom on LinkedIn">
+          <a href="https://www.tiktok.com/@sorwatom_rw" target="_blank" rel="noopener noreferrer" class="popup-social-card Tiktok" aria-label="Sorwatom on Tiktok">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -72,7 +72,7 @@
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </div>
-            <span>LinkedIn</span>
+            <span>Tiktok</span>
           </a>
 
           <a href="https://www.facebook.com/SORWATOM/" target="_blank" rel="noopener noreferrer" class="popup-social-card fb" aria-label="Sorwatom on Facebook">
@@ -340,7 +340,7 @@
 }
 
 .popup-social-card.insta:hover { border-color: #e1306c; background: rgba(225, 48, 108, 0.15); }
-.popup-social-card.linkedin:hover { border-color: #0077b5; background: rgba(0, 119, 181, 0.15); }
+.popup-social-card.Tiktok:hover { border-color: #0077b5; background: rgba(0, 119, 181, 0.15); }
 .popup-social-card.fb:hover { border-color: #1877f2; background: rgba(24, 119, 242, 0.15); }
 .popup-social-card.twitter:hover { border-color: #ffffff; background: rgba(255, 255, 255, 0.12); }
 
