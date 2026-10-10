@@ -11,6 +11,10 @@ define('DB_CHARSET', 'utf8mb4');
 define('SITE_URL', rtrim(getenv('SITE_URL') ?: 'https://www.sorwatom.com', '/'));
 define('SITE_NAME', 'Sorwatom');
 
+// ─── Newsletter ───────────────────────────────────────────────────────────────
+// Signs unsubscribe links. Changing it invalidates links in emails already sent.
+define('NEWSLETTER_SECRET', getenv('NEWSLETTER_SECRET') ?: 'c595f7086e502fbfdeedfdad9b9b14ebe124aeee7061188135992456c5121e4d');
+
 // ─── Admin ────────────────────────────────────────────────────────────────────
 // Password: admin2026
 define('ADMIN_PASSWORD_HASH', getenv('ADMIN_PASSWORD_HASH')

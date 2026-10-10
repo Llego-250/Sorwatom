@@ -22,11 +22,13 @@ class mail {
      *   'reply_to'  => [address, name]
      *   'from_name' => sender display name
      *   'embed'     => [cid => file path] for images referenced as src="cid:..."
+     *   'headers'   => [name => value] extra headers, e.g. List-Unsubscribe
      */
     function send($email, $subject, $body, $header = '', array $options = []) {
         $isHtml   = isset($options['alt']);
         $replyTo  = $options['reply_to'] ?? null;
         $fromName = $options['from_name'] ?? '';
+        $extra    = $options['headers'] ?? [];
 
         $phpMailerPath = __DIR__ . '/mailer/PHPMailerAutoload.php';
         if (file_exists($phpMailerPath)) {
@@ -49,6 +51,9 @@ class mail {
                 $mail->addAddress($email);
                 if ($replyTo) {
                     $mail->addReplyTo($replyTo[0], $replyTo[1] ?? '');
+                }
+                foreach ($extra as $name => $value) {
+                    $mail->addCustomHeader($name, $value);
                 }
                 $mail->Subject = $subject;
                 $mail->Body    = $body;
@@ -76,6 +81,9 @@ class mail {
         $headers = ['From: ' . ($fromName ? "$fromName <$from>" : $from)];
         if ($replyTo) {
             $headers[] = 'Reply-To: ' . $replyTo[0];
+        }
+        foreach ($extra as $name => $value) {
+            $headers[] = "$name: $value";
         }
         if ($isHtml) {
             $headers[] = 'MIME-Version: 1.0';
