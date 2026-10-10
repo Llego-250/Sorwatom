@@ -33,6 +33,7 @@
             'success'     => 'Uko kwenye orodha — karibu!',
             'error'       => 'Hitilafu imetokea. Tafadhali jaribu tena.',
             'error_email' => 'Tafadhali weka anwani sahihi ya barua pepe.',
+            'already'     => 'Tayari umejiandikisha — asante kwa kuwa nasi!',
         ],
     ],
 

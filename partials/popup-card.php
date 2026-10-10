@@ -27,6 +27,7 @@
           novalidate
           data-action="/newsletter"
           data-msg-ok="<?= __t('footer.newsletter.success') ?>"
+          data-msg-already="<?= __t('footer.newsletter.already') ?>"
           data-msg-err="<?= __t('footer.newsletter.error') ?>"
           data-msg-invalid="<?= __t('footer.newsletter.error_email') ?>">
           <!-- Honeypot -->
@@ -418,6 +419,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var email = input.value.trim();
 
       var msgOk = form.dataset.msgOk;
+      var msgAgain = form.dataset.msgAlready;
       var msgErr = form.dataset.msgErr;
       var msgBad = form.dataset.msgInvalid;
 
@@ -435,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var fd = new FormData(form);
         var res = await fetch(form.dataset.action, { method: 'POST', body: fd });
         var json = await res.json();
-        msg.textContent = json.ok ? msgOk : (json.message || msgErr);
+        msg.textContent = json.ok ? (json.already ? msgAgain : msgOk) : (json.message || msgErr);
         msg.className = 'popup-newsletter-msg popup-newsletter-msg--' + (json.ok ? 'ok' : 'err');
 
         if (json.ok) {

@@ -80,6 +80,9 @@ function email_check_redact(array $lines): array {
     return $out;
 }
 
+// Most recent failed sends from anywhere on the site, newest first.
+$failures = array_slice(array_reverse(@file(MAIL_ERROR_LOG, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: []), 0, 10);
+
 $row = fn($label, $value, $state = '') =>
     '<tr><th>' . $label . '</th><td' . ($state ? ' class="ec-' . $state . '"' : '') . '>' . $value . '</td></tr>';
 $h = fn($s) => htmlspecialchars((string) $s);
@@ -158,6 +161,14 @@ $h = fn($s) => htmlspecialchars((string) $s);
       <pre><?= $h(implode("\n", $test['log'])) ?></pre>
     </details>
     <?php endif; ?>
+    <?php endif; ?>
+
+    <div class="section-title">Recent failed emails</div>
+    <?php if ($failures): ?>
+    <p class="field-hint" style="margin-bottom:.6rem">The last <?= count($failures) ?> sends that failed anywhere on the site (contact form, welcome emails, newsletter, tests), newest first.</p>
+    <pre class="ec-code" style="margin-bottom:1.75rem"><?= $h(implode("\n", $failures)) ?></pre>
+    <?php else: ?>
+    <p class="field-hint" style="margin-bottom:1.75rem">None — no email has failed to send since this log started.</p>
     <?php endif; ?>
 
     <div class="section-title">smtp_config.php template</div>

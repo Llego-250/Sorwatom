@@ -33,6 +33,7 @@
             'success'     => 'Vous êtes sur la liste — bienvenue !',
             'error'       => "Une erreur s'est produite. Veuillez réessayer.",
             'error_email' => 'Veuillez saisir une adresse e-mail valide.',
+            'already'     => 'Vous êtes déjà abonné — merci de nous suivre !',
         ],
     ],
 

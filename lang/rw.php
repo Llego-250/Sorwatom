@@ -33,6 +33,7 @@
             'success'     => 'Wiyandikishije — murakaza neza!',
             'error'       => 'Habaye ikibazo. Ongera ugerageze.',
             'error_email' => 'Andika aderesi ya email nyayo.',
+            'already'     => 'Usanzwe uri ku rutonde — murakoze!',
         ],
     ],
 

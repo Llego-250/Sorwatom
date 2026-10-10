@@ -19,6 +19,10 @@ if (!defined('SMTP_HOST')) {
     }
 }
 
+// Every failed send is noted here (data/ is not web-accessible) and listed on
+// Admin → Email Check, so failures in the contact form or newsletter don't go unseen.
+const MAIL_ERROR_LOG = __DIR__ . '/../data/mail-errors.txt';
+
 // Port 465 expects TLS from the first byte; 587/25 start plain and upgrade with
 // STARTTLS. SMTP_SECURE in smtp_config.php overrides ('ssl' or 'tls').
 function smtp_encryption(): string {
@@ -115,7 +119,7 @@ class mail {
         // disable it, and on PHP 8 a disabled function doesn't exist at all.
         if (!function_exists('mail')) {
             $this->error .= ' PHP mail() is disabled on this server.';
-            return false;
+            return $this->failed($email, $subject);
         }
         $from    = defined('SMTP_EMAIL') ? SMTP_EMAIL : 'solideaze@gmail.com';
         $headers = ['From: ' . ($fromName ? "$fromName <$from>" : $from)];
@@ -129,12 +133,18 @@ class mail {
             $headers[] = 'MIME-Version: 1.0';
             $headers[] = 'Content-Type: text/html; charset=UTF-8';
         }
-        $subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-        if (@mail($email, $subject, $body, implode("\r\n", $headers))) {
+        $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+        if (@mail($email, $encodedSubject, $body, implode("\r\n", $headers))) {
             $this->error = '';
             return true;
         }
         $this->error .= ' PHP mail() fallback failed too.';
+        return $this->failed($email, $subject);
+    }
+
+    private function failed($to, $subject) {
+        $line = date('Y-m-d H:i:s') . ' | ' . $to . ' | ' . $subject . ' | ' . trim($this->error);
+        @file_put_contents(MAIL_ERROR_LOG, preg_replace('/\s+/', ' ', $line) . PHP_EOL, FILE_APPEND | LOCK_EX);
         return false;
     }
 }

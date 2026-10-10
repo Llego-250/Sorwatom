@@ -12,8 +12,8 @@ header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/data/newsletter.php';
 
-function json_out(bool $ok, string $message = ''): never {
-    echo json_encode(['ok' => $ok, 'message' => $message]);
+function json_out(bool $ok, string $message = '', array $extra = []): never {
+    echo json_encode(['ok' => $ok, 'message' => $message] + $extra);
     exit;
 }
 
@@ -27,13 +27,15 @@ if (!$email) {
     json_out(false, 'Please enter a valid email address.');
 }
 
-// Saved to the database, with data/subscribers.txt as a backup.
-if (newsletter_subscribe($email)) {
-    try {
-        newsletter_send_welcome($email);
-    } catch (Throwable $e) {
-        // The subscription itself succeeded; a missed welcome email isn't worth an error.
-    }
+// Saved to the database, with data/subscribers.txt as a backup. Someone already
+// on the list gets no second welcome email (the form can't be used to spam an inbox).
+if (!newsletter_subscribe($email)) {
+    json_out(true, "You're already subscribed.", ['already' => true]);
+}
+try {
+    newsletter_send_welcome($email);
+} catch (Throwable $e) {
+    // The subscription itself succeeded; a missed welcome email isn't worth an error.
 }
 
 json_out(true, "You're on the list — welcome!");

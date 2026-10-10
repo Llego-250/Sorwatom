@@ -42,6 +42,7 @@
           novalidate
           data-action="/newsletter"
           data-msg-ok="<?= __t('footer.newsletter.success') ?>"
+          data-msg-already="<?= __t('footer.newsletter.already') ?>"
           data-msg-err="<?= __t('footer.newsletter.error') ?>"
           data-msg-invalid="<?= __t('footer.newsletter.error_email') ?>">
           <!-- Honeypot — leave blank -->
@@ -153,6 +154,7 @@
   const msg      = form.querySelector('.footer-newsletter__msg');
   const btn      = form.querySelector('button[type="submit"]');
   const msgOk    = form.dataset.msgOk;
+  const msgAgain = form.dataset.msgAlready;
   const msgErr   = form.dataset.msgErr;
   const msgBad   = form.dataset.msgInvalid;
 
@@ -169,7 +171,7 @@
       const fd = new FormData(form);
       const res = await fetch(form.dataset.action, { method: 'POST', body: fd });
       const json = await res.json();
-      show(json.ok ? msgOk : (json.message || msgErr), json.ok ? 'ok' : 'err');
+      show(json.ok ? (json.already ? msgAgain : msgOk) : (json.message || msgErr), json.ok ? 'ok' : 'err');
       if (json.ok) { form.querySelector('#nl-email').value = ''; btn.style.display = 'none'; }
     } catch (_) {
       show(msgErr, 'err');
