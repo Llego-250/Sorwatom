@@ -64,7 +64,9 @@ function contact_email_html(array $d, string $logoSrc): string
     .h1       { font-size: 24px !important; line-height: 30px !important; }
     .label    { display: block !important; width: auto !important; padding-bottom: 2px !important; border-bottom: 0 !important; }
     .value    { display: block !important; padding-top: 0 !important; }
+    .btns     { width: 100% !important; }
     .btn-cell { display: block !important; width: 100% !important; text-align: center !important; }
+    .btn-cell a { display: block !important; }
     .btn-gap  { display: block !important; height: 12px !important; width: auto !important; }
   }
 </style>
@@ -126,7 +128,7 @@ function contact_email_html(array $d, string $logoSrc): string
         </table>
 
         <!-- Actions -->
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <table role="presentation" class="btns" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="btn-cell" bgcolor="#C4472A" style="background-color:#C4472A;border-radius:6px;">
               <a href="<?= $e($replyHref) ?>" style="display:inline-block;padding:14px 28px;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;border-radius:6px;">Reply to <?= $e($firstName) ?> &rarr;</a>
