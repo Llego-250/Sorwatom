@@ -80,6 +80,14 @@ include 'partials/_head.php';
 </html>
 
 <style>
+/* .hero--half has no height of its own; give the hero room below the fixed nav. */
+.page-unsubscribe .hero {
+  min-height: 50svh;
+  padding-top: 7rem;
+}
+.page-unsubscribe .hero__title {
+  font-size: var(--step-4);
+}
 .page-unsubscribe .unsub-card {
   background: var(--col-surface);
   border: 1px solid var(--col-border);

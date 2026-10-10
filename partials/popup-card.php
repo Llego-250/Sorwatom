@@ -67,9 +67,7 @@
           <a href="https://www.tiktok.com/@sorwatom_rw" target="_blank" rel="noopener noreferrer" class="popup-social-card Tiktok" aria-label="Sorwatom on Tiktok">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
+                <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"></path>
               </svg>
             </div>
             <span>Tiktok</span>
@@ -340,7 +338,7 @@
 }
 
 .popup-social-card.insta:hover { border-color: #e1306c; background: rgba(225, 48, 108, 0.15); }
-.popup-social-card.Tiktok:hover { border-color: #0077b5; background: rgba(0, 119, 181, 0.15); }
+.popup-social-card.Tiktok:hover { border-color: #fe2c55; background: rgba(254, 44, 85, 0.15); }
 .popup-social-card.fb:hover { border-color: #1877f2; background: rgba(24, 119, 242, 0.15); }
 .popup-social-card.twitter:hover { border-color: #ffffff; background: rgba(255, 255, 255, 0.12); }
 
