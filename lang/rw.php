@@ -25,6 +25,15 @@
             'contact' => 'Twandikire',
         ],
         'lang_label' => 'Ururimi',
+        'newsletter' => [
+            'heading'     => 'Komeza Umenye Amakuru',
+            'desc'        => "Akira uburyo bwo guteka, amakuru n'inkuru zo mu karere k'Ibiyaga Bigari — bigere kuri email yawe.",
+            'placeholder' => 'Aderesi yawe ya email',
+            'btn'         => 'Iyandikishe',
+            'success'     => 'Wiyandikishije — murakaza neza!',
+            'error'       => 'Habaye ikibazo. Ongera ugerageze.',
+            'error_email' => 'Andika aderesi ya email nyayo.',
+        ],
     ],
 
     'home' => [
@@ -186,6 +195,22 @@
         'social_title'     => 'Tukurikirane ku Mbuga Nkoranyambaga',
         'maybe_later'      => 'Ubutaha',
         'close'            => 'Funga',
+    ],
+
+    'unsubscribe' => [
+        'title'           => 'Kwiyandukuza',
+        'eyebrow'         => 'Amakuru',
+        'confirm_heading' => 'Urashaka kureka kwakira amakuru yacu?',
+        'confirm_body'    => '{email} ntizongera kwakira uburyo bwo guteka, amakuru y\'isarura n\'andi makuru ya Sorwatom.',
+        'confirm_btn'     => 'Yego, nkuraho',
+        'keep'            => 'Oya, komeza unyoherereze',
+        'done_heading'    => 'Wavanywe ku rutonde',
+        'done_body'       => '{email} ntizongera kwakira ubutumwa bwacu. Wahinduye igitekerezo? Ushobora kongera kwiyandikisha hasi kuri buri paji.',
+        'invalid_heading' => 'Iyi link ntikora',
+        'invalid_body'    => 'Iyi link ishobora kuba ituzuye. Koresha link iri muri email yacu iheruka, cyangwa utwandikire kuri info@sorwatom.com.',
+        'error_heading'   => 'Habaye ikibazo',
+        'error_body'      => 'Ntitwashoboye guhindura iyandikwa ryawe ubu. Ongera ugerageze mu minota mike.',
+        'btn_home'        => 'Subira Ahabanza',
     ],
 
     '404' => [

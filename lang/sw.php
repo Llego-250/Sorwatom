@@ -283,6 +283,22 @@
         'close'            => 'Funga',
     ],
 
+    'unsubscribe' => [
+        'title'           => 'Jiondoe',
+        'eyebrow'         => 'Jarida',
+        'confirm_heading' => 'Ungependa kujiondoa kwenye jarida letu?',
+        'confirm_body'    => '{email} haitapokea tena mapishi, habari za mavuno na habari kutoka Sorwatom.',
+        'confirm_btn'     => 'Ndiyo, niondoe',
+        'keep'            => 'Hapana, endelea kunitumia',
+        'done_heading'    => 'Umejiondoa',
+        'done_body'       => '{email} haitapokea tena barua pepe za jarida letu. Umebadili nia? Unaweza kujiandikisha tena chini ya ukurasa wowote.',
+        'invalid_heading' => 'Kiungo hiki si sahihi',
+        'invalid_body'    => 'Huenda kiungo cha kujiondoa hakijakamilika. Tafadhali tumia kiungo kilicho kwenye barua pepe yetu ya hivi karibuni, au tuandikie kwa info@sorwatom.com.',
+        'error_heading'   => 'Hitilafu imetokea',
+        'error_body'      => 'Hatukuweza kusasisha usajili wako kwa sasa. Tafadhali jaribu tena baada ya dakika chache.',
+        'btn_home'        => 'Rudi Nyumbani',
+    ],
+
     '404' => [
         'eyebrow'     => 'KOSA LA 404',
         'title'       => 'Ole! Ukurasa <em>haukupatikana.</em>',

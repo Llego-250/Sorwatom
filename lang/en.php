@@ -299,6 +299,22 @@
         'close'            => 'Close popup',
     ],
 
+    'unsubscribe' => [
+        'title'           => 'Unsubscribe',
+        'eyebrow'         => 'Newsletter',
+        'confirm_heading' => 'Unsubscribe from our newsletter?',
+        'confirm_body'    => '{email} will stop receiving recipes, harvest updates and news from Sorwatom.',
+        'confirm_btn'     => 'Yes, unsubscribe me',
+        'keep'            => 'No, keep me subscribed',
+        'done_heading'    => "You've been unsubscribed",
+        'done_body'       => "{email} won't receive any more newsletter emails from us. Changed your mind? You can subscribe again at the bottom of any page.",
+        'invalid_heading' => "This link isn't valid",
+        'invalid_body'    => 'The unsubscribe link may be incomplete. Please use the link in our most recent email, or write to info@sorwatom.com.',
+        'error_heading'   => 'Something went wrong',
+        'error_body'      => 'We could not update your subscription just now. Please try again in a few minutes.',
+        'btn_home'        => 'Back to Home',
+    ],
+
     '404' => [
         'eyebrow'     => '404 ERROR',
         'title'       => 'Oops! Page <em>squished.</em>',

@@ -201,9 +201,9 @@ function newsletter_get_post(int $post_id): ?array {
     return $stmt->fetch() ?: null;
 }
 
-function newsletter_send_post_to(array $view, string $email, mail $mailer): bool {
+function newsletter_send_post_to(array $view, string $email, mail $mailer, ?string $subject = null): bool {
     $unsub = newsletter_unsubscribe_url($email);
-    return $mailer->send($email, $view['title'], newsletter_post_html($view, $unsub, 'cid:sorwatom-logo'), '', [
+    return $mailer->send($email, $subject ?? $view['title'], newsletter_post_html($view, $unsub, 'cid:sorwatom-logo'), '', [
         'alt'       => newsletter_post_text($view, $unsub),
         'from_name' => 'Sorwatom',
         'embed'     => ['sorwatom-logo' => NEWSLETTER_LOGO],

@@ -286,6 +286,22 @@
         'close'            => 'Fermer',
     ],
 
+    'unsubscribe' => [
+        'title'           => 'Se désabonner',
+        'eyebrow'         => 'Newsletter',
+        'confirm_heading' => 'Se désabonner de notre newsletter ?',
+        'confirm_body'    => '{email} ne recevra plus nos recettes, nouvelles des récoltes et actualités de Sorwatom.',
+        'confirm_btn'     => 'Oui, me désabonner',
+        'keep'            => 'Non, rester abonné',
+        'done_heading'    => 'Vous êtes désabonné',
+        'done_body'       => "{email} ne recevra plus notre newsletter. Vous avez changé d'avis ? Vous pouvez vous réabonner en bas de n'importe quelle page.",
+        'invalid_heading' => "Ce lien n'est pas valide",
+        'invalid_body'    => 'Le lien de désabonnement est peut-être incomplet. Utilisez le lien de notre e-mail le plus récent, ou écrivez à info@sorwatom.com.',
+        'error_heading'   => "Une erreur s'est produite",
+        'error_body'      => "Nous n'avons pas pu mettre à jour votre abonnement. Veuillez réessayer dans quelques minutes.",
+        'btn_home'        => "Retour à l'Accueil",
+    ],
+
     '404' => [
         'eyebrow'     => 'ERREUR 404',
         'title'       => 'Oups ! Page <em>introuvable.</em>',
