@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/_auth.php';
 require_once __DIR__ . '/../data/blog.php';
+require_once __DIR__ . '/../data/newsletter.php';
 
 $id         = isset($_GET['id']) ? (int) $_GET['id'] : null;
 $post       = $id ? blog_get_post_admin($id) : null;
@@ -61,6 +62,11 @@ $pub_val     = htmlspecialchars(substr($post['published_at'] ?? '', 0, 16));
 $status_val  = $post['status']      ?? 'draft';
 $cat_val     = $post['category_id'] ?? '';
 $auth_val    = $post['author_id']   ?? '';
+
+$nl_flash  = $_SESSION['nl_flash'] ?? null;
+unset($_SESSION['nl_flash']);
+$nl_status = ($id && $status_val === 'published') ? newsletter_post_status($id) : null;
+$nl_active = $nl_status ? newsletter_active_count() : 0;
 ?>
 <!doctype html>
 <html lang="en">
@@ -87,6 +93,9 @@ $auth_val    = $post['author_id']   ?? '';
 
     <?php if ($success): ?>
     <div class="alert alert-success">Post saved successfully.</div>
+    <?php endif; ?>
+    <?php if ($nl_flash): ?>
+    <div class="alert alert-<?= $nl_flash[0] === 'success' ? 'success' : 'error' ?>"><?= htmlspecialchars($nl_flash[1]) ?></div>
     <?php endif; ?>
     <?php foreach ($errors as $e): ?>
     <div class="alert alert-error"><?= htmlspecialchars($e) ?></div>
@@ -196,6 +205,47 @@ $auth_val    = $post['author_id']   ?? '';
             </div>
           </div>
 
+          <!-- ── Newsletter ── -->
+          <div class="sidebar-card">
+            <h3>Newsletter</h3>
+            <?php if (!$nl_status): ?>
+            <p class="nl-summary">Publish and save this post to email it to subscribers.</p>
+            <?php else:
+              $nl_waiting = $nl_status['pending'] + $nl_status['sending'];
+            ?>
+            <p class="nl-summary">
+              <?php if ($nl_status['sent'] > 0): ?>
+              Emailed to <strong><?= $nl_status['sent'] ?></strong> subscriber<?= $nl_status['sent'] === 1 ? '' : 's' ?>
+              <?php if ($nl_status['last_sent_at']): ?><br><span class="nl-muted">Last sent <?= date('d M Y, H:i', strtotime($nl_status['last_sent_at'])) ?></span><?php endif; ?>
+              <?php else: ?>
+              Not emailed to subscribers yet.
+              <?php endif; ?>
+              <?php if ($nl_status['failed'] > 0): ?><br><span class="nl-error"><?= $nl_status['failed'] ?> failed</span><?php endif; ?>
+            </p>
+
+            <?php if ($nl_waiting > 0): ?>
+            <a href="/admin/newsletter-send.php?post=<?= $id ?>" class="btn-primary btn-full">Resume sending (<?= $nl_waiting ?> left)</a>
+            <?php elseif ($nl_status['remaining'] > 0): ?>
+            <button type="submit" form="newsletter-queue-form" class="btn-primary btn-full"
+                    onclick="return confirm('Email this post to <?= $nl_status['remaining'] ?> subscriber(s)? Make sure your latest changes are saved.')">
+              Email to <?= $nl_status['remaining'] ?> subscriber<?= $nl_status['remaining'] === 1 ? '' : 's' ?>
+            </button>
+            <p class="field-hint">Sends the saved version of the post.<?= $nl_status['sent'] > 0 ? ' Only subscribers who haven’t received it yet are emailed.' : '' ?></p>
+            <?php else: ?>
+            <p class="field-hint"><?= $nl_active > 0 ? 'Every active subscriber has received this post.' : 'No active subscribers yet.' ?></p>
+            <?php endif; ?>
+
+            <div class="nl-test">
+              <label for="nl-test-email">Send a test to</label>
+              <div class="nl-test__row">
+                <input type="email" id="nl-test-email" name="test_email" form="newsletter-test-form"
+                       value="<?= htmlspecialchars($_SESSION['nl_test_email'] ?? '') ?>" placeholder="you@example.com" required>
+                <button type="submit" form="newsletter-test-form" class="btn-ghost">Send</button>
+              </div>
+            </div>
+            <?php endif; ?>
+          </div>
+
           <div class="sidebar-card">
             <h3>Category</h3>
             <div class="field">
@@ -264,6 +314,19 @@ $auth_val    = $post['author_id']   ?? '';
     <form id="delete-form" method="post" action="/admin/post-delete.php" style="display:none">
       <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
       <input type="hidden" name="id" value="<?= $id ?>">
+    </form>
+    <?php endif; ?>
+
+    <?php if ($nl_status): ?>
+    <form id="newsletter-queue-form" method="post" action="/admin/newsletter-send.php" style="display:none">
+      <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
+      <input type="hidden" name="action" value="queue">
+      <input type="hidden" name="post" value="<?= $id ?>">
+    </form>
+    <form id="newsletter-test-form" method="post" action="/admin/newsletter-send.php" style="display:none">
+      <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
+      <input type="hidden" name="action" value="test">
+      <input type="hidden" name="post" value="<?= $id ?>">
     </form>
     <?php endif; ?>
 

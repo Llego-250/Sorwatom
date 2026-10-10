@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/_auth.php';
 require_once __DIR__ . '/../data/blog.php';
+require_once __DIR__ . '/../data/newsletter.php';
 
 $posts      = blog_get_all_posts_admin();
 $total      = count($posts);
@@ -8,6 +9,7 @@ $published  = count(array_filter($posts, fn($p) => $p['status'] === 'published')
 $drafts     = $total - $published;
 $categories = blog_get_all_categories_admin();
 $authors    = blog_get_authors();
+$subscribers = newsletter_active_count();
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,6 +49,10 @@ $authors    = blog_get_authors();
         <span class="stat-value"><?= count($categories) ?></span>
         <span class="stat-label">Categories</span>
       </div>
+      <a href="/admin/subscribers.php" class="stat-card stat-card--link">
+        <span class="stat-value"><?= $subscribers ?></span>
+        <span class="stat-label">Subscribers</span>
+      </a>
     </div>
 
     <div class="section-title">Recent Posts</div>

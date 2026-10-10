@@ -103,7 +103,7 @@ body {
 /* ── Stats row ───────────────────────────────────────────────── */
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -186,6 +186,8 @@ body {
 
 .status-published { background: #d1fae5; color: #065f46; }
 .status-draft     { background: #fef3c7; color: #92400e; }
+.status-active       { background: #d1fae5; color: #065f46; }
+.status-unsubscribed { background: #f1f0ec; color: var(--ad-muted); }
 
 /* ── Buttons ─────────────────────────────────────────────────── */
 .btn-primary {
@@ -608,3 +610,38 @@ textarea { resize: vertical; }
   margin-top: 1rem;
   justify-content: flex-end;
 }
+
+/* ── Newsletter ──────────────────────────────────────────────── */
+.stat-card--link { text-decoration: none; color: inherit; transition: border-color .15s; }
+.stat-card--link:hover { border-color: var(--ad-muted); }
+
+.nl-summary { font-size: .85rem; line-height: 1.5; margin-bottom: .85rem; }
+.nl-muted   { color: var(--ad-muted); font-size: .78rem; }
+.nl-error   { color: var(--ad-red); font-size: .78rem; font-weight: 600; }
+
+.nl-test { margin-top: 1rem; padding-top: .85rem; border-top: 1px solid var(--ad-border); }
+.nl-test label { display: block; font-size: .75rem; font-weight: 600; color: var(--ad-muted); margin-bottom: .4rem; }
+.nl-test__row { display: flex; gap: .4rem; }
+.nl-test__row input { flex: 1; min-width: 0; }
+.nl-test__row .btn-ghost { padding: .45rem .8rem; cursor: pointer; background: none; font-family: var(--ad-font); }
+
+.nl-progress-card {
+  background: var(--ad-surface);
+  border: 1px solid var(--ad-border);
+  border-radius: var(--ad-radius);
+  padding: 1.75rem;
+}
+.nl-post-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.25rem; }
+
+.nl-bar { height: 10px; background: var(--ad-bg); border: 1px solid var(--ad-border); border-radius: 99px; overflow: hidden; }
+.nl-bar__fill { height: 100%; width: 0; background: var(--ad-green); transition: width .4s ease; }
+
+.nl-counts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+.nl-counts > div { display: flex; flex-direction: column; gap: .3rem; }
+.nl-counts .nl-failed { color: var(--ad-red); }
+
+.nl-message { font-size: .9rem; min-height: 1.4em; margin-bottom: 1rem; }
+.nl-message--success { color: #065f46; font-weight: 600; }
+.nl-message--error   { color: #991b1b; font-weight: 600; }
+.nl-actions { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.nl-actions [hidden] { display: none; }

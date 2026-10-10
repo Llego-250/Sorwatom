@@ -57,6 +57,7 @@ jobs:
             --exclude-glob Dockerfile \
             --exclude-glob fly.toml \
             --exclude-glob router.php \
+            --exclude-glob data/*.txt \
             . /htdocs/
           bye
           EOF
