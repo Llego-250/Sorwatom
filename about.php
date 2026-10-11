@@ -56,8 +56,7 @@ include 'partials/_head.php';
       <div class="story-grid story-grid--reverse">
 
         <div class="story-text">
-          <span class="eyebrow eyebrow--accent reveal"><?= __t('about.promise.eyebrow') ?></span>
-          <h2 id="promise-heading" class="reveal" data-delay="1"><?= __r('about.promise.heading') ?></h2>
+          <h2 id="promise-heading" class="eyebrow eyebrow--accent reveal"><?= __t('about.promise.eyebrow') ?></h2>
           <p class="reveal" data-delay="2"><?= __t('about.promise.p1') ?></p>
           <p class="reveal" data-delay="3"><?= __t('about.promise.p2') ?></p>
           <p class="reveal" data-delay="4"><?= __t('about.promise.p3') ?></p>
@@ -84,15 +83,11 @@ include 'partials/_head.php';
   </section>
 
 
-  <?php include 'partials/certifications-marquee.php'; ?>
-
-
   <!-- SECTION 3 — Brands -->
   <section class="section principles-section on-dark" aria-labelledby="journey-heading">
     <div class="container">
       <header class="section-header reveal">
-        <span class="eyebrow eyebrow--light"><?= __t('about.journey.eyebrow') ?></span>
-        <h2 id="journey-heading" style="color:white;"><?= __r('about.journey.heading') ?></h2>
+        <h2 id="journey-heading" class="eyebrow eyebrow--light"><?= __t('about.journey.eyebrow') ?></h2>
       </header>
       <div class="principles-grid">
         <?php foreach (['m1','m2','m3','m4'] as $i => $m): ?>

@@ -93,7 +93,7 @@ include 'partials/_head.php';
         <article class="product-card reveal" data-category="condiments" data-delay="4">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('products.ketchup.name') ?> — view product details">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup prastic bottles" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup Plastic bottles" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.ketchup.cat') ?></p>
@@ -107,7 +107,7 @@ include 'partials/_head.php';
         <article class="product-card reveal" data-category="condiments" data-delay="1">
           <a href="/product-vinegar" class="product-card__link" aria-label="<?= __t('products.vinegar.name') ?> — view product details">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar prastic bottles" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar Plastic bottles" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.vinegar.cat') ?></p>

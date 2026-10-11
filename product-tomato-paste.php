@@ -24,8 +24,8 @@ foreach ($gallerySources as $dir) {
 
 if (empty($galleryImages)) {
     $galleryImages = [
-        'assets/img/products/tomatoes_paste_70g.png',
         'assets/img/products/tomatoes_paste_50g.png',
+        'assets/img/products/tomatoes_paste_70g.png',
         'assets/img/products/tomatoes_paste_800g.png',
     ];
 }

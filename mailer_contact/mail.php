@@ -72,6 +72,7 @@ class mail {
                 $mail->Username   = defined('SMTP_USERNAME') ? SMTP_USERNAME : (defined('SMTP_EMAIL') ? SMTP_EMAIL : '');
                 $mail->Password   = defined('SMTP_PASSWORD') ? SMTP_PASSWORD : '';
                 $mail->CharSet    = 'UTF-8';
+                $mail->XMailer    = ' '; // drop the "X-Mailer: PHPMailer 5.2.15" header spam filters dislike
                 // Always listen to the SMTP conversation: PHPMailer's own ErrorInfo is just
                 // "SMTP connect() failed", the real reason (bad password, refused...) is in here.
                 $debug  = !empty($options['debug']);

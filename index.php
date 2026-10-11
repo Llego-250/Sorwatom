@@ -147,7 +147,6 @@ include 'partials/_head.php';
         </div>
         <div class="story-text reveal" data-delay="2">
           <div class="story-text__intro">
-            <span class="eyebrow"><?= __t('home.story.eyebrow') ?></span>
             <h2 id="story-heading" class="story-text__title"><?= __r('home.story.title') ?></h2>
           </div>
           <div class="story-text__block">
