@@ -83,6 +83,9 @@ include 'partials/_head.php';
   </section>
 
 
+  <?php include 'partials/certifications-marquee.php'; ?>
+
+
   <!-- SECTION 3 — Brands -->
   <section class="section principles-section on-dark" aria-labelledby="journey-heading">
     <div class="container">
