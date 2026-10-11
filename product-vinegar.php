@@ -1,6 +1,6 @@
 <?php
 $page_title       = 'Pure Vinegar — Sorwatom';
-$page_description = 'Sorwatom Pure White Vinegar — distilled from natural ingredients to a precise 5% acidity. Versatile use for salads, dressings, and natural preservation. Available in Plastic bottless.';
+$page_description = 'Sorwatom Pure White Vinegar — distilled from natural ingredients to a precise 5% acidity. Versatile use for salads, dressings, and natural preservation. Available in plastic bottles.';
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-vinegar';
 $current_page     = 'products';

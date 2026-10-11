@@ -51,7 +51,7 @@
             'eyebrow'  => 'Why Sorwatom',
             'heading'  => 'Crafted with care, <em>delivered with pride.</em>',
             'p1' => ['title' => '100% Natural',      'desc' => 'No synthetic additives, no preservatives. Nothing artificial — ever.'],
-            'p2' => ['title' => 'Certified Quality',  'desc' => 'ISO certified processes meeting the highest international food safety benchmarks.'],
+            'p2' => ['title' => 'Certified Quality',  'desc' => 'ISO, KEBS, US FDA, Halal and Kosher certified processes meeting the highest international food safety benchmarks.'],
             'p3' => ['title' => 'Global Standards',   'desc' => 'Rigorous quality control aligned with international food industry requirements.'],
         ],
         'offerings' => [

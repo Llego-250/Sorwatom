@@ -305,8 +305,6 @@
   text-transform: uppercase;
   color: rgba(28, 35, 31, 0.7);
   margin-bottom: 0.75rem;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .signature-offerings .product-card__name {
