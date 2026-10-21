@@ -28,9 +28,9 @@ include 'partials/_head.php';
         <h1 class="hero__title reveal" data-delay="2"><?= __r('contact.hero.title') ?></h1>
         <p class="hero__subtitle reveal" data-delay="3"><?= __t('contact.hero.subtitle') ?></p>
         <div class="cluster reveal" data-delay="4" aria-label="<?= __t('a11y.countries') ?>">
-          <span class="country-flag">🇷🇼 <span>Rwanda</span></span>
-          <span class="country-flag">🇧🇮 <span>Burundi</span></span>
-          <span class="country-flag">🇨🇩 <span><?= __t('contact.offices.cd') ?></span></span>
+          <span class="country-flag">🇷🇼 <span><?= __t('contact.hero.countries.rw') ?></span></span>
+          <span class="country-flag">🇧🇮 <span><?= __t('contact.hero.countries.bi') ?></span></span>
+          <span class="country-flag">🇨🇩 <span><?= __t('contact.hero.countries.cd') ?></span></span>
         </div>
       </div>
     </div>

@@ -90,6 +90,7 @@
         'contact'    => 'Contact',
         'open_menu'  => 'Open menu',
         'close_menu' => 'Close menu',
+        'language'   => 'Language',
     ],
 
     'footer' => [
@@ -250,6 +251,7 @@
             'eyebrow'  => 'GET IN TOUCH',
             'title'    => "Let's start a <em>conversation.</em>",
             'subtitle' => 'Distribution, export, or partnership — our team across Rwanda, Burundi and the DRC is ready to help your business succeed.',
+            'countries' => ['rw' => 'Rwanda', 'bi' => 'Burundi', 'cd' => 'DRC'],
         ],
         'form' => [
             'eyebrow'     => 'INQUIRY FORM',
@@ -298,7 +300,7 @@
         ],
         'filter'   => ['all' => 'All'],
         'featured' => ['label' => 'Latest', 'read_more' => 'Read article →'],
-        'card'     => ['read_more' => 'Read article →', 'min_read' => '{n} min read'],
+        'card'     => ['read_more' => 'Read article →', 'min_read' => '{n} min read', 'min_read_one' => '1 min read'],
         'months'   => 'January,February,March,April,May,June,July,August,September,October,November,December',
         'empty'    => 'No posts in this category yet.',
         'pagination' => ['prev' => '← Prev', 'next' => 'Next →', 'info' => 'Page {page} of {total}'],

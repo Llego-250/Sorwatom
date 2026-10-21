@@ -29,7 +29,7 @@ include 'partials/_head.php';
   <section class="section">
     <div class="container--narrow">
 
-      <p class="privacy-updated"><?= __t('privacy.updated') ?>: <?= date('d F Y') ?></p>
+      <p class="privacy-updated"><?= __t('privacy.updated') ?>: <?= __date(time()) ?></p>
 
       <?php
       $sections = ['s1','s2','s3','s4','s5','s6','s7'];

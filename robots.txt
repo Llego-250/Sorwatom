@@ -6,5 +6,6 @@ Disallow: /config/
 Disallow: /data/
 Disallow: /lang/
 Disallow: /partials/
+Disallow: /lang-switch
 
 Sitemap: https://sorwatom.rf.gd/sitemap.xml

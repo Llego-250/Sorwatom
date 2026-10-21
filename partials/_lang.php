@@ -5,7 +5,7 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 
 $LANG_CODE = 'en';
-$allowed   = ['en'];
+$allowed   = ['en', 'rw'];
 
 if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], $allowed, true)) {
     $LANG_CODE = $_SESSION['lang'];
@@ -51,4 +51,10 @@ function __r(string $key, array $replace = []): string {
         $val = str_replace('{' . $k . '}', $v, $val);
     }
     return $val;
+}
+
+/** Date as "21 October 2026", with the month name in the current language. */
+function __date(int $ts): string {
+    $months = explode(',', __lookup('blog.months') ?? '');
+    return date('j', $ts) . ' ' . ($months[(int) date('n', $ts) - 1] ?? date('F', $ts)) . ' ' . date('Y', $ts);
 }

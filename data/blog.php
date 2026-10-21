@@ -10,9 +10,7 @@ function blog_reading_time(string $html): int {
 function blog_format_date(string $date): string {
     $ts = strtotime($date);
     // Month names follow the site language when it is loaded (admin and the RSS feed stay English)
-    $months = function_exists('__lookup') ? explode(',', __lookup('blog.months') ?? '') : [];
-    $month  = $months[(int) date('n', $ts) - 1] ?? date('F', $ts);
-    return date('j', $ts) . ' ' . $month . ' ' . date('Y', $ts);
+    return function_exists('__date') ? __date($ts) : date('j F Y', $ts);
 }
 
 function blog_hydrate(array $post): array {

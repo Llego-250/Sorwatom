@@ -101,7 +101,7 @@ include 'partials/_head.php';
               <?= htmlspecialchars($featured['date_formatted']) ?>
             </time>
             <span aria-hidden="true">·</span>
-            <span><?= __t('blog.card.min_read', ['n' => $featured['reading_time']]) ?></span>
+            <span><?= __t($featured['reading_time'] === 1 ? 'blog.card.min_read_one' : 'blog.card.min_read', ['n' => $featured['reading_time']]) ?></span>
           </div>
           <span class="featured-post__read-more"><?= __t('blog.featured.read_more') ?></span>
         </div>
@@ -139,7 +139,7 @@ include 'partials/_head.php';
                   <?= htmlspecialchars($post['date_formatted']) ?>
                 </time>
                 <span class="post-card__dot" aria-hidden="true">·</span>
-                <span><?= __t('blog.card.min_read', ['n' => $post['reading_time']]) ?></span>
+                <span><?= __t($post['reading_time'] === 1 ? 'blog.card.min_read_one' : 'blog.card.min_read', ['n' => $post['reading_time']]) ?></span>
               </div>
               <h2 class="post-card__title"><?= htmlspecialchars($post['title']) ?></h2>
               <p class="post-card__excerpt"><?= htmlspecialchars($post['excerpt'] ?? '') ?></p>
