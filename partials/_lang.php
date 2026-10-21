@@ -5,7 +5,7 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 
 $LANG_CODE = 'en';
-$allowed   = ['en', 'fr', 'rw', 'sw'];
+$allowed   = ['en', 'rw'];
 
 if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], $allowed, true)) {
     $LANG_CODE = $_SESSION['lang'];

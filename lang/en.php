@@ -1,5 +1,5 @@
 <?php return [
-    'lang' => ['en' => 'English', 'fr' => 'Français', 'sw' => 'Kiswahili'],
+    'lang' => ['en' => 'English', 'rw' => 'Kinyarwanda'],
 
     'nav' => [
         'home'       => 'Home',

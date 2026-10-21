@@ -4,9 +4,7 @@
 <?php
 $top_langs = [
   'en' => ['name' => 'English', 'flag' => '🇬🇧'],
-  'fr' => ['name' => 'Français', 'flag' => '🇫🇷'],
   'rw' => ['name' => 'Kinyarwanda', 'flag' => '🇷🇼'],
-  'sw' => ['name' => 'Kiswahili', 'flag' => '🇹🇿']
 ];
 ?>
 
