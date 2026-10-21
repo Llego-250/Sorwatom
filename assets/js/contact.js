@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!form) return;
 
+  // Messages come translated from data-msg-* attributes on the form
+  const msg = form.dataset;
+  const submitLabel = btnLabel?.textContent;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -21,19 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = form.elements.message.value.trim();
 
     if (!name || !email || !message) {
-      showFeedback('error', 'Please fill in all required fields.');
+      showFeedback('error', msg.msgRequired || 'Please fill in all required fields.');
       return;
     }
 
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRe.test(email)) {
-      showFeedback('error', 'Please enter a valid email address.');
+      showFeedback('error', msg.msgEmail || 'Please enter a valid email address.');
       return;
     }
 
     // Loading state
     submitBtn.disabled = true;
-    if (btnLabel) btnLabel.textContent = 'Sending…';
+    if (btnLabel) btnLabel.textContent = msg.msgSending || 'Sending…';
 
     try {
       const formData = new FormData(form);
@@ -45,19 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
 
       if (data.success) {
-        showFeedback('success', "Your message was sent. We’ll be in touch within one business day.");
+        showFeedback('success', msg.msgSent || "Your message was sent. We’ll be in touch within one business day.");
         form.reset();
         document.querySelectorAll('.inquiry-pill').forEach((p, i) => p.classList.toggle('active', i === 0));
         const inquiryInput = document.getElementById('inquiry_type');
         if (inquiryInput) inquiryInput.value = 'distribution';
       } else {
-        showFeedback('error', data.message || 'Something went wrong. Please try calling us directly.');
+        showFeedback('error', data.message || msg.msgFailed || 'Something went wrong. Please try calling us directly.');
       }
     } catch {
-      showFeedback('error', 'Could not connect. Please try again or call us directly.');
+      showFeedback('error', msg.msgOffline || 'Could not connect. Please try again or call us directly.');
     } finally {
       submitBtn.disabled = false;
-      if (btnLabel) btnLabel.textContent = 'Send Message';
+      if (btnLabel) btnLabel.textContent = submitLabel;
     }
   });
 

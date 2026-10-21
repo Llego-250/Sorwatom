@@ -13,8 +13,10 @@ $cert_loop  = array_merge($cert_items, $cert_items);
       <div class="cert-marquee__track">
         <?php foreach ($cert_loop as $i => $cert): ?>
         <?php
-          $label  = $cert['label'];
-          $detail = $cert['detail'];
+          $label  = isset($cert['label_key']) ? __r('about.certifications.' . $cert['label_key']) : $cert['label'];
+          $detail = isset($cert['issuer'])
+              ? __r('about.certifications.issued_by', ['company' => $cert['company'], 'issuer' => $cert['issuer']])
+              : $cert['company'];
           $tip_id = 'cert-tip-' . $i;
         ?>
         <div class="cert-pill-wrap">

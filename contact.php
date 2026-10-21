@@ -1,6 +1,7 @@
 <?php
-$page_title       = 'Get in Touch — Sorwatom';
-$page_description = 'Contact Sorwatom for distribution, wholesale export, or general inquiries. Offices in Rwanda, Burundi and the DRC.';
+require_once __DIR__ . '/partials/_lang.php';
+$page_title       = __r('meta.contact.title');
+$page_description = __r('meta.contact.desc');
 $page_css         = ['pages/contact.css'];
 $page_js          = ['contact.js'];
 $body_class       = 'page-contact';
@@ -16,7 +17,7 @@ include 'partials/_head.php';
 <main id="main-content">
 
   <!-- SECTION 1 — HERO -->
-  <section class="hero hero--full" aria-label="Contact page introduction">
+  <section class="hero hero--full" aria-label="<?= __t('a11y.contact_intro') ?>">
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/contact-map.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/contact-map.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
@@ -26,10 +27,10 @@ include 'partials/_head.php';
         <p class="eyebrow eyebrow--light reveal" data-delay="1"><?= __t('contact.hero.eyebrow') ?></p>
         <h1 class="hero__title reveal" data-delay="2"><?= __r('contact.hero.title') ?></h1>
         <p class="hero__subtitle reveal" data-delay="3"><?= __t('contact.hero.subtitle') ?></p>
-        <div class="cluster reveal" data-delay="4" aria-label="Countries we operate in">
+        <div class="cluster reveal" data-delay="4" aria-label="<?= __t('a11y.countries') ?>">
           <span class="country-flag">🇷🇼 <span>Rwanda</span></span>
           <span class="country-flag">🇧🇮 <span>Burundi</span></span>
-          <span class="country-flag">🇨🇩 <span>DRC</span></span>
+          <span class="country-flag">🇨🇩 <span><?= __t('contact.offices.cd') ?></span></span>
         </div>
       </div>
     </div>
@@ -44,7 +45,13 @@ include 'partials/_head.php';
         <div class="form-card reveal">
           <p class="eyebrow eyebrow--accent"><?= __t('contact.form.eyebrow') ?></p>
           <h2 id="contact-form-heading"><?= __t('contact.form.heading') ?></h2>
-          <form id="contact-form" novalidate>
+          <form id="contact-form" novalidate
+                data-msg-required="<?= __t('contact.form.msg.required') ?>"
+                data-msg-email="<?= __t('contact.form.msg.email') ?>"
+                data-msg-sending="<?= __t('contact.form.msg.sending') ?>"
+                data-msg-sent="<?= __t('contact.form.msg.sent') ?>"
+                data-msg-failed="<?= __t('contact.form.msg.failed') ?>"
+                data-msg-offline="<?= __t('contact.form.msg.offline') ?>">
             <input type="hidden" name="inquiry_type" id="inquiry_type" value="distribution">
             <div class="form-grid">
               <div class="form-field">
@@ -78,7 +85,7 @@ include 'partials/_head.php';
 
         <div class="offices-col reveal" data-delay="1">
           <p class="eyebrow"><?= __t('contact.offices.eyebrow') ?></p>
-          <article class="office-card office-card--hq" aria-label="Rwanda headquarters">
+          <article class="office-card office-card--hq" aria-label="<?= __t('a11y.office_rw') ?>">
             <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇷🇼</span><?= __t('contact.offices.rw') ?></div>
             <p class="office-card__number">+250 787 160 000</p>
             <div class="office-card__detail">
@@ -87,11 +94,11 @@ include 'partials/_head.php';
               <span><?= __t('contact.offices.hours') ?></span>
             </div>
           </article>
-          <article class="office-card" aria-label="Burundi & DRC presence">
-            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇧🇮 🇨🇩</span> Regional Operations</div>
+          <article class="office-card" aria-label="<?= __t('a11y.office_region') ?>">
+            <div class="office-card__country"><span class="office-card__flag" aria-hidden="true">🇧🇮 🇨🇩</span> <?= __t('contact.offices.regional') ?></div>
             <div class="office-card__detail">
-              Burundi &amp; Eastern DRC<br>
-              <span>Contact HQ for local distribution</span>
+              <?= __t('contact.offices.regional_area') ?><br>
+              <span><?= __t('contact.offices.regional_note') ?></span>
             </div>
           </article>
         </div>

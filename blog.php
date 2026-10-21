@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/partials/_lang.php';
 require_once __DIR__ . '/data/blog.php';
 
 $per_page    = 9;
@@ -14,8 +15,8 @@ $featured    = ($page === 1 && $active_cat === 'all') ? blog_get_featured() : nu
 $grid_posts = blog_get_posts($page, $per_page + ($featured ? 1 : 0), $active_cat);
 if ($featured && $page === 1) array_shift($grid_posts);
 
-$page_title       = 'Journal — Sorwatom';
-$page_description = 'Stories from the kitchen — new recipes, cooking tips and stories from across the region.';
+$page_title       = __r('meta.blog.title');
+$page_description = __r('meta.blog.desc');
 $page_css         = ['pages/blog.css'];
 $body_class       = 'page-blog';
 $current_page     = 'blog';
@@ -30,7 +31,7 @@ include 'partials/_head.php';
   <!-- ============================================================
        HERO
        ============================================================ -->
-  <section class="hero hero--full" aria-label="Journal">
+  <section class="hero hero--full" aria-label="<?= __t('nav.journal') ?>">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
     <div class="hero__content">
       <div class="container">
@@ -49,7 +50,7 @@ include 'partials/_head.php';
     <div class="container">
 
       <!-- Category filter -->
-      <div class="blog-filter" role="group" aria-label="Filter by category">
+      <div class="blog-filter" role="group" aria-label="<?= __t('a11y.filter_blog') ?>">
         <a href="/blog" class="filter-pill <?= $active_cat === 'all' ? 'active' : '' ?>"><?= __t('blog.filter.all') ?></a>
         <?php foreach ($categories as $cat): ?>
         <a href="/blog?category=<?= urlencode($cat['slug']) ?>"
@@ -72,7 +73,7 @@ include 'partials/_head.php';
       ?>
       <a href="/blog/<?= htmlspecialchars($featured['slug']) ?>"
          class="featured-post reveal"
-         aria-label="Featured: <?= htmlspecialchars($featured['title']) ?>">
+         aria-label="<?= __t('a11y.featured', ['title' => $featured['title']]) ?>">
         <div class="featured-post__img-wrap">
           <?php if (!empty($featured['image_url'])): ?>
           <img src="<?= htmlspecialchars($featured['image_url']) ?>"
@@ -100,7 +101,7 @@ include 'partials/_head.php';
               <?= htmlspecialchars($featured['date_formatted']) ?>
             </time>
             <span aria-hidden="true">·</span>
-            <span><?= $featured['reading_time'] ?> <?= __t('blog.card.min_read') ?></span>
+            <span><?= __t('blog.card.min_read', ['n' => $featured['reading_time']]) ?></span>
           </div>
           <span class="featured-post__read-more"><?= __t('blog.featured.read_more') ?></span>
         </div>
@@ -116,7 +117,7 @@ include 'partials/_head.php';
         <article class="post-card reveal" data-delay="<?= ($i % 3) + 1 ?>">
           <a href="/blog/<?= htmlspecialchars($post['slug']) ?>"
              class="post-card__link"
-             aria-label="Read: <?= htmlspecialchars($post['title']) ?>">
+             aria-label="<?= __t('a11y.read', ['title' => $post['title']]) ?>">
 
             <div class="post-card__img-wrap">
               <?php if (!empty($post['image_url'])): ?>
@@ -138,7 +139,7 @@ include 'partials/_head.php';
                   <?= htmlspecialchars($post['date_formatted']) ?>
                 </time>
                 <span class="post-card__dot" aria-hidden="true">·</span>
-                <span><?= $post['reading_time'] ?> <?= __t('blog.card.min_read') ?></span>
+                <span><?= __t('blog.card.min_read', ['n' => $post['reading_time']]) ?></span>
               </div>
               <h2 class="post-card__title"><?= htmlspecialchars($post['title']) ?></h2>
               <p class="post-card__excerpt"><?= htmlspecialchars($post['excerpt'] ?? '') ?></p>
@@ -153,7 +154,7 @@ include 'partials/_head.php';
 
       <!-- Pagination -->
       <?php if ($total_pages > 1): ?>
-      <nav class="pagination" aria-label="Blog pagination">
+      <nav class="pagination" aria-label="<?= __t('a11y.pagination') ?>">
         <?php if ($page > 1): ?>
         <a href="/blog?<?= http_build_query(array_merge($_GET, ['page' => $page - 1])) ?>"
            class="pagination__btn"><?= __t('blog.pagination.prev') ?></a>

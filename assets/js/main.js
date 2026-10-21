@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle?.setAttribute('aria-expanded', 'false');
     mobileNav?.setAttribute('aria-hidden', 'true');
     mobileNav?.classList.remove('open');
-    toggle?.setAttribute('aria-label', 'Open menu');
+    toggle?.setAttribute('aria-label', toggle.dataset.labelOpen || 'Open menu');
     document.body.style.overflow = '';
   }
 
@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.setAttribute('aria-expanded', String(!isOpen));
     mobileNav?.setAttribute('aria-hidden', String(isOpen));
     mobileNav?.classList.toggle('open', !isOpen);
-    toggle.setAttribute('aria-label', !isOpen ? 'Close menu' : 'Open menu');
+    toggle.setAttribute('aria-label', !isOpen
+      ? (toggle.dataset.labelClose || 'Close menu')
+      : (toggle.dataset.labelOpen || 'Open menu'));
     document.body.style.overflow = !isOpen ? 'hidden' : '';
   });
 

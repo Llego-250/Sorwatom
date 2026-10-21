@@ -1,6 +1,7 @@
 <?php
-$page_title       = 'Pilau Masala — Sorwatom';
-$page_description = 'Sorwatom Royal Pilau Masala Blend — a hand-ground heritage spice blend with 100% natural herbs: garlic powder, cumin seed, turmeric and cinnamon. Available in 50g and 100g.';
+require_once __DIR__ . '/partials/_lang.php';
+$page_title       = __r('meta.masala.title');
+$page_description = __r('meta.masala.desc');
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-masala';
 $current_page     = 'products';
@@ -294,7 +295,7 @@ $mainGalleryImage = $galleryImages[0];
 <?php include 'partials/nav.php'; ?>
 
 <!-- Hero -->
-<section class="hero hero--half product-hero" aria-label="Pilau Masala">
+<section class="hero hero--half product-hero" aria-label="<?= __t('pd.rel.masala_name') ?>">
     <img class="hero__bg" src="assets/img/slider/collection-flatlay.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
         <span class="eyebrow eyebrow--light"><?= __t('pd.masala.hero_eyebrow') ?></span>
@@ -313,15 +314,15 @@ $mainGalleryImage = $galleryImages[0];
                     <img
                         id="mainProductImg"
                         src="<?= htmlspecialchars($mainGalleryImage) ?>"
-                        alt="Sorwatom Pilau Masala product image"
+                        alt="<?= __t('img.masala_product') ?>"
                         loading="eager"
                         class="product-main-img">
                 </div>
                 <div class="product-thumb-strip">
                     <?php foreach ($galleryImages as $index => $galleryImage): ?>
-                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="Sorwatom Pilau Masala product image" onclick="switchImg(this)">
-                            <img src="<?= htmlspecialchars($galleryImage) ?>" alt="Sorwatom Pilau Masala variant" loading="lazy" decoding="async">
-                            <span>Variant <?= $index + 1 ?></span>
+                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="<?= __t('img.masala_product') ?>" onclick="switchImg(this)">
+                            <img src="<?= htmlspecialchars($galleryImage) ?>" alt="<?= __t('img.masala_variant') ?>" loading="lazy" decoding="async">
+                            <span><?= __t('pd.variant', ['n' => $index + 1]) ?></span>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -357,7 +358,7 @@ $mainGalleryImage = $galleryImages[0];
 
             <a href="/product-tomato-paste" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste" loading="lazy" decoding="async">
+                    <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.tomato') ?>" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.tomato_label') ?></span>
@@ -368,7 +369,7 @@ $mainGalleryImage = $galleryImages[0];
 
             <a href="/product-ketchup" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup" loading="lazy" decoding="async">
+                    <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup') ?>" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.ketchup_label') ?></span>
@@ -379,7 +380,7 @@ $mainGalleryImage = $galleryImages[0];
 
             <a href="/product-vinegar" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar" loading="lazy" decoding="async">
+                    <img src="assets/img/products/vinegar.png" alt="<?= __t('img.vinegar') ?>" loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.vinegar_label') ?></span>

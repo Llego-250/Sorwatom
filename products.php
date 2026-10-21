@@ -1,6 +1,7 @@
 <?php
-$page_title       = 'The Collection — Sorwatom';
-$page_description = 'Six essential East African products: tomato paste, ketchup, vinegar and pilau masala. 100% natural, internationally certified.';
+require_once __DIR__ . '/partials/_lang.php';
+$page_title       = __r('meta.products.title');
+$page_description = __r('meta.products.desc');
 $page_css         = ['pages/products.css'];
 $body_class       = 'page-products';
 $current_page     = 'products';
@@ -16,7 +17,7 @@ include 'partials/_head.php';
 <main id="main-content">
 
   <!-- SECTION 1 — HERO -->
-  <section class="hero hero--full" aria-label="Page introduction">
+  <section class="hero hero--full" aria-label="<?= __t('a11y.page_intro') ?>">
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/collection-flatlay.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/collection-flatlay.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
@@ -35,7 +36,7 @@ include 'partials/_head.php';
     <div class="container">
 
       <div class="products-filter-row">
-        <div class="filter-pills" role="group" aria-label="Filter products by category">
+        <div class="filter-pills" role="group" aria-label="<?= __t('a11y.filter_products') ?>">
           <button class="filter-pill active" data-filter="all"        aria-pressed="true"><?= __t('products.filter.all') ?></button>
           <button class="filter-pill"        data-filter="paste"      aria-pressed="false"><?= __t('products.filter.paste') ?></button>
           <button class="filter-pill"        data-filter="condiments" aria-pressed="false"><?= __t('products.filter.condiments') ?></button>
@@ -43,12 +44,12 @@ include 'partials/_head.php';
         </div>
       </div>
 
-      <div class="grid-3 products-grid" id="products-grid" aria-label="Product collection" aria-live="polite">
+      <div class="grid-3 products-grid" id="products-grid" aria-label="<?= __t('a11y.product_grid') ?>" aria-live="polite">
 
         <article class="product-card reveal" data-category="paste" data-delay="1">
-          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('products.p50.name') ?> — view product details">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p50.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/tomatoes_paste_50g.png" alt="Sorwatom Tomato Paste 50g sachet" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/tomatoes_paste_50g.png" alt="<?= __t('img.paste_50') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p50.cat') ?></p>
@@ -60,9 +61,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card reveal" data-category="paste" data-delay="2">
-          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('products.p70.name') ?> — view product details">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p70.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste 70g sachet" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
               <div class="product-card__badges" aria-hidden="true">
                 <span class="badge badge--accent"><?= __t('products.badge.bestseller') ?></span>
               </div>
@@ -77,9 +78,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card reveal" data-category="paste" data-delay="3">
-          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('products.p800.name') ?> — view product details">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p800.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/tomatoes_paste_800g.png" alt="Sorwatom Tomato Paste 800g tin" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/tomatoes_paste_800g.png" alt="<?= __t('img.paste_800') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p800.cat') ?></p>
@@ -91,9 +92,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card reveal" data-category="condiments" data-delay="4">
-          <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('products.ketchup.name') ?> — view product details">
+          <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.ketchup.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup plastic bottle" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_plastic') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.ketchup.cat') ?></p>
@@ -105,9 +106,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card reveal" data-category="condiments" data-delay="1">
-          <a href="/product-vinegar" class="product-card__link" aria-label="<?= __t('products.vinegar.name') ?> — view product details">
+          <a href="/product-vinegar" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.vinegar.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/vinegar.png" alt="Sorwatom Pure Vinegar plastic bottle" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/vinegar.png" alt="<?= __t('img.vinegar_plastic') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.vinegar.cat') ?></p>
@@ -119,9 +120,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card reveal" data-category="spices" data-delay="2">
-          <a href="/product-masala" class="product-card__link" aria-label="<?= __t('products.masala.name') ?> — view product details">
+          <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.masala.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala spice pouch" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_pouch') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.masala.cat') ?></p>

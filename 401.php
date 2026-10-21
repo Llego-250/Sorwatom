@@ -1,7 +1,8 @@
 <?php
+require_once __DIR__ . '/partials/_lang.php';
 http_response_code(401);
-$page_title       = '401 — Unauthorized | Sorwatom';
-$page_description = 'You need to log in with valid credentials to view this page.';
+$page_title       = __r('meta.401.title');
+$page_description = __r('meta.401.desc');
 $page_css         = [];
 $body_class       = 'page-401';
 $current_page     = '';
@@ -11,7 +12,7 @@ include 'partials/_head.php';
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <main id="main-content">
-  <section class="section-401" aria-label="Unauthorized">
+  <section class="section-401" aria-label="<?= __t('401.aria') ?>">
     <div class="container">
       <div class="err-page-grid">
 
@@ -20,7 +21,7 @@ include 'partials/_head.php';
           <div class="err-page-img-glow" aria-hidden="true"></div>
           <img
             src="/assets/img/401.png"
-            alt="Sorwatom 401 — Unauthorized"
+            alt="<?= __t('401.img_alt') ?>"
             class="err-page-img"
             width="560"
             height="380"

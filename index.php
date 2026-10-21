@@ -1,6 +1,7 @@
 <?php
-$page_title       = 'Sorwatom — Musosi Fresh from the Great Lakes';
-$page_description = 'Sorwatom produces 100% natural tomato paste, ketchup, masala and vinegar crafted in the heart of East Africa since 1984.';
+require_once __DIR__ . '/partials/_lang.php';
+$page_title       = __r('meta.home.title');
+$page_description = __r('meta.home.desc');
 $page_css         = ['pages/home.css'];
 $body_class       = 'page-home';
 $current_page     = 'home';
@@ -16,12 +17,12 @@ include 'partials/_head.php';
 <main id="main">
 
   <!-- SECTION 1 — HERO -->
-  <section class="hero hero--full" aria-label="Homepage hero">
+  <section class="hero hero--full" aria-label="<?= __t('a11y.home_hero') ?>">
     <picture>
       <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/hero_tomato.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/hero-tomato.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     </picture>
-    <a href="#main" class="skip-link">Skip to content</a>
+    <a href="#main" class="skip-link"><?= __t('a11y.skip_content') ?></a>
     <div class="hero__content">
       <div class="container">
         <p class="hero-eyebrow"><?= __t('home.hero.eyebrow') ?></p>
@@ -90,10 +91,10 @@ include 'partials/_head.php';
 
       <div class="signature-offerings__grid grid-3">
         <article class="product-card product-card--signature reveal" data-delay="1">
-          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('home.offerings.paste.name') ?> — view product">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.paste.name')]) ?>">
             <div class="product-card__img-wrap">
-              <div class="product-card__badges"><span class="badge badge--dark">Bestseller</span></div>
-              <img src="assets/img/products/tomatoes_paste_70g.png" alt="Sorwatom Tomato Paste 70g sachet" loading="lazy" width="400" height="400">
+              <div class="product-card__badges"><span class="badge badge--dark"><?= __t('home.offerings.bestseller') ?></span></div>
+              <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.paste.cat') ?></p>
@@ -104,9 +105,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card product-card--signature reveal" data-delay="2">
-          <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('home.offerings.ketchup.name') ?> — view product">
+          <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.ketchup.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/ketchup.png" alt="Sorwatom Tomato Ketchup bottle" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_bottle') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.ketchup.cat') ?></p>
@@ -117,9 +118,9 @@ include 'partials/_head.php';
         </article>
 
         <article class="product-card product-card--signature reveal" data-delay="3">
-          <a href="/product-masala" class="product-card__link" aria-label="<?= __t('home.offerings.masala.name') ?> — view product">
+          <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.masala.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/masala.png" alt="Sorwatom Pilau Masala packet" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_packet') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.masala.cat') ?></p>
@@ -139,7 +140,7 @@ include 'partials/_head.php';
     <div class="container">
       <div class="story-grid">
         <div class="story-img-wrap reveal" data-delay="1">
-          <img src="assets/img/slider/Mobile/collection-flatlay.png" alt="Great Lakes region, the home of Sorwatom" loading="lazy" width="600" height="750">
+          <img src="assets/img/slider/Mobile/collection-flatlay.png" alt="<?= __t('img.great_lakes_home') ?>" loading="lazy" width="600" height="750">
           <div class="story-badge">
             <span class="story-badge__value"><?= __t('home.story.badge_v', ['years' => $heritage_years]) ?></span>
             <span class="story-badge__label"><?= __t('home.story.badge_l') ?></span>

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/partials/_lang.php';
 require_once __DIR__ . '/data/newsletter.php';
 
 // Links in emails carry the address and its signature. Opening the link only asks
@@ -18,8 +19,8 @@ if ($state === 'confirm' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $email_html = '<strong>' . htmlspecialchars($email) . '</strong>';
 
-$page_title       = 'Unsubscribe — Sorwatom';
-$page_description = 'Manage your Sorwatom newsletter subscription.';
+$page_title       = __r('meta.unsubscribe.title');
+$page_description = __r('meta.unsubscribe.desc');
 $page_css         = ['pages/contact.css'];
 $body_class       = 'page-unsubscribe';
 $current_page     = '';

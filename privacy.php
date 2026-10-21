@@ -1,6 +1,7 @@
 <?php
-$page_title       = 'Privacy Policy — Sorwatom';
-$page_description = 'How Sorwatom collects, uses and protects your personal information.';
+require_once __DIR__ . '/partials/_lang.php';
+$page_title       = __r('meta.privacy.title');
+$page_description = __r('meta.privacy.desc');
 $page_css         = ['pages/contact.css'];
 $body_class       = 'page-privacy';
 $current_page     = '';
@@ -13,11 +14,11 @@ include 'partials/_head.php';
 <main id="main-content">
 
   <!-- Hero -->
-  <section class="hero hero--half" aria-label="Privacy Policy">
+  <section class="hero hero--half" aria-label="<?= __t('privacy.title') ?>">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
     <div class="hero__content">
       <div class="container">
-        <span class="eyebrow eyebrow--light">LEGAL</span>
+        <span class="eyebrow eyebrow--light"><?= __t('privacy.eyebrow') ?></span>
         <h1 class="hero__title"><?= __t('privacy.title') ?></h1>
         <p class="hero__subtitle"><?= __t('privacy.subtitle') ?></p>
       </div>

@@ -54,7 +54,7 @@
       <div class="popup-social-box">
         <h3 class="popup-section-label"><?= __t('popup.social_title') ?></h3>
         <div class="popup-social-grid">
-          <a href="https://www.instagram.com/sorwatom_rw/" target="_blank" rel="noopener noreferrer" class="popup-social-card insta" aria-label="Sorwatom on Instagram">
+          <a href="https://www.instagram.com/sorwatom_rw/" target="_blank" rel="noopener noreferrer" class="popup-social-card insta" aria-label="<?= __t('a11y.social_on', ['network' => 'Instagram']) ?>">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -65,7 +65,7 @@
             <span>Instagram</span>
           </a>
 
-          <a href="https://www.tiktok.com/@sorwatom_rw" target="_blank" rel="noopener noreferrer" class="popup-social-card Tiktok" aria-label="Sorwatom on Tiktok">
+          <a href="https://www.tiktok.com/@sorwatom_rw" target="_blank" rel="noopener noreferrer" class="popup-social-card Tiktok" aria-label="<?= __t('a11y.social_on', ['network' => 'Tiktok']) ?>">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"></path>
@@ -74,7 +74,7 @@
             <span>Tiktok</span>
           </a>
 
-          <a href="https://www.facebook.com/SORWATOM/" target="_blank" rel="noopener noreferrer" class="popup-social-card fb" aria-label="Sorwatom on Facebook">
+          <a href="https://www.facebook.com/SORWATOM/" target="_blank" rel="noopener noreferrer" class="popup-social-card fb" aria-label="<?= __t('a11y.social_on', ['network' => 'Facebook']) ?>">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -83,7 +83,7 @@
             <span>Facebook</span>
           </a>
 
-          <a href="https://www.X.com/sorwatom/" target="_blank" rel="noopener noreferrer" class="popup-social-card twitter" aria-label="Sorwatom on Twitter (X)">
+          <a href="https://www.X.com/sorwatom/" target="_blank" rel="noopener noreferrer" class="popup-social-card twitter" aria-label="<?= __t('a11y.social_on', ['network' => 'Twitter (X)']) ?>">
             <div class="popup-social-icon">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>

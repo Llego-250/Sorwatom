@@ -1,5 +1,86 @@
 <?php return [
-    'lang' => ['en' => 'English', 'rw' => 'Kinyarwanda'],
+    // Browser-tab titles and search descriptions
+    'meta' => [
+        'default_title'    => 'Sorwatom — Great Lakes Agribusiness',
+        'default_desc'     => "Sorwatom — The Great Lakes' leading agribusiness, Delivering exceptional supply chain solutions to the modern EAC market since 1984.",
+        'blog_post_suffix' => 'Sorwatom Journal',
+        'home'        => ['title' => 'Sorwatom — Musosi Fresh from the Great Lakes', 'desc' => 'Sorwatom produces 100% natural tomato paste, ketchup, masala and vinegar crafted in the heart of East Africa since 1984.'],
+        'about'       => ['title' => 'About us — Sorwatom',         'desc' => 'Forty years of trust — since 1984, Sorwatom has brought dependable, everyday flavours to tables across Rwanda, Burundi and Eastern DRC.'],
+        'products'    => ['title' => 'The Collection — Sorwatom',   'desc' => 'Six essential East African products: tomato paste, ketchup, vinegar and pilau masala. 100% natural, internationally certified.'],
+        'contact'     => ['title' => 'Get in Touch — Sorwatom',     'desc' => 'Contact Sorwatom for distribution, wholesale export, or general inquiries. Offices in Rwanda, Burundi and the DRC.'],
+        'blog'        => ['title' => 'Journal — Sorwatom',          'desc' => 'Stories from the kitchen — new recipes, cooking tips and stories from across the region.'],
+        'privacy'     => ['title' => 'Privacy Policy — Sorwatom',   'desc' => 'How Sorwatom collects, uses and protects your personal information.'],
+        'unsubscribe' => ['title' => 'Unsubscribe — Sorwatom',      'desc' => 'Manage your Sorwatom newsletter subscription.'],
+        'tomato'      => ['title' => 'Tomato Paste — Sorwatom',     'desc' => 'Sorwatom Double Concentrated Tomato Paste — bold colour and rich tomato taste for everyday meals and busy kitchens. Available in 50g Sachet, 70g Sachet, and 800g Tin.'],
+        'ketchup'     => ['title' => 'Tomato Ketchup — Sorwatom',   'desc' => 'Sorwatom Tomato Ketchup — made from vine-ripened tomatoes with no artificial colours or high-fructose corn syrup. Available in 350g and 700g plastic bottles.'],
+        'masala'      => ['title' => 'Pilau Masala — Sorwatom',     'desc' => 'Sorwatom Royal Pilau Masala Blend — a hand-ground heritage spice blend with 100% natural herbs: garlic powder, cumin seed, turmeric and cinnamon. Available in 50g and 100g.'],
+        'vinegar'     => ['title' => 'Pure Vinegar — Sorwatom',     'desc' => 'Sorwatom Pure White Vinegar — distilled from natural ingredients to a precise 5% acidity. Versatile use for salads, dressings, and natural preservation. Available in plastic bottles.'],
+        '404'         => ['title' => '404 — Page Not Found | Sorwatom',   'desc' => 'The page you are looking for does not exist or has been moved.'],
+        '403'         => ['title' => '403 — Access Forbidden | Sorwatom', 'desc' => 'You do not have permission to access this area or resource.'],
+        '401'         => ['title' => '401 — Unauthorized | Sorwatom',     'desc' => 'You need to log in with valid credentials to view this page.'],
+    ],
+
+    // Screen-reader labels and keyboard skip links
+    'a11y' => [
+        'skip_main'            => 'Skip to main content',
+        'skip_content'         => 'Skip to content',
+        'home_link'            => 'Sorwatom — Home',
+        'main_nav'             => 'Main navigation',
+        'home_hero'            => 'Homepage hero',
+        'page_intro'           => 'Page introduction',
+        'key_figures'          => 'Key figures',
+        'regions'              => 'Regions served',
+        'filter_products'      => 'Filter products by category',
+        'product_grid'         => 'Product collection',
+        'view_product'         => '{name} — view product',
+        'view_product_details' => '{name} — view product details',
+        'contact_intro'        => 'Contact page introduction',
+        'countries'            => 'Countries we operate in',
+        'office_rw'            => 'Rwanda headquarters',
+        'office_region'        => 'Burundi & DRC presence',
+        'filter_blog'          => 'Filter by category',
+        'featured'             => 'Featured: {title}',
+        'read'                 => 'Read: {title}',
+        'pagination'           => 'Blog pagination',
+        'article_header'       => 'Article header',
+        'article_content'      => 'Article content',
+        'tags'                 => 'Tags',
+        'share_article'        => 'Share this article',
+        'share_whatsapp'       => 'Share on WhatsApp',
+        'copy_link'            => 'Copy link to article',
+        'breadcrumb'           => 'Breadcrumb',
+        'pack_sizes'           => 'Tomato paste package sizes',
+        'social_legal'         => 'Social and legal',
+        'social_on'            => 'Sorwatom on {network}',
+    ],
+
+    // Image descriptions (alt text)
+    'img' => [
+        'paste_50'         => 'Sorwatom Tomato Paste 50g sachet',
+        'paste_70'         => 'Sorwatom Tomato Paste 70g sachet',
+        'paste_800'        => 'Sorwatom Tomato Paste 800g tin',
+        'ketchup_bottle'   => 'Sorwatom Tomato Ketchup bottle',
+        'ketchup_plastic'  => 'Sorwatom Tomato Ketchup plastic bottle',
+        'vinegar_plastic'  => 'Sorwatom Pure Vinegar plastic bottle',
+        'masala_packet'    => 'Sorwatom Pilau Masala packet',
+        'masala_pouch'     => 'Sorwatom Pilau Masala spice pouch',
+        'great_lakes_home' => 'Great Lakes region, the home of Sorwatom',
+        'great_lakes'      => 'Great Lakes region',
+        'products'         => 'Sorwatom products',
+        'tomato'           => 'Sorwatom Tomato Paste',
+        'tomato_product'   => 'Sorwatom Tomato Paste product image',
+        'tomato_variant'   => 'Sorwatom Tomato Paste variant',
+        'ketchup'          => 'Sorwatom Tomato Ketchup',
+        'ketchup_image'    => 'Sorwatom Tomato Ketchup image',
+        'ketchup_product'  => 'Sorwatom Tomato Ketchup product image',
+        'ketchup_variant'  => 'Sorwatom Tomato Ketchup variant',
+        'masala'           => 'Sorwatom Pilau Masala',
+        'masala_product'   => 'Sorwatom Pilau Masala product image',
+        'masala_variant'   => 'Sorwatom Pilau Masala variant',
+        'vinegar'          => 'Sorwatom Pure Vinegar',
+        'vinegar_product'  => 'Sorwatom Pure White Vinegar product image',
+        'vinegar_variant'  => 'Sorwatom Pure White Vinegar variant',
+    ],
 
     'nav' => [
         'home'       => 'Home',
@@ -24,7 +105,6 @@
             'journal' => 'Journal',
             'contact' => 'Get in Touch',
         ],
-        'lang_label' => 'Language',
         'newsletter' => [
             'heading'     => 'Stay Updated',
             'desc'        => 'Get recipes, news and stories from the Great Lakes — straight to your inbox.',
@@ -58,6 +138,7 @@
             'eyebrow'   => 'Signature Offerings',
             'heading'   => 'The taste for <em>Great Lakes.</em>',
             'view_all'  => 'View Full Catalog',
+            'bestseller' => 'Bestseller',
             'paste'    => ['cat' => 'Tomato Paste',  'name' => 'Tomato Paste 70g',  'desc' => 'Double-concentrated, 100% natural tomato paste in an easy-open flexible sachet.'],
             'ketchup'  => ['cat' => 'Ketchup',       'name' => 'Tomato Ketchup',  'desc' => 'Slow-cooked from vine-ripened tomatoes with a naturally balanced sweetness.'],
             'masala'   => ['cat' => 'Spice Blend',   'name' => 'Pilau Masala',      'desc' => 'An aromatic blend of whole spices, ground fresh for authentic East African depth.'],
@@ -117,7 +198,15 @@
             'kumar'   => ['role' => 'Managing Director', 'name' => 'Vip Kumar, <span class="team-card__credentials">MIET FCMI</span>', 'bio' => 'Vip Kumar has over 25 years of leadership and management experience across multinational, corporate, SME and development sectors. Throughout his career, he has guided organisations through growth, transformation and operational improvement, combining strategic vision with a strong focus on execution and long-term value creation. His expertise in leadership, business development and organisational excellence has ensured SORWATOM’s continued growth and performance since 2012 as it strengthens its position as a trusted food manufacturer across East and Central Africa.'],
         ],
         'certifications' => [
-            'eyebrow' => 'Certifications',
+            'eyebrow'      => 'Certifications',
+            'issued_by'    => '{company}, issued by {issuer}',
+            'fssc_v6'      => 'FSSC 22000 (Version 6)',
+            'halal_veg'    => 'Halal (Veg Halal Products)',
+            'halal_egypt'  => 'Egyptian Halal mark licence',
+            'fda_facility' => 'US FDA Food Facility Registration',
+            'fda_fce_sid'  => 'US FDA FCE and SID Certificates (two certificates)',
+            'kebs'         => 'KEBS Standardization Mark',
+            'haccp'        => 'HACCP System Certificate',
         ],
     ],
 
@@ -173,6 +262,14 @@
             'message'     => 'Message',
             'placeholder' => ['name' => 'Your full name', 'company' => 'Company name', 'email' => 'your@email.com', 'mobile' => '+250 7xx xxx xxx', 'message' => 'Tell us about your inquiry…'],
             'submit'      => 'Send Message',
+            'msg' => [
+                'required' => 'Please fill in all required fields.',
+                'email'    => 'Please enter a valid email address.',
+                'sending'  => 'Sending…',
+                'sent'     => 'Your message was sent. We’ll be in touch within one business day.',
+                'failed'   => 'Something went wrong. Please try calling us directly.',
+                'offline'  => 'Could not connect. Please try again or call us directly.',
+            ],
         ],
         'offices' => [
             'eyebrow' => 'REGIONAL OFFICES',
@@ -180,6 +277,9 @@
             'rw'      => 'RWANDA · HQ',
             'bi'      => 'BURUNDI',
             'cd'      => 'DRC',
+            'regional'      => 'Regional Operations',
+            'regional_area' => 'Burundi & Eastern DRC',
+            'regional_note' => 'Contact HQ for local distribution',
         ],
         'faq' => [
             'eyebrow'  => 'QUICK ANSWERS',
@@ -198,7 +298,8 @@
         ],
         'filter'   => ['all' => 'All'],
         'featured' => ['label' => 'Latest', 'read_more' => 'Read article →'],
-        'card'     => ['read_more' => 'Read article →', 'min_read' => 'min read'],
+        'card'     => ['read_more' => 'Read article →', 'min_read' => '{n} min read'],
+        'months'   => 'January,February,March,April,May,June,July,August,September,October,November,December',
         'empty'    => 'No posts in this category yet.',
         'pagination' => ['prev' => '← Prev', 'next' => 'Next →', 'info' => 'Page {page} of {total}'],
         'post' => [
@@ -215,6 +316,9 @@
     'pd' => [
         'req_quote'  => 'Request a Quote →',
         'view_all'   => 'View All Products',
+        'breadcrumb_products' => 'Products',
+        'related_heading'     => 'Explore more from Sorwatom',
+        'variant'             => 'Variant {n}',
         'assurance'  => [
             'quality' => 'Quality focused',
             'african' => 'Tailored for African markets',
@@ -248,6 +352,8 @@
             'thumb1' => '50g Sachet',
             'thumb2' => '70g Sachet',
             'thumb3' => '800g Tin',
+            'hint'   => 'Click a pack to view',
+            'note'   => 'Rich tomato flavour, vibrant colour and a concentrated texture made for everyday cooking.',
         ],
         'masala' => [
             'hero_eyebrow' => 'SPICES · HAND-GROUND HERITAGE BLEND',
@@ -284,6 +390,7 @@
     ],
 
     'privacy' => [
+        'eyebrow'  => 'LEGAL',
         'title'    => 'Privacy Policy',
         'subtitle' => 'How we collect, use, and protect your information.',
         'updated'  => 'Last updated',
@@ -323,6 +430,8 @@
     ],
 
     '404' => [
+        'aria'        => 'Page not found',
+        'img_alt'     => 'Sorwatom 404 — Page not found',
         'eyebrow'     => '404 ERROR',
         'title'       => 'Oops! Page <em>squished.</em>',
         'subtitle'    => 'The page you are looking for has moved, been removed, or does not exist.',
@@ -331,6 +440,8 @@
     ],
 
     '403' => [
+        'aria'        => 'Access forbidden',
+        'img_alt'     => 'Sorwatom 403 — Access Forbidden',
         'eyebrow'     => '403 ERROR',
         'title'       => 'Access <em>Forbidden.</em>',
         'subtitle'    => 'You do not have permission to access this area or resource.',
@@ -339,6 +450,8 @@
     ],
 
     '401' => [
+        'aria'        => 'Unauthorized',
+        'img_alt'     => 'Sorwatom 401 — Unauthorized',
         'eyebrow'     => '401 ERROR',
         'title'       => 'Authentication <em>Required.</em>',
         'subtitle'    => 'You need to log in with valid credentials to view this page.',

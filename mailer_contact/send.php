@@ -25,6 +25,7 @@ if ($smtp_config_path) {
 }
 
 include_once __DIR__ . '/mail.php';
+require_once __DIR__ . '/../partials/_lang.php';
 include_once __DIR__ . '/template.php';
 
 // Raw values — escaping happens in the email template. Single-line fields have
@@ -40,12 +41,12 @@ $mobile  = $line('mobile');
 $message = $field('message');
 
 if (!$name || !$email || !$message) {
-    echo json_encode(['success' => false, 'message' => 'Required fields are missing.']);
+    echo json_encode(['success' => false, 'message' => __r('contact.form.msg.required')]);
     exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(['success' => false, 'message' => 'Invalid email address.']);
+    echo json_encode(['success' => false, 'message' => __r('contact.form.msg.email')]);
     exit;
 }
 
@@ -87,5 +88,5 @@ try {
 
 echo json_encode([
     'success' => true,
-    'message' => 'Your message was sent successfully. We will be in touch within one business day.'
+    'message' => __r('contact.form.msg.sent')
 ]);

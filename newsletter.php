@@ -11,6 +11,7 @@ error_reporting(0);
 header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/data/newsletter.php';
+require_once __DIR__ . '/partials/_lang.php';
 
 function json_out(bool $ok, string $message = '', array $extra = []): never {
     echo json_encode(['ok' => $ok, 'message' => $message] + $extra);
@@ -24,13 +25,13 @@ if (!empty($_POST['hp_website'])) {
 
 $email = newsletter_normalize_email((string) ($_POST['email'] ?? ''));
 if (!$email) {
-    json_out(false, 'Please enter a valid email address.');
+    json_out(false, __r('footer.newsletter.error_email'));
 }
 
 // Saved to the database, with data/subscribers.txt as a backup. Someone already
 // on the list gets no second welcome email (the form can't be used to spam an inbox).
 if (!newsletter_subscribe($email)) {
-    json_out(true, "You're already subscribed.", ['already' => true]);
+    json_out(true, __r('footer.newsletter.already'), ['already' => true]);
 }
 try {
     newsletter_send_welcome($email);
@@ -38,4 +39,4 @@ try {
     // The subscription itself succeeded; a missed welcome email isn't worth an error.
 }
 
-json_out(true, "You're on the list — welcome!");
+json_out(true, __r('footer.newsletter.success'));

@@ -1,7 +1,8 @@
 <?php
+require_once __DIR__ . '/partials/_lang.php';
 http_response_code(404);
-$page_title       = '404 — Page Not Found | Sorwatom';
-$page_description = 'The page you are looking for does not exist or has been moved.';
+$page_title       = __r('meta.404.title');
+$page_description = __r('meta.404.desc');
 $page_css         = [];
 $body_class       = 'page-404';
 $current_page     = '';
@@ -11,7 +12,7 @@ include 'partials/_head.php';
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <main id="main-content">
-  <section class="section-404" aria-label="Page not found">
+  <section class="section-404" aria-label="<?= __t('404.aria') ?>">
     <div class="container">
       <div class="err-page-grid">
 
@@ -20,7 +21,7 @@ include 'partials/_head.php';
           <div class="err-page-img-glow" aria-hidden="true"></div>
           <img
             src="/assets/img/404.png"
-            alt="Sorwatom 404 — Page not found"
+            alt="<?= __t('404.img_alt') ?>"
             class="err-page-img"
             width="560"
             height="380"

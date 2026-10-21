@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="<?= htmlspecialchars($page_description ?? 'Sorwatom — The Great Lakes\' leading agribusiness, Delivering exceptional supply chain solutions to the modern EAC market since 1984.') ?>">
+  <meta name="description" content="<?= htmlspecialchars($page_description ?? __r('meta.default_desc')) ?>">
 
-  <title><?= htmlspecialchars($page_title ?? 'Sorwatom — Great Lakes Agribusiness') ?></title>
+  <title><?= htmlspecialchars($page_title ?? __r('meta.default_title')) ?></title>
 
   <!-- Open Graph -->
   <meta property="og:type"        content="<?= htmlspecialchars($og_type        ?? 'website') ?>">

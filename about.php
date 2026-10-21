@@ -1,6 +1,7 @@
 <?php
-$page_title       = 'About us — Sorwatom';
-$page_description = 'Forty years of trust — since 1984, Sorwatom has brought dependable, everyday flavours to tables across Rwanda, Burundi and Eastern DRC.';
+require_once __DIR__ . '/partials/_lang.php';
+$page_title       = __r('meta.about.title');
+$page_description = __r('meta.about.desc');
 $page_css         = ['pages/about.css'];
 $body_class       = 'page-about';
 $current_page     = 'about';
@@ -14,7 +15,7 @@ include 'partials/_head.php';
 <main id="main-content">
 
   <!-- SECTION 1 — Hero + Stats -->
-  <section class="hero hero--full" aria-label="Page introduction">
+  <section class="hero hero--full" aria-label="<?= __t('a11y.page_intro') ?>">
     <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
 
     <div class="hero__content">
@@ -24,7 +25,7 @@ include 'partials/_head.php';
         <p class="hero__subtitle reveal" data-delay="3"><?= __t('about.hero.subtitle') ?></p>
       </div>
 
-      <div class="hero__stats-wrap" aria-label="Key figures">
+      <div class="hero__stats-wrap" aria-label="<?= __t('a11y.key_figures') ?>">
         <div class="container">
           <div class="stats-bar stats-bar--hero" role="list">
             <div class="stats-bar__item" role="listitem">
@@ -60,7 +61,7 @@ include 'partials/_head.php';
           <p class="reveal" data-delay="2"><?= __t('about.promise.p1') ?></p>
           <p class="reveal" data-delay="3"><?= __t('about.promise.p2') ?></p>
           <p class="reveal" data-delay="4"><?= __t('about.promise.p3') ?></p>
-          <div class="cluster reveal" data-delay="5" aria-label="Regions served">
+          <div class="cluster reveal" data-delay="5" aria-label="<?= __t('a11y.regions') ?>">
             <span class="badge badge--outline"><?= __t('about.promise.region_rw') ?></span>
             <span class="badge badge--outline"><?= __t('about.promise.region_bi') ?></span>
             <span class="badge badge--outline"><?= __t('about.promise.region_cd') ?></span>
@@ -73,8 +74,8 @@ include 'partials/_head.php';
 
         <div class="story-img-wrap">
           <div class="story-double-img">
-            <img src="assets/img/slider/Mobile/hero_tomato.webp" alt="Great Lakes region" class="story-double-img__primary" loading="lazy">
-            <img src="assets/img/slider/Mobile/collection-flatlay.webp" alt="Sorwatom products" class="story-double-img__secondary" loading="lazy">
+            <img src="assets/img/slider/Mobile/hero_tomato.webp" alt="<?= __t('img.great_lakes') ?>" class="story-double-img__primary" loading="lazy">
+            <img src="assets/img/slider/Mobile/collection-flatlay.webp" alt="<?= __t('img.products') ?>" class="story-double-img__secondary" loading="lazy">
           </div>
         </div>
 

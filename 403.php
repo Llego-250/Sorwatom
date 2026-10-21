@@ -1,7 +1,8 @@
 <?php
+require_once __DIR__ . '/partials/_lang.php';
 http_response_code(403);
-$page_title       = '403 — Access Forbidden | Sorwatom';
-$page_description = 'You do not have permission to access this area or resource.';
+$page_title       = __r('meta.403.title');
+$page_description = __r('meta.403.desc');
 $page_css         = [];
 $body_class       = 'page-403';
 $current_page     = '';
@@ -11,7 +12,7 @@ include 'partials/_head.php';
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <main id="main-content">
-  <section class="section-403" aria-label="Access forbidden">
+  <section class="section-403" aria-label="<?= __t('403.aria') ?>">
     <div class="container">
       <div class="err-page-grid">
 
@@ -20,7 +21,7 @@ include 'partials/_head.php';
           <div class="err-page-img-glow" aria-hidden="true"></div>
           <img
             src="/assets/img/403.png"
-            alt="Sorwatom 403 — Access Forbidden"
+            alt="<?= __t('403.img_alt') ?>"
             class="err-page-img"
             width="560"
             height="380"
