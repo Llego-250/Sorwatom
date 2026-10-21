@@ -361,9 +361,12 @@
 
 
 /* ----------------------------------------------------------
-   CERTIFICATIONS — scrolling pills with hover popover
+   CERTIFICATIONS — scrolling logos with hover popover
    ---------------------------------------------------------- */
 .certifications-section {
+  /* Keeps open popovers above the dark section that follows */
+  position: relative;
+  z-index: 2;
   padding-top: var(--space-lg);
   padding-bottom: var(--space-md);
   border-top: 1px solid var(--col-border);
@@ -378,6 +381,8 @@
 }
 
 .cert-marquee {
+  --cert-logo-size: 60px;
+  --cert-gap: var(--space-sm);
   position: relative;
 }
 
@@ -405,12 +410,23 @@
   padding-block: var(--space-xs) 6.5rem;
 }
 
+/* Clip sideways only, so tall popovers can hang below the section */
+@supports (overflow-x: clip) {
+  .cert-marquee__viewport {
+    overflow: visible;
+    overflow-x: clip;
+    padding-bottom: var(--space-sm);
+  }
+}
+
 .cert-marquee__track {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: var(--cert-gap);
+  /* Trailing gap makes the two copies exactly half the width each */
+  padding-inline-end: var(--cert-gap);
   width: max-content;
-  animation: cert-marquee-scroll 85s linear infinite;
+  animation: cert-marquee-scroll 45s linear infinite;
 }
 
 .cert-marquee:hover .cert-marquee__track,
@@ -423,107 +439,157 @@
   to   { transform: translateX(-50%); }
 }
 
-.cert-pill-wrap {
+.cert-logo-wrap {
   position: relative;
   flex-shrink: 0;
 }
 
-.cert-pill-wrap:hover,
-.cert-pill-wrap:focus-within {
+.cert-logo-wrap:hover,
+.cert-logo-wrap:focus-within {
   z-index: 10;
 }
 
-.cert-pill {
-  display: inline-flex;
+.cert-logo {
+  display: flex;
   align-items: center;
-  max-width: 16rem;
-  padding: 11px 20px;
-  border-radius: var(--radius-pill);
+  justify-content: center;
+  min-width: 9.5rem;
+  height: 6.5rem;
+  padding: 0 var(--space-md);
   border: 1px solid var(--col-border);
-  background: var(--col-surface);
-  font-family: var(--font-body);
-  font-size: var(--step--1);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--col-text);
+  border-radius: var(--radius-md);
+  background: #fff;
   cursor: pointer;
-  line-height: 1.25;
   transition:
-    background var(--dur-base) var(--ease-out),
     border-color var(--dur-base) var(--ease-out),
-    color var(--dur-base) var(--ease-out),
     box-shadow var(--dur-base) var(--ease-out),
     transform var(--dur-base) var(--ease-out);
 }
 
-.cert-pill__label {
+.cert-logo:hover,
+.cert-logo:focus-visible {
+  border-color: var(--col-accent);
+  box-shadow: 0 10px 28px rgba(13, 30, 18, 0.12);
+  transform: translateY(-2px);
+}
+
+.cert-logo:focus-visible {
+  outline: 2px solid var(--col-accent);
+  outline-offset: 3px;
+}
+
+.cert-logo__img {
   display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  width: auto;
+  max-width: none;
+  height: calc(var(--cert-logo-size) * var(--logo-scale, 1));
+}
+
+.cert-logo__wordmark {
+  font-family: var(--font-body);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--col-ground);
   white-space: nowrap;
 }
 
-.cert-pill:hover,
-.cert-pill:focus-visible {
-  background: var(--col-ground);
-  border-color: var(--col-ground);
-  color: #fff;
-  box-shadow: 0 10px 28px rgba(13, 30, 18, 0.18);
-  transform: translateY(-2px);
-  outline: none;
-}
-
-.cert-pill__popover {
+.cert-logo__popover {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 14px);
   left: 50%;
   z-index: 20;
   width: max-content;
-  max-width: min(280px, 70vw);
-  padding: 0.65rem 0.85rem;
+  max-width: min(320px, calc(100vw - 2 * var(--space-sm)));
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--col-border);
   border-radius: var(--radius-sm);
-  background: var(--col-ground);
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 0.75rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  box-shadow:
-    0 12px 32px rgba(13, 30, 18, 0.22),
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  background: #fff;
+  color: var(--col-text);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 18px 40px rgba(13, 30, 18, 0.18);
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%) translateY(6px);
+  /* --shift is set by script when the logo sits near a window edge */
+  transform: translateX(calc(-50% + var(--shift, 0px))) translateY(6px);
   transition:
     opacity var(--dur-base) var(--ease-out),
     transform var(--dur-base) var(--ease-out),
     visibility var(--dur-base);
 }
 
-.cert-pill__popover::before {
+.cert-logo__popover::before {
   content: "";
   position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 7px solid transparent;
-  border-bottom-color: var(--col-ground);
+  top: 0;
+  left: calc(50% - var(--shift, 0px));
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-top: 1px solid var(--col-border);
+  border-left: 1px solid var(--col-border);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.cert-pill-wrap:hover .cert-pill__popover,
-.cert-pill-wrap:focus-within .cert-pill__popover {
+.cert-logo-wrap:hover .cert-logo__popover,
+.cert-logo-wrap:focus-within .cert-logo__popover {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(calc(-50% + var(--shift, 0px))) translateY(0);
 }
 
-.cert-pill__popover-detail {
+.cert-logo__popover-title {
   display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--col-ground);
+}
+
+.cert-logo__specs {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cert-logo__spec + .cert-logo__spec {
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--col-border);
+}
+
+.cert-logo__spec-label {
+  display: block;
+  font-weight: 600;
+}
+
+.cert-logo__spec-detail {
+  display: block;
+  color: var(--col-text-muted);
+}
+
+@media (max-width: 640px) {
+  .cert-marquee {
+    --cert-logo-size: 48px;
+  }
+
+  .cert-logo {
+    min-width: 8rem;
+    height: 5.5rem;
+    padding: 0 var(--space-sm);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cert-marquee__fade {
+  .cert-marquee__fade,
+  .cert-logo-wrap--dup {
     display: none;
   }
 
@@ -535,38 +601,33 @@
   .cert-marquee__track {
     animation: none;
     flex-wrap: wrap;
+    align-items: flex-start;
     width: 100%;
     justify-content: center;
     gap: var(--space-md);
     padding-inline: var(--space-md);
   }
 
-  .cert-pill-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 18rem;
+  .cert-logo-wrap {
+    width: min(18rem, 100%);
   }
 
-  .cert-pill {
-    max-width: 100%;
+  .cert-logo {
+    width: 100%;
   }
 
-  .cert-pill__popover {
+  .cert-logo__popover {
     position: static;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.75rem;
     transform: none;
     opacity: 1;
     visibility: visible;
-    margin-top: 0.5rem;
-    background: transparent;
-    color: var(--col-text-muted);
     box-shadow: none;
-    padding: 0;
-    max-width: 100%;
-    text-align: center;
   }
 
-  .cert-pill__popover::before {
+  .cert-logo__popover::before {
     display: none;
   }
 }

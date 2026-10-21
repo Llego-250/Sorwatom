@@ -201,6 +201,7 @@
         'certifications' => [
             'eyebrow'      => 'Certifications',
             'issued_by'    => '{company}, issued by {issuer}',
+            'issued_by_only' => 'Issued by {issuer}',
             'fssc_v6'      => 'FSSC 22000 (Version 6)',
             'halal_veg'    => 'Halal (Veg Halal Products)',
             'halal_egypt'  => 'Egyptian Halal mark licence',

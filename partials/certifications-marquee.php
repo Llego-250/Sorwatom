@@ -1,6 +1,19 @@
 <?php
-$cert_items = require __DIR__ . '/certifications-data.php';
-$cert_loop  = array_merge($cert_items, $cert_items);
+$cert_groups   = require __DIR__ . '/certifications-data.php';
+$cert_logo_dir = __DIR__ . '/../assets/img/Certifications logos/';
+
+// Wide logos get a shorter box so every mark carries a similar visual weight
+foreach ($cert_groups as &$group) {
+    if (isset($group['logo']) && is_file($cert_logo_dir . $group['logo'])) {
+        [$group['width'], $group['height']] = getimagesize($cert_logo_dir . $group['logo']);
+        $group['scale'] = round(min(1, ($group['width'] / $group['height']) ** -0.4), 3);
+    } else {
+        unset($group['logo']);
+    }
+}
+unset($group);
+
+$e = fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 ?>
 <section class="section certifications-section" aria-labelledby="certifications-heading">
   <div class="container certifications-section__header">
@@ -11,28 +24,75 @@ $cert_loop  = array_merge($cert_items, $cert_items);
     <div class="cert-marquee__fade cert-marquee__fade--right" aria-hidden="true"></div>
     <div class="cert-marquee__viewport">
       <div class="cert-marquee__track">
-        <?php foreach ($cert_loop as $i => $cert): ?>
-        <?php
-          $label  = isset($cert['label_key']) ? __r('about.certifications.' . $cert['label_key']) : $cert['label'];
-          $detail = isset($cert['issuer'])
-              ? __r('about.certifications.issued_by', ['company' => $cert['company'], 'issuer' => $cert['issuer']])
-              : $cert['company'];
-          $tip_id = 'cert-tip-' . $i;
-        ?>
-        <div class="cert-pill-wrap">
+        <?php foreach ([false, true] as $dup): // second pass is the seamless-loop copy, hidden from assistive tech ?>
+        <?php foreach ($cert_groups as $i => $group): ?>
+        <?php $tip_id = 'cert-tip-' . $i; ?>
+        <div class="cert-logo-wrap<?= $dup ? ' cert-logo-wrap--dup' : '' ?>"<?= $dup ? ' aria-hidden="true"' : '' ?>>
           <button
             type="button"
-            class="cert-pill"
-            aria-describedby="<?= $tip_id ?>"
+            class="cert-logo"
+            <?= $dup ? 'tabindex="-1"' : 'aria-describedby="' . $tip_id . '"' ?>
           >
-            <span class="cert-pill__label"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></span>
+            <?php if (isset($group['logo'])): ?>
+            <img
+              src="/assets/img/Certifications%20logos/<?= rawurlencode($group['logo']) ?>"
+              alt="<?= $e($group['name']) ?>"
+              width="<?= $group['width'] ?>"
+              height="<?= $group['height'] ?>"
+              class="cert-logo__img"
+              style="--logo-scale: <?= $group['scale'] ?>"
+              loading="lazy"
+              decoding="async"
+            >
+            <?php else: ?>
+            <span class="cert-logo__wordmark"><?= $e($group['name']) ?></span>
+            <?php endif; ?>
           </button>
-          <div class="cert-pill__popover" id="<?= $tip_id ?>" role="tooltip">
-            <span class="cert-pill__popover-detail"><?= htmlspecialchars($detail, ENT_QUOTES, 'UTF-8') ?></span>
+          <div class="cert-logo__popover"<?= $dup ? '' : ' id="' . $tip_id . '"' ?> role="tooltip">
+            <span class="cert-logo__popover-title"><?= $e($group['company'] ?? $group['name']) ?></span>
+            <ul class="cert-logo__specs">
+              <?php foreach ($group['certs'] as $cert): ?>
+              <?php
+                $label = isset($cert['label_key']) ? __r('about.certifications.' . $cert['label_key']) : $cert['label'];
+                if (isset($group['company'])) {
+                    $detail = isset($cert['issuer']) ? __r('about.certifications.issued_by_only', ['issuer' => $cert['issuer']]) : '';
+                } else {
+                    $detail = isset($cert['issuer'])
+                        ? __r('about.certifications.issued_by', ['company' => $cert['company'], 'issuer' => $cert['issuer']])
+                        : $cert['company'];
+                }
+              ?>
+              <li class="cert-logo__spec">
+                <span class="cert-logo__spec-label"><?= $e($label) ?></span>
+                <?php if ($detail !== ''): ?>
+                <span class="cert-logo__spec-detail"><?= $e($detail) ?></span>
+                <?php endif; ?>
+              </li>
+              <?php endforeach; ?>
+            </ul>
           </div>
         </div>
+        <?php endforeach; ?>
         <?php endforeach; ?>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+// Nudge a popover back inside the window when its logo sits near an edge
+(function () {
+  document.querySelectorAll('.cert-logo-wrap').forEach(function (wrap) {
+    var tip = wrap.querySelector('.cert-logo__popover');
+    function fit() {
+      var r = wrap.getBoundingClientRect(), half = tip.offsetWidth / 2, gap = 16;
+      var centre = r.left + r.width / 2, vw = document.documentElement.clientWidth, shift = 0;
+      if (centre - half < gap) shift = gap - (centre - half);
+      else if (centre + half > vw - gap) shift = vw - gap - (centre + half);
+      tip.style.setProperty('--shift', shift + 'px');
+    }
+    wrap.addEventListener('mouseenter', fit);
+    wrap.addEventListener('focusin', fit);
+  });
+})();
+</script>
