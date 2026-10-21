@@ -12,7 +12,7 @@
     ],
 
     'footer' => [
-        'tagline'  => "Ikigo gikomeye cy'ubuhinzi-bucuruzi mu Birwa Bigari — gitanga ladha zidasanzwe ku isi kuva mu 1984.",
+        'tagline'  => "Sorwatom ni ikigo gikomeye cy'ubuhinzi-bucuruzi gitunganya uburyohe budasanzwe bunogera Abanyafurika b'iki gihe kuva mu 1984.",
         'explore'  => 'Reba',
         'hq'       => 'Icyicaro Gikuru',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
@@ -40,13 +40,13 @@
     'home' => [
         'hero' => [
             'eyebrow'  => 'Kuva ku Murima kugeza ku Meza',
-            'title'    => 'Ivuna <em>Risafi.</em>',
-            'subtitle' => "Menya ubutunzi bw'ibicuruzwa by'ubuhinzi-bucuruzi 100% kamere, byakozwe n'ubuhanga bw'kera n'inovasyon y'ubu mu mutima wa Afurika y'Iburasirazuba.",
+            'title'    => 'Musosi <em>fresh.</em>',
+            'subtitle' => "Menya ubukungu bw'uburyohe 100% kamere, bugezwa mu bikoni byo mu Rwanda, i Burundi no mu Burasirazuba bwa RDC.",
             'explore'  => 'Reba Ibicuruzwa',
             'story'    => 'Inkuru Yacu',
             'scroll'   => 'Manuka hasi',
         ],
-        'ticker' => '100% Kamere &middot; Kuva 1984 &middot; Ibyakuwe mu Birwa Bigari &middot; Ireme rya Mpuzamahanga &middot;&nbsp;',
+        'ticker' => '100% Kamere &middot; Kuva 1984 &middot; Rwanda &middot; Burundi &middot; Uburasirazuba bwa RDC &middot; Ireme rya Mpuzamahanga &middot;&nbsp;',
         'why' => [
             'eyebrow'  => 'Kubera Iki Sorwatom',
             'heading'  => 'Yakozwe n\'ubuhanga, <em>itangwa n\'ubuhamya.</em>',
@@ -84,8 +84,8 @@
     'about' => [
         'hero' => [
             'eyebrow'  => 'YASHYIZWEHO 1984',
-            'title'    => 'Imyaka mirongo ine y\'<em>ubuhanga busesuye,</em><br>yategetse mu Birwa Bigari.',
-            'subtitle' => "Kuva ku murongo umwe w'ibikorwa kugeza ku ngufu z'akarere — iyi ni inkuru ya siyanse, ubuhanga n'abantu bayishyira mu bikorwa.",
+            'title'    => "Imyaka mirongo ine y'<em>icyizere,</em><br>ku meza yose yo mu karere k'Ibiyaga Bigari.",
+            'subtitle' => 'Kuva mu 1984, tugeza ku meza yo mu Rwanda, i Burundi no mu Burasirazuba bwa RDC uburyohe bwizewe bwa buri munsi.',
         ],
         'stats' => [
             'heritage'      => 'Imyaka y\'Amateka',
@@ -126,7 +126,7 @@
     ],
 
     'products' => [
-        'hero' => ['eyebrow' => 'Ibicuruzwa &middot; Ibintu Bitandatu by\'Ingenzi', 'title' => "Buri kintu cy'ingenzi cyo mu rugo, <em>cyahindutse neza.</em>"],
+        'hero' => ['eyebrow' => 'Ibicuruzwa &middot; Ibintu Bitandatu by\'Ingenzi', 'title' => "Iby'ingenzi bya buri <em>gikoni.</em>"],
         'filter' => ['all' => 'Byose', 'paste' => 'Paste', 'condiments' => 'Ibikorwa', 'spices' => 'Ibirungo'],
         'badge'  => ['sachet' => 'Umufuka', 'travel' => 'Ingano y\'Urugendo', 'bestseller' => 'Icuruzwa Cyane', 'tin' => 'Agakopo', 'glass' => 'Icupa rya Pulasitiki', 'pouch' => 'Umufuka w\'Ibirungo'],
         'p50'    => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 50g',  'desc' => "Yakozwe nk'amabwiriza y'ingenzi nk'igicuruzwa cyacu gikuru cya 70g."],
@@ -172,6 +172,31 @@
             'q2' => ['q' => 'Mwohereza hanze y\'igihugu?',         'a' => "Yego. Duha abasambaza muri Afurika y'Epfo y'ubutayu bwa Sahara kandi twemera amabwiriza yo kohereza hanze ifite ingano nke."],
             'q3' => ['q' => 'Mbese ibicuruzwa byemejwe?',          'a' => "Ibicuruzwa byose bya Sorwatom bikurikiza ibirebana n'umutekano w'ibyokurya ku isi. Twemejwe na ISO."],
             'q4' => ['q' => 'Ikimenyetso cy\'umuntu bwite / co-packing?', 'a' => "Yego, dutanga serivisi z'ikimenyetso cy'umuntu bwite no gufata hamwe. Ifarashi riharirwa mu mifuka, agakopo n'icupa. Ingano nke ibaho."],
+        ],
+    ],
+
+    // Sections below are partial — any key missing here falls back to English
+    'blog' => [
+        'hero' => [
+            'eyebrow'  => 'Ikinyamakuru cya Sorwatom',
+            'title'    => 'Inkuru zo mu <em>gikoni.</em>',
+            'subtitle' => "Uburyo bushya bwo guteka, inama zo mu gikoni n'inkuru zo hirya no hino mu karere.",
+        ],
+    ],
+
+    'pd' => [
+        'assurance' => [
+            'quality' => 'Twita ku ireme',
+            'african' => "Yagenewe amasoko y'Afurika",
+        ],
+        'tomato' => [
+            // One description per pack, matching thumb1–thumb3
+            'desc1'  => "Tomato paste yacu yihariye ifite ubukana bukubye kabiri, iha amafunguro ya buri munsi ibara ryiza n'uburyohe bukungahaye bw'inyanya, mu gapaki gakoreshwa rimwe ku giciro kiboneye.",
+            'desc2'  => "Ibara ryiza, uburyohe bukungahaye bw'inyanya kandi ifashe neza, mu gapaki kagenewe umuryango. Ni yo mahitamo yizewe ku isosi z'ubwoko bwose n'amafunguro y'umuceri.",
+            'desc3'  => "Yagenewe ibikoni bihuze. Tomato paste yacu ifite ubukana bukubye kabiri itanga ibara, uburyohe n'ubukana bihoraho mu ikopo rinini rya 800g. Ibereye resitora, amahoteli n'abategura amafunguro bakeneye umusaruro wizewe buri gihe.",
+            'thumb1' => 'Agapaki 50g',
+            'thumb2' => 'Agapaki 70g',
+            'thumb3' => 'Ikopo 800g',
         ],
     ],
 

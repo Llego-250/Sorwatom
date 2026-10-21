@@ -12,7 +12,7 @@ $site  = SITE_URL;
   <channel>
     <title>Sorwatom Journal</title>
     <link><?= $site ?>/blog</link>
-    <description>Stories from the field, recipes from the kitchen, and news from the Great Lakes region.</description>
+    <description>Stories from the kitchen — new recipes, cooking tips and stories from across the region.</description>
     <language>en</language>
     <atom:link href="<?= $site ?>/feed" rel="self" type="application/rss+xml"/>
     <lastBuildDate><?= date('r') ?></lastBuildDate>

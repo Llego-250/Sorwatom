@@ -295,7 +295,7 @@ $mainGalleryImage = $galleryImages[0];
 
 <!-- Hero -->
 <section class="hero hero--half product-hero" aria-label="Tomato Ketchup">
-    <img class="hero__bg" src="assets/img/slider/collection-flatlay.jpg" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
+    <img class="hero__bg" src="assets/img/slider/collection-flatlay.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
         <span class="eyebrow eyebrow--light"><?= __t('pd.ketchup.hero_eyebrow') ?></span>
         <h1 class="hero__title"><?= __r('pd.ketchup.hero_title') ?></h1>

@@ -1,6 +1,6 @@
 <?php
 $page_title       = 'Tomato Paste — Sorwatom';
-$page_description = 'Sorwatom Double Concentrated Tomato Paste — made from sun-ripened Great Lakes tomatoes. Available in 50g Sachet, 70g Sachet, and 800g Tin.';
+$page_description = 'Sorwatom Double Concentrated Tomato Paste — bold colour and rich tomato taste for everyday meals and busy kitchens. Available in 50g Sachet, 70g Sachet, and 800g Tin.';
 $page_css         = ['pages/products.css'];
 $body_class       = 'product-page product-tomato-paste';
 $current_page     = 'products';
@@ -542,7 +542,7 @@ $mainGalleryImage = $galleryImages[0];
 
 .sp-assurance__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
 }
 
@@ -794,7 +794,7 @@ $mainGalleryImage = $galleryImages[0];
 <section class="hero hero--half product-hero" aria-label="Tomato Paste">
     <img
         class="hero__bg"
-        src="assets/img/slider/collection-flatlay.jpg"
+        src="assets/img/slider/collection-flatlay.webp"
         alt=""
         aria-hidden="true"
         fetchpriority="high"
@@ -847,6 +847,7 @@ $mainGalleryImage = $galleryImages[0];
                             data-img="<?= htmlspecialchars($galleryImage) ?>"
                             data-alt="Sorwatom Tomato Paste variant"
                             data-index="<?= $index + 1 ?>"
+                            data-desc="<?= __t('pd.tomato.desc' . ($index + 1)) ?>"
                             onclick="switchImg(this)"
                             role="tab"
                             aria-selected="<?= $index === 0 ? 'true' : 'false' ?>"
@@ -869,7 +870,7 @@ $mainGalleryImage = $galleryImages[0];
 
                 <h2 class="product-detail__title"><?= __t('pd.tomato.title') ?></h2>
 
-                <p class="product-detail__desc"><?= __t('pd.tomato.desc') ?></p>
+                <p class="product-detail__desc" id="productDesc" aria-live="polite"><?= __t('pd.tomato.desc1') ?></p>
 
                 <div class="sp-quality-note">
                     <span class="sp-quality-note__icon">✦</span>
@@ -896,15 +897,11 @@ $mainGalleryImage = $galleryImages[0];
                     <div class="sp-assurance__grid">
                         <div class="sp-assurance__item">
                             <span class="sp-assurance__icon">✓</span>
-                            <span>Quality focused</span>
-                        </div>
-                        <div class="sp-assurance__item">
-                            <span class="sp-assurance__icon">◎</span>
-                            <span>Great Lakes sourcing</span>
+                            <span><?= __t('pd.assurance.quality') ?></span>
                         </div>
                         <div class="sp-assurance__item">
                             <span class="sp-assurance__icon">◆</span>
-                            <span>Made for global markets</span>
+                            <span><?= __t('pd.assurance.african') ?></span>
                         </div>
                     </div>
                 </div>
@@ -985,6 +982,13 @@ function switchImg(thumb) {
         counter.textContent = String(index).padStart(2, '0') + ' / ' + total;
     }
 
+    /* Each pack has its own description. */
+    const desc = document.getElementById('productDesc');
+    const nextDesc = thumb.getAttribute('data-desc');
+    if (desc && nextDesc) {
+        desc.textContent = nextDesc;
+    }
+
     mainImg.style.opacity = '0';
 
     setTimeout(function () {
@@ -1038,6 +1042,12 @@ document.addEventListener('keydown', function (event) {
     });
 
     mainImg.src = thumbs[0].getAttribute('data-img');
+
+    const desc = document.getElementById('productDesc');
+    const firstDesc = thumbs[0].getAttribute('data-desc');
+    if (desc && firstDesc) {
+        desc.textContent = firstDesc;
+    }
 
     const counter = document.getElementById('galleryCounter');
     if (counter) {

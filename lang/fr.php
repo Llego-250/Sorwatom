@@ -12,7 +12,7 @@
     ],
 
     'footer' => [
-        'tagline'  => "Le leader de l'agro-industrie des Grands Lacs — produisant des profils de saveurs extraordinaires pour le palais mondial moderne depuis 1984.",
+        'tagline'  => "Sorwatom est une agro-industrie de premier plan qui produit des profils de saveurs extraordinaires pour le palais africain moderne depuis 1984.",
         'explore'  => 'Explorer',
         'hq'       => 'Siège Social',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
@@ -40,13 +40,13 @@
     'home' => [
         'hero' => [
             'eyebrow'  => 'De la Graine à la Table',
-            'title'    => 'Pure <em>Récolte.</em>',
-            'subtitle' => "Découvrez la richesse des produits agro-alimentaires 100% naturels, élaborés avec la sagesse traditionnelle et la précision moderne au cœur de l'Afrique de l'Est.",
+            'title'    => 'Musosi <em>fresh.</em>',
+            'subtitle' => "Découvrez la richesse d'une saveur 100% naturelle, apportée aux cuisines du Rwanda, du Burundi et de l'Est de la RDC.",
             'explore'  => 'Explorer la Collection',
             'story'    => 'Notre Histoire',
             'scroll'   => 'Défiler',
         ],
-        'ticker' => '100% Naturel &middot; Depuis 1984 &middot; Produit des Grands Lacs &middot; Standards Internationaux &middot;&nbsp;',
+        'ticker' => '100% Naturel &middot; Depuis 1984 &middot; Rwanda &middot; Burundi &middot; Est de la RDC &middot; Standards Internationaux &middot;&nbsp;',
         'why' => [
             'eyebrow'  => 'Pourquoi Sorwatom',
             'heading'  => 'Fabriqué avec précision, <em>livré avec fierté.</em>',
@@ -84,8 +84,8 @@
     'about' => [
         'hero' => [
             'eyebrow'  => 'FONDÉ EN 1984',
-            'title'    => 'Quarante ans de <em>savoir-faire pur,</em><br>enraciné dans les Grands Lacs.',
-            'subtitle' => "D'une seule ligne de production à une puissance régionale — voici l'histoire de la science, de la précision et des personnes qui la rendent possible.",
+            'title'    => 'Quarante ans de <em>confiance,</em><br>autour de chaque table des Grands Lacs.',
+            'subtitle' => "Depuis 1984, nous apportons des saveurs fiables du quotidien aux tables du Rwanda, du Burundi et de l'Est de la RDC.",
         ],
         'stats' => [
             'heritage'      => "Ans d'Héritage",
@@ -128,7 +128,7 @@
     'products' => [
         'hero' => [
             'eyebrow' => 'La Collection &middot; Six Essentiels',
-            'title'   => 'Chaque essentiel de cuisine, <em>perfectionné.</em>',
+            'title'   => 'Les essentiels de chaque <em>cuisine.</em>',
         ],
         'filter' => ['all' => 'Tout', 'paste' => 'Concentré', 'condiments' => 'Condiments', 'spices' => 'Épices'],
         'badge'  => ['sachet' => 'Sachet', 'travel' => 'Taille Voyage', 'bestseller' => 'Best Seller', 'tin' => 'Boîte', 'glass' => 'Bouteille en Plastique', 'pouch' => 'Sachet d\'Épices'],
@@ -181,8 +181,8 @@
     'blog' => [
         'hero' => [
             'eyebrow'  => 'Le Journal Sorwatom',
-            'title'    => 'Histoires du <em>terrain.</em>',
-            'subtitle' => 'Recettes, notes de récolte et actualités de la région des Grands Lacs.',
+            'title'    => 'Histoires de la <em>cuisine.</em>',
+            'subtitle' => 'Nouvelles recettes, astuces de cuisine et histoires de toute la région.',
         ],
         'filter'   => ['all' => 'Tout'],
         'featured' => ['label' => 'À la une', 'read_more' => 'Lire l\'article →'],
@@ -203,6 +203,10 @@
     'pd' => [
         'req_quote'  => 'Demander un Devis →',
         'view_all'   => 'Voir Tous les Produits',
+        'assurance'  => [
+            'quality' => 'Axé sur la qualité',
+            'african' => 'Adapté aux marchés africains',
+        ],
         'related_eyebrow' => 'VOUS POURRIEZ AUSSI AIMER',
         'view_product'    => 'Voir le Produit →',
         'ketchup' => [
@@ -221,7 +225,10 @@
             'hero_title'   => 'Concentré de Tomates <em>Sorwatom</em>',
             'badge'        => 'Concentré · Double Concentration',
             'title'        => 'SORWATOM Concentré de Tomates Double',
-            'desc'         => "Fabriqué à partir de tomates des Grands Lacs mûries au soleil, notre concentré double apporte une couleur intense et un goût vibrant à chaque plat. Sans additifs artificiels — juste de la tomate pure, élaborée selon une spécification italienne.",
+            // One description per pack, matching thumb1–thumb3
+            'desc1'        => "Notre concentré de tomates double, unique en son genre, apporte une couleur intense et un riche goût de tomate aux repas de tous les jours, dans un sachet individuel abordable.",
+            'desc2'        => "Une couleur intense, une riche saveur de tomate et une texture épaisse et concentrée, dans un sachet format familial. Le choix fiable pour les ragoûts, les sauces et les plats de riz.",
+            'desc3'        => "Conçu pour les cuisines exigeantes. Notre concentré de tomates double offre une couleur, une saveur et une épaisseur constantes dans une grande boîte de 800g. Idéal pour les restaurants, hôtels et traiteurs qui veulent des résultats fiables à chaque fois.",
             'f1' => '100% Naturel',
             'f2' => 'Sans Conservateurs',
             'f3' => 'Double Concentré (28–30%)',

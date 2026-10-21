@@ -12,7 +12,7 @@
     ],
 
     'footer' => [
-        'tagline'  => "The Great Lakes' leading agribusiness — Delivering exceptional supply chain solutions to the modern EAC since 1984.",
+        'tagline'  => 'Sorwatom is a leading agribusiness producing extraordinary flavour profiles for the modern African palate since 1984.',
         'explore'  => 'Explore',
         'hq'       => 'Headquarters',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
@@ -40,13 +40,13 @@
     'home' => [
         'hero' => [
             'eyebrow'  => 'From Seed to Spoon',
-            'title'    => 'Musosi <em>Fresh.</em>',
-            'subtitle' => 'Experience the richness of 100% natural agribusiness products, crafted with traditional wisdom and modern care in the heart of East Africa.',
+            'title'    => 'Musosi <em>fresh.</em>',
+            'subtitle' => 'Experience the richness of 100% natural flavour, brought to kitchens across Rwanda, Burundi and Eastern DRC.',
             'explore'  => 'Explore Collection',
             'story'    => 'About us',
             'scroll'   => 'Scroll',
         ],
-        'ticker' => '100% Natural &middot; Since 1984 &middot; Great Lakes Grown &middot; International Standards &middot;&nbsp;',
+        'ticker' => '100% Natural &middot; Since 1984 &middot; Rwanda &middot; Burundi &middot; Eastern DRC &middot; International Standards &middot;&nbsp;',
         'why' => [
             'eyebrow'  => 'Why Sorwatom',
             'heading'  => 'Crafted with care, <em>delivered with pride.</em>',
@@ -82,8 +82,8 @@
     'about' => [
         'hero' => [
             'eyebrow'  => 'EST. 1984',
-            'title'    => 'Forty years of <em>pure craft,</em><br>rooted in the Great Lakes.',
-            'subtitle' => 'From a single processing line to a regional powerhouse — this is the story of science, precision, and the people who make it possible.',
+            'title'    => 'Forty years of <em>trust,</em><br>around every table across the Great Lakes.',
+            'subtitle' => 'Since 1984, we’ve brought dependable, everyday flavours to tables across Rwanda, Burundi and Eastern DRC.',
         ],
         'stats' => [
             'heritage'      => 'Years of Heritage',
@@ -124,7 +124,7 @@
     'products' => [
         'hero' => [
             'eyebrow' => 'The Collection &middot; Six Essentials',
-            'title'   => 'Every kitchen essential, <em>perfected.</em>',
+            'title'   => 'Essentials for every <em>kitchen.</em>',
         ],
         'filter' => [
             'all'        => 'All',
@@ -193,8 +193,8 @@
     'blog' => [
         'hero' => [
             'eyebrow'  => 'The Sorwatom Journal',
-            'title'    => 'Stories from the <em>field.</em>',
-            'subtitle' => 'Recipes, harvest notes, and news from the Great Lakes region.',
+            'title'    => 'Stories from the <em>kitchen.</em>',
+            'subtitle' => 'New recipes, cooking tips and stories from across the region.',
         ],
         'filter'   => ['all' => 'All'],
         'featured' => ['label' => 'Latest', 'read_more' => 'Read article →'],
@@ -215,6 +215,10 @@
     'pd' => [
         'req_quote'  => 'Request a Quote →',
         'view_all'   => 'View All Products',
+        'assurance'  => [
+            'quality' => 'Quality focused',
+            'african' => 'Tailored for African markets',
+        ],
         'related_eyebrow' => 'YOU MIGHT ALSO LIKE',
         'view_product'    => 'View Product →',
         'ketchup' => [
@@ -233,7 +237,10 @@
             'hero_title'   => 'Sorwatom <em>Tomato Paste</em>',
             'badge'        => 'Paste · Double Concentrated',
             'title'        => 'SORWATOM Double Concentrated Tomato Paste',
-            'desc'         => 'Made from sun-ripened Great Lakes tomatoes, our double-concentrated paste brings bold colour and vibrant taste to any dish. Free from artificial additives — just pure tomato, crafted to an Italian specification.',
+            // One description per pack, matching thumb1–thumb3
+            'desc1'        => 'Our unique double-concentrated tomato paste brings bold colour and rich tomato taste to everyday meals, in an affordable single-use sachet.',
+            'desc2'        => 'Bold colour, rich tomato flavour and a thick, concentrated texture, in a family-size sachet. It’s the dependable choice for stews, sauces and rice dishes.',
+            'desc3'        => 'Built for busy kitchens. Our double-concentrated tomato paste delivers consistent colour, flavour and thickness in a large 800g tin. Ideal for restaurants, hotels and caterers who need dependable results every time.',
             'f1' => '100% Natural',
             'f2' => 'No Preservatives',
             'f3' => 'Double Concentrated (28–30%)',

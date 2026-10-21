@@ -12,7 +12,7 @@
     ],
 
     'footer' => [
-        'tagline'  => 'Kiongozi wa kilimo-biashara wa Maziwa Makuu — ikizalisha ladha za kipekee kwa ulimwengu tangu mwaka 1984.',
+        'tagline'  => 'Sorwatom ni kampuni inayoongoza ya kilimo-biashara, ikizalisha ladha za kipekee kwa walaji wa kisasa wa Afrika tangu mwaka 1984.',
         'explore'  => 'Chunguza',
         'hq'       => 'Makao Makuu',
         'address'  => 'Ndera - Mulindi<br>Kigali, Rwanda',
@@ -40,13 +40,13 @@
     'home' => [
         'hero' => [
             'eyebrow'  => 'Kutoka Shambani hadi Mezani',
-            'title'    => 'Mavuno <em>Safi.</em>',
-            'subtitle' => 'Gundua utajiri wa bidhaa za kilimo-biashara 100% asili, zilizoundwa kwa hekima ya jadi na usahihi wa kisasa katika moyo wa Afrika Mashariki.',
+            'title'    => 'Musosi <em>fresh.</em>',
+            'subtitle' => 'Gundua utajiri wa ladha asilia 100%, inayofikishwa jikoni kote Rwanda, Burundi na Mashariki mwa DRC.',
             'explore'  => 'Chunguza Mkusanyiko',
             'story'    => 'Hadithi Yetu',
             'scroll'   => 'Sogeza chini',
         ],
-        'ticker' => '100% Asili &middot; Tangu 1984 &middot; Inakuzwa Maziwa Makuu &middot; Viwango vya Kimataifa &middot;&nbsp;',
+        'ticker' => '100% Asili &middot; Tangu 1984 &middot; Rwanda &middot; Burundi &middot; Mashariki mwa DRC &middot; Viwango vya Kimataifa &middot;&nbsp;',
         'why' => [
             'eyebrow'  => 'Kwa Nini Sorwatom',
             'heading'  => 'Imetengenezwa kwa usahihi, <em>imewasilishwa kwa fahari.</em>',
@@ -84,8 +84,8 @@
     'about' => [
         'hero' => [
             'eyebrow'  => 'KUANZISHWA 1984',
-            'title'    => 'Miaka arobaini ya <em>ufundi safi,</em><br>iliyopandwa katika Maziwa Makuu.',
-            'subtitle' => 'Kutoka mstari mmoja wa usindikaji hadi nguvu ya kikanda — hii ndiyo hadithi ya sayansi, usahihi na watu wanaofanya hili iwezekane.',
+            'title'    => 'Miaka arobaini ya <em>uaminifu,</em><br>kwenye kila meza katika Maziwa Makuu.',
+            'subtitle' => 'Tangu 1984, tumeleta ladha za kila siku zinazotegemewa kwenye meza za Rwanda, Burundi na Mashariki mwa DRC.',
         ],
         'stats' => [
             'heritage'      => 'Miaka ya Urithi',
@@ -126,7 +126,7 @@
     ],
 
     'products' => [
-        'hero' => ['eyebrow' => 'Mkusanyiko &middot; Vitu Sita Muhimu', 'title' => 'Kila muhimu wa jikoni, <em>ulioboreshwa.</em>'],
+        'hero' => ['eyebrow' => 'Mkusanyiko &middot; Vitu Sita Muhimu', 'title' => 'Bidhaa muhimu kwa kila <em>jiko.</em>'],
         'filter' => ['all' => 'Yote', 'paste' => 'Paste', 'condiments' => 'Viungo', 'spices' => 'Spices'],
         'badge'  => ['sachet' => 'Mfuko', 'travel' => 'Saizi ya Safari', 'bestseller' => 'Inayouzwa Zaidi', 'tin' => 'Kopo', 'glass' => 'Chupa ya Plastiki', 'pouch' => 'Mfuko wa Viungo'],
         'p50'    => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 50g',  'desc' => 'Imeundwa kwa vipimo sawa na bidhaa yetu kuu ya 70g.'],
@@ -178,8 +178,8 @@
     'blog' => [
         'hero' => [
             'eyebrow'  => 'Jarida la Sorwatom',
-            'title'    => 'Hadithi kutoka <em>shambani.</em>',
-            'subtitle' => 'Mapishi, maelezo ya mavuno, na habari kutoka eneo la Maziwa Makuu.',
+            'title'    => 'Hadithi kutoka <em>jikoni.</em>',
+            'subtitle' => 'Mapishi mapya, vidokezo vya upishi na hadithi kutoka kote kanda.',
         ],
         'filter'   => ['all' => 'Yote'],
         'featured' => ['label' => 'Mpya', 'read_more' => 'Soma makala →'],
@@ -200,6 +200,10 @@
     'pd' => [
         'req_quote'  => 'Omba Nukuu →',
         'view_all'   => 'Tazama Bidhaa Zote',
+        'assurance'  => [
+            'quality' => 'Ubora kwanza',
+            'african' => 'Imeundwa kwa masoko ya Afrika',
+        ],
         'related_eyebrow' => 'UNAWEZA PIA KUPENDA',
         'view_product'    => 'Tazama Bidhaa →',
         'ketchup' => [
@@ -218,7 +222,10 @@
             'hero_title'   => 'Tomato Paste <em>Sorwatom</em>',
             'badge'        => 'Paste · Iliyokolea Mara Mbili',
             'title'        => 'SORWATOM Tomato Paste Iliyokolea Mara Mbili',
-            'desc'         => 'Imetengenezwa kutoka kwa nyanya za Maziwa Makuu zilizoiva juani, paste yetu iliyokolea mara mbili inaleta rangi ya kuvutia na ladha nzuri kwa kila chakula. Bila viongeza vya bandia — nyanya safi tu.',
+            // One description per pack, matching thumb1–thumb3
+            'desc1'        => 'Tomato paste yetu ya kipekee iliyokolea mara mbili inaleta rangi angavu na ladha tajiri ya nyanya kwenye milo ya kila siku, katika mfuko wa matumizi ya mara moja kwa bei nafuu.',
+            'desc2'        => 'Rangi angavu, ladha tajiri ya nyanya na uzito uliokolea, katika mfuko wa ukubwa wa familia. Ni chaguo la kutegemewa kwa kitoweo, michuzi na vyakula vya wali.',
+            'desc3'        => 'Imeundwa kwa jikoni zenye shughuli nyingi. Tomato paste yetu iliyokolea mara mbili inatoa rangi, ladha na uzito thabiti katika kopo kubwa la 800g. Inafaa kwa migahawa, hoteli na wahudumu wa chakula wanaohitaji matokeo ya kutegemewa kila wakati.',
             'f1' => '100% Asili',
             'f2' => 'Bila Vihifadhi',
             'f3' => 'Iliyokolea Mara Mbili (28–30%)',

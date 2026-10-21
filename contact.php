@@ -110,7 +110,7 @@ include 'partials/_head.php';
           <h2 id="faq-heading"><?= __r('contact.faq.heading') ?></h2>
         </div>
         <div class="accordion reveal" data-delay="1" role="list">
-          <?php foreach (['q1','q2','q3','q4'] as $i => $q): $n = $i+1; ?>
+          <?php foreach (['q1','q2','q3'] as $i => $q): $n = $i+1; ?>
           <div class="accordion__item" role="listitem">
             <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="faq-body-<?= $n ?>" id="faq-trigger-<?= $n ?>">
               <?= __t('contact.faq.'.$q.'.q') ?>

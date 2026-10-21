@@ -15,7 +15,7 @@ $grid_posts = blog_get_posts($page, $per_page + ($featured ? 1 : 0), $active_cat
 if ($featured && $page === 1) array_shift($grid_posts);
 
 $page_title       = 'Journal — Sorwatom';
-$page_description = 'Stories from the field, recipes from the kitchen, and news from the Great Lakes region.';
+$page_description = 'Stories from the kitchen — new recipes, cooking tips and stories from across the region.';
 $page_css         = ['pages/blog.css'];
 $body_class       = 'page-blog';
 $current_page     = 'blog';

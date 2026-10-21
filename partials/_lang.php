@@ -13,23 +13,30 @@ if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], $allowed, true)) {
 
 $lang_file = __DIR__ . '/../lang/' . $LANG_CODE . '.php';
 $LANG = file_exists($lang_file) ? require $lang_file : require __DIR__ . '/../lang/en.php';
+// English fills any key a translation hasn't caught up with yet
+$LANG_FALLBACK = $LANG_CODE === 'en' ? $LANG : require __DIR__ . '/../lang/en.php';
+
+/** Resolve a dot-notation key in the current language, then in English. */
+function __lookup(string $key): ?string {
+    global $LANG, $LANG_FALLBACK;
+    foreach ([$LANG, $LANG_FALLBACK] as $source) {
+        $val = $source;
+        foreach (explode('.', $key) as $part) {
+            if (!is_array($val) || !isset($val[$part])) { $val = null; break; }
+            $val = $val[$part];
+        }
+        if (is_string($val)) return $val;
+    }
+    return null;
+}
 
 /**
  * Translate a dot-notation key.  e.g. __('nav.home')
  * Supports {placeholder} replacements.
  */
 function __t(string $key, array $replace = []): string {
-    global $LANG;
-    $parts = explode('.', $key);
-    $val   = $LANG;
-    foreach ($parts as $part) {
-        if (is_array($val) && isset($val[$part])) {
-            $val = $val[$part];
-        } else {
-            return $key; // key not found — return key so missing strings are obvious
-        }
-    }
-    if (!is_string($val)) return $key;
+    $val = __lookup($key);
+    if ($val === null) return $key; // key not found — return key so missing strings are obvious
     foreach ($replace as $k => $v) {
         $val = str_replace('{' . $k . '}', $v, $val);
     }
@@ -38,17 +45,8 @@ function __t(string $key, array $replace = []): string {
 
 /** Raw translation — no htmlspecialchars (for HTML content). */
 function __r(string $key, array $replace = []): string {
-    global $LANG;
-    $parts = explode('.', $key);
-    $val   = $LANG;
-    foreach ($parts as $part) {
-        if (is_array($val) && isset($val[$part])) {
-            $val = $val[$part];
-        } else {
-            return $key;
-        }
-    }
-    if (!is_string($val)) return $key;
+    $val = __lookup($key);
+    if ($val === null) return $key;
     foreach ($replace as $k => $v) {
         $val = str_replace('{' . $k . '}', $v, $val);
     }
