@@ -5,33 +5,6 @@
 
 
 /* ----------------------------------------------------------
-   HERO EYEBROW
-   Custom variant with a left gold rule — used only on the
-   homepage full-height hero.
-   ---------------------------------------------------------- */
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-size: var(--step--1);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: var(--space-md);
-  font-family: var(--font-body);
-  font-weight: 500;
-}
-
-.hero-eyebrow::before {
-  content: "";
-  width: 32px;
-  height: 1px;
-  background: var(--col-accent);
-  flex-shrink: 0;
-}
-
-
-/* ----------------------------------------------------------
    HERO — full-height homepage variant
    ---------------------------------------------------------- */
 

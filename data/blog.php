@@ -21,9 +21,12 @@ function blog_hydrate(array $post): array {
 }
 
 // ─── Queries ──────────────────────────────────────────────────────────────────
+// Without a database connection (e.g. locally — the host only accepts its own
+// servers) reads return nothing, so pages show their empty state instead of failing.
 
 function blog_get_posts(int $page = 1, int $per_page = 9, string $category_slug = ''): array {
     $db     = get_db();
+    if (!$db) return [];
     $offset = ($page - 1) * $per_page;
     $params = [];
 
@@ -52,6 +55,7 @@ function blog_get_posts(int $page = 1, int $per_page = 9, string $category_slug 
 
 function blog_count_posts(string $category_slug = ''): int {
     $db     = get_db();
+    if (!$db) return 0;
     $params = [];
 
     $sql = "SELECT COUNT(*) FROM blog_posts p
@@ -70,6 +74,7 @@ function blog_count_posts(string $category_slug = ''): int {
 
 function blog_get_featured(): ?array {
     $db   = get_db();
+    if (!$db) return null;
     $stmt = $db->query(
         "SELECT p.*, c.name AS category_name, c.slug AS category_slug, c.color AS category_color,
                 a.name AS author_name
@@ -85,6 +90,7 @@ function blog_get_featured(): ?array {
 
 function blog_get_by_slug(string $slug): ?array {
     $db   = get_db();
+    if (!$db) return null;
     $stmt = $db->prepare(
         "SELECT p.*, c.name AS category_name, c.slug AS category_slug, c.color AS category_color,
                 a.name AS author_name, a.bio AS author_bio, a.avatar_url AS author_avatar
@@ -100,6 +106,7 @@ function blog_get_by_slug(string $slug): ?array {
 
 function blog_get_related(int $post_id, int $category_id, int $limit = 3): array {
     $db   = get_db();
+    if (!$db) return [];
     $stmt = $db->prepare(
         "SELECT p.*, c.name AS category_name, c.slug AS category_slug, c.color AS category_color,
                 a.name AS author_name
@@ -122,6 +129,7 @@ function blog_get_related(int $post_id, int $category_id, int $limit = 3): array
 
 function blog_get_categories(): array {
     $db   = get_db();
+    if (!$db) return [];
     $stmt = $db->query(
         "SELECT c.*, COUNT(p.id) AS post_count
          FROM blog_categories c
@@ -133,6 +141,7 @@ function blog_get_categories(): array {
 
 function blog_get_tags(int $post_id): array {
     $db   = get_db();
+    if (!$db) return [];
     $stmt = $db->prepare("SELECT tag FROM blog_post_tags WHERE post_id = :id ORDER BY tag");
     $stmt->execute([':id' => $post_id]);
     return $stmt->fetchAll(PDO::FETCH_COLUMN);

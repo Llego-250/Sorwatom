@@ -25,7 +25,6 @@ include 'partials/_head.php';
     <a href="#main" class="skip-link"><?= __t('a11y.skip_content') ?></a>
     <div class="hero__content">
       <div class="container">
-        <p class="hero-eyebrow"><?= __t('home.hero.eyebrow') ?></p>
         <h1 class="hero__title"><?= __r('home.hero.title') ?></h1>
         <p class="hero__subtitle"><?= __t('home.hero.subtitle') ?></p>
         <div class="hero__actions">

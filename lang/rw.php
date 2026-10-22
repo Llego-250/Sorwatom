@@ -162,7 +162,6 @@
 
     'home' => [
         'hero' => [
-            'eyebrow'  => 'Kuva ku mbuto kugeza ku kiyiko',
             'title'    => 'Musosi <em>fresh.</em>',
             'subtitle' => 'Ryoherwa n’uburyohe bukungahaye bw’umwimerere 100%, bugezwa mu bikoni hirya no hino mu Rwanda, mu Burundi no mu Burasirazuba bwa RDC.',
             'explore'  => 'Reba ibicuruzwa byacu',
@@ -179,7 +178,7 @@
             ],
             'p2' => [
                 'title' => 'Ubuziranenge bwemejwe',
-                'desc'  => 'Uburyo bwo gutunganya bufite ibyemezo bya ISO, KEBS, US FDA, Halal na Kosher, bwujuje ibipimo mpuzamahanga bihanitse by’umutekano w’ibiribwa.',
+                'desc'  => 'Uburyo bwo gutunganya bufite ibyemezo bya ISO, KEBS, US FDA na Kosher, bwujuje ibipimo mpuzamahanga bihanitse by’umutekano w’ibiribwa.',
             ],
             'p3' => [
                 'title' => 'Ireme Mpuzamahanga',
@@ -288,8 +287,6 @@
             'issued_by'      => '{company}, byatanzwe na {issuer}',
             'issued_by_only' => 'Byatanzwe na {issuer}',
             'fssc_v6'        => 'FSSC 22000 (Verisiyo ya 6)',
-            'halal_veg'      => 'Halal (ibicuruzwa bya Halal bikomoka ku bimera)',
-            'halal_egypt'    => 'Uruhushya rwo gukoresha ikirango cya Halal cya Misiri',
             'fda_facility'   => 'Iyandikwa ry’uruganda rw’ibiribwa muri US FDA',
             'fda_fce_sid'    => 'Ibyemezo bya US FDA FCE na SID (ibyemezo bibiri)',
             'kebs'           => 'Ikirango cy’ubuziranenge cya KEBS',
