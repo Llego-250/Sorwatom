@@ -99,7 +99,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.ketchup.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.ketchup.name') ?></h2>
-              <p class="product-card__desc"><?= __t('products.ketchup.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.ketchup.desc') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.glass') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
@@ -127,7 +127,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.masala.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.masala.name') ?></h2>
-              <p class="product-card__desc"><?= __t('products.masala.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.masala.desc') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.pouch') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>

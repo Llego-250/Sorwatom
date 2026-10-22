@@ -331,7 +331,6 @@
         'ketchup' => [
             'cat'  => 'Ibiherekeza amafunguro',
             'name' => 'Tomato Ketchup',
-            'desc' => 'Ikozwe mu nyanya zeze zikiri ku giti, ikagira uburyohe buringaniye, busharira gato kandi buryohereye bw’umwimerere.',
         ],
         'vinegar' => [
             'cat'  => 'Ibiherekeza amafunguro',
@@ -341,7 +340,6 @@
         'masala' => [
             'cat'  => 'Ibirungo',
             'name' => 'Pilau Masala',
-            'desc' => 'Ikirungo cyacu gikunzwe kuva kera — uruvange rufite icyanga gikomeye kandi cyihariye, ari na rwo ruryoshya umuceri utegurwa mu birori byo muri Afurika y’Iburasirazuba.',
         ],
         'format' => [
             'sachet_50' => 'Agasashe · 50 g',
@@ -477,7 +475,7 @@
             'hero_title'   => 'Tomato <em>Ketchup</em>',
             'badge'        => 'Ibiherekeza amafunguro · Amacupa ya pulasitiki',
             'title'        => 'SORWATOM Tomato Ketchup',
-            'desc'         => 'Ikozwe mu nyanya zeze zikiri ku giti n’uruvange rw’ibirungo ruringaniye — isosi iryohereye kandi isharira gato ikwiye kuba kuri buri meza. Nta mabara y’ubukorano, nta sirop y’ibigori ikungahaye kuri fructose (high-fructose corn syrup).',
+            'desc'         => 'Ikozwe mu nyanya zeze zikiri ku giti n’uruvange rw’ibirungo ruringaniye. Ni isosi iryohereye kandi isharira gato, ikwiye kuba kuri buri meza.',
             'f1'           => 'Inyanya zeze zikiri ku giti',
             'f2'           => 'Nta mabara y’ubukorano',
             'f3'           => 'Amacupa ya pulasitiki',
@@ -506,7 +504,7 @@
             'hero_title'   => 'Pilau <em>Masala</em>',
             'badge'        => 'Ibirungo · Uruvange gakondo rwasekuwe n’intoki',
             'title'        => 'SORWATOM Royal Pilau Masala Blend',
-            'desc'         => 'Ikirungo cyacu gikunzwe kuva kera — uruvange rufite icyanga gikomeye kandi cyihariye, n’impumuro ikomeye ituma n’ifunguro ryoroheje kurusha ayandi rigira uburyohe butangaje n’ibara rikeye. Rurimo ibimera by’umwimerere 100%: ifu ya tungurusumu, imbuto za cumin, ikinzari na cannelle.',
+            'desc'         => 'Uruvange rw’ibirungo rukungahaye kandi ruhumura neza, rutuma pilawu yawe iba nziza kurushaho. Ruha amafunguro uburyohe bwiza cyane n’ibara rikeye risa na zahabu. Rukozwe mu bimera by’umwimerere 100%.',
             'f1'           => 'Ibimera by’umwimerere 100%',
             'f2'           => 'Nta MSG',
             'f3'           => 'Uruvange rwasekuwe n’intoki',
