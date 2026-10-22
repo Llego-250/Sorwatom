@@ -228,12 +228,12 @@
             'glass'       => 'Plastic bottles',
             'pouch'       => 'Spice Pouch',
         ],
-        // Card descriptions for tomato paste, ketchup and masala come from their product pages (pd.*)
+        // Card descriptions come from the product pages (pd.*)
         'p50'  => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 50g'],
         'p70'  => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 70g'],
         'p800' => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 800g'],
         'ketchup' => ['cat' => 'Condiments', 'name' => 'Tomato Ketchup'],
-        'vinegar' => ['cat' => 'Condiments', 'name' => 'Pure Vinegar',     'desc' => 'Distilled from the highest quality ingredients, versatile enough for cooking and preserving.'],
+        'vinegar' => ['cat' => 'Condiments', 'name' => 'Pure Vinegar'],
         'masala'  => ['cat' => 'Spices',     'name' => 'Pilau Masala'],
         'format'  => ['sachet_50' => 'Sachet · 50 g', 'sachet_70' => 'Sachet · 70 g', 'tin_800' => 'Tin · 800 g', 'glass' => 'Plastic bottles', 'pouch' => 'Spice Pouch'],
         'cta' => [
@@ -346,15 +346,17 @@
             'desc1'        => 'Our unique double-concentrated tomato paste brings bold colour and rich tomato taste to everyday meals, in an affordable single-use sachet.',
             'desc2'        => 'Bold colour, rich tomato flavour and a thick, concentrated texture, in a family-size sachet. It’s the dependable choice for stews, sauces and rice dishes.',
             'desc3'        => 'Built for busy kitchens. Our double-concentrated tomato paste delivers consistent colour, flavour and thickness in a large 800g tin. Ideal for restaurants, hotels and caterers who need dependable results every time.',
-            'f1' => '100% Natural',
-            'f2' => 'No Preservatives',
-            'f3' => 'Double Concentrated (28–30%)',
-            'f4' => 'ISO Certified',
             'thumb1' => '50g Sachet',
             'thumb2' => '70g Sachet',
             'thumb3' => '800g Tin',
             'hint'   => 'Click a pack to view',
-            'note'   => 'Rich tomato flavour, vibrant colour and a concentrated texture made for everyday cooking.',
+            // Highlight box and feature list per pack (features separated by |)
+            'note1'     => 'Rich tomato flavour, vibrant colour and a concentrated texture made for everyday cooking.',
+            'note2'     => 'Rich tomato flavour, vibrant colour and a concentrated texture made for everyday cooking.',
+            'note3'     => 'Rich tomato flavour, vibrant colour and a concentrated texture made for everyday cooking.',
+            'features1' => '100% Natural|No Preservatives|Double Concentrated (28–30%)|ISO Certified',
+            'features2' => '100% Natural|No Preservatives|Double Concentrated (28–30%)|ISO Certified',
+            'features3' => '100% Natural|No Preservatives|Double Concentrated (28–30%)|ISO Certified',
         ],
         'masala' => [
             'hero_eyebrow' => 'SPICES · HAND-GROUND HERITAGE BLEND',

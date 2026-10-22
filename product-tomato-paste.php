@@ -419,6 +419,10 @@ $mainGalleryImage = $galleryImages[0];
     list-style: none;
 }
 
+.product-tomato-paste .product-features[hidden] {
+    display: none;
+}
+
 .product-tomato-paste .product-features li {
     display: flex;
     align-items: center;
@@ -849,6 +853,7 @@ $mainGalleryImage = $galleryImages[0];
                             data-alt="<?= __t('img.tomato_variant') ?>"
                             data-index="<?= $index + 1 ?>"
                             data-desc="<?= __t('pd.tomato.desc' . ($index + 1)) ?>"
+                            data-note="<?= __t('pd.tomato.note' . ($index + 1)) ?>"
                             onclick="switchImg(this)"
                             role="tab"
                             aria-selected="<?= $index === 0 ? 'true' : 'false' ?>"
@@ -875,15 +880,16 @@ $mainGalleryImage = $galleryImages[0];
 
                 <div class="sp-quality-note">
                     <span class="sp-quality-note__icon">✦</span>
-                    <span><?= __t('pd.tomato.note') ?></span>
+                    <span id="productNote" aria-live="polite"><?= __t('pd.tomato.note1') ?></span>
                 </div>
 
-                <ul class="product-features">
-                    <li><span class="feat-check">✓</span> <?= __t('pd.tomato.f1') ?></li>
-                    <li><span class="feat-check">✓</span> <?= __t('pd.tomato.f2') ?></li>
-                    <li><span class="feat-check">✓</span> <?= __t('pd.tomato.f3') ?></li>
-                    <li><span class="feat-check">✓</span> <?= __t('pd.tomato.f4') ?></li>
+                <?php foreach ($galleryImages as $index => $_): $pack = $index + 1; ?>
+                <ul class="product-features" data-pack="<?= $pack ?>"<?= $pack === 1 ? '' : ' hidden' ?>>
+                    <?php foreach (explode('|', __r('pd.tomato.features' . $pack)) as $feature): ?>
+                    <li><span class="feat-check">✓</span> <?= htmlspecialchars($feature, ENT_QUOTES, 'UTF-8') ?></li>
+                    <?php endforeach; ?>
                 </ul>
+                <?php endforeach; ?>
 
                 <div class="product-detail__actions">
                     <a href="/contact?inquiry=tomato-paste" class="btn-primary-green">
@@ -989,6 +995,16 @@ function switchImg(thumb) {
     if (desc && nextDesc) {
         desc.textContent = nextDesc;
     }
+
+    /* ...and its own highlight and feature list. */
+    const note = document.getElementById('productNote');
+    const nextNote = thumb.getAttribute('data-note');
+    if (note && nextNote) {
+        note.textContent = nextNote;
+    }
+    document.querySelectorAll('.product-features[data-pack]').forEach(function (list) {
+        list.hidden = list.getAttribute('data-pack') !== String(index);
+    });
 
     mainImg.style.opacity = '0';
 

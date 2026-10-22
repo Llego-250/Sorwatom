@@ -113,7 +113,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.vinegar.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.vinegar.name') ?></h2>
-              <p class="product-card__desc"><?= __t('products.vinegar.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.vinegar.desc') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.glass') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
