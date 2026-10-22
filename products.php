@@ -54,7 +54,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p50.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.p50.name') ?></h2>
-              <p class="product-card__desc"><?= __t('products.p50.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.tomato.desc1') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.sachet_50') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
@@ -71,7 +71,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p70.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.p70.name') ?></h2>
-              <p class="product-card__desc"><?= __t('products.p70.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.tomato.desc2') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.sachet_70') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
@@ -85,7 +85,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p800.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.p800.name') ?></h2>
-              <p class="product-card__desc"><?= __t('products.p800.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.tomato.desc3') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.tin_800') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>

@@ -231,9 +231,10 @@
             'glass'       => 'Plastic bottles',
             'pouch'       => 'Spice Pouch',
         ],
-        'p50'  => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 50g',  'desc' => 'Our unique double-concentrated tomato paste brings bold colour and rich tomato taste to everyday meals, in an affordable single-use sachet.'],
-        'p70'  => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 70g',  'desc' => 'SORWATOM Double-concentrated tomato paste made with naturally ripened tomatoes for the everyday kitchen.'],
-        'p800' => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 800g', 'desc' => 'Developed for the hospitality industry — our 800g tin retains the same natural intensity.'],
+        // Tomato paste card descriptions come from pd.tomato.desc1–desc3, shared with the product page
+        'p50'  => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 50g'],
+        'p70'  => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 70g'],
+        'p800' => ['cat' => 'Tomato Paste', 'name' => 'Tomato Paste · 800g'],
         'ketchup' => ['cat' => 'Condiments', 'name' => 'Tomato Ketchup', 'desc' => 'Made from vine-ripened tomatoes to give a balanced, tangy and naturally sweet finish.'],
         'vinegar' => ['cat' => 'Condiments', 'name' => 'Pure Vinegar',     'desc' => 'Distilled from the highest quality ingredients, versatile enough for cooking and preserving.'],
         'masala'  => ['cat' => 'Spices',     'name' => 'Pilau Masala',     'desc' => "Our age-old favourite — a strong and unique flavour blend, the soul of East African celebratory rice."],

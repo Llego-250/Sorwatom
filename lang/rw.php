@@ -319,17 +319,14 @@
         'p50' => [
             'cat'  => 'Isosi y’inyanya',
             'name' => 'Tomato Paste · 50g',
-            'desc' => 'Isosi yacu y’inyanya yihariye, ifashe inshuro ebyiri, iha amafunguro ya buri munsi ibara rikeye n’icyanga gikungahaye cy’inyanya, mu gasashe gakoreshwa rimwe kandi kadahenze.',
         ],
         'p70' => [
             'cat'  => 'Isosi y’inyanya',
             'name' => 'Tomato Paste · 70g',
-            'desc' => 'Isosi y’inyanya ya SORWATOM ifashe inshuro ebyiri, ikozwe mu nyanya zihishije ku buryo bw’umwimerere, igenewe igikoni cya buri munsi.',
         ],
         'p800' => [
             'cat'  => 'Isosi y’inyanya',
             'name' => 'Tomato Paste · 800g',
-            'desc' => 'Cyakorewe urwego rw’amahoteli n’amaresitora — igikopo cyacu cya 800g kigumana icyanga gikomeye cy’umwimerere nk’icy’ibindi bipfunyika.',
         ],
         'ketchup' => [
             'cat'  => 'Ibiherekeza amafunguro',
