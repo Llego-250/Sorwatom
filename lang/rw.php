@@ -34,7 +34,7 @@
         ],
         'tomato' => [
             'title' => 'Sorwatom Tomato Paste — Double Concentrated, 50g, 70g na 800g',
-            'desc'  => 'Sorwatom Double Concentrated Tomato Paste — ibara rikeye n’icyanga gikungahaye cy’inyanya ku mafunguro ya buri munsi no mu bikoni bihuze. Iboneka mu gasashe ka 50g, mu gasashe ka 70g no mu gikopo cya 800g.',
+            'desc'  => 'Sorwatom Double Concentrated Tomato Paste — ibara rikeye n’icyanga gikungahaye cy’inyanya ku mafunguro ya buri munsi no mu gikoni bihuze. Iboneka mu gasashe ka 50g, mu gasashe ka 70g no mu gikopo cya 800g.',
         ],
         'ketchup' => [
             'title' => 'Sorwatom Tomato Ketchup — Amacupa ya 350g na 700g',
@@ -164,7 +164,7 @@
     'home' => [
         'hero' => [
             'title'    => 'Musosi <em>fresh.</em>',
-            'subtitle' => 'Ryoherwa n’uburyohe bukungahaye bw’umwimerere 100%, bugezwa mu bikoni hirya no hino mu Rwanda, mu Burundi no mu Burasirazuba bwa RDC.',
+            'subtitle' => 'Ryoherwa n’uburyohe bukungahaye bw’umwimerere 100%, bugezwa mu gikoni hirya no hino mu Rwanda, mu Burundi no mu Burasirazuba bwa RDC.',
             'explore'  => 'Reba ibicuruzwa byacu',
             'story'    => 'Abo turi bo',
             'scroll'   => 'Manura',
@@ -483,7 +483,7 @@
             'title'        => 'SORWATOM Double Concentrated Tomato Paste',
             'desc1'        => 'Tomato Paste yacu ya Double Concentrated iguha ibara n’uburyohe bw’inyanya mu biryo bya buri munsi, mu gasashe gato kandi gahendutse.',
             'desc2'        => 'Ibara ryiza n’uburyohe bw’inyanya byuzuye, ipfunyitse mu gasashe kanini kagenewe umuryango wose. Ni amahitamo meza yo gutegura isupu y’inyama, amasosi n’umuceri.',
-            'desc3'        => 'Yagenewe ibikoni byakira abantu benshi. Iyi tomate paste ikozwe ku buryo inyanya ziba zikubye inshuro ebyiri mu bukomere, igatanga n’ibara ryiza. Iza mu gakopo kanini ka 800g, ikaba ari amahitamo meza ku maresitora, amahoteli n’abategurira abandi amafunguro, bakeneye ibisubizo byizewe kandi bihoraho.',
+            'desc3'        => 'Yagenewe igikoni byakira abantu benshi. Iyi tomate paste ikozwe ku buryo inyanya ziba zikubye inshuro ebyiri mu bukomere, igatanga n’ibara ryiza. Iza mu gakopo kanini ka 800g, ikaba ari amahitamo meza ku maresitora, amahoteli n’abategurira abandi amafunguro, bakeneye ibisubizo byizewe kandi bihoraho.',
             'thumb1'       => 'Agasashe ka 50g',
             'thumb2'       => 'Agasashe ka 70g',
             'thumb3'       => 'Igikopo cya 800g',
