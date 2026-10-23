@@ -59,7 +59,7 @@ function email_layout(array $o): string
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td valign="middle">
-            <img src="<?= $e($o['logo']) ?>" width="117" height="48" alt="SORWATOM" style="display:block;border:0;width:117px;height:48px;font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:bold;letter-spacing:3px;color:#FFFFFF;">
+            <img src="<?= $e($o['logo']) ?>" width="117" height="48" alt="SORWATOM" style="display:block;border:0;width:117px;height:48px;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:48px;font-weight:bold;letter-spacing:2px;color:#FFFFFF;">
           </td>
           <td valign="middle" align="right">
             <span style="display:inline-block;padding:6px 14px;border:1px solid #C8923A;border-radius:9999px;font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#C8923A;"><?= $e($o['badge']) ?></span>
