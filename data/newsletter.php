@@ -12,6 +12,7 @@
  */
 
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/blog.php';
 require_once __DIR__ . '/../mailer_contact/mail.php';
 require_once __DIR__ . '/../mailer_contact/newsletter-template.php';
 
@@ -195,7 +196,7 @@ function newsletter_get_post(int $post_id): ?array {
          FROM blog_posts p
          LEFT JOIN blog_categories c ON p.category_id = c.id
          LEFT JOIN blog_authors    a ON p.author_id   = a.id
-         WHERE p.id = ? AND p.status = 'published'"
+         WHERE p.id = ? AND " . BLOG_LIVE
     );
     $stmt->execute([$post_id]);
     return $stmt->fetch() ?: null;
@@ -217,7 +218,7 @@ function newsletter_send_welcome(string $email): bool {
         $stmt = get_db()?->query(
             "SELECT p.title, p.slug, c.name AS category_name
              FROM blog_posts p LEFT JOIN blog_categories c ON p.category_id = c.id
-             WHERE p.status = 'published' ORDER BY p.published_at DESC LIMIT 3"
+             WHERE " . BLOG_LIVE . " ORDER BY p.published_at DESC LIMIT 3"
         );
         foreach ($stmt ? $stmt->fetchAll() : [] as $p) {
             $latest[] = [
@@ -301,7 +302,7 @@ function newsletter_queue_post(int $post_id): void {
 function newsletter_send_batch(int $post_id, int $max = 8, int $seconds = 20): array {
     $db   = newsletter_db(true);
     $post = newsletter_get_post($post_id);
-    if (!$post) throw new RuntimeException('Only published posts can be emailed.');
+    if (!$post) throw new RuntimeException('Only published posts can be emailed, and scheduled posts only once their date has passed.');
 
     // Anyone who unsubscribed after the post was queued is skipped.
     $db->prepare(

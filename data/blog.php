@@ -13,6 +13,11 @@ function blog_format_date(string $date): string {
     return function_exists('__date') ? __date($ts) : date('j F Y', $ts);
 }
 
+// A published post dated in the future is scheduled — not on the site yet.
+function blog_is_scheduled(array $post): bool {
+    return ($post['status'] ?? '') === 'published' && ($post['published_at'] ?? '') > date('Y-m-d H:i:s');
+}
+
 function blog_hydrate(array $post): array {
     $post['reading_time']   = blog_reading_time($post['content'] ?? '');
     $post['date_formatted'] = blog_format_date($post['published_at'] ?? $post['created_at']);
@@ -23,6 +28,10 @@ function blog_hydrate(array $post): array {
 // ─── Queries ──────────────────────────────────────────────────────────────────
 // Without a database connection (e.g. locally — the host only accepts its own
 // servers) reads return nothing, so pages show their empty state instead of failing.
+
+// Scheduled posts stay off the site, feed and newsletter until their date.
+// For the posts table aliased as p.
+const BLOG_LIVE = "p.status = 'published' AND (p.published_at IS NULL OR p.published_at <= NOW())";
 
 function blog_get_posts(int $page = 1, int $per_page = 9, string $category_slug = ''): array {
     $db     = get_db();
@@ -35,7 +44,7 @@ function blog_get_posts(int $page = 1, int $per_page = 9, string $category_slug 
             FROM blog_posts p
             LEFT JOIN blog_categories c ON p.category_id = c.id
             LEFT JOIN blog_authors    a ON p.author_id   = a.id
-            WHERE p.status = 'published'";
+            WHERE " . BLOG_LIVE;
 
     if ($category_slug && $category_slug !== 'all') {
         $sql .= " AND c.slug = :cat";
@@ -60,7 +69,7 @@ function blog_count_posts(string $category_slug = ''): int {
 
     $sql = "SELECT COUNT(*) FROM blog_posts p
             LEFT JOIN blog_categories c ON p.category_id = c.id
-            WHERE p.status = 'published'";
+            WHERE " . BLOG_LIVE;
 
     if ($category_slug && $category_slug !== 'all') {
         $sql .= " AND c.slug = :cat";
@@ -81,7 +90,7 @@ function blog_get_featured(): ?array {
          FROM blog_posts p
          LEFT JOIN blog_categories c ON p.category_id = c.id
          LEFT JOIN blog_authors    a ON p.author_id   = a.id
-         WHERE p.status = 'published'
+         WHERE " . BLOG_LIVE . "
          ORDER BY p.published_at DESC LIMIT 1"
     );
     $post = $stmt->fetch();
@@ -97,7 +106,7 @@ function blog_get_by_slug(string $slug): ?array {
          FROM blog_posts p
          LEFT JOIN blog_categories c ON p.category_id = c.id
          LEFT JOIN blog_authors    a ON p.author_id   = a.id
-         WHERE p.slug = :slug AND p.status = 'published'"
+         WHERE p.slug = :slug AND " . BLOG_LIVE
     );
     $stmt->execute([':slug' => $slug]);
     $post = $stmt->fetch();
@@ -113,7 +122,7 @@ function blog_get_related(int $post_id, int $category_id, int $limit = 3): array
          FROM blog_posts p
          LEFT JOIN blog_categories c ON p.category_id = c.id
          LEFT JOIN blog_authors    a ON p.author_id   = a.id
-         WHERE p.status = 'published' AND p.category_id = :cat AND p.id != :id
+         WHERE " . BLOG_LIVE . " AND p.category_id = :cat AND p.id != :id
          ORDER BY p.published_at DESC LIMIT :lim"
     );
     $stmt->bindValue(':cat', $category_id, PDO::PARAM_INT);
@@ -133,7 +142,7 @@ function blog_get_categories(): array {
     $stmt = $db->query(
         "SELECT c.*, COUNT(p.id) AS post_count
          FROM blog_categories c
-         LEFT JOIN blog_posts p ON c.id = p.category_id AND p.status = 'published'
+         LEFT JOIN blog_posts p ON c.id = p.category_id AND " . BLOG_LIVE . "
          GROUP BY c.id HAVING post_count > 0 ORDER BY c.name"
     );
     return $stmt->fetchAll();

@@ -73,7 +73,8 @@ $subscribers = newsletter_active_count();
           <td><a href="/admin/post-edit.php?id=<?= $p['id'] ?>"><?= htmlspecialchars($p['title']) ?></a></td>
           <td><?= htmlspecialchars($p['category_name'] ?? '—') ?></td>
           <td><?= htmlspecialchars($p['author_name']   ?? '—') ?></td>
-          <td><span class="status-badge status-<?= $p['status'] ?>"><?= $p['status'] ?></span></td>
+          <?php $state = blog_is_scheduled($p) ? 'scheduled' : $p['status']; ?>
+          <td><span class="status-badge status-<?= $state ?>"><?= $state ?></span></td>
           <td><?= $p['published_at'] ? date('d M Y', strtotime($p['published_at'])) : '—' ?></td>
           <td class="row-actions">
             <a href="/blog/<?= htmlspecialchars($p['slug']) ?>" target="_blank" class="link-muted">View</a>

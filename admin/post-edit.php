@@ -65,7 +65,8 @@ $auth_val    = $post['author_id']   ?? '';
 
 $nl_flash  = $_SESSION['nl_flash'] ?? null;
 unset($_SESSION['nl_flash']);
-$nl_status = ($id && $status_val === 'published') ? newsletter_post_status($id) : null;
+$scheduled = $post && blog_is_scheduled($post);
+$nl_status = ($id && $status_val === 'published' && !$scheduled) ? newsletter_post_status($id) : null;
 $nl_active = $nl_status ? newsletter_active_count() : 0;
 ?>
 <!doctype html>
@@ -86,7 +87,7 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
 
     <div class="page-header">
       <h1><?= $id ? 'Edit Post' : 'New Post' ?></h1>
-      <?php if ($id && $status_val === 'published'): ?>
+      <?php if ($id && $status_val === 'published' && !$scheduled): ?>
       <a href="/blog/<?= $slug_val ?>" target="_blank" class="btn-ghost">View Post ↗</a>
       <?php endif; ?>
     </div>
@@ -194,6 +195,7 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
             <div class="field">
               <label for="published_at">Publish Date</label>
               <input type="datetime-local" id="published_at" name="published_at" value="<?= $pub_val ?>">
+              <p class="field-hint">Kigali time. Pick a future date to schedule a published post — it appears on the site then.</p>
             </div>
             <div class="sidebar-actions">
               <button type="submit" class="btn-primary btn-full">Save Post</button>
@@ -208,7 +210,9 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
           <!-- ── Newsletter ── -->
           <div class="sidebar-card">
             <h3>Newsletter</h3>
-            <?php if (!$nl_status): ?>
+            <?php if ($scheduled): ?>
+            <p class="nl-summary">Scheduled for <strong><?= date('d M Y, H:i', strtotime($post['published_at'])) ?></strong>. You can email it to subscribers once it’s live.</p>
+            <?php elseif (!$nl_status): ?>
             <p class="nl-summary">Publish and save this post to email it to subscribers.</p>
             <?php else:
               $nl_waiting = $nl_status['pending'] + $nl_status['sending'];

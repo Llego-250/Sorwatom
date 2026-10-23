@@ -1,4 +1,9 @@
 <?php
+// ─── Time zone ────────────────────────────────────────────────────────────────
+// Kigali time for everything: dates typed in the admin, "published now",
+// scheduled posts, emails and logs. The database session follows it (database.php).
+date_default_timezone_set('Africa/Kigali');
+
 // ─── Database ─────────────────────────────────────────────────────────────────
 // Fill in your MySQL credentials. Or set environment variables on the server.
 define('DB_HOST',    getenv('DB_HOST')    ?: 'sql306.infinityfree.com');

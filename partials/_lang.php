@@ -2,6 +2,9 @@
 /* Language bootstrap — include ONCE before any output.
    Sets $LANG_CODE and loads the translation array into $LANG. */
 
+// Site settings (time zone) apply to every page that loads the language
+require_once __DIR__ . '/../config/app.php';
+
 if (session_status() === PHP_SESSION_NONE) session_start();
 
 $LANG_CODE = 'en';

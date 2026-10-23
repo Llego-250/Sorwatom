@@ -25,7 +25,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
   <url><loc><?= $base ?>/contact</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
 
 <?php foreach ($posts as $post):
-  if ($post['status'] !== 'published') continue;
+  if ($post['status'] !== 'published' || blog_is_scheduled($post)) continue;
   $loc  = htmlspecialchars($base . '/blog/' . $post['slug']);
   $mod  = htmlspecialchars(substr($post['updated_at'] ?? $post['published_at'], 0, 10));
   $pub  = htmlspecialchars(substr($post['published_at'], 0, 10));

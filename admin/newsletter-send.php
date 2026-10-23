@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         @set_time_limit(60);
         header('Content-Type: application/json; charset=utf-8');
         try {
-            if (!$post) throw new RuntimeException('Only published posts can be emailed.');
+            if (!$post) throw new RuntimeException('Only published posts can be emailed, and scheduled posts only once their date has passed.');
             echo json_encode(['ok' => true] + newsletter_send_batch($post_id));
         } catch (Throwable $e) {
             http_response_code(500);
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!$post) {
-        $_SESSION['nl_flash'] = ['error', 'Only published posts can be emailed. Publish and save the post first.'];
+        $_SESSION['nl_flash'] = ['error', 'Only published posts can be emailed. Publish and save the post first — a scheduled post can be emailed once its date has passed.'];
         header('Location: /admin/post-edit.php?id=' . $post_id);
         exit;
     }

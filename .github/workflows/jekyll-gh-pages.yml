@@ -46,6 +46,8 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
+          # Blog images uploaded through the admin (assets/img/blog/YYYYMMDD-*) exist only
+          # on the server, so they are excluded — otherwise --delete would remove them.
           lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" << 'EOF'
           set ftp:ssl-allow no
           set ftp:passive-mode yes
@@ -59,6 +61,7 @@ jobs:
             --exclude-glob router.php \
             --exclude-glob data/*.txt \
             --exclude-glob smtp_config.php \
+            --exclude-glob assets/img/blog/20*-* \
             . /htdocs/
           bye
           EOF

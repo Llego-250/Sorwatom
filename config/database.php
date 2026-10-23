@@ -13,6 +13,8 @@ function get_db(): ?PDO {
             PDO::ATTR_EMULATE_PREPARES   => false,
             PDO::ATTR_TIMEOUT            => 3,
         ]);
+        // Same clock as PHP, so NOW() and CURRENT_TIMESTAMP columns match published_at
+        $pdo->exec("SET time_zone = '" . date('P') . "'");
         return $pdo;
     } catch (PDOException $e) {
         return null;

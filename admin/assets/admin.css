@@ -186,6 +186,7 @@ body {
 
 .status-published { background: #d1fae5; color: #065f46; }
 .status-draft     { background: #fef3c7; color: #92400e; }
+.status-scheduled { background: #dbeafe; color: #1e40af; }
 .status-active       { background: #d1fae5; color: #065f46; }
 .status-unsubscribed { background: #f1f0ec; color: var(--ad-muted); }
 
