@@ -265,3 +265,16 @@ slugInput.addEventListener('input', function () {
   slugInput.value = toSlug(slugInput.value) || slugInput.value;
   slugPrev.textContent = slugInput.value || 'your-post-slug';
 });
+
+// ─── Category / Author: "Other" shows a field for the new name ─────────────
+document.querySelectorAll('select[data-other]').forEach(function (select) {
+  const input = document.getElementById(select.dataset.other);
+  function sync() {
+    const other = select.value === 'new';
+    input.hidden   = !other;
+    input.required = other;
+    if (other && document.activeElement === select) input.focus();
+  }
+  select.addEventListener('change', sync);
+  sync();
+});

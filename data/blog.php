@@ -245,6 +245,27 @@ function blog_get_all_categories_admin(): array {
     return get_db()->query("SELECT * FROM blog_categories ORDER BY name")->fetchAll();
 }
 
+// "Other" in the post editor: reuse a category or author with the same name
+// (ignoring case), otherwise add it. Returns its id.
+function blog_find_or_create_category(string $name): int {
+    $db   = get_db();
+    $slug = blog_slugify($name) ?: 'category-' . substr(md5(mb_strtolower($name)), 0, 8);
+    $find = $db->prepare("SELECT id FROM blog_categories WHERE slug = ? OR LOWER(name) = LOWER(?) LIMIT 1");
+    $find->execute([$slug, $name]);
+    if ($id = $find->fetchColumn()) return (int) $id;
+    $db->prepare("INSERT INTO blog_categories (name, slug) VALUES (?, ?)")->execute([$name, $slug]);
+    return (int) $db->lastInsertId();
+}
+
+function blog_find_or_create_author(string $name): int {
+    $db   = get_db();
+    $find = $db->prepare("SELECT id FROM blog_authors WHERE LOWER(name) = LOWER(?) LIMIT 1");
+    $find->execute([$name]);
+    if ($id = $find->fetchColumn()) return (int) $id;
+    $db->prepare("INSERT INTO blog_authors (name) VALUES (?)")->execute([$name]);
+    return (int) $db->lastInsertId();
+}
+
 function blog_slugify(string $text): string {
     $text = strtolower(trim($text));
     $text = preg_replace('/[^a-z0-9\s-]/', '', $text);

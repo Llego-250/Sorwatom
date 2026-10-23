@@ -20,6 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$title) $errors[] = 'Title is required.';
     if (!$slug)  $errors[] = 'Slug is required.';
 
+    // "Other" in the Category / Author lists comes with the name to add
+    $new_names = [];
+    foreach (['category', 'author'] as $field) {
+        if (($_POST[$field . '_id'] ?? '') !== 'new') continue;
+        $name = trim(preg_replace('/\s+/', ' ', (string) ($_POST[$field . '_new'] ?? '')));
+        if ($name === '')               $errors[] = "Enter a name for the new $field.";
+        elseif (mb_strlen($name) > 100) $errors[] = "The new $field name can be at most 100 characters.";
+        else                            $new_names[$field] = $name;
+    }
+
     if ($slug && empty($errors)) {
         $db   = get_db();
         $stmt = $db->prepare("SELECT id FROM blog_posts WHERE slug = :slug AND id != :id");
@@ -33,13 +43,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $tags = array_filter(array_map('trim', explode(',', $_POST['tags'] ?? '')));
 
+        $category_id = isset($new_names['category'])
+            ? blog_find_or_create_category($new_names['category'])
+            : (($_POST['category_id'] ?? '') ?: null);
+        $author_id = isset($new_names['author'])
+            ? blog_find_or_create_author($new_names['author'])
+            : (($_POST['author_id'] ?? '') ?: null);
+
         $id = blog_save_post([
             'slug'         => $slug,
             'title'        => $title,
             'excerpt'      => trim($_POST['excerpt']     ?? ''),
             'content'      => $_POST['content']          ?? '',
-            'category_id'  => ($_POST['category_id']     ?? '') ?: null,
-            'author_id'    => ($_POST['author_id']        ?? '') ?: null,
+            'category_id'  => $category_id,
+            'author_id'    => $author_id,
             'image_url'    => trim($_POST['image_url']   ?? ''),
             'status'       => $status,
             'published_at' => $pub,
@@ -47,8 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'tags'         => $tags,
         ], $id);
 
-        $post    = blog_get_post_admin($id);
-        $success = true;
+        $post       = blog_get_post_admin($id);
+        $categories = blog_get_all_categories_admin();
+        $authors    = blog_get_authors();
+        $success    = true;
     }
 }
 
@@ -65,6 +84,11 @@ $auto_val    = !empty($post['auto_email']);
 $auto_sent   = $post['auto_emailed_at'] ?? null;
 $cat_val     = $post['category_id'] ?? '';
 $auth_val    = $post['author_id']   ?? '';
+// A failed save keeps "Other" selected with the name that was typed
+$cat_new     = '';
+$auth_new    = '';
+if ($errors && ($_POST['category_id'] ?? '') === 'new') { $cat_val  = 'new'; $cat_new  = (string) ($_POST['category_new'] ?? ''); }
+if ($errors && ($_POST['author_id']   ?? '') === 'new') { $auth_val = 'new'; $auth_new = (string) ($_POST['author_new']   ?? ''); }
 
 $nl_flash  = $_SESSION['nl_flash'] ?? null;
 unset($_SESSION['nl_flash']);
@@ -275,28 +299,36 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
           <div class="sidebar-card">
             <h3>Category</h3>
             <div class="field">
-              <select name="category_id">
+              <select name="category_id" data-other="category-new">
                 <option value="">— none —</option>
                 <?php foreach ($categories as $c): ?>
                 <option value="<?= $c['id'] ?>" <?= $cat_val == $c['id'] ? 'selected' : '' ?>>
                   <?= htmlspecialchars($c['name']) ?>
                 </option>
                 <?php endforeach; ?>
+                <option value="new" <?= $cat_val === 'new' ? 'selected' : '' ?>>Other — add a new category…</option>
               </select>
+              <input type="text" name="category_new" id="category-new" class="field-other" maxlength="100"
+                     value="<?= htmlspecialchars($cat_new) ?>" placeholder="New category name"
+                     aria-label="New category name"<?= $cat_val === 'new' ? '' : ' hidden' ?>>
             </div>
           </div>
 
           <div class="sidebar-card">
             <h3>Author</h3>
             <div class="field">
-              <select name="author_id">
+              <select name="author_id" data-other="author-new">
                 <option value="">— none —</option>
                 <?php foreach ($authors as $a): ?>
                 <option value="<?= $a['id'] ?>" <?= $auth_val == $a['id'] ? 'selected' : '' ?>>
                   <?= htmlspecialchars($a['name']) ?>
                 </option>
                 <?php endforeach; ?>
+                <option value="new" <?= $auth_val === 'new' ? 'selected' : '' ?>>Other — add a new author…</option>
               </select>
+              <input type="text" name="author_new" id="author-new" class="field-other" maxlength="100"
+                     value="<?= htmlspecialchars($auth_new) ?>" placeholder="New author name"
+                     aria-label="New author name"<?= $auth_val === 'new' ? '' : ' hidden' ?>>
             </div>
           </div>
 
