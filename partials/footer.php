@@ -205,3 +205,18 @@
   }
 })();
 </script>
+
+<script>
+// Visits keep scheduled newsletter emails moving (newsletter-cron.php): a quiet
+// background request, at most every 10 minutes per visitor, that never slows the page.
+(function () {
+  try {
+    var last = Number(localStorage.getItem('sorwatom-nl-cron')) || 0;
+    if (Date.now() - last < 10 * 60 * 1000) return;
+    localStorage.setItem('sorwatom-nl-cron', String(Date.now()));
+  } catch (_) {}
+  setTimeout(function () {
+    fetch('/newsletter-cron', { method: 'POST', keepalive: true }).catch(function () {});
+  }, 3000);
+})();
+</script>

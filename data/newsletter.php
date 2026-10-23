@@ -18,6 +18,10 @@ require_once __DIR__ . '/../mailer_contact/newsletter-template.php';
 
 const NEWSLETTER_FILE = __DIR__ . '/subscribers.txt';
 const NEWSLETTER_LOGO = __DIR__ . '/../assets/img/logo.png';
+// Scheduled sending (newsletter_run_scheduled): one run at a time, and a short
+// pause after a run that found nothing to do.
+const NEWSLETTER_CRON_LOCK = __DIR__ . '/newsletter-cron.lock';
+const NEWSLETTER_CRON_IDLE = __DIR__ . '/newsletter-cron.idle';
 
 // ─── Addresses & links ────────────────────────────────────────────────────────
 
@@ -343,4 +347,91 @@ function newsletter_send_batch(int $post_id, int $max = 8, int $seconds = 20): a
     }
 
     return newsletter_post_status($post_id) + ['last_error' => $error];
+}
+
+// ─── Scheduled sending ────────────────────────────────────────────────────────
+
+/**
+ * Emails posts marked "email subscribers when it goes live" once their date has
+ * passed, then keeps sending their queued emails a batch at a time. Called by
+ * newsletter-cron.php — from page visits and every 15 minutes by GitHub Actions.
+ * Safe to call any number of times: only one run works at a time, each post is
+ * queued once (for the subscribers at that moment) and nobody gets it twice.
+ */
+function newsletter_run_scheduled(int $seconds = 20): array {
+    // Most calls find nothing to do; skip the database for a minute after one that didn't.
+    if (is_file(NEWSLETTER_CRON_IDLE) && time() - filemtime(NEWSLETTER_CRON_IDLE) < 60) {
+        return ['ran' => false, 'queued' => 0, 'sent' => 0, 'pending' => 0];
+    }
+    $lock = @fopen(NEWSLETTER_CRON_LOCK, 'c');
+    if (!$lock || !flock($lock, LOCK_EX | LOCK_NB)) {
+        return ['ran' => false, 'busy' => true];
+    }
+
+    try {
+        $db = newsletter_db(true);
+        if (!$db) throw new RuntimeException('Database unavailable.');
+        blog_ensure_schema($db);
+        newsletter_import_file($db);
+
+        // Posts that have just gone live: claim each one first so it's queued only once.
+        $due = $db->query(
+            "SELECT p.id FROM blog_posts p
+             WHERE " . BLOG_LIVE . " AND p.auto_email = 1 AND p.auto_emailed_at IS NULL"
+        )->fetchAll(PDO::FETCH_COLUMN);
+        $claim  = $db->prepare("UPDATE blog_posts SET auto_emailed_at = NOW(), updated_at = updated_at
+                                WHERE id = ? AND auto_emailed_at IS NULL");
+        $queued = 0;
+        foreach ($due as $id) {
+            $claim->execute([$id]);
+            if ($claim->rowCount() === 1) {
+                newsletter_queue_post((int) $id);
+                $queued++;
+            }
+        }
+
+        // Retry failed sends after a 10-minute pause (up to 3 attempts), and
+        // pick up sends abandoned by a run that crashed.
+        $db->exec(
+            "UPDATE newsletter_deliveries d
+             JOIN blog_posts p ON p.id = d.post_id AND p.auto_emailed_at IS NOT NULL
+             SET d.status = 'pending'
+             WHERE d.updated_at < NOW() - INTERVAL 10 MINUTE
+               AND ((d.status = 'failed' AND d.attempts < 3) OR d.status = 'sending')"
+        );
+
+        $waiting = "SELECT DISTINCT d.post_id FROM newsletter_deliveries d
+                    JOIN blog_posts p ON p.id = d.post_id AND p.auto_emailed_at IS NOT NULL
+                    WHERE d.status = 'pending'";
+        $start = time();
+        $sent  = 0;
+        foreach ($db->query($waiting)->fetchAll(PDO::FETCH_COLUMN) as $id) {
+            $left = $seconds - (time() - $start);
+            if ($left <= 0) break;
+            if (!newsletter_get_post((int) $id)) {
+                // Unpublished or rescheduled after it was queued — stop emailing it.
+                $db->prepare("UPDATE newsletter_deliveries SET status = 'skipped' WHERE post_id = ? AND status = 'pending'")
+                   ->execute([$id]);
+                continue;
+            }
+            $before = newsletter_post_status((int) $id)['sent'];
+            $sent  += newsletter_send_batch((int) $id, 50, $left)['sent'] - $before;
+        }
+
+        $pending = (int) $db->query(
+            "SELECT COUNT(*) FROM newsletter_deliveries d
+             JOIN blog_posts p ON p.id = d.post_id AND p.auto_emailed_at IS NOT NULL
+             WHERE d.status = 'pending'"
+        )->fetchColumn();
+
+        if ($queued === 0 && $sent === 0 && $pending === 0) {
+            @touch(NEWSLETTER_CRON_IDLE);
+        } else {
+            @unlink(NEWSLETTER_CRON_IDLE);
+        }
+        return ['ran' => true, 'queued' => $queued, 'sent' => $sent, 'pending' => $pending];
+    } finally {
+        flock($lock, LOCK_UN);
+        fclose($lock);
+    }
 }

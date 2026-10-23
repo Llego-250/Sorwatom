@@ -278,6 +278,8 @@ textarea { resize: vertical; }
 .input-lg { font-size: 1rem; padding: .7rem .85rem; }
 
 .field-hint { font-size: .75rem; color: var(--ad-muted); margin-top: .2rem; }
+.field-check { display: flex; align-items: flex-start; gap: .5rem; font-weight: 500; cursor: pointer; }
+.field-check input { margin-top: .2rem; flex-shrink: 0; }
 .img-preview { margin-top: .6rem; max-width: 100%; border-radius: 6px; max-height: 160px; object-fit: cover; }
 
 /* ── Edit layout (two-column) ────────────────────────────────── */

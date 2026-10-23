@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'image_url'    => trim($_POST['image_url']   ?? ''),
             'status'       => $status,
             'published_at' => $pub,
+            'auto_email'   => empty($_POST['auto_email']) ? 0 : 1,
             'tags'         => $tags,
         ], $id);
 
@@ -60,6 +61,8 @@ $image_raw   = $post['image_url']                     ?? '';
 $tags_val    = htmlspecialchars(implode(', ', $post['tags'] ?? []));
 $pub_val     = htmlspecialchars(substr($post['published_at'] ?? '', 0, 16));
 $status_val  = $post['status']      ?? 'draft';
+$auto_val    = !empty($post['auto_email']);
+$auto_sent   = $post['auto_emailed_at'] ?? null;
 $cat_val     = $post['category_id'] ?? '';
 $auth_val    = $post['author_id']   ?? '';
 
@@ -197,6 +200,19 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
               <input type="datetime-local" id="published_at" name="published_at" value="<?= $pub_val ?>">
               <p class="field-hint">Kigali time. Pick a future date to schedule a published post — it appears on the site then.</p>
             </div>
+            <div class="field">
+              <label class="field-check">
+                <input type="checkbox" name="auto_email" value="1" <?= $auto_val ? 'checked' : '' ?>>
+                Email subscribers automatically when it goes live
+              </label>
+              <p class="field-hint">
+                <?php if ($auto_sent): ?>
+                Started automatically on <?= date('d M Y, H:i', strtotime($auto_sent)) ?>. Saving again won’t resend it.
+                <?php else: ?>
+                Sent once, to everyone subscribed at that moment. For a post that is already live, it starts within a few minutes.
+                <?php endif; ?>
+              </p>
+            </div>
             <div class="sidebar-actions">
               <button type="submit" class="btn-primary btn-full">Save Post</button>
               <?php if ($id): ?>
@@ -211,7 +227,10 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
           <div class="sidebar-card">
             <h3>Newsletter</h3>
             <?php if ($scheduled): ?>
-            <p class="nl-summary">Scheduled for <strong><?= date('d M Y, H:i', strtotime($post['published_at'])) ?></strong>. You can email it to subscribers once it’s live.</p>
+            <p class="nl-summary">Scheduled for <strong><?= date('d M Y, H:i', strtotime($post['published_at'])) ?></strong>.
+              <?= $auto_val
+                  ? 'It will be emailed to all subscribers automatically when it goes live.'
+                  : 'You can email it to subscribers once it’s live — or tick “Email subscribers automatically” above.' ?></p>
             <?php elseif (!$nl_status): ?>
             <p class="nl-summary">Publish and save this post to email it to subscribers.</p>
             <?php else:

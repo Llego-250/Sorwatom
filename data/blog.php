@@ -158,11 +158,26 @@ function blog_get_tags(int $post_id): array {
 
 // ─── Admin writes ─────────────────────────────────────────────────────────────
 
+// Columns added after the original setup, created the first time they're needed.
+// auto_email: email subscribers automatically when the post goes live;
+// auto_emailed_at: when that happened, so it happens only once.
+function blog_ensure_schema(PDO $db): void {
+    static $done = false;
+    if ($done) return;
+    if (!$db->query("SHOW COLUMNS FROM blog_posts LIKE 'auto_email'")->fetch()) {
+        $db->exec("ALTER TABLE blog_posts
+            ADD COLUMN auto_email      TINYINT(1) NOT NULL DEFAULT 0,
+            ADD COLUMN auto_emailed_at DATETIME NULL");
+    }
+    $done = true;
+}
+
 function blog_save_post(array $data, ?int $id = null): int {
     $db = get_db();
+    blog_ensure_schema($db);
 
     $fields = ['slug','title','excerpt','content','category_id','author_id',
-               'image_url','status','published_at'];
+               'image_url','status','published_at','auto_email'];
 
     if ($id) {
         $set  = implode(', ', array_map(fn($f) => "$f = :$f", $fields));

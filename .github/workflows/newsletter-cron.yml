@@ -1,0 +1,38 @@
+name: Send scheduled newsletter emails
+
+# Every 15 minutes, asks the site to email any post marked "Email subscribers
+# automatically when it goes live" whose date has passed (newsletter-cron.php).
+# Page visits do the same in the background; this keeps it going when nobody
+# visits. It calls again while emails are still waiting.
+#
+# The site address defaults to https://www.sorwatom.com — override it with a
+# repository variable named SITE_URL (Settings → Secrets and variables → Actions).
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Send due emails
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://www.sorwatom.com' }}
+        run: |
+          for i in $(seq 1 30); do
+            body=$(curl -sS -m 75 -X POST "$SITE_URL/newsletter-cron" || true)
+            echo "$body"
+            if ! printf '%s' "$body" | jq -e '.ok' > /dev/null 2>&1; then
+              # Not reachable yet (old site still on the domain, or a host that blocks bots)
+              echo "::warning::$SITE_URL/newsletter-cron did not answer — nothing sent this time."
+              exit 0
+            fi
+            if printf '%s' "$body" | jq -e '.busy' > /dev/null; then
+              sleep 20   # another run is sending right now
+              continue
+            fi
+            [ "$(printf '%s' "$body" | jq -r '.pending // 0')" -gt 0 ] || exit 0
+          done

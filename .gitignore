@@ -1,0 +1,3 @@
+# Run state of scheduled newsletter sending — created on the server
+data/newsletter-cron.lock
+data/newsletter-cron.idle
