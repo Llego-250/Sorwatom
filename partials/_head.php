@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/_lang.php'; ?>
 <!doctype html>
-<html lang="<?= htmlspecialchars($LANG_CODE) ?>" class="no-js">
+<html lang="<?= htmlspecialchars($LANG_CODE) ?>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,5 +52,4 @@
   <link rel="stylesheet" href="/assets/css/<?= htmlspecialchars($css) ?>">
   <?php endforeach; ?>
 
-  <script>document.documentElement.classList.remove('no-js');</script>
 </head>

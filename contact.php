@@ -53,6 +53,8 @@ include 'partials/_head.php';
                 data-msg-failed="<?= __t('contact.form.msg.failed') ?>"
                 data-msg-offline="<?= __t('contact.form.msg.offline') ?>">
             <input type="hidden" name="inquiry_type" id="inquiry_type" value="distribution">
+            <!-- Honeypot — leave blank -->
+            <input type="text" name="hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
             <div class="form-grid">
               <div class="form-field">
                 <label for="name"><?= __t('contact.form.name') ?> <span aria-hidden="true">*</span></label>

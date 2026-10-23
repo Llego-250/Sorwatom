@@ -1,27 +1,37 @@
 <?php
 require_once __DIR__ . '/../config/app.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_name(ADMIN_SESSION_NAME);
-    session_start();
-}
+start_session(ADMIN_SESSION_NAME);
 
 if (!empty($_SESSION['admin_authed'])) {
     header('Location: /admin');
     exit;
 }
 
+// After LOGIN_MAX_FAILS wrong passwords from one address, sign-in is refused
+// for LOGIN_LOCK_SECONDS, so the password can't be guessed by brute force.
+const LOGIN_MAX_FAILS    = 5;
+const LOGIN_LOCK_SECONDS = 15 * 60;
+
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $pw = $_POST['password'] ?? '';
-    if (password_verify($pw, ADMIN_PASSWORD_HASH)) {
+    $pw = (string) ($_POST['password'] ?? '');
+    if (ADMIN_PASSWORD_HASH === '') {
+        $error = 'Sign-in is not set up yet: ADMIN_PASSWORD_HASH is missing from secrets.php.';
+    } elseif (rate_limit_count('login', LOGIN_LOCK_SECONDS) >= LOGIN_MAX_FAILS) {
+        $error = 'Too many failed attempts. Try again in 15 minutes.';
+    } elseif (password_verify($pw, ADMIN_PASSWORD_HASH)) {
         @session_regenerate_id(true);
         $_SESSION['admin_authed'] = true;
+        $_SESSION['admin_seen']   = time();
         header('Location: /admin');
         exit;
+    } else {
+        rate_limit_count('login', LOGIN_LOCK_SECONDS, true);
+        sleep(1); // slows guessing further without locking anyone out
+        $error = 'Incorrect password.';
     }
-    $error = 'Incorrect password.';
 }
 ?>
 <!doctype html>

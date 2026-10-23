@@ -16,6 +16,7 @@ $related = blog_get_related((int) $post['id'], (int) $post['category_id']);
 $page_title       = htmlspecialchars($post['title']) . ' — ' . __r('meta.blog_post_suffix');
 $page_description = htmlspecialchars($post['excerpt'] ?? '');
 $page_css         = ['pages/blog.css'];
+$page_js          = ['blog-post.js'];
 $body_class       = 'page-blog-post';
 $current_page     = 'blog';
 
@@ -42,7 +43,7 @@ $json_ld = [
 ];
 if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
 ?>
-<script type="application/ld+json"><?= json_encode($json_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+<script type="application/ld+json"><?= json_encode($json_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script>
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <?php include 'partials/nav.php'; ?>
@@ -122,7 +123,9 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
           </svg>
           <?= __t('blog.post.share_whatsapp') ?>
         </a>
-        <button class="share-btn share-btn--copy" onclick="copyLink(this)"
+        <button type="button" class="share-btn share-btn--copy"
+                data-copy-label="<?= __t('blog.post.copy_link') ?>"
+                data-copied-label="<?= __t('blog.post.copied') ?>"
                 aria-label="<?= __t('a11y.copy_link') ?>">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
@@ -212,17 +215,5 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
 
 <?php include 'partials/footer.php'; ?>
 <?php include 'partials/_scripts.php'; ?>
-
-<script>
-var i18nCopied   = <?= json_encode(__t('blog.post.copied')) ?>;
-var i18nCopyLink = <?= json_encode(__t('blog.post.copy_link')) ?>;
-function copyLink(btn) {
-  navigator.clipboard.writeText(window.location.href).then(() => {
-    const svg = btn.querySelector('svg').outerHTML;
-    btn.innerHTML = svg + ' ' + i18nCopied;
-    setTimeout(() => { btn.innerHTML = svg + ' ' + i18nCopyLink; }, 2500);
-  });
-}
-</script>
 </body>
 </html>

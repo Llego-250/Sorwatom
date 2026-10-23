@@ -36,7 +36,8 @@ function newsletter_token(string $email): string {
 }
 
 function newsletter_token_valid(string $email, string $token): bool {
-    return hash_equals(newsletter_token($email), $token);
+    // Without a secret anyone could compute the token, so no link is trusted
+    return NEWSLETTER_SECRET !== '' && hash_equals(newsletter_token($email), $token);
 }
 
 // Email links must point at the host that actually serves the site. SITE_URL is

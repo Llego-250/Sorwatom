@@ -3,6 +3,7 @@ require_once __DIR__ . '/partials/_lang.php';
 $page_title       = __r('meta.masala.title');
 $page_description = __r('meta.masala.desc');
 $page_css         = ['pages/products.css'];
+$page_js          = ['product.js'];
 $body_class       = 'product-page product-masala';
 $current_page     = 'products';
 include 'partials/_head.php';
@@ -315,12 +316,13 @@ $mainGalleryImage = $galleryImages[0];
                         id="mainProductImg"
                         src="<?= htmlspecialchars($mainGalleryImage) ?>"
                         alt="<?= __t('img.masala_product') ?>"
+                        data-default-alt="<?= __t('img.masala_product') ?>"
                         loading="eager"
                         class="product-main-img">
                 </div>
                 <div class="product-thumb-strip">
                     <?php foreach ($galleryImages as $index => $galleryImage): ?>
-                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="<?= __t('img.masala_product') ?>" onclick="switchImg(this)">
+                        <div class="product-thumb <?= $index === 0 ? 'active' : '' ?>" data-img="<?= htmlspecialchars($galleryImage) ?>" data-alt="<?= __t('img.masala_product') ?>">
                             <img src="<?= htmlspecialchars($galleryImage) ?>" alt="<?= __t('img.masala_variant') ?>" loading="lazy" decoding="async">
                             <span><?= __t('pd.variant', ['n' => $index + 1]) ?></span>
                         </div>
@@ -396,36 +398,5 @@ $mainGalleryImage = $galleryImages[0];
 <?php include 'partials/footer.php'; ?>
 
 <?php include 'partials/_scripts.php'; ?>
-<script>
-function switchImg(thumb) {
-    var thumbs = document.querySelectorAll('.product-thumb');
-    thumbs.forEach(function(t) { t.classList.remove('active'); });
-    thumb.classList.add('active');
-    var mainImg = document.getElementById('mainProductImg');
-    if (!mainImg) return;
-    mainImg.style.opacity = '0';
-    setTimeout(function() {
-        mainImg.src = thumb.getAttribute('data-img');
-        mainImg.alt = thumb.getAttribute('data-alt');
-        mainImg.style.opacity = '1';
-    }, 150);
-}
-
-var formatButtons = document.querySelectorAll('.sp-variant');
-formatButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-        formatButtons.forEach(function(btn) { btn.classList.remove('is-selected'); });
-        button.classList.add('is-selected');
-        var mainImg = document.getElementById('mainProductImg');
-        if (!mainImg) return;
-        mainImg.style.opacity = '0';
-        setTimeout(function() {
-            mainImg.src = button.dataset.img;
-            mainImg.alt = button.dataset.name || 'Sorwatom Pilau Masala product image';
-            mainImg.style.opacity = '1';
-        }, 110);
-    });
-});
-</script>
 </body>
 </html>

@@ -1,4 +1,9 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    exit;
+}
+
 ini_set('display_errors', '0');
 error_reporting(0);
 
@@ -28,6 +33,12 @@ include_once __DIR__ . '/mail.php';
 require_once __DIR__ . '/../partials/_lang.php';
 include_once __DIR__ . '/template.php';
 
+// Honeypot — bots fill hidden fields; they get a success reply and nothing is sent
+if (!empty($_POST['hp_website'])) {
+    echo json_encode(['success' => true, 'message' => __r('contact.form.msg.sent')]);
+    exit;
+}
+
 // Raw values — escaping happens in the email template. Single-line fields have
 // newlines collapsed so they can't break the log format or mail headers.
 $field = static fn(string $key): string => isset($_POST[$key]) ? trim((string) $_POST[$key]) : '';
@@ -50,14 +61,36 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// At most 5 messages an hour from one address, so the form can't flood the inbox
+if (rate_limit_count('contact', 3600, true) > 5) {
+    echo json_encode(['success' => false, 'message' => __r('contact.form.msg.too_many')]);
+    exit;
+}
+
 // Store contact inquiry in file log
 $dataDir = dirname(__DIR__) . '/data';
 if (!is_dir($dataDir)) {
     @mkdir($dataDir, 0755, true);
 }
 $logMessage = preg_replace('/\s+/', ' ', $message);
-$logEntry = date('Y-m-d H:i:s') . " | Name: $name | Email: $email | Mobile: $mobile | Company: $company | Type: $inquiry | Msg: $logMessage\n";
-@file_put_contents($dataDir . '/contact_inquiries.txt', $logEntry, FILE_APPEND);
+$logEntry = date('Y-m-d H:i:s') . " | Name: $name | Email: $email | Mobile: $mobile | Company: $company | Type: $inquiry | Msg: $logMessage";
+
+// The privacy policy promises inquiries are deleted after 24 months: drop older
+// lines (each starts with its date) whenever a new one is written.
+$cutoff = date('Y-m-d H:i:s', strtotime('-24 months'));
+if ($fh = @fopen($dataDir . '/contact_inquiries.txt', 'c+')) {
+    flock($fh, LOCK_EX);
+    $lines = array_filter(
+        explode("\n", stream_get_contents($fh)),
+        fn($l) => $l !== '' && strncmp($l, $cutoff, 19) >= 0
+    );
+    $lines[] = $logEntry;
+    ftruncate($fh, 0);
+    rewind($fh);
+    fwrite($fh, implode("\n", $lines) . "\n");
+    flock($fh, LOCK_UN);
+    fclose($fh);
+}
 
 $emailData = [
     'inquiry'  => $inquiry,

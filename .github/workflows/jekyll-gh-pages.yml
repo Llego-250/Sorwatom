@@ -47,8 +47,9 @@ jobs:
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
           # Files that exist only on the server are excluded, otherwise --delete would
-          # remove them: blog images uploaded through the admin (assets/img/blog/YYYYMMDD-*)
-          # and the scheduled newsletter's run state (data/newsletter-cron.*).
+          # remove them: blog images uploaded through the admin (assets/img/blog/YYYYMMDD-*),
+          # the scheduled newsletter's run state (data/newsletter-cron.*), rate limiting
+          # (data/rate-limits.json) and secrets.php if it was put in config/.
           lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" << 'EOF'
           set ftp:ssl-allow no
           set ftp:passive-mode yes
@@ -62,6 +63,8 @@ jobs:
             --exclude-glob router.php \
             --exclude-glob data/*.txt \
             --exclude-glob smtp_config.php \
+            --exclude-glob config/secrets.php \
+            --exclude-glob data/rate-limits.json \
             --exclude-glob assets/img/blog/20*-* \
             --exclude-glob data/newsletter-cron.* \
             . /htdocs/

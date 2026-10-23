@@ -28,6 +28,11 @@ if (!$email) {
     json_out(false, __r('footer.newsletter.error_email'));
 }
 
+// Each new address gets a welcome email, so cap sign-ups from one connection
+if (rate_limit_count('newsletter', 3600, true) > 5) {
+    json_out(false, __r('footer.newsletter.too_many'));
+}
+
 // Saved to the database, with data/subscribers.txt as a backup. Someone already
 // on the list gets no second welcome email (the form can't be used to spam an inbox).
 if (!newsletter_subscribe($email)) {

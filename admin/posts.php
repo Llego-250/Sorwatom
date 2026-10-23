@@ -12,6 +12,7 @@ $posts = blog_get_all_posts_admin();
 <title>All Posts — Sorwatom Admin</title>
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/admin/assets/admin.css">
+<script src="/admin/assets/admin.js" defer></script>
 </head>
 <body class="admin-body">
 
@@ -57,7 +58,7 @@ $posts = blog_get_all_posts_admin();
             <?php endif; ?>
             <a href="/admin/post-edit.php?id=<?= $p['id'] ?>" class="link-muted">Edit</a>
             <form method="post" action="/admin/post-delete.php" style="display:inline"
-                  onsubmit="return confirm('Delete this post permanently?')">
+                  data-confirm="Delete this post permanently?">
               <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
               <input type="hidden" name="id" value="<?= $p['id'] ?>">
               <button type="submit" class="btn-delete">Delete</button>

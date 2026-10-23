@@ -5,7 +5,7 @@
 // Site settings (time zone) apply to every page that loads the language
 require_once __DIR__ . '/../config/app.php';
 
-if (session_status() === PHP_SESSION_NONE) session_start();
+start_session();
 
 $LANG_CODE = 'en';
 $allowed   = ['en', 'rw'];

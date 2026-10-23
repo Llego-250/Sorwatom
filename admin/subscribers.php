@@ -27,6 +27,7 @@ $unsubscribed = count($subscribers) - $active;
 <title>Subscribers — Sorwatom Admin</title>
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/admin/assets/admin.css">
+<script src="/admin/assets/admin.js" defer></script>
 </head>
 <body class="admin-body">
 
@@ -81,7 +82,7 @@ $unsubscribed = count($subscribers) - $active;
           <td style="text-align:right">
             <?php if ($s['status'] === 'active'): ?>
             <form method="post" style="display:inline"
-                  onsubmit="return confirm('Unsubscribe this address? They will stop receiving emails.')">
+                  data-confirm="Unsubscribe this address? They will stop receiving emails.">
               <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token()) ?>">
               <input type="hidden" name="email" value="<?= htmlspecialchars($s['email']) ?>">
               <button type="submit" class="btn-delete">Unsubscribe</button>

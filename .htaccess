@@ -3,8 +3,14 @@ ErrorDocument 403 /403.php
 ErrorDocument 401 /401.php
 
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^sorwatom\.com [NC]
-RewriteCond %{SERVER_PORT} 80
+# Every visit ends up on https://www.sorwatom.com: the bare domain moves to www,
+# and plain HTTP on www moves to HTTPS. X-Forwarded-Proto covers hosts whose
+# proxy handles HTTPS before Apache sees the request.
+RewriteCond %{HTTP_HOST} ^sorwatom\.com$ [NC]
+RewriteRule ^(.*)$ https://www.sorwatom.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.sorwatom\.com$ [NC]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteRule ^(.*)$ https://www.sorwatom.com/$1 [R=301,L]
 RewriteOptions inherit
 
@@ -16,7 +22,11 @@ RewriteOptions inherit
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    # Scripts only from files on this site, so injected <script> or onclick="…" code
+    # never runs. The one hash allows the newsletter-cron ping at the end of
+    # partials/footer.php exactly as written; if that script changes, its new hash
+    # is printed by: php -r 'preg_match("#<script>(.*?)</script>#s", file_get_contents("partials/footer.php"), $m); echo "sha256-", base64_encode(hash("sha256", $m[1], true)), PHP_EOL;'
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-JqMJFdcjSrl5xgKf5tiLz6Bin7xMsjIQIXUez24nSEI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
 </IfModule>
 
 # ── Block direct access to sensitive / deployment files ─────
@@ -24,7 +34,7 @@ RewriteOptions inherit
     Order deny,allow
     Deny from all
 </FilesMatch>
-<FilesMatch "^(error_log|Dockerfile|fly\.toml|router\.php)$">
+<FilesMatch "^(error_log|Dockerfile|fly\.toml|router\.php|\.gitignore|secrets(\.example)?\.php)$">
     Require all denied
 </FilesMatch>
 <FilesMatch "\.(md)$">

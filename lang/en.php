@@ -115,6 +115,7 @@
             'error'       => 'Something went wrong. Please try again.',
             'error_email' => 'Please enter a valid email address.',
             'already'     => "You're already subscribed — thanks for staying with us!",
+            'too_many'    => 'Too many sign-ups in a short time. Please try again in an hour.',
         ],
     ],
 
@@ -270,6 +271,7 @@
                 'sent'     => 'Your message was sent. We’ll be in touch within one business day.',
                 'failed'   => 'Something went wrong. Please try calling us directly.',
                 'offline'  => 'Could not connect. Please try again or call us directly.',
+                'too_many' => 'You’ve sent several messages in a short time. Please wait an hour, or call us directly.',
             ],
         ],
         'offices' => [

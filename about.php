@@ -3,6 +3,7 @@ require_once __DIR__ . '/partials/_lang.php';
 $page_title       = __r('meta.about.title');
 $page_description = __r('meta.about.desc');
 $page_css         = ['pages/about.css'];
+$page_js          = ['about.js'];
 $body_class       = 'page-about';
 $current_page     = 'about';
 $hero_img         = null;
@@ -129,31 +130,6 @@ include 'partials/_head.php';
 
 <?php include 'partials/footer.php'; ?>
 <?php include 'partials/_scripts.php'; ?>
-
-<script>
-(function () {
-  var els = document.querySelectorAll('.stats-bar__value[data-count]');
-  if (!els.length) return;
-  function animateCount(el) {
-    var target = parseInt(el.dataset.count, 10), suffix = el.dataset.suffix || '', duration = 1600, start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / duration, 1), ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(ease * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { animateCount(e.target); io.unobserve(e.target); } });
-    }, { threshold: 0.5 });
-    els.forEach(function (el) { io.observe(el); });
-  } else {
-    els.forEach(function (el) { el.textContent = el.dataset.count + (el.dataset.suffix || ''); });
-  }
-})();
-</script>
 
 </body>
 </html>

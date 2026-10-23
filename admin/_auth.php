@@ -1,15 +1,16 @@
 <?php
 require_once __DIR__ . '/../config/app.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_name(ADMIN_SESSION_NAME);
-    session_start();
-}
+start_session(ADMIN_SESSION_NAME);
 
-if (empty($_SESSION['admin_authed'])) {
+// Signed in, and not left idle past ADMIN_IDLE_TIMEOUT
+$admin_idle = time() - ($_SESSION['admin_seen'] ?? 0);
+if (empty($_SESSION['admin_authed']) || $admin_idle > ADMIN_IDLE_TIMEOUT) {
+    $_SESSION = [];
     header('Location: /admin/login.php');
     exit;
 }
+$_SESSION['admin_seen'] = time();
 
 // CSRF helpers
 function csrf_token(): string {

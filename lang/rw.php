@@ -157,6 +157,7 @@
             'error'       => 'Habaye ikibazo. Ongera ugerageze.',
             'error_email' => 'Andika neza imeyili yawe.',
             'already'     => 'Usanzwe wiyandikishije — urakoze gukomeza kuba kumwe natwe!',
+            'too_many'    => 'Habaye kwiyandikisha kwinshi mu gihe gito. Ongera ugerageze nyuma y’isaha imwe.',
         ],
     ],
 
@@ -388,6 +389,7 @@
                 'sent'     => 'Ubutumwa bwawe bwoherejwe. Turakuvugisha mu gihe kitarenze umunsi umwe w’akazi.',
                 'failed'   => 'Habaye ikibazo. Gerageza kuduhamagara kuri telefoni.',
                 'offline'  => 'Ntibyakunze kwihuza. Ongera ugerageze cyangwa uduhamagare kuri telefoni.',
+                'too_many' => 'Wohereje ubutumwa bwinshi mu gihe gito. Tegereza isaha imwe, cyangwa uduhamagare kuri telefoni.',
             ],
         ],
         'offices' => [

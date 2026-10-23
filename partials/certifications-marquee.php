@@ -78,21 +78,3 @@ $e = fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
     </div>
   </div>
 </section>
-
-<script>
-// Nudge a popover back inside the window when its logo sits near an edge
-(function () {
-  document.querySelectorAll('.cert-logo-wrap').forEach(function (wrap) {
-    var tip = wrap.querySelector('.cert-logo__popover');
-    function fit() {
-      var r = wrap.getBoundingClientRect(), half = tip.offsetWidth / 2, gap = 16;
-      var centre = r.left + r.width / 2, vw = document.documentElement.clientWidth, shift = 0;
-      if (centre - half < gap) shift = gap - (centre - half);
-      else if (centre + half > vw - gap) shift = vw - gap - (centre + half);
-      tip.style.setProperty('--shift', shift + 'px');
-    }
-    wrap.addEventListener('mouseenter', fit);
-    wrap.addEventListener('focusin', fit);
-  });
-})();
-</script>

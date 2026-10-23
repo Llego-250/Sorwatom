@@ -119,23 +119,3 @@ $nav_lang_url = static fn(string $code): string =>
 @media (prefers-reduced-motion:reduce) { .mobile-nav { transition:none; } }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var header   = document.getElementById('site-nav');
-  var toggle   = document.getElementById('nav-toggle');
-  var overlay  = document.getElementById('mobile-nav');
-  var closeBtn = document.getElementById('mobile-nav-close');
-  if (!toggle || !overlay) return;
-  if (header) {
-    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 60); }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-  function openMenu()  { overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
-  function closeMenu() { toggle.focus(); overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-  toggle.addEventListener('click', function () { overlay.classList.contains('is-open') ? closeMenu() : openMenu(); });
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-  overlay.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-});
-</script>

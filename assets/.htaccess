@@ -1,0 +1,6 @@
+# Static files only. Blog images uploaded through the admin land in img/blog/,
+# so nothing in here may ever run as a script, whatever it is named.
+<FilesMatch "\.(php\d?|phtml|phar|phps|cgi|pl|py|sh)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes

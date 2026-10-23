@@ -165,46 +165,6 @@
 .footer-newsletter__msg--err { color: #fca5a5; }
 </style>
 
-<script>
-(function () {
-  const form = document.getElementById('newsletter-form');
-  if (!form) return;
-  const msg      = form.querySelector('.footer-newsletter__msg');
-  const btn      = form.querySelector('button[type="submit"]');
-  const msgOk    = form.dataset.msgOk;
-  const msgAgain = form.dataset.msgAlready;
-  const msgErr   = form.dataset.msgErr;
-  const msgBad   = form.dataset.msgInvalid;
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const email = form.querySelector('#nl-email').value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      show(msgBad, 'err'); return;
-    }
-    const originalLabel = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = '…';
-    try {
-      const fd = new FormData(form);
-      const res = await fetch(form.dataset.action, { method: 'POST', body: fd });
-      const json = await res.json();
-      show(json.ok ? (json.already ? msgAgain : msgOk) : (json.message || msgErr), json.ok ? 'ok' : 'err');
-      if (json.ok) { form.querySelector('#nl-email').value = ''; btn.style.display = 'none'; }
-    } catch (_) {
-      show(msgErr, 'err');
-    } finally {
-      btn.disabled = false;
-      if (btn.style.display !== 'none') btn.textContent = originalLabel;
-    }
-  });
-
-  function show(text, type) {
-    msg.textContent = text;
-    msg.className = 'footer-newsletter__msg footer-newsletter__msg--' + type;
-  }
-})();
-</script>
 
 <script>
 // Visits keep scheduled newsletter emails moving (newsletter-cron.php): a quiet
