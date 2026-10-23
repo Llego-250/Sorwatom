@@ -89,3 +89,10 @@ function rate_limit_count(string $bucket, int $window, bool $record = false): in
     fclose($fh);
     return count(array_filter($all[$key] ?? [], fn($t) => $t > $now - $window));
 }
+
+// ─── Static files ─────────────────────────────────────────────────────────────
+/** A site-root path stamped with the file's modification time, so browsers fetch it again after a deploy. */
+function asset_url(string $path): string {
+    $file = dirname(__DIR__) . $path;
+    return is_file($file) ? $path . '?v=' . filemtime($file) : $path;
+}

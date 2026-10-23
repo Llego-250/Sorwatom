@@ -25,9 +25,9 @@ $unsubscribed = count($subscribers) - $active;
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Subscribers — Sorwatom Admin</title>
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/admin/assets/admin.css">
-<script src="/admin/assets/admin.js" defer></script>
+<link rel="stylesheet" href="<?= asset_url('/assets/css/tokens.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/admin/assets/admin.css') ?>">
+<script src="<?= asset_url('/admin/assets/admin.js') ?>" defer></script>
 </head>
 <body class="admin-body">
 

@@ -17,8 +17,8 @@ $subscribers = newsletter_active_count();
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard — Sorwatom Admin</title>
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/admin/assets/admin.css">
+<link rel="stylesheet" href="<?= asset_url('/assets/css/tokens.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/admin/assets/admin.css') ?>">
 </head>
 <body class="admin-body">
 

@@ -82,8 +82,8 @@ $status = newsletter_post_status($post_id);
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Email to Subscribers — Sorwatom Admin</title>
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/admin/assets/admin.css">
+<link rel="stylesheet" href="<?= asset_url('/assets/css/tokens.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/admin/assets/admin.css') ?>">
 </head>
 <body class="admin-body">
 
@@ -133,6 +133,6 @@ $status = newsletter_post_status($post_id);
   </div>
 </main>
 
-<script src="/admin/assets/newsletter-send.js"></script>
+<script src="<?= asset_url('/admin/assets/newsletter-send.js') ?>"></script>
 </body>
 </html>

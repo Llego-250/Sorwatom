@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Login — Sorwatom</title>
-<link rel="stylesheet" href="/assets/css/tokens.css">
-<link rel="stylesheet" href="/admin/assets/admin.css">
+<link rel="stylesheet" href="<?= asset_url('/assets/css/tokens.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/admin/assets/admin.css') ?>">
 </head>
 <body class="admin-login-page">
 <div class="login-card">
