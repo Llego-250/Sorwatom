@@ -24,6 +24,7 @@ $page_description = __r('meta.unsubscribe.desc');
 $page_css         = ['pages/contact.css'];
 $body_class       = 'page-unsubscribe';
 $current_page     = '';
+$page_noindex     = true; // personal page reached from an email link
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">

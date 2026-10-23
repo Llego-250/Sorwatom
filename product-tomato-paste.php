@@ -6,6 +6,8 @@ $page_css         = ['pages/products.css'];
 $page_js          = ['product-tomato-paste.js'];
 $body_class       = 'product-page product-tomato-paste';
 $current_page     = 'products';
+$og_image         = SITE_URL . '/assets/img/products/tomatoes_paste_70g.png';
+$breadcrumb       = [[__r('nav.home'), '/'], [__r('pd.breadcrumb_products'), '/products'], [__r('pd.rel.tomato_name'), '/product-tomato-paste']];
 include 'partials/_head.php';
 
 $gallerySources = [

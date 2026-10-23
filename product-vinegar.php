@@ -6,6 +6,8 @@ $page_css         = ['pages/products.css'];
 $page_js          = ['product.js'];
 $body_class       = 'product-page product-vinegar';
 $current_page     = 'products';
+$og_image         = SITE_URL . '/assets/img/products/vinegar.png';
+$breadcrumb       = [[__r('nav.home'), '/'], [__r('pd.breadcrumb_products'), '/products'], [__r('pd.rel.vinegar_name'), '/product-vinegar']];
 include 'partials/_head.php';
 
 $gallerySources = ['assets/img/products/vinegar'];

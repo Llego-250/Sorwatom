@@ -5,23 +5,23 @@
         'default_desc'     => 'Sorwatom — ikigo kiri ku isonga mu bucuruzi bushingiye ku buhinzi mu karere k’Ibiyaga Bigari, gitanga ibisubizo by’indashyikirwa mu ruhererekane rw’itangwa ry’ibicuruzwa ku isoko rigezweho ry’Umuryango w’Afurika y’Iburasirazuba (EAC) kuva mu 1984.',
         'blog_post_suffix' => 'Inkuru za Sorwatom',
         'home' => [
-            'title' => 'Sorwatom — Musosi Fresh kuva mu karere k’Ibiyaga Bigari',
-            'desc'  => 'Sorwatom ikora isosi y’inyanya, ketchup, masala na vinegere by’umwimerere 100%, bitunganyirizwa mu mutima w’Afurika y’Iburasirazuba kuva mu 1984.',
+            'title' => 'Sorwatom — Tomato Paste, Ketchup na Pilau Masala | U Rwanda',
+            'desc'  => 'Sorwatom ikora tomato paste (isosi y’inyanya), ketchup, vinegere na pilau masala by’umwimerere 100% i Kigali, mu Rwanda — byizewe mu Rwanda, mu Burundi no mu Burasirazuba bwa RDC kuva mu 1984.',
         ],
         'about' => [
-            'title' => 'Abo turi bo — Sorwatom',
+            'title' => 'Abo turi bo — Sorwatom, uruganda rw’ibiribwa mu Rwanda kuva mu 1984',
             'desc'  => 'Imyaka mirongo ine y’icyizere — kuva mu 1984, Sorwatom igeza uburyohe bwizewe bwa buri munsi ku meza yo hirya no hino mu Rwanda, mu Burundi no mu Burasirazuba bwa RDC.',
         ],
         'products' => [
-            'title' => 'Ibicuruzwa byacu — Sorwatom',
-            'desc'  => 'Ibicuruzwa bitandatu by’ingenzi byo muri Afurika y’Iburasirazuba: isosi y’inyanya, ketchup, vinegere na pilau masala. Umwimerere 100%, byemejwe ku rwego mpuzamahanga.',
+            'title' => 'Ibicuruzwa bya Sorwatom — Tomato Paste, Ketchup, Vinegere na Masala',
+            'desc'  => 'Ibicuruzwa bya Sorwatom: tomato paste (isosi y’inyanya) ya 50g, 70g na 800g, ketchup, vinegere na pilau masala. Umwimerere 100%, byemejwe ku rwego mpuzamahanga.',
         ],
         'contact' => [
-            'title' => 'Tuvugane — Sorwatom',
+            'title' => 'Tuvugane — Sorwatom: gukwirakwiza no kuranguza mu Rwanda',
             'desc'  => 'Vugana na Sorwatom ku bijyanye no gukwirakwiza ibicuruzwa, kuranguza no kohereza mu mahanga, cyangwa ibindi bibazo rusange. Ibiro byacu biri mu Rwanda, mu Burundi no muri RDC.',
         ],
         'blog' => [
-            'title' => 'Inkuru — Sorwatom',
+            'title' => 'Inkuru za Sorwatom — Uburyo bwo guteka n’amakuru',
             'desc'  => 'Inkuru zo mu gikoni — uburyo bushya bwo guteka, inama zo guteka n’inkuru zo hirya no hino mu karere.',
         ],
         'privacy' => [
@@ -33,20 +33,20 @@
             'desc'  => 'Cunga iyandikisha ryawe ryo kwakira amakuru ya Sorwatom kuri imeyili.',
         ],
         'tomato' => [
-            'title' => 'Tomato Paste — Sorwatom',
+            'title' => 'Sorwatom Tomato Paste — Double Concentrated, 50g, 70g na 800g',
             'desc'  => 'Sorwatom Double Concentrated Tomato Paste — ibara rikeye n’icyanga gikungahaye cy’inyanya ku mafunguro ya buri munsi no mu bikoni bihuze. Iboneka mu gasashe ka 50g, mu gasashe ka 70g no mu gikopo cya 800g.',
         ],
         'ketchup' => [
-            'title' => 'Tomato Ketchup — Sorwatom',
-            'desc'  => 'Sorwatom Tomato Ketchup — ikozwe mu nyanya zeze zikiri ku giti, nta mabara y’ubukorano cyangwa sirop y’ibigori ikungahaye kuri fructose irimo. Iboneka mu macupa ya plastic ya 350g na 700g.',
+            'title' => 'Sorwatom Tomato Ketchup — Amacupa ya 350g na 700g',
+            'desc'  => 'Sorwatom Tomato Ketchup — itunganyijwe mu nyanya ndetse ikongerwamo n’uruvange rw’ibirungo ruringaniye. Isosi iryohera ikwiye kuba ku meza ya buri rugo, mu macupa ya plastic ya 350g na 700g.',
         ],
         'masala' => [
-            'title' => 'Pilau Masala — Sorwatom',
-            'desc'  => 'Sorwatom Royal Pilau Masala Blend — uruvange gakondo rw’ibirungo rwasekuwe n’intoki, rurimo ibimera by’umwimerere 100%: ifu ya tungurusumu, imbuto za cumin, ikinzari na cannelle. Ruboneka mu 50g no mu 100g.',
+            'title' => 'Sorwatom Pilau Masala — Ibirungo bya pilau',
+            'desc'  => 'Sorwatom Royal Pilau Masala Blend — uruvange rwiza rw’ibirungo bihumura neza, rutuma pilau irushaho kuryoha kandi ikagira ibara ryiza rya zahabu. Ibimera kamere 100%, mu dupaki twa 50g na 100g.',
         ],
         'vinegar' => [
-            'title' => 'Pure Vinegar — Sorwatom',
-            'desc'  => 'Sorwatom Pure White Vinegar — itunganyijwe (distillation) mu bigize by’umwimerere kugeza kuri aside ya 5% nyayo. Ikoreshwa mu buryo bwinshi: kuri salade, mu masosi yo kurunga salade no mu kurinda ibiribwa kwangirika mu buryo bw’umwimerere. Iboneka mu macupa ya plastic.',
+            'title' => 'Sorwatom Pure White Vinegar — Ubusharire bwa 5%',
+            'desc'  => 'Sorwatom Pure White Vinegar — vinegere ikorwa mu bikoresho byiza cyane, ifite ubusharire buhoraho bwa 5%. Ikoreshwa ku salade, mu birungo no mu gufasha ibiribwa kumara igihe bitarangirika. Iboneka mu macupa ya plastic.',
         ],
         '404' => [
             'title' => '404 — Paji ntiyabonetse | Sorwatom',

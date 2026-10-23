@@ -8,4 +8,4 @@ Disallow: /lang/
 Disallow: /partials/
 Disallow: /lang-switch
 
-Sitemap: https://sorwatom.rf.gd/sitemap.xml
+Sitemap: https://www.sorwatom.com/sitemap.xml

@@ -4,8 +4,13 @@
 <?php
 // Each language is named in its own language
 $nav_langs = ['en' => 'English', 'rw' => 'Ikinyarwanda'];
-$nav_lang_url = static fn(string $code): string =>
-  '/lang-switch?' . http_build_query(['lang' => $code, 'to' => $_SERVER['REQUEST_URI'] ?? '/']);
+// The same page in that language: the current address with ?lang= set (see _lang.php)
+$nav_lang_url = static function (string $code): string {
+  $uri = $_SERVER['REQUEST_URI'] ?? '/';
+  parse_str((string) parse_url($uri, PHP_URL_QUERY), $query);
+  $query['lang'] = $code;
+  return strtok($uri, '?') . '?' . http_build_query($query);
+};
 ?>
 
 <header class="site-nav" id="site-nav" role="banner">
@@ -38,7 +43,7 @@ $nav_lang_url = static fn(string $code): string =>
           <li>
             <div class="nav-lang" role="group" aria-label="<?= __t('nav.language') ?>">
               <?php foreach ($nav_langs as $code => $name): ?>
-              <a href="<?= htmlspecialchars($nav_lang_url($code)) ?>" class="nav-lang__opt" lang="<?= $code ?>" hreflang="<?= $code ?>" title="<?= $name ?>" rel="nofollow"<?= $LANG_CODE === $code ? ' aria-current="true"' : '' ?>><?= strtoupper($code) ?><span class="nav-lang__name"> <?= $name ?></span></a>
+              <a href="<?= htmlspecialchars($nav_lang_url($code)) ?>" class="nav-lang__opt" lang="<?= $code ?>" hreflang="<?= $code ?>" title="<?= $name ?>"<?= $LANG_CODE === $code ? ' aria-current="true"' : '' ?>><?= strtoupper($code) ?><span class="nav-lang__name"> <?= $name ?></span></a>
               <?php endforeach; ?>
             </div>
           </li>
@@ -89,7 +94,7 @@ $nav_lang_url = static fn(string $code): string =>
   </ul>
   <div class="nav-lang nav-lang--mobile" role="group" aria-label="<?= __t('nav.language') ?>">
     <?php foreach ($nav_langs as $code => $name): ?>
-    <a href="<?= htmlspecialchars($nav_lang_url($code)) ?>" class="nav-lang__opt" lang="<?= $code ?>" hreflang="<?= $code ?>" rel="nofollow"<?= $LANG_CODE === $code ? ' aria-current="true"' : '' ?>><?= $name ?></a>
+    <a href="<?= htmlspecialchars($nav_lang_url($code)) ?>" class="nav-lang__opt" lang="<?= $code ?>" hreflang="<?= $code ?>"<?= $LANG_CODE === $code ? ' aria-current="true"' : '' ?>><?= $name ?></a>
     <?php endforeach; ?>
   </div>
 </div>

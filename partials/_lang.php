@@ -10,6 +10,12 @@ start_session();
 $LANG_CODE = 'en';
 $allowed   = ['en', 'rw'];
 
+// ?lang= in the address picks the language (and remembers it), so each language has
+// its own URL that search engines can index — English plain, Kinyarwanda ?lang=rw.
+if (isset($_GET['lang']) && in_array($_GET['lang'], $allowed, true)) {
+    $_SESSION['lang'] = $_GET['lang'];
+}
+
 if (isset($_SESSION['lang']) && in_array($_SESSION['lang'], $allowed, true)) {
     $LANG_CODE = $_SESSION['lang'];
 }

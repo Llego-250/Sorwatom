@@ -6,6 +6,8 @@ $page_css         = ['pages/products.css'];
 $page_js          = ['product.js'];
 $body_class       = 'product-page product-ketchup';
 $current_page     = 'products';
+$og_image         = SITE_URL . '/assets/img/products/ketchup.png';
+$breadcrumb       = [[__r('nav.home'), '/'], [__r('pd.breadcrumb_products'), '/products'], [__r('pd.rel.ketchup_name'), '/product-ketchup']];
 include 'partials/_head.php';
 
 $gallerySources = ['assets/img/products/ketchup'];

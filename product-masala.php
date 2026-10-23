@@ -6,6 +6,8 @@ $page_css         = ['pages/products.css'];
 $page_js          = ['product.js'];
 $body_class       = 'product-page product-masala';
 $current_page     = 'products';
+$og_image         = SITE_URL . '/assets/img/products/masala.png';
+$breadcrumb       = [[__r('nav.home'), '/'], [__r('pd.breadcrumb_products'), '/products'], [__r('pd.rel.masala_name'), '/product-masala']];
 include 'partials/_head.php';
 
 $gallerySources = ['assets/img/products/masala'];

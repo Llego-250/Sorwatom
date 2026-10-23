@@ -77,6 +77,15 @@ AddType image/webp .webp
 </IfModule>
 
 # ── Clean URL routing ──────────────────────────────────────
+# Addresses of the previous sorwatom.com site that Google already knows: send
+# visitors (and their search ranking) to the matching new page instead of a 404.
+RewriteRule ^about-us(?:\.php)?/?$     /about    [R=301,L,NC]
+RewriteRule ^about-vision(?:\.php)?/?$ /about    [R=301,L,NC]
+RewriteRule ^about-team(?:\.php)?/?$   /about    [R=301,L,NC]
+RewriteRule ^contact-us(?:\.php)?/?$   /contact  [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \s/+index(?:\.php)?[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
 # Redirect /page.php → /page (removes .php from browser bar)
 # Skip POST requests — a 301 would convert POST to GET and lose form data
 RewriteCond %{REQUEST_METHOD} !POST
