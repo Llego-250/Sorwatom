@@ -98,7 +98,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.paste.cat') ?></p>
               <h3 class="product-card__name"><?= __t('home.offerings.paste.name') ?></h3>
-              <p class="product-card__desc"><?= __t('home.offerings.paste.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.tomato.desc2') ?></p>
             </div>
           </a>
         </article>
@@ -111,7 +111,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.ketchup.cat') ?></p>
               <h3 class="product-card__name"><?= __t('home.offerings.ketchup.name') ?></h3>
-              <p class="product-card__desc"><?= __t('home.offerings.ketchup.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.ketchup.desc') ?></p>
             </div>
           </a>
         </article>
@@ -124,7 +124,7 @@ include 'partials/_head.php';
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.masala.cat') ?></p>
               <h3 class="product-card__name"><?= __t('home.offerings.masala.name') ?></h3>
-              <p class="product-card__desc"><?= __t('home.offerings.masala.desc') ?></p>
+              <p class="product-card__desc"><?= __t('pd.masala.desc') ?></p>
             </div>
           </a>
         </article>

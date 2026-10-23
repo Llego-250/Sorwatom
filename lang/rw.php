@@ -194,17 +194,14 @@
             'paste' => [
                 'cat'  => 'Isosi y’inyanya',
                 'name' => 'Tomato Paste 70g',
-                'desc' => 'Isosi y’inyanya ifashe inshuro ebyiri, y’umwimerere 100%, mu gasashe koroheje kandi gafunguka byoroshye.',
             ],
             'ketchup' => [
                 'cat'  => 'Ketchup',
                 'name' => 'Tomato Ketchup',
-                'desc' => 'Itekwa buhoro buhoro hakoreshejwe inyanya zeze zikiri ku giti, ikagira uburyohe buringaniye bw’umwimerere.',
             ],
             'masala' => [
                 'cat'  => 'Uruvange rw’ibirungo',
                 'name' => 'Pilau Masala',
-                'desc' => 'Uruvange rw’ibirungo bihumura neza, bisekurwa bikiri bishya kugira ngo bitange uburyohe bwimbitse kandi nyakuri bw’Afurika y’Iburasirazuba.',
             ],
         ],
         'story' => [

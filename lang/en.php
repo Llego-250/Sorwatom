@@ -140,9 +140,10 @@
             'heading'   => 'The taste for <em>Great Lakes.</em>',
             'view_all'  => 'View Full Catalog',
             'bestseller' => 'Bestseller',
-            'paste'    => ['cat' => 'Tomato Paste',  'name' => 'Tomato Paste 70g',  'desc' => 'Double-concentrated, 100% natural tomato paste in an easy-open flexible sachet.'],
-            'ketchup'  => ['cat' => 'Ketchup',       'name' => 'Tomato Ketchup',  'desc' => 'Slow-cooked from vine-ripened tomatoes with a naturally balanced sweetness.'],
-            'masala'   => ['cat' => 'Spice Blend',   'name' => 'Pilau Masala',      'desc' => 'An aromatic blend of whole spices, ground fresh for authentic East African depth.'],
+            // Card descriptions come from the product pages (pd.*), as on the products page
+            'paste'    => ['cat' => 'Tomato Paste',  'name' => 'Tomato Paste 70g'],
+            'ketchup'  => ['cat' => 'Ketchup',       'name' => 'Tomato Ketchup'],
+            'masala'   => ['cat' => 'Spice Blend',   'name' => 'Pilau Masala'],
         ],
         'story' => [
             // 'eyebrow'          => 'About us',
