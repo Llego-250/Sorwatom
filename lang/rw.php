@@ -578,7 +578,7 @@
         'title'           => 'Kwivana ku rutonde',
         'eyebrow'         => 'Amakuru kuri imeyili',
         'confirm_heading' => 'Urashaka kureka kohererezwa amakuru yacu?',
-        'confirm_body'    => '{email} ntizongera kwakira uburyo bwo guteka, amakuru ku isarura n’andi makuru ya Sorwatom.',
+        'confirm_body'    => '{email} ntizongera kwakira uburyo bwo guteka, amakuru n’inkuru za Sorwatom.',
         'confirm_btn'     => 'Yego, mvana ku rutonde',
         'keep'            => 'Oya, nshaka gukomeza kwakira amakuru',
         'done_heading'    => 'Wavanywe ku rutonde',

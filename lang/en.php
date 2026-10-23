@@ -423,7 +423,7 @@
         'title'           => 'Unsubscribe',
         'eyebrow'         => 'Newsletter',
         'confirm_heading' => 'Unsubscribe from our newsletter?',
-        'confirm_body'    => '{email} will stop receiving recipes, harvest updates and news from Sorwatom.',
+        'confirm_body'    => '{email} will stop receiving recipes, news and stories from Sorwatom.',
         'confirm_btn'     => 'Yes, unsubscribe me',
         'keep'            => 'No, keep me subscribed',
         'done_heading'    => "You've been unsubscribed",

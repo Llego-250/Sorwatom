@@ -358,7 +358,7 @@ $nl_active = $nl_status ? newsletter_active_count() : 0;
             <h3>Tags</h3>
             <div class="field">
               <input type="text" name="tags" value="<?= $tags_val ?>"
-                     placeholder="tomatoes, recipe, harvest">
+                     placeholder="tomatoes, recipe, news">
               <p class="field-hint">Comma-separated</p>
             </div>
           </div>

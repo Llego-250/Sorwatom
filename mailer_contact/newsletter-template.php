@@ -87,7 +87,7 @@ function newsletter_welcome_html(array $latest, string $blogUrl, string $unsubUr
         <p style="margin:0 0 10px;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#C8923A;">Welcome</p>
         <h1 class="h1" style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:37px;font-weight:normal;color:#0D1E12;">You’re on the list!</h1>
         <p style="margin:0 0 16px;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:25px;color:#1A1A1A;">Thank you for subscribing to the Sorwatom newsletter.</p>
-        <p style="margin:0 0 32px;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:25px;color:#1A1A1A;">Whenever we publish something new on our journal, from recipes made in the Sorwatom kitchen to harvest updates from our farmers and news from across the Great Lakes, it will arrive right here in your inbox.</p>
+        <p style="margin:0 0 32px;font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:25px;color:#1A1A1A;">Whenever we publish something new on our journal, from recipes made in the Sorwatom kitchen to news about our natural, quality products and stories from across Rwanda, Burundi and Eastern DRC, it will arrive right here in your inbox.</p>
 <?php if ($latest): ?>
 
         <p style="margin:0 0 4px;font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#7A7A6E;">Catch up on recent stories</p>
@@ -113,7 +113,7 @@ function newsletter_welcome_html(array $latest, string $blogUrl, string $unsubUr
 <?php
     return email_layout([
         'title'     => 'Welcome to the Sorwatom newsletter',
-        'preheader' => 'Recipes, harvest updates and news from Sorwatom, straight to your inbox.',
+        'preheader' => 'Recipes, news and stories from Sorwatom, straight to your inbox.',
         'badge'     => 'Welcome',
         'logo'      => $logoSrc,
         'body'      => ob_get_clean(),
@@ -128,7 +128,7 @@ function newsletter_welcome_text(array $latest, string $blogUrl, string $unsubUr
         '',
         'Thank you for subscribing to the Sorwatom newsletter.',
         '',
-        'Whenever we publish something new on our journal, from recipes made in the Sorwatom kitchen to harvest updates from our farmers and news from across the Great Lakes, it will arrive right here in your inbox.',
+        'Whenever we publish something new on our journal, from recipes made in the Sorwatom kitchen to news about our natural, quality products and stories from across Rwanda, Burundi and Eastern DRC, it will arrive right here in your inbox.',
     ];
     if ($latest) {
         $lines[] = '';
