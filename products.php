@@ -47,20 +47,6 @@ include 'partials/_head.php';
       <div class="grid-3 products-grid" id="products-grid" aria-label="<?= __t('a11y.product_grid') ?>" aria-live="polite">
 
         <article class="product-card reveal" data-category="paste" data-delay="1">
-          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p50.name')]) ?>">
-            <div class="product-card__img-wrap">
-              <img src="assets/img/products/tomatoes_paste_50g.png" alt="<?= __t('img.paste_50') ?>" loading="lazy" width="400" height="400">
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__category"><?= __t('products.p50.cat') ?></p>
-              <h2 class="product-card__name"><?= __t('products.p50.name') ?></h2>
-              <p class="product-card__desc"><?= __t('pd.tomato.desc1') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.sachet_50') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
-            </div>
-          </a>
-        </article>
-
-        <article class="product-card reveal" data-category="paste" data-delay="2">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p70.name')]) ?>">
             <div class="product-card__img-wrap">
               <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
@@ -73,6 +59,20 @@ include 'partials/_head.php';
               <h2 class="product-card__name"><?= __t('products.p70.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.tomato.desc2') ?></p>
               <p class="product-card__format"><span><?= __t('products.format.sachet_70') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
+            </div>
+          </a>
+        </article>
+
+        <article class="product-card reveal" data-category="paste" data-delay="2">
+          <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p50.name')]) ?>">
+            <div class="product-card__img-wrap">
+              <img src="assets/img/products/tomatoes_paste_50g.png" alt="<?= __t('img.paste_50') ?>" loading="lazy" width="400" height="400">
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category"><?= __t('products.p50.cat') ?></p>
+              <h2 class="product-card__name"><?= __t('products.p50.name') ?></h2>
+              <p class="product-card__desc"><?= __t('pd.tomato.desc1') ?></p>
+              <p class="product-card__format"><span><?= __t('products.format.sachet_50') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>
