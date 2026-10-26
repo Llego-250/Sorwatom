@@ -112,14 +112,87 @@
   border-color: transparent;
 }
 
-/* Image wrap — slightly lighter background for product cutouts */
+/* Image stage — a soft glow in each pack's own colours drifts slowly behind it.
+   On hover the pack lifts; with a mouse it also leans toward the pointer while the
+   glow moves the other way (products.js sets --mx / --my from -1 to 1).
+   Reduced motion stills the drift and transitions (reset.css). */
 .product-card__img-wrap {
-  background: var(--col-surface-2);
+  background: radial-gradient(120% 85% at 50% 100%, #E9DDC5 0%, var(--col-surface-2) 60%);
+  isolation: isolate;
+  --tint-a: rgba(200, 146, 58, 0.35);
+  --tint-b: rgba(255, 255, 255, 0.6);
 }
 
-/* Keep image centred; scale ever so slightly on hover */
+.product-card__img-wrap[data-tint="paste-70"]  { --tint-a: rgba(46, 155, 66, 0.48);  --tint-b: rgba(200, 228, 88, 0.45); }
+.product-card__img-wrap[data-tint="paste-50"]  { --tint-a: rgba(224, 58, 40, 0.40);  --tint-b: rgba(255, 186, 72, 0.45); }
+.product-card__img-wrap[data-tint="paste-800"] { --tint-a: rgba(40, 140, 62, 0.45);  --tint-b: rgba(226, 182, 72, 0.50); }
+.product-card__img-wrap[data-tint="ketchup"]   { --tint-a: rgba(214, 40, 34, 0.38);  --tint-b: rgba(255, 142, 92, 0.38); }
+.product-card__img-wrap[data-tint="vinegar"]   { --tint-a: rgba(84, 196, 176, 0.40); --tint-b: rgba(126, 204, 92, 0.36); }
+.product-card__img-wrap[data-tint="masala"]    { --tint-a: rgba(186, 216, 40, 0.50); --tint-b: rgba(242, 152, 52, 0.40); }
+
+/* Two lights, one per tint, larger than the stage so they show around wide packs */
+.product-card__img-wrap::before,
+.product-card__img-wrap::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.75;
+  translate: calc(var(--mx, 0) * -16px) calc(var(--my, 0) * -12px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    translate 0.3s ease-out;
+  will-change: transform;
+}
+
+.product-card__img-wrap::before {
+  inset: -4% 6% 10% -4%;
+  background: radial-gradient(closest-side, var(--tint-a), transparent);
+  animation: stage-light-a 15s ease-in-out infinite alternate;
+}
+
+.product-card__img-wrap::after {
+  inset: 18% -6% -8% 14%;
+  background: radial-gradient(closest-side, var(--tint-b), transparent);
+  animation: stage-light-b 19s ease-in-out infinite alternate;
+}
+
+/* Out of step, so neighbouring cards don't pulse together */
+.product-card:nth-child(3n+2) .product-card__img-wrap::before,
+.product-card:nth-child(3n+2) .product-card__img-wrap::after { animation-delay: -6s; }
+.product-card:nth-child(3n)   .product-card__img-wrap::before,
+.product-card:nth-child(3n)   .product-card__img-wrap::after { animation-delay: -11s; }
+
+@keyframes stage-light-a {
+  0%   { transform: translate(-10%, -6%) scale(0.9); }
+  50%  { transform: translate(16%, 10%)  scale(1.1); }
+  100% { transform: translate(4%, 18%)   scale(0.95); }
+}
+
+@keyframes stage-light-b {
+  0%   { transform: translate(8%, 6%)    scale(1.05); }
+  50%  { transform: translate(-16%, -8%) scale(0.9); }
+  100% { transform: translate(-4%, -18%) scale(1.1); }
+}
+
+.product-card:hover .product-card__img-wrap::before,
+.product-card:hover .product-card__img-wrap::after {
+  opacity: 1;
+}
+
+.product-card__img-wrap img {
+  translate: calc(var(--mx, 0) * 10px) calc(var(--my, 0) * 7px);
+  filter: drop-shadow(0 14px 16px rgba(13, 30, 18, 0.14));
+  transition:
+    transform var(--dur-slow) var(--ease-out),
+    filter var(--dur-slow) var(--ease-out),
+    translate 0.3s ease-out;
+}
+
 .product-card:hover .product-card__img-wrap img {
-  transform: scale(1.04);
+  transform: translateY(-10px) scale(1.04);
+  filter: drop-shadow(0 26px 22px rgba(13, 30, 18, 0.2));
 }
 
 /* Card body — tighten spacing for ledger rhythm */
