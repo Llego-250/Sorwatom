@@ -102,16 +102,16 @@
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
 
   <!-- Design system — load order is fixed -->
-  <link rel="stylesheet" href="/assets/css/fonts.css">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/global.css">
-  <link rel="stylesheet" href="/assets/css/layout.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="<?= asset_url('/assets/css/fonts.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('/assets/css/tokens.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('/assets/css/reset.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('/assets/css/global.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('/assets/css/layout.css') ?>">
+  <link rel="stylesheet" href="<?= asset_url('/assets/css/components.css') ?>">
 
   <!-- Per-page stylesheets -->
   <?php foreach ($page_css ?? [] as $css): ?>
-  <link rel="stylesheet" href="/assets/css/<?= htmlspecialchars($css) ?>">
+  <link rel="stylesheet" href="<?= htmlspecialchars(asset_url('/assets/css/' . $css)) ?>">
   <?php endforeach; ?>
 
 </head>

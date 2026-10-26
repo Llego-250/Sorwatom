@@ -19,7 +19,7 @@ $nav_lang_url = static function (string $code): string {
 
       <!-- Logo -->
       <a href="/" class="nav-logo" aria-label="<?= __t('a11y.home_link') ?>">
-        <img src="/assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="140" height="48" loading="eager" decoding="async">
+        <img src="/assets/img/logo.png" alt="Sorwatom" class="nav-logo__img" width="146" height="60" loading="eager" decoding="async">
       </a>
 
       <!-- Desktop navigation -->
@@ -100,8 +100,6 @@ $nav_lang_url = static function (string $code): string {
 </div>
 
 <style>
-.nav-logo { display:flex; align-items:center; text-decoration:none; flex-shrink:0; }
-.nav-logo__img { height:44px; width:auto; object-fit:contain; display:block; }
 .mobile-nav { position:fixed; inset:0; background:var(--col-ground,#0d1e12); z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .28s ease,visibility 0s linear .28s; }
 .mobile-nav.is-open { opacity:1; visibility:visible; pointer-events:auto; transition:opacity .28s ease,visibility 0s linear 0s; }
 .mobile-nav__close { position:absolute; top:18px; right:18px; width:44px; height:44px; background:none; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; touch-action:manipulation; }

@@ -46,8 +46,15 @@
 }
 
 .nav-logo img {
-  height: 40px;
+  display: block;
+  height: 56px;
   width: auto;
+  transition: height var(--dur-base) var(--ease-out);
+}
+
+/* Smaller once the bar turns solid, so it stays clear of sticky content below */
+.site-nav.scrolled .nav-logo img {
+  height: 48px;
 }
 
 /* Link list */
@@ -144,6 +151,10 @@
   .nav-toggle {
     display: flex;
     touch-action: manipulation;
+  }
+
+  .nav-logo img {
+    height: 48px;
   }
 
   /* Hide the desktop nav entirely on mobile — the mobile-nav overlay takes over */
