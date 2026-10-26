@@ -46,24 +46,23 @@ include 'partials/_head.php';
 
       <div class="grid-3 products-grid" id="products-grid" aria-label="<?= __t('a11y.product_grid') ?>" aria-live="polite">
 
-        <article class="product-card reveal" data-category="paste" data-delay="1">
+        <article class="product-card product-card--signature reveal" data-category="paste" data-delay="1">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p70.name')]) ?>">
             <div class="product-card__img-wrap" data-tint="paste-70">
               <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
               <div class="product-card__badges" aria-hidden="true">
-                <span class="badge badge--accent"><?= __t('products.badge.bestseller') ?></span>
+                <span class="badge badge--dark"><?= __t('products.badge.bestseller') ?></span>
               </div>
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('products.p70.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.p70.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.tomato.desc2') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.sachet_70') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>
 
-        <article class="product-card reveal" data-category="paste" data-delay="2">
+        <article class="product-card product-card--signature reveal" data-category="paste" data-delay="2">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p50.name')]) ?>">
             <div class="product-card__img-wrap" data-tint="paste-50">
               <img src="assets/img/products/tomatoes_paste_50g.png" alt="<?= __t('img.paste_50') ?>" loading="lazy" width="400" height="400">
@@ -72,12 +71,11 @@ include 'partials/_head.php';
               <p class="product-card__category"><?= __t('products.p50.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.p50.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.tomato.desc1') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.sachet_50') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>
 
-        <article class="product-card reveal" data-category="paste" data-delay="3">
+        <article class="product-card product-card--signature reveal" data-category="paste" data-delay="3">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p800.name')]) ?>">
             <div class="product-card__img-wrap" data-tint="paste-800">
               <img src="assets/img/products/tomatoes_paste_800g.png" alt="<?= __t('img.paste_800') ?>" loading="lazy" width="400" height="400">
@@ -86,12 +84,11 @@ include 'partials/_head.php';
               <p class="product-card__category"><?= __t('products.p800.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.p800.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.tomato.desc3') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.tin_800') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>
 
-        <article class="product-card reveal" data-category="condiments" data-delay="4">
+        <article class="product-card product-card--signature reveal" data-category="condiments" data-delay="4">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.ketchup.name')]) ?>">
             <div class="product-card__img-wrap" data-tint="ketchup">
               <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_plastic') ?>" loading="lazy" width="400" height="400">
@@ -100,12 +97,11 @@ include 'partials/_head.php';
               <p class="product-card__category"><?= __t('products.ketchup.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.ketchup.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.ketchup.desc') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.glass') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>
 
-        <article class="product-card reveal" data-category="condiments" data-delay="1">
+        <article class="product-card product-card--signature reveal" data-category="condiments" data-delay="1">
           <a href="/product-vinegar" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.vinegar.name')]) ?>">
             <div class="product-card__img-wrap" data-tint="vinegar">
               <img src="assets/img/products/vinegar.png" alt="<?= __t('img.vinegar_plastic') ?>" loading="lazy" width="400" height="400">
@@ -114,12 +110,11 @@ include 'partials/_head.php';
               <p class="product-card__category"><?= __t('products.vinegar.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.vinegar.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.vinegar.desc') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.glass') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>
 
-        <article class="product-card reveal" data-category="spices" data-delay="2">
+        <article class="product-card product-card--signature reveal" data-category="spices" data-delay="2">
           <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.masala.name')]) ?>">
             <div class="product-card__img-wrap" data-tint="masala">
               <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_pouch') ?>" loading="lazy" width="400" height="400">
@@ -128,7 +123,6 @@ include 'partials/_head.php';
               <p class="product-card__category"><?= __t('products.masala.cat') ?></p>
               <h2 class="product-card__name"><?= __t('products.masala.name') ?></h2>
               <p class="product-card__desc"><?= __t('pd.masala.desc') ?></p>
-              <p class="product-card__format"><span><?= __t('products.format.pouch') ?></span><span class="product-card__format-arrow" aria-hidden="true">&#8594;</span></p>
             </div>
           </a>
         </article>

@@ -61,63 +61,22 @@
 
 /* ----------------------------------------------------------
    PRODUCTS GRID
-   Overrides .grid-3 gap for tighter ledger feel.
+   Signature cards (components.css), as on the home page, on white.
    ---------------------------------------------------------- */
 .products-grid {
   gap: var(--space-md);
 }
 
-
-/* ----------------------------------------------------------
-   PRODUCT CARD — ledger-style aesthetic risk
-   Each card reads as a row in an ingredient ledger:
-   left accent bar reveals on hover, card is flush-cornered.
-   ---------------------------------------------------------- */
-.product-card {
-  background: var(--col-surface);
-  border: 1px solid var(--col-border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  position: relative;
-  transition:
-    transform var(--dur-base) var(--ease-out),
-    box-shadow var(--dur-base) var(--ease-out),
-    border-color var(--dur-base);
-}
-
-/* Left accent rule — the key aesthetic choice */
-.product-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--col-accent);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform var(--dur-slow) var(--ease-out);
-  z-index: 2;
-}
-
-.product-card:hover::before {
-  transform: scaleY(1);
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 12px 32px rgba(13, 30, 18, 0.10),
-    0 2px 6px rgba(13, 30, 18, 0.06);
-  border-color: transparent;
+.products-grid .product-card {
+  background: #fff;
 }
 
 /* Image stage — a soft glow in each pack's own colours drifts slowly behind it.
    On hover the pack lifts; with a mouse it also leans toward the pointer while the
    glow moves the other way (products.js sets --mx / --my from -1 to 1).
    Reduced motion stills the drift and transitions (reset.css). */
-.product-card__img-wrap {
-  background: radial-gradient(120% 85% at 50% 100%, #E9DDC5 0%, var(--col-surface-2) 60%);
+.products-grid .product-card__img-wrap {
+  background: #fff;
   isolation: isolate;
   --tint-a: rgba(200, 146, 58, 0.35);
   --tint-b: rgba(255, 255, 255, 0.6);
@@ -181,7 +140,7 @@
   opacity: 1;
 }
 
-.product-card__img-wrap img {
+.products-grid .product-card__img-wrap img {
   translate: calc(var(--mx, 0) * 10px) calc(var(--my, 0) * 7px);
   filter: drop-shadow(0 14px 16px rgba(13, 30, 18, 0.14));
   transition:
@@ -195,64 +154,6 @@
   filter: drop-shadow(0 26px 22px rgba(13, 30, 18, 0.2));
 }
 
-/* Card body — tighten spacing for ledger rhythm */
-.product-card__body {
-  padding: var(--space-md) var(--space-md) var(--space-sm);
-  border-top: 1px solid var(--col-border);
-  gap: var(--space-2xs);
-}
-
-.product-card__name {
-  font-size: var(--step-1);
-  letter-spacing: -0.01em;
-}
-
-.product-card__category {
-  letter-spacing: 0.14em;
-  margin-bottom: var(--space-xs);
-}
-
-.product-card__desc {
-  line-height: 1.55;
-  margin-bottom: var(--space-xs);
-}
-
-/* Format label — packaging type in small caps style */
-.product-card__format {
-  font-family: var(--font-body);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--col-text-muted);
-  margin-top: var(--space-xs);
-  padding-top: var(--space-xs);
-  border-top: 1px solid var(--col-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.product-card__format-arrow {
-  opacity: 0;
-  transform: translateX(-4px);
-  transition:
-    opacity var(--dur-base) var(--ease-out),
-    transform var(--dur-base) var(--ease-out);
-  color: var(--col-accent);
-  font-size: var(--step--1);
-}
-
-.product-card:hover .product-card__format-arrow {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Hidden state for JS filter */
-.product-card[data-hidden="true"] {
-  display: none;
-}
-
 /* Staggered reveal delays — applied via CSS nth-child */
 .products-grid .product-card:nth-child(1) { transition-delay: 0ms; }
 .products-grid .product-card:nth-child(2) { transition-delay: 60ms; }
@@ -264,18 +165,6 @@
 /* Stagger only on entrance animations — not on hover */
 .products-grid .product-card:hover {
   transition-delay: 0ms;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product-card::before,
-  .product-card:hover .product-card__img-wrap img,
-  .product-card__format-arrow {
-    transition: none;
-  }
-
-  .product-card:hover {
-    transform: none;
-  }
 }
 
 
