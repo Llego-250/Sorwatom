@@ -32,7 +32,7 @@ include 'partials/_head.php';
 
 
   <!-- SECTION 2 — FILTER + PRODUCT GRID -->
-  <section class="section" id="collection" aria-labelledby="collection-heading">
+  <section class="section products-collection" id="collection" aria-labelledby="collection-heading">
     <div class="container">
 
       <div class="products-filter-row">

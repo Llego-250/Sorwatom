@@ -61,14 +61,11 @@
 
 /* ----------------------------------------------------------
    PRODUCTS GRID
-   Signature cards (components.css), as on the home page, on white.
+   Signature cards (components.css) on the same warm ground
+   as the home page collection.
    ---------------------------------------------------------- */
-.products-grid {
-  gap: var(--space-md);
-}
-
-.products-grid .product-card {
-  background: #fff;
+.products-collection {
+  background: #efe7dd;
 }
 
 /* Image stage — a soft glow in each pack's own colours drifts slowly behind it.
@@ -76,7 +73,7 @@
    glow moves the other way (products.js sets --mx / --my from -1 to 1).
    Reduced motion stills the drift and transitions (reset.css). */
 .products-grid .product-card__img-wrap {
-  background: #fff;
+  padding: 4.5rem 2.5rem; /* packs at ~75% of the home page size */
   isolation: isolate;
   --tint-a: rgba(200, 146, 58, 0.35);
   --tint-b: rgba(255, 255, 255, 0.6);
