@@ -83,115 +83,6 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
     margin-inline: auto;
 }
 
-/* ---------- Hero ---------- */
-
-.product-tomato-paste .product-hero {
-    position: relative;
-    min-height: 390px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    isolation: isolate;
-    background: var(--sp-green-950);
-    color: #fff;
-    text-align: center;
-}
-
-.product-tomato-paste .product-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-        linear-gradient(180deg, rgba(5, 26, 18, .28), rgba(5, 26, 18, .78)),
-        radial-gradient(circle at 50% 35%, rgba(71, 145, 103, .18), transparent 48%);
-}
-
-.product-tomato-paste .product-hero .hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 52%;
-    filter: saturate(.88) contrast(.95);
-    transform: scale(1.015);
-}
-
-.product-tomato-paste .product-hero .hero__content {
-    padding: 88px 20px 72px;
-}
-
-.product-tomato-paste .product-hero .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 0 17px;
-    color: #cfe4d7;
-    font-size: 10px;
-    line-height: 1;
-    letter-spacing: .28em;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.product-tomato-paste .product-hero .eyebrow::before,
-.product-tomato-paste .product-hero .eyebrow::after {
-    content: "";
-    width: 24px;
-    height: 1px;
-    background: rgba(207, 228, 215, .5);
-}
-
-.product-tomato-paste .product-hero .hero__title {
-    max-width: 800px;
-    margin: 0 auto;
-    color: #fff;
-    font-size: clamp(38px, 5vw, 66px);
-    line-height: .98;
-    letter-spacing: -.035em;
-    font-weight: 400;
-    text-wrap: balance;
-}
-
-.product-tomato-paste .product-hero .hero__title em {
-    color: #bfe5cc;
-}
-
-/* ---------- Breadcrumb ---------- */
-
-.sp-breadcrumb {
-    padding: 18px 0 0;
-    background: #fff;
-}
-
-.sp-breadcrumb__inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #87948d;
-    font-size: 12px;
-}
-
-.sp-breadcrumb a {
-    color: #65736b;
-    text-decoration: none;
-}
-
-.sp-breadcrumb a:hover {
-    color: var(--sp-green-700);
-}
-
-.sp-breadcrumb__current {
-    color: #1b2b23;
-    font-weight: 600;
-}
-
-.sp-breadcrumb__sep {
-    opacity: .45;
-}
-
 /* ---------- Main product section ---------- */
 
 .product-tomato-paste .product-detail {
@@ -700,22 +591,6 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
         width: min(100% - 28px, 1180px);
     }
 
-    .product-tomato-paste .product-hero {
-        min-height: 315px;
-    }
-
-    .product-tomato-paste .product-hero .hero__content {
-        padding: 68px 15px 58px;
-    }
-
-    .product-tomato-paste .product-hero .hero__title {
-        font-size: 40px;
-    }
-
-    .sp-breadcrumb {
-        padding-top: 13px;
-    }
-
     .product-tomato-paste .product-detail {
         padding: 24px 0 62px;
     }
@@ -804,15 +679,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
 </section>
 
 <!-- Breadcrumb -->
-<nav class="sp-breadcrumb" aria-label="<?= __t('a11y.breadcrumb') ?>">
-    <div class="container sp-breadcrumb__inner">
-        <a href="/"><?= __t('nav.home') ?></a>
-        <span class="sp-breadcrumb__sep">/</span>
-        <a href="/products"><?= __t('pd.breadcrumb_products') ?></a>
-        <span class="sp-breadcrumb__sep">/</span>
-        <span class="sp-breadcrumb__current"><?= __t('pd.rel.tomato_name') ?></span>
-    </div>
-</nav>
+<?php include 'partials/breadcrumb.php'; ?>
 
 <!-- Product Detail -->
 <section class="product-detail" id="details">

@@ -27,33 +27,8 @@ $mainGalleryImage = $galleryImages[0];
 ?>
 <style>
 /* ── Product Detail Layout ─────────────────────────────────────────── */
-.product-hero {
-    background: #1a3a2e;
-    padding: 80px 0 60px;
-    text-align: center;
-    color: #fff;
-}
-.product-hero .eyebrow {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #a8c5b0;
-    margin-bottom: 14px;
-    display: block;
-}
-.product-hero h1 {
-    font-size: 42px;
-    font-weight: 300;
-    color: #fff;
-    margin: 0;
-    line-height: 1.2;
-}
-.product-hero h1 em {
-    font-style: normal;
-    color: #7ecba0;
-}
 .product-detail {
-    padding: 64px 0 80px;
+    padding: 34px 0 80px;
     background: #fff;
 }
 .product-detail__grid {
@@ -64,7 +39,6 @@ $mainGalleryImage = $galleryImages[0];
 }
 @media (max-width: 768px) {
     .product-detail__grid { grid-template-columns: 1fr; gap: 32px; }
-    .product-hero h1 { font-size: 30px; }
 }
 .product-img-main {
     position: relative;
@@ -305,6 +279,9 @@ $mainGalleryImage = $galleryImages[0];
         <h1 class="hero__title"><?= hero_title('pd.masala.hero_title', '#details') ?></h1>
     </div>
 </section>
+
+<!-- Breadcrumb -->
+<?php include 'partials/breadcrumb.php'; ?>
 
 <!-- Product Detail -->
 <section class="product-detail" id="details">
