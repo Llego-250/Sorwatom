@@ -419,9 +419,9 @@
 
     'blog' => [
         'hero' => [
-            'eyebrow'  => 'Inkuru za Sorwatom',
-            'title'    => 'Inkuru zo mu <em>gikoni.</em>',
-            'subtitle' => 'Uburyo bushya bwo guteka, inama zo guteka n’inkuru zo hirya no hino mu karere.',
+            'eyebrow'  => 'Inkuru zacu',
+            'title'    => 'Inyanya z’umwimerere.<br>Amafunguro meza.',
+            'subtitle' => 'Inama, uburyo bwo guteka n’inkuru ku byiza by’isosi y’inyanya — kuva mu murima wacu kugera mu gikoni cyawe.',
         ],
         'filter' => [
             'all' => 'Zose',
