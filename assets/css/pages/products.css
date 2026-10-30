@@ -293,6 +293,12 @@
     font-size: 40px;
   }
 
+  /* Long eyebrows (Kinyarwanda) wrap into two even lines */
+  .product-hero .eyebrow {
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+
   .sp-breadcrumb {
     padding-top: 13px;
   }
