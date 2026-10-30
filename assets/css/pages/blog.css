@@ -128,9 +128,16 @@
     object-position: center bottom;
   }
 
+  /* A cream wash behind the copy, strongest at top left, where the basil reaches in */
   .blog-hero::after {
     display: block;
-    background: linear-gradient(180deg, rgba(236, 227, 214, .55) 0%, rgba(236, 227, 214, .2) 45%, rgba(236, 227, 214, 0) 62%);
+    background:
+      radial-gradient(130% 55% at 0% 30%, rgba(236, 227, 214, .75) 0%, rgba(236, 227, 214, 0) 70%),
+      linear-gradient(180deg, rgba(236, 227, 214, .5) 0%, rgba(236, 227, 214, .2) 45%, rgba(236, 227, 214, 0) 62%);
+  }
+
+  .blog-hero .hero__subtitle {
+    max-width: 17rem;
   }
 }
 
