@@ -296,9 +296,9 @@
 
     'blog' => [
         'hero' => [
-            'eyebrow'  => 'The Sorwatom Journal',
-            'title'    => 'Stories from the <em>kitchen.</em>',
-            'subtitle' => 'New recipes, cooking tips and stories from across the region.',
+            'eyebrow'  => 'Our Blog',
+            'title'    => 'Real Tomatoes.<br>Better Meals.',
+            'subtitle' => 'Tips, recipes, and stories about the goodness of tomato paste — from our farm to your kitchen.',
         ],
         'filter'   => ['all' => 'All'],
         'featured' => ['label' => 'Latest', 'read_more' => 'Read article →'],
