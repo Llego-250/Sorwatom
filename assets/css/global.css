@@ -37,7 +37,7 @@ body {
   font-weight: 500;
   text-decoration: none;
   border-radius: 0 0 var(--radius-sm) 0;
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - 4px)); /* fully out of view, no sliver on light heroes */
   transition: transform var(--dur-base) var(--ease-out);
 }
 
