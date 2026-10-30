@@ -129,12 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ----------------------------------------------------------------
-     7. PRODUCT IMAGE LEAN (home and collection product cards)
-     Sets --mx / --my (-1 to 1) for the image stage in components.css.
+     7. PRODUCT STAGE POINTER (product cards and product page images)
+     Sets --mx / --my (-1 to 1) for "Product stage" in components.css.
   ---------------------------------------------------------------- */
   if (matchMedia('(hover: hover) and (pointer: fine)').matches &&
       !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.product-card--signature .product-card__img-wrap').forEach(stage => {
+    document.querySelectorAll('.product-stage').forEach(stage => {
       stage.addEventListener('pointermove', ev => {
         const r = stage.getBoundingClientRect();
         stage.style.setProperty('--mx', ((ev.clientX - r.left) / r.width * 2 - 1).toFixed(3));

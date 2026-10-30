@@ -91,7 +91,7 @@ include 'partials/_head.php';
       <div class="signature-offerings__grid grid-3">
         <article class="product-card product-card--signature reveal" data-delay="1">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.paste.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="paste-70">
+            <div class="product-card__img-wrap product-stage" data-tint="paste-70">
               <div class="product-card__badges"><span class="badge badge--dark"><?= __t('home.offerings.bestseller') ?></span></div>
               <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
             </div>
@@ -105,7 +105,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-delay="2">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.ketchup.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="ketchup">
+            <div class="product-card__img-wrap product-stage" data-tint="ketchup">
               <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_bottle') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
@@ -118,7 +118,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-delay="3">
           <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.masala.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="masala">
+            <div class="product-card__img-wrap product-stage" data-tint="masala">
               <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_packet') ?>" class="product-card__img--masala" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">

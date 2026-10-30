@@ -24,6 +24,12 @@
             counter.textContent = String(index).padStart(2, '0') + ' / ' + total;
         }
 
+        /* The glow behind the pack takes on its colours. */
+        const stage = mainImg.closest('.product-stage');
+        if (stage && thumb.dataset.tint) {
+            stage.dataset.tint = thumb.dataset.tint;
+        }
+
         /* Each pack has its own description. */
         const desc = document.getElementById('productDesc');
         const nextDesc = thumb.getAttribute('data-desc');

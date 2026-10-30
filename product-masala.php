@@ -84,7 +84,7 @@ $mainGalleryImage = $galleryImages[0];
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.3s ease-out, filter 0.3s ease-out;
     filter: drop-shadow(0 20px 22px rgba(20, 54, 38, .14));
 }
 .product-thumb-strip {
@@ -313,7 +313,7 @@ $mainGalleryImage = $galleryImages[0];
 
             <!-- Gallery Column -->
             <div class="product-detail__gallery">
-                <div class="product-img-main">
+                <div class="product-img-main product-stage product-stage--3d" data-tint="masala">
                     <img
                         id="mainProductImg"
                         src="<?= htmlspecialchars($mainGalleryImage) ?>"

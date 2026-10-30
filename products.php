@@ -48,7 +48,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-category="paste" data-delay="1">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p70.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="paste-70">
+            <div class="product-card__img-wrap product-stage" data-tint="paste-70">
               <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
               <div class="product-card__badges" aria-hidden="true">
                 <span class="badge badge--dark"><?= __t('products.badge.bestseller') ?></span>
@@ -64,7 +64,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-category="paste" data-delay="2">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p50.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="paste-50">
+            <div class="product-card__img-wrap product-stage" data-tint="paste-50">
               <img src="assets/img/products/tomatoes_paste_50g.png" alt="<?= __t('img.paste_50') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
@@ -77,7 +77,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-category="paste" data-delay="3">
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.p800.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="paste-800">
+            <div class="product-card__img-wrap product-stage" data-tint="paste-800">
               <img src="assets/img/products/tomatoes_paste_800g.png" alt="<?= __t('img.paste_800') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
@@ -90,7 +90,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-category="condiments" data-delay="4">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.ketchup.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="ketchup">
+            <div class="product-card__img-wrap product-stage" data-tint="ketchup">
               <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_plastic') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
@@ -103,7 +103,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-category="condiments" data-delay="1">
           <a href="/product-vinegar" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.vinegar.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="vinegar">
+            <div class="product-card__img-wrap product-stage" data-tint="vinegar">
               <img src="assets/img/products/vinegar.png" alt="<?= __t('img.vinegar_plastic') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
@@ -116,7 +116,7 @@ include 'partials/_head.php';
 
         <article class="product-card product-card--signature reveal" data-category="spices" data-delay="2">
           <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product_details', ['name' => __r('products.masala.name')]) ?>">
-            <div class="product-card__img-wrap" data-tint="masala">
+            <div class="product-card__img-wrap product-stage" data-tint="masala">
               <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_pouch') ?>" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">

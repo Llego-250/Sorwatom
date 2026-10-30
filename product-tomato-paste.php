@@ -35,6 +35,9 @@ if (empty($galleryImages)) {
 }
 
 $mainGalleryImage = $galleryImages[0];
+
+// Each pack's colours for the glow behind it (see "Product stage" in components.css)
+$pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img, $m) ? 'paste-' . $m[1] : 'paste-70';
 ?>
 
 <style>
@@ -226,16 +229,6 @@ $mainGalleryImage = $galleryImages[0];
     box-shadow: var(--sp-shadow);
 }
 
-.product-tomato-paste .product-img-main::before {
-    content: "";
-    position: absolute;
-    width: 62%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: rgba(38, 111, 77, .07);
-    filter: blur(2px);
-}
-
 .product-tomato-paste img.product-main-img {
     position: relative;
     z-index: 1;
@@ -243,12 +236,8 @@ $mainGalleryImage = $galleryImages[0];
     height: 100%;
     object-fit: contain;
     display: block;
-    transition: opacity .22s ease, transform .35s ease;
+    transition: opacity .22s ease, transform .3s ease-out, filter .3s ease-out;
     filter: drop-shadow(0 20px 22px rgba(20, 54, 38, .14));
-}
-
-.product-tomato-paste .product-img-main:hover .product-main-img {
-    transform: scale(1.025);
 }
 
 .sp-gallery__meta {
@@ -832,7 +821,7 @@ $mainGalleryImage = $galleryImages[0];
 
             <!-- Gallery -->
             <div class="product-detail__gallery sp-gallery">
-                <div class="product-img-main">
+                <div class="product-img-main product-stage product-stage--3d" data-tint="<?= $pack_tint($mainGalleryImage) ?>">
                     <img
                         id="mainProductImg"
                         src="<?= htmlspecialchars($mainGalleryImage) ?>"
@@ -854,6 +843,7 @@ $mainGalleryImage = $galleryImages[0];
                             type="button"
                             class="product-thumb <?= $index === 0 ? 'active' : '' ?>"
                             data-img="<?= htmlspecialchars($galleryImage) ?>"
+                            data-tint="<?= $pack_tint($galleryImage) ?>"
                             data-alt="<?= __t('img.tomato_variant') ?>"
                             data-index="<?= $index + 1 ?>"
                             data-desc="<?= __t('pd.tomato.desc' . ($index + 1)) ?>"

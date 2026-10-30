@@ -649,26 +649,30 @@
   filter: drop-shadow(0 18px 24px rgba(17, 35, 26, 0.12));
 }
 
-/* Image stage — a soft glow in each pack's own colours (data-tint on the image
-   wrap) drifts slowly behind it. On hover the pack lifts; with a mouse it also
-   leans toward the pointer while the glow moves the other way (main.js sets
-   --mx / --my from -1 to 1). Reduced motion stills the drift (reset.css). */
-.product-card--signature .product-card__img-wrap {
+/* Product stage — a soft glow in each pack's own colours (data-tint) drifts
+   slowly behind it. Used by the home and collection cards and by the main image
+   on product pages. With a mouse, main.js sets --mx / --my (-1 to 1) and the glow
+   moves against the pointer. Reduced motion stills the drift (reset.css). */
+@property --tint-a { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --tint-b { syntax: "<color>"; inherits: true; initial-value: transparent; }
+
+.product-stage {
   isolation: isolate;
   --tint-a: rgba(200, 146, 58, 0.35);
   --tint-b: rgba(255, 255, 255, 0.6);
+  transition: --tint-a 0.6s ease, --tint-b 0.6s ease; /* colours blend when the pack changes */
 }
 
-.product-card__img-wrap[data-tint="paste-70"]  { --tint-a: rgba(46, 155, 66, 0.48);  --tint-b: rgba(200, 228, 88, 0.45); }
-.product-card__img-wrap[data-tint="paste-50"]  { --tint-a: rgba(224, 58, 40, 0.40);  --tint-b: rgba(255, 186, 72, 0.45); }
-.product-card__img-wrap[data-tint="paste-800"] { --tint-a: rgba(40, 140, 62, 0.45);  --tint-b: rgba(226, 182, 72, 0.50); }
-.product-card__img-wrap[data-tint="ketchup"]   { --tint-a: rgba(214, 40, 34, 0.38);  --tint-b: rgba(255, 142, 92, 0.38); }
-.product-card__img-wrap[data-tint="vinegar"]   { --tint-a: rgba(84, 196, 176, 0.40); --tint-b: rgba(126, 204, 92, 0.36); }
-.product-card__img-wrap[data-tint="masala"]    { --tint-a: rgba(186, 216, 40, 0.50); --tint-b: rgba(242, 152, 52, 0.40); }
+.product-stage[data-tint="paste-70"]  { --tint-a: rgba(46, 155, 66, 0.48);  --tint-b: rgba(200, 228, 88, 0.45); }
+.product-stage[data-tint="paste-50"]  { --tint-a: rgba(224, 58, 40, 0.40);  --tint-b: rgba(255, 186, 72, 0.45); }
+.product-stage[data-tint="paste-800"] { --tint-a: rgba(40, 140, 62, 0.45);  --tint-b: rgba(226, 182, 72, 0.50); }
+.product-stage[data-tint="ketchup"]   { --tint-a: rgba(214, 40, 34, 0.38);  --tint-b: rgba(255, 142, 92, 0.38); }
+.product-stage[data-tint="vinegar"]   { --tint-a: rgba(84, 196, 176, 0.40); --tint-b: rgba(126, 204, 92, 0.36); }
+.product-stage[data-tint="masala"]    { --tint-a: rgba(186, 216, 40, 0.50); --tint-b: rgba(242, 152, 52, 0.40); }
 
 /* Two lights, one per tint, larger than the stage so they show around wide packs */
-.product-card--signature .product-card__img-wrap::before,
-.product-card--signature .product-card__img-wrap::after {
+.product-stage::before,
+.product-stage::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -682,23 +686,23 @@
   will-change: transform;
 }
 
-.product-card--signature .product-card__img-wrap::before {
+.product-stage::before {
   inset: -4% 6% 10% -4%;
   background: radial-gradient(closest-side, var(--tint-a), transparent);
   animation: stage-light-a 15s ease-in-out infinite alternate;
 }
 
-.product-card--signature .product-card__img-wrap::after {
+.product-stage::after {
   inset: 18% -6% -8% 14%;
   background: radial-gradient(closest-side, var(--tint-b), transparent);
   animation: stage-light-b 19s ease-in-out infinite alternate;
 }
 
 /* Out of step, so neighbouring cards don't pulse together */
-.product-card--signature:nth-child(3n+2) .product-card__img-wrap::before,
-.product-card--signature:nth-child(3n+2) .product-card__img-wrap::after { animation-delay: -6s; }
-.product-card--signature:nth-child(3n)   .product-card__img-wrap::before,
-.product-card--signature:nth-child(3n)   .product-card__img-wrap::after { animation-delay: -11s; }
+.product-card--signature:nth-child(3n+2) .product-stage::before,
+.product-card--signature:nth-child(3n+2) .product-stage::after { animation-delay: -6s; }
+.product-card--signature:nth-child(3n)   .product-stage::before,
+.product-card--signature:nth-child(3n)   .product-stage::after { animation-delay: -11s; }
 
 @keyframes stage-light-a {
   0%   { transform: translate(-10%, -6%) scale(0.9); }
@@ -712,12 +716,15 @@
   100% { transform: translate(-4%, -18%) scale(1.1); }
 }
 
-.product-card--signature:hover .product-card__img-wrap::before,
-.product-card--signature:hover .product-card__img-wrap::after {
+.product-card:hover .product-stage::before,
+.product-card:hover .product-stage::after,
+.product-stage--3d:hover::before,
+.product-stage--3d:hover::after {
   opacity: 1;
 }
 
-.product-card--signature .product-card__img-wrap img {
+/* Cards: on hover the pack lifts; with a mouse it leans toward the pointer */
+.product-card--signature .product-stage img {
   translate: calc(var(--mx, 0) * 10px) calc(var(--my, 0) * 7px);
   transition:
     transform var(--dur-slow) var(--ease-out),
@@ -725,9 +732,31 @@
     translate 0.3s ease-out;
 }
 
-.product-card--signature:hover .product-card__img-wrap img {
+.product-card--signature:hover .product-stage img {
   transform: translateY(-10px) scale(1.04);
   filter: drop-shadow(0 26px 22px rgba(13, 30, 18, 0.2));
+}
+
+/* Product pages: the pack floats gently, and with a mouse turns in 3D toward the
+   pointer while its shadow falls the other way. Each page's image rule carries
+   the transform and filter transitions alongside its opacity fade. */
+.product-stage--3d {
+  perspective: 1000px;
+}
+
+.product-stage--3d img.product-main-img {
+  transform: rotateY(calc(var(--mx, 0) * 16deg)) rotateX(calc(var(--my, 0) * -10deg));
+  animation: stage-float 6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.product-stage--3d:hover img.product-main-img {
+  filter: drop-shadow(calc(var(--mx, 0) * -16px) 28px 24px rgba(13, 30, 18, 0.22));
+}
+
+@keyframes stage-float {
+  from { translate: 0 -7px; }
+  to   { translate: 0 7px; }
 }
 
 .product-card--signature .product-card__body {
