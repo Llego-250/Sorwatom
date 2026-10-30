@@ -531,7 +531,7 @@
 
     'privacy' => [
         'eyebrow'  => 'AMATEGEKO',
-        'title'    => 'Politiki y’ibanga',
+        'title'    => 'Politiki <em>y’ibanga</em>',
         'subtitle' => 'Uko dukusanya, dukoresha kandi tukarinda amakuru yawe.',
         'updated'  => 'Biheruka kuvugururwa',
         's1' => [

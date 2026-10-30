@@ -397,7 +397,7 @@
 
     'privacy' => [
         'eyebrow'  => 'LEGAL',
-        'title'    => 'Privacy Policy',
+        'title'    => 'Privacy <em>Policy</em>',
         'subtitle' => 'How we collect, use, and protect your information.',
         'updated'  => 'Last updated',
         's1' => ['heading' => 'Who We Are',           'body' => 'Sorwatom Agribusiness (Sorwatom) operates this website at sorwatom.rf.gd. Our registered office is at Ndera – Mulindi, Kigali, Rwanda. For privacy questions contact info@sorwatom.com.'],
