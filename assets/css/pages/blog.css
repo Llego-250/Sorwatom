@@ -108,6 +108,32 @@
   }
 }
 
+/* Phones held upright: the portrait still life (Mobile/blog-hero.webp) has plain
+   wall above the bowl, so the copy sits on it as on desktop */
+@media (max-width: 767px) and (orientation: portrait) {
+  .page-blog .blog-hero {
+    min-height: min(100svh, 179vw); /* the photo's height at full width */
+  }
+
+  .blog-hero picture {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+
+  .blog-hero .hero__bg {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: center bottom;
+  }
+
+  .blog-hero::after {
+    display: block;
+    background: linear-gradient(180deg, rgba(236, 227, 214, .55) 0%, rgba(236, 227, 214, .2) 45%, rgba(236, 227, 214, 0) 62%);
+  }
+}
+
 /* Nav over the light photo: dark ink until the bar turns solid */
 .page-blog .site-nav:not(.scrolled) .nav-links a,
 .page-blog .site-nav:not(.scrolled) .nav-lang .nav-lang__opt {

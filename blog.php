@@ -35,7 +35,7 @@ include 'partials/_head.php';
        ============================================================ -->
   <section class="hero hero--full blog-hero" aria-label="<?= __t('nav.journal') ?>">
     <picture>
-      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/blog-hero.webp" type="image/webp">
+      <source media="(max-width: 767px) and (orientation: portrait)" srcset="/assets/img/slider/Mobile/blog-hero.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/blog-hero.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     </picture>
     <div class="hero__content">
