@@ -13,169 +13,42 @@
 
 
 /* ----------------------------------------------------------
-   LISTING HERO — a light still life of tomato paste. The copy
-   sits on the plain wall at the left; the nav reads in dark ink
-   until it turns solid on scroll.
+   LISTING HERO — the tomato paste still life under the site's
+   deep green wash, with white copy as on the other heroes.
+   Phones held upright get the portrait photo (Mobile/blog-hero.webp).
    ---------------------------------------------------------- */
 .page-blog .blog-hero {
   min-height: max(560px, min(100svh, 56.25vw)); /* the photo's 16:9, capped at the screen */
-  align-items: center;
-  background: #ece3d6;
 }
 
 .blog-hero .hero__bg {
-  opacity: 1;
+  opacity: 0.6;
   object-position: 72% center;
 }
 
-/* A soft wash from the left keeps the copy crisp where the wall meets the bowl */
+/* Deep green wash, heaviest at the lower left where the copy sits */
 .blog-hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(90deg, rgba(236, 227, 214, .7) 0%, rgba(236, 227, 214, .35) 38%, rgba(236, 227, 214, 0) 60%);
+  background:
+    linear-gradient(90deg, rgba(13, 30, 18, .55) 0%, rgba(13, 30, 18, 0) 65%),
+    linear-gradient(160deg, rgba(13, 30, 18, .35) 0%, rgba(13, 30, 18, .7) 100%);
 }
 
 .blog-hero .hero__content {
   z-index: 2;
-  padding-block: 7rem 4rem;
 }
 
-.blog-hero .eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-bottom: var(--space-lg);
-  color: #3d3a33;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.32em;
-}
-
-.blog-hero .eyebrow::before {
-  content: '';
-  width: 3.5rem;
-  height: 2px;
-  background: var(--col-cta);
-}
-
-.blog-hero .hero__title {
-  color: #141412;
-  font-size: clamp(2.6rem, 4.9vw, 5.25rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.015em;
-  margin-bottom: var(--space-lg);
-}
-
-.blog-hero .hero__subtitle {
-  max-width: 22rem;
-  color: #2c2a25;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin-bottom: 0;
-}
-
-/* Phones and tablets: the copy on the cream ground first, then the whole still
-   life below it, since a narrow crop leaves no plain wall to set text on */
-@media (max-width: 900px) {
-  .page-blog .blog-hero {
-    min-height: 0;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .blog-hero picture {
-    position: relative;
-    order: 2;
-    height: auto;
-  }
-
-  .blog-hero .hero__bg {
-    position: static;
-    height: auto;
-    aspect-ratio: 1671 / 941;
-    object-position: center;
-  }
-
-  .blog-hero::after {
-    display: none;
-  }
-
-  .blog-hero .hero__content {
-    padding-block: 7rem 2.5rem;
-  }
-}
-
-/* Phones held upright: the portrait still life (Mobile/blog-hero.webp) has plain
-   wall above the bowl, so the copy sits on it as on desktop */
 @media (max-width: 767px) and (orientation: portrait) {
   .page-blog .blog-hero {
     min-height: min(100svh, 179vw); /* the photo's height at full width */
   }
 
-  .blog-hero picture {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-  }
-
   .blog-hero .hero__bg {
-    position: absolute;
-    height: 100%;
-    aspect-ratio: auto;
     object-position: center bottom;
   }
-
-  /* A cream wash behind the copy, strongest at top left, where the basil reaches in */
-  .blog-hero::after {
-    display: block;
-    background:
-      radial-gradient(130% 55% at 0% 30%, rgba(236, 227, 214, .75) 0%, rgba(236, 227, 214, 0) 70%),
-      linear-gradient(180deg, rgba(236, 227, 214, .5) 0%, rgba(236, 227, 214, .2) 45%, rgba(236, 227, 214, 0) 62%);
-  }
-
-  .blog-hero .hero__subtitle {
-    max-width: 17rem;
-  }
-}
-
-/* Nav over the light photo: dark ink until the bar turns solid */
-.page-blog .site-nav:not(.scrolled) .nav-links a,
-.page-blog .site-nav:not(.scrolled) .nav-lang .nav-lang__opt {
-  color: var(--col-text);
-}
-
-.page-blog .site-nav:not(.scrolled) .nav-lang .nav-lang__opt[aria-current="true"] {
-  color: #fff;
-}
-
-.page-blog .site-nav:not(.scrolled) .nav-cta {
-  color: var(--col-text);
-  border-color: rgba(20, 20, 18, .35);
-}
-
-/* Frosted fill so the button and language switch read over the leaves at top right */
-.page-blog .site-nav:not(.scrolled) .nav-cta,
-.page-blog .site-nav:not(.scrolled) .nav-lang {
-  background: rgba(250, 247, 240, .72);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-
-.page-blog .site-nav:not(.scrolled) .nav-cta:hover {
-  background: var(--col-ground);
-  border-color: var(--col-ground);
-  color: #fff;
-}
-
-.page-blog .site-nav:not(.scrolled) .nav-lang {
-  border-color: rgba(20, 20, 18, .25);
-}
-
-.page-blog .site-nav:not(.scrolled) .nav-toggle__bar {
-  background: var(--col-text);
 }
 
 /* Blog post hero — pattern only, subtle depth gradient */

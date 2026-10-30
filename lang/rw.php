@@ -420,7 +420,7 @@
     'blog' => [
         'hero' => [
             'eyebrow'  => 'Inkuru zacu',
-            'title'    => 'Inyanya z’umwimerere.<br>Amafunguro meza.',
+            'title'    => 'Inyanya z’umwimerere.<br><em>Amafunguro meza.</em>',
             'subtitle' => 'Inama, uburyo bwo guteka n’inkuru ku byiza by’isosi y’inyanya — kuva mu murima wacu kugera mu gikoni cyawe.',
         ],
         'filter' => [

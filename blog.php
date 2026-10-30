@@ -40,7 +40,7 @@ include 'partials/_head.php';
     </picture>
     <div class="hero__content">
       <div class="container">
-        <p class="eyebrow"><?= __t('blog.hero.eyebrow') ?></p>
+        <p class="eyebrow eyebrow--light"><?= __t('blog.hero.eyebrow') ?></p>
         <h1 class="hero__title"><?= hero_title('blog.hero.title', '#stories') ?></h1>
         <p class="hero__subtitle"><?= __t('blog.hero.subtitle') ?></p>
       </div>

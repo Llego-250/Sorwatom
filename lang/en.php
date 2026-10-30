@@ -297,7 +297,7 @@
     'blog' => [
         'hero' => [
             'eyebrow'  => 'Our Blog',
-            'title'    => 'Real Tomatoes.<br>Better Meals.',
+            'title'    => 'Real Tomatoes.<br><em>Better Meals.</em>',
             'subtitle' => 'Tips, recipes, and stories about the goodness of tomato paste — from our farm to your kitchen.',
         ],
         'filter'   => ['all' => 'All'],
