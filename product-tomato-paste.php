@@ -810,7 +810,7 @@ $mainGalleryImage = $galleryImages[0];
     >
     <div class="hero__content container">
         <span class="eyebrow eyebrow--light"><?= __t('pd.tomato.hero_eyebrow') ?></span>
-        <h1 class="hero__title"><?= __r('pd.tomato.hero_title') ?></h1>
+        <h1 class="hero__title"><?= hero_title('pd.tomato.hero_title', '#details') ?></h1>
     </div>
 </section>
 
@@ -826,7 +826,7 @@ $mainGalleryImage = $galleryImages[0];
 </nav>
 
 <!-- Product Detail -->
-<section class="product-detail">
+<section class="product-detail" id="details">
     <div class="container">
         <div class="product-detail__grid">
 

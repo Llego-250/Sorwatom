@@ -1084,6 +1084,22 @@
   font-family: var(--font-display);
 }
 
+/* The highlighted word links onward (hero_title() in partials/_lang.php);
+   it brightens on hover */
+.hero__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero__title-link em {
+  transition: filter var(--dur-base) var(--ease-out);
+}
+
+.hero__title-link:hover em,
+.hero__title-link:focus-visible em {
+  filter: brightness(1.15);
+}
+
 /* Subtitle / lead */
 .hero__subtitle {
   font-family: var(--font-body);

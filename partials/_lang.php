@@ -62,6 +62,16 @@ function __r(string $key, array $replace = []): string {
     return $val;
 }
 
+/**
+ * A hero title (raw translation) with its highlighted <em> word made a link,
+ * e.g. to the section the page leads into. External links open in a new tab.
+ */
+function hero_title(string $key, string $href): string {
+    $attrs = 'href="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '" class="hero__title-link"';
+    if (preg_match('~^https?://~', $href)) $attrs .= ' target="_blank" rel="noopener noreferrer"';
+    return preg_replace('~<em>(.*?)</em>~s', '<a ' . $attrs . '><em>$1</em></a>', __r($key), 1);
+}
+
 /** Date as "21 October 2026", with the month name in the current language. */
 function __date(int $ts): string {
     $months = explode(',', __lookup('blog.months') ?? '');

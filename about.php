@@ -22,7 +22,7 @@ include 'partials/_head.php';
     <div class="hero__content">
       <div class="container">
         <span class="eyebrow eyebrow--light reveal" data-delay="1"><?= __t('about.hero.eyebrow') ?></span>
-        <h1 class="hero__title reveal" data-delay="2"><?= __r('about.hero.title') ?></h1>
+        <h1 class="hero__title reveal" data-delay="2"><?= hero_title('about.hero.title', '#certifications') ?></h1>
         <p class="hero__subtitle reveal" data-delay="3"><?= __t('about.hero.subtitle') ?></p>
       </div>
 

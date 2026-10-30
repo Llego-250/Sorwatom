@@ -25,7 +25,7 @@ include 'partials/_head.php';
     <div class="hero__content">
       <div class="container">
         <p class="eyebrow eyebrow--light"><?= __r('products.hero.eyebrow') ?></p>
-        <h1 class="hero__title"><?= __r('products.hero.title') ?></h1>
+        <h1 class="hero__title"><?= hero_title('products.hero.title', '#collection') ?></h1>
       </div>
     </div>
   </section>

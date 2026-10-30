@@ -15,7 +15,7 @@ unset($group);
 
 $e = fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 ?>
-<section class="section certifications-section" aria-labelledby="certifications-heading">
+<section class="section certifications-section" id="certifications" aria-labelledby="certifications-heading">
   <div class="container certifications-section__header">
     <h2 id="certifications-heading" class="eyebrow"><?= __t('about.certifications.eyebrow') ?></h2>
   </div>

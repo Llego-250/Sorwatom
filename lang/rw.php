@@ -483,7 +483,7 @@
             'title'        => 'SORWATOM Double Concentrated Tomato Paste',
             'desc1'        => 'Tomato Paste yacu ya Double Concentrated iguha ibara n’uburyohe bw’inyanya mu biryo bya buri munsi, mu gasashe gato kandi gahendutse.',
             'desc2'        => 'Ibara ryiza n’uburyohe bw’inyanya byuzuye, ipfunyitse mu gasashe kanini kagenewe umuryango wose. Ni amahitamo meza yo gutegura isupu y’inyama, amasosi n’umuceri.',
-            'desc3'        => 'Yagenewe igikoni byakira abantu benshi. Iyi tomate paste ikozwe ku buryo inyanya ziba zikubye inshuro ebyiri mu bukomere, igatanga n’ibara ryiza. Iza mu gakopo kanini ka 800g, ikaba ari amahitamo meza ku maresitora, amahoteli n’abategurira abandi amafunguro, bakeneye ibisubizo byizewe kandi bihoraho.',
+            'desc3'        => 'Yagenewe ibikoni byakira abantu benshi. Iyi tomate paste ikozwe ku buryo inyanya ziba zikubye inshuro ebyiri mu bukomere, igatanga n’ibara ryiza. Iza mu gakopo kanini ka 800g, ikaba ari amahitamo meza ku maresitora, amahoteli n’abategurira abandi amafunguro, bakeneye ibisubizo byizewe kandi bihoraho.',
             'thumb1'       => 'Agasashe ka 50g',
             'thumb2'       => 'Agasashe ka 70g',
             'thumb3'       => 'Igikopo cya 800g',

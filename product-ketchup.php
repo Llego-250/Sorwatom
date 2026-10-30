@@ -302,12 +302,12 @@ $mainGalleryImage = $galleryImages[0];
     <img class="hero__bg" src="assets/img/slider/collection-flatlay.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager">
     <div class="hero__content container">
         <span class="eyebrow eyebrow--light"><?= __t('pd.ketchup.hero_eyebrow') ?></span>
-        <h1 class="hero__title"><?= __r('pd.ketchup.hero_title') ?></h1>
+        <h1 class="hero__title"><?= hero_title('pd.ketchup.hero_title', '#details') ?></h1>
     </div>
 </section>
 
 <!-- Product Detail -->
-<section class="product-detail">
+<section class="product-detail" id="details">
     <div class="container">
         <div class="product-detail__grid">
 

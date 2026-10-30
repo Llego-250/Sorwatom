@@ -25,7 +25,7 @@ include 'partials/_head.php';
     <div class="hero__content">
       <div class="container">
         <p class="eyebrow eyebrow--light reveal" data-delay="1"><?= __t('contact.hero.eyebrow') ?></p>
-        <h1 class="hero__title reveal" data-delay="2"><?= __r('contact.hero.title') ?></h1>
+        <h1 class="hero__title reveal" data-delay="2"><?= hero_title('contact.hero.title', 'https://wa.me/250735004010') ?></h1>
         <p class="hero__subtitle reveal" data-delay="3"><?= __t('contact.hero.subtitle') ?></p>
         <div class="cluster reveal" data-delay="4" aria-label="<?= __t('a11y.countries') ?>">
           <span class="country-flag">🇷🇼 <span><?= __t('contact.hero.countries.rw') ?></span></span>
