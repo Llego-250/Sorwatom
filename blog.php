@@ -20,6 +20,8 @@ $page_description = __r('meta.blog.desc');
 $page_css         = ['pages/blog.css'];
 $body_class       = 'page-blog';
 $current_page     = 'blog';
+$hero_img         = 'blog-hero';
+$hero_img_mobile  = 'blog-hero.webp';
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">
@@ -31,11 +33,14 @@ include 'partials/_head.php';
   <!-- ============================================================
        HERO
        ============================================================ -->
-  <section class="hero hero--full" aria-label="<?= __t('nav.journal') ?>">
-    <div class="hero__bg hero__bg--pattern" aria-hidden="true"></div>
+  <section class="hero hero--full blog-hero" aria-label="<?= __t('nav.journal') ?>">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/assets/img/slider/Mobile/blog-hero.webp" type="image/webp">
+      <img class="hero__bg" src="/assets/img/slider/blog-hero.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
+    </picture>
     <div class="hero__content">
       <div class="container">
-        <p class="eyebrow eyebrow--light"><?= __t('blog.hero.eyebrow') ?></p>
+        <p class="eyebrow"><?= __t('blog.hero.eyebrow') ?></p>
         <h1 class="hero__title"><?= hero_title('blog.hero.title', '#stories') ?></h1>
         <p class="hero__subtitle"><?= __t('blog.hero.subtitle') ?></p>
       </div>
