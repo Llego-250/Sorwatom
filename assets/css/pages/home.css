@@ -231,6 +231,12 @@
   align-items: end;
 }
 
+/* The masala photo is cropped tight to the pouch, while the sachet photo has an
+   empty margin; at 88% the two packs show at the same size */
+.signature-offerings .product-card__img--masala {
+  scale: 0.88;
+}
+
 /* ----------------------------------------------------------
    CTA SECTION — dark green background wrapper
    The .cta-block itself is styled in components.css.

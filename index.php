@@ -119,7 +119,7 @@ include 'partials/_head.php';
         <article class="product-card product-card--signature reveal" data-delay="3">
           <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.masala.name')]) ?>">
             <div class="product-card__img-wrap">
-              <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_packet') ?>" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_packet') ?>" class="product-card__img--masala" loading="lazy" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.masala.cat') ?></p>
