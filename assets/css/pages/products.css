@@ -74,9 +74,10 @@
 }
 
 /* Pack sizes — the tall bottles stand tallest and the wide masala pouch sits
-   smallest, with the sachets and tin between, so no pack outweighs the others */
-.products-grid .product-stage[data-tint="ketchup"] img { scale: 1.25; }
-.products-grid .product-stage[data-tint="vinegar"] img { scale: 1.15; }
+   smallest, with the sachets and tin between, so no pack outweighs the others.
+   The bottles keep their real ratio: vinegar 20 cm to ketchup 16 cm. */
+.products-grid .product-stage[data-tint="ketchup"] img { scale: 1.12; }
+.products-grid .product-stage[data-tint="vinegar"] img { scale: 1.3; }
 .products-grid .product-stage[data-tint="masala"] img  { scale: 0.76; }
 
 /* Staggered reveal delays — applied via CSS nth-child */
