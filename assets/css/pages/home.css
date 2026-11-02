@@ -231,11 +231,10 @@
   align-items: end;
 }
 
-/* The masala photo is cropped tight to the pouch, while the sachet photo has an
-   empty margin; at 88% the two packs show at the same size */
-.signature-offerings .product-card__img--masala {
-  scale: 0.88;
-}
+/* Pack sizes — the tall ketchup bottle stands tallest and the wide masala pouch
+   sits smallest, with the sachet between, so no pack outweighs the others */
+.signature-offerings .product-stage[data-tint="ketchup"] img { scale: 1.1; }
+.signature-offerings .product-stage[data-tint="masala"] img  { scale: 0.74; }
 
 /* ----------------------------------------------------------
    CTA SECTION — dark green background wrapper
