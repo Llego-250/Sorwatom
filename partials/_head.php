@@ -87,13 +87,17 @@
   <script type="application/ld+json"><?= json_encode(['@context' => 'https://schema.org', '@graph' => $json_ld_items], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script>
   <?php endif; ?>
 
-  <!-- Hero image preloads — highest priority, before everything else -->
+  <!-- Hero image preloads — highest priority, before everything else.
+       With a phone image ($hero_img_mobile) each preload matches the <picture> source
+       it serves: phones are $hero_media_mobile (default up to 767px), the rest get
+       $hero_img. Without one, $hero_img is preloaded on every screen. -->
+  <?php $hero_mq = $hero_media_mobile ?? '(max-width: 767px)'; ?>
   <?php if (!empty($hero_img_mobile)): $hm = htmlspecialchars($hero_img_mobile); ?>
-  <link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)"
+  <link rel="preload" as="image" fetchpriority="high" media="<?= htmlspecialchars($hero_mq) ?>"
     href="/assets/img/slider/Mobile/<?= $hm ?>">
   <?php endif; ?>
   <?php if (!empty($hero_img)): $h = htmlspecialchars($hero_img); ?>
-  <link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)"
+  <link rel="preload" as="image" fetchpriority="high"<?= empty($hero_img_mobile) ? '' : ' media="not all and ' . htmlspecialchars($hero_mq) . '"' ?>
     href="/assets/img/slider/<?= $h ?>.webp">
   <?php endif; ?>
 

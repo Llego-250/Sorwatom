@@ -75,8 +75,8 @@ include 'partials/_head.php';
 
         <div class="story-img-wrap">
           <div class="story-double-img">
-            <img src="assets/img/slider/Mobile/hero_tomato.webp" alt="<?= __t('img.great_lakes') ?>" class="story-double-img__primary" loading="lazy">
-            <img src="assets/img/slider/Mobile/collection-flatlay.webp" alt="<?= __t('img.products') ?>" class="story-double-img__secondary" loading="lazy">
+            <img src="assets/img/slider/Mobile/hero_tomato.webp" alt="<?= __t('img.great_lakes') ?>" class="story-double-img__primary"<?= img_size('assets/img/slider/Mobile/hero_tomato.webp') ?> loading="lazy" decoding="async">
+            <img src="assets/img/slider/Mobile/collection-flatlay.webp" alt="<?= __t('img.products') ?>" class="story-double-img__secondary"<?= img_size('assets/img/slider/Mobile/collection-flatlay.webp') ?> loading="lazy" decoding="async">
           </div>
         </div>
 

@@ -141,7 +141,7 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
         <div class="author-bio__avatar" aria-hidden="true">
           <?php if (!empty($post['author_avatar'])): ?>
           <img src="<?= htmlspecialchars($post['author_avatar']) ?>"
-               alt="<?= htmlspecialchars($post['author_name']) ?>">
+               alt="<?= htmlspecialchars($post['author_name']) ?>" width="56" height="56" loading="lazy" decoding="async">
           <?php else: ?>
           <span><?= htmlspecialchars(substr($post['author_name'], 0, 1)) ?></span>
           <?php endif; ?>
@@ -184,7 +184,7 @@ if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
              aria-label="<?= __t('a11y.read', ['title' => $r['title']]) ?>">
             <div class="post-card__img-wrap">
               <?php if (!empty($r['image_url'])): ?>
-              <img src="<?= htmlspecialchars($r['image_url']) ?>" alt="" loading="lazy">
+              <img src="<?= htmlspecialchars($r['image_url']) ?>" alt="" loading="lazy" decoding="async">
               <?php else: ?>
               <div class="post-card__img-placeholder" aria-hidden="true"></div>
               <?php endif; ?>

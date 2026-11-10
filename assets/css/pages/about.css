@@ -155,6 +155,7 @@
 
 .story-double-img__primary {
   width: 100%;
+  height: auto; /* the CSS aspect-ratio sets the shape, not the image's width/height */
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--radius-lg);
@@ -166,6 +167,7 @@
   bottom: 0;
   right: -var(--space-sm);           /* intentional bleed past the primary */
   width: 56%;
+  height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--radius-md);

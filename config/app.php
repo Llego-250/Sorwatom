@@ -96,3 +96,14 @@ function asset_url(string $path): string {
     $file = dirname(__DIR__) . $path;
     return is_file($file) ? $path . '?v=' . filemtime($file) : $path;
 }
+
+/** ' width="…" height="…"' read from a site image, so the browser reserves its shape before it loads. */
+function img_size(string $path): string {
+    static $cache = [];
+    if (!isset($cache[$path])) {
+        $file = dirname(__DIR__) . '/' . ltrim($path, '/');
+        $size = is_file($file) ? getimagesize($file) : false;
+        $cache[$path] = $size ? ' width="' . $size[0] . '" height="' . $size[1] . '"' : '';
+    }
+    return $cache[$path];
+}

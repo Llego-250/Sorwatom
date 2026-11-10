@@ -93,7 +93,7 @@ include 'partials/_head.php';
           <a href="/product-tomato-paste" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.paste.name')]) ?>">
             <div class="product-card__img-wrap product-stage" data-tint="paste-70">
               <div class="product-card__badges"><span class="badge badge--dark"><?= __t('home.offerings.bestseller') ?></span></div>
-              <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/tomatoes_paste_70g.png" alt="<?= __t('img.paste_70') ?>" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.paste.cat') ?></p>
@@ -106,7 +106,7 @@ include 'partials/_head.php';
         <article class="product-card product-card--signature reveal" data-delay="2">
           <a href="/product-ketchup" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.ketchup.name')]) ?>">
             <div class="product-card__img-wrap product-stage" data-tint="ketchup">
-              <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_bottle') ?>" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup_bottle') ?>" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.ketchup.cat') ?></p>
@@ -119,7 +119,7 @@ include 'partials/_head.php';
         <article class="product-card product-card--signature reveal" data-delay="3">
           <a href="/product-masala" class="product-card__link" aria-label="<?= __t('a11y.view_product', ['name' => __r('home.offerings.masala.name')]) ?>">
             <div class="product-card__img-wrap product-stage" data-tint="masala">
-              <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_packet') ?>" loading="lazy" width="400" height="400">
+              <img src="assets/img/products/masala.png" alt="<?= __t('img.masala_packet') ?>" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <div class="product-card__body">
               <p class="product-card__category"><?= __t('home.offerings.masala.cat') ?></p>
@@ -139,7 +139,7 @@ include 'partials/_head.php';
     <div class="container">
       <div class="story-grid">
         <div class="story-img-wrap reveal" data-delay="1">
-          <img src="assets/img/slider/Mobile/collection-flatlay.png" alt="<?= __t('img.great_lakes_home') ?>" loading="lazy" width="600" height="750">
+          <img src="assets/img/slider/Mobile/collection-flatlay.webp" alt="<?= __t('img.great_lakes_home') ?>" loading="lazy" decoding="async" width="600" height="750">
           <div class="story-badge">
             <span class="story-badge__value"><?= __t('home.story.badge_v', ['years' => $heritage_years]) ?></span>
             <span class="story-badge__label"><?= __t('home.story.badge_l') ?></span>

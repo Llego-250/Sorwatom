@@ -8,6 +8,7 @@ $body_class       = 'product-page product-tomato-paste';
 $current_page     = 'products';
 $og_image         = SITE_URL . '/assets/img/products/tomatoes_paste_70g.png';
 $breadcrumb       = [[__r('nav.home'), '/'], [__r('pd.breadcrumb_products'), '/products'], [__r('pd.rel.tomato_name'), '/product-tomato-paste']];
+$hero_img         = 'collection-flatlay';
 include 'partials/_head.php';
 
 $gallerySources = [
@@ -517,6 +518,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
     max-width: 100%;
     max-height: 185px;
     width: auto;
+    height: auto;
     object-fit: contain;
     filter: drop-shadow(0 12px 15px rgba(20, 50, 36, .10));
     transition: transform .25s ease;
@@ -666,7 +668,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
 <section class="hero hero--half product-hero" aria-label="<?= __t('pd.rel.tomato_name') ?>">
     <img
         class="hero__bg"
-        src="assets/img/slider/collection-flatlay.webp"
+        src="/assets/img/slider/collection-flatlay.webp"
         alt=""
         aria-hidden="true"
         fetchpriority="high"
@@ -720,7 +722,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
                         >
                             <img
                                 src="<?= htmlspecialchars($galleryImage) ?>"
-                                alt="<?= __t('img.tomato_variant') ?>"
+                                alt="<?= __t('img.tomato_variant') ?>"<?= img_size($galleryImage) ?>
                                 loading="lazy"
                                 decoding="async"
                             >
@@ -788,7 +790,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
 
             <a href="/product-ketchup" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup') ?>" loading="lazy" decoding="async">
+                    <img src="assets/img/products/ketchup.png" alt="<?= __t('img.ketchup') ?>"<?= img_size('assets/img/products/ketchup.png') ?> loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.ketchup_label') ?></span>
@@ -799,7 +801,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
 
             <a href="/product-masala" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/masala.png" alt="<?= __t('img.masala') ?>" loading="lazy" decoding="async">
+                    <img src="assets/img/products/masala.png" alt="<?= __t('img.masala') ?>"<?= img_size('assets/img/products/masala.png') ?> loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.masala_label') ?></span>
@@ -810,7 +812,7 @@ $pack_tint = static fn(string $img): string => preg_match('~paste_(\d+)g~', $img
 
             <a href="/product-vinegar" class="related-card">
                 <div class="related-card__img">
-                    <img src="assets/img/products/vinegar.png" alt="<?= __t('img.vinegar') ?>" loading="lazy" decoding="async">
+                    <img src="assets/img/products/vinegar.png" alt="<?= __t('img.vinegar') ?>"<?= img_size('assets/img/products/vinegar.png') ?> loading="lazy" decoding="async">
                 </div>
                 <div class="related-card__body">
                     <span class="related-card__label"><?= __t('pd.rel.vinegar_label') ?></span>

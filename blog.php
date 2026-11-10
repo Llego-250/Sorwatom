@@ -22,6 +22,7 @@ $body_class       = 'page-blog';
 $current_page     = 'blog';
 $hero_img         = 'blog-hero';
 $hero_img_mobile  = 'blog-hero.webp';
+$hero_media_mobile = '(max-width: 767px) and (orientation: portrait)';
 include 'partials/_head.php';
 ?>
 <body class="<?= htmlspecialchars($body_class) ?>">
@@ -35,7 +36,7 @@ include 'partials/_head.php';
        ============================================================ -->
   <section class="hero hero--full blog-hero" aria-label="<?= __t('nav.journal') ?>">
     <picture>
-      <source media="(max-width: 767px) and (orientation: portrait)" srcset="/assets/img/slider/Mobile/blog-hero.webp" type="image/webp">
+      <source media="<?= $hero_media_mobile ?>" srcset="/assets/img/slider/Mobile/blog-hero.webp" type="image/webp">
       <img class="hero__bg" src="/assets/img/slider/blog-hero.webp" alt="" aria-hidden="true" fetchpriority="high" loading="eager" decoding="async">
     </picture>
     <div class="hero__content">
@@ -82,7 +83,7 @@ include 'partials/_head.php';
         <div class="featured-post__img-wrap">
           <?php if (!empty($featured['image_url'])): ?>
           <img src="<?= htmlspecialchars($featured['image_url']) ?>"
-               alt="" loading="eager" fetchpriority="high">
+               alt="" loading="lazy" decoding="async">
           <?php else: ?>
           <div class="post-card__img-placeholder" aria-hidden="true"></div>
           <?php endif; ?>
@@ -126,7 +127,7 @@ include 'partials/_head.php';
 
             <div class="post-card__img-wrap">
               <?php if (!empty($post['image_url'])): ?>
-              <img src="<?= htmlspecialchars($post['image_url']) ?>" alt="" loading="lazy">
+              <img src="<?= htmlspecialchars($post['image_url']) ?>" alt="" loading="lazy" decoding="async">
               <?php else: ?>
               <div class="post-card__img-placeholder" aria-hidden="true"></div>
               <?php endif; ?>
