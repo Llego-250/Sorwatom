@@ -344,7 +344,7 @@
         ],
         'cta' => [
             'eyebrow' => 'Ku bacuruzi',
-            'heading' => 'Urashaka <em>kurangura</em> ibicuruzwa<br>cyangwa kubyohereza mu mahanga?',
+            'heading' => 'Urashaka <em>kurangura</em> ibicuruzwa cyangwa kubyohereza mu mahanga?',
             'body'    => 'Tugemurira amahoteli n’amaresitora, abadandaza n’abakwirakwiza bo mu karere k’Ibiyaga Bigari n’ahandi. ',
             'btn'     => 'Saba igiciro &rarr;',
         ],
