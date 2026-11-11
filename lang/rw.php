@@ -17,7 +17,7 @@
             'desc'  => 'Ibicuruzwa bya Sorwatom: tomato paste (isosi y’inyanya) ya 50g, 70g na 800g, ketchup, vinegere na pilau masala. Umwimerere 100%, byemejwe ku rwego mpuzamahanga.',
         ],
         'contact' => [
-            'title' => 'Tuvugane — Sorwatom: gukwirakwiza no kuranguza mu Rwanda',
+            'title' => 'Sorwatom: gukwirakwiza no kuranguza mu Rwanda',
             'desc'  => 'Vugana na Sorwatom ku bijyanye no gukwirakwiza ibicuruzwa, kuranguza no kohereza mu mahanga, cyangwa ibindi bibazo rusange. Ibiro byacu biri mu Rwanda, mu Burundi mu burasirazuba bwa RDC.',
         ],
         'blog' => [
@@ -146,7 +146,7 @@
             'story'   => 'Abo turi bo',
             'catalog' => 'Urutonde rw’ibicuruzwa',
             'journal' => 'Inkuru',
-            'contact' => 'Tuvugane',
+            'contact' => '',
         ],
         'newsletter' => [
             'heading'     => 'Menya amakuru mashya',
@@ -213,7 +213,7 @@
             'cta'     => 'Menya amateka yacu',
         ],
         'cta' => [
-            'eyebrow' => 'Tuvugane',
+            'eyebrow' => '',
             'heading' => 'Twakwishimira <em>kukumva.</em>',
             'body'    => 'Waba uri umudandaza, umukwirakwiza cyangwa ushaka kumenya byinshi ku bicuruzwa byacu, itsinda ryacu ryiteguye kugufasha.',
             'btn'     => 'Twandikire',
