@@ -6,7 +6,7 @@
       <!-- Col 1: Brand -->
       <div class="footer-brand footer-col">
         <a href="/" class="footer-brand__logo-link" aria-label="<?= __t('a11y.home_link') ?>">
-          <img src="/assets/img/logo.png" alt="Sorwatom" class="footer-brand__logo-img" width="130" height="44" loading="lazy" decoding="async" style="filter:none">
+          <img src="/assets/img/logo.png" alt="Sorwatom" class="footer-brand__logo-img" width="190" height="70" loading="lazy" decoding="async" style="filter:none">
         </a>
         <p><?= __t('footer.tagline') ?></p>
       </div>
@@ -108,7 +108,7 @@
 
 <style>
 .footer-brand__logo-link { display:inline-block; text-decoration:none; margin-bottom:var(--space-sm); }
-.footer-brand__logo-img  { height:40px; width:auto; object-fit:contain; display:block; }
+.footer-brand__logo-img  { height:60px; width:auto; object-fit:contain; display:block; }
 .footer-address { font-style:normal; display:flex; flex-direction:column; gap:6px; }
 .footer-address p { font-size:var(--step-0); color:rgba(255,255,255,.75); line-height:1.6; margin:0; }
 .footer-address a { color:rgba(255,255,255,.75); text-decoration:none; transition:color var(--dur-fast); }

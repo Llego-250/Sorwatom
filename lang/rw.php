@@ -18,7 +18,7 @@
         ],
         'contact' => [
             'title' => 'Tuvugane — Sorwatom: gukwirakwiza no kuranguza mu Rwanda',
-            'desc'  => 'Vugana na Sorwatom ku bijyanye no gukwirakwiza ibicuruzwa, kuranguza no kohereza mu mahanga, cyangwa ibindi bibazo rusange. Ibiro byacu biri mu Rwanda, mu Burundi no muri RDC.',
+            'desc'  => 'Vugana na Sorwatom ku bijyanye no gukwirakwiza ibicuruzwa, kuranguza no kohereza mu mahanga, cyangwa ibindi bibazo rusange. Ibiro byacu biri mu Rwanda, mu Burundi mu burasirazuba bwa RDC.',
         ],
         'blog' => [
             'title' => 'Inkuru za Sorwatom — Uburyo bwo guteka n’amakuru',
@@ -79,7 +79,7 @@
         'contact_intro'        => 'Intangiriro ya paji yo kutwandikira',
         'countries'            => 'Ibihugu dukoreramo',
         'office_rw'            => 'Icyicaro gikuru mu Rwanda',
-        'office_region'        => 'Aho dukorera mu Burundi no muri RDC',
+        'office_region'        => 'Aho dukorera mu Burundi mu burasirazuba bwa RDC',
         'filter_blog'          => 'Hitamo icyiciro',
         'featured'             => 'Inkuru yatoranyijwe: {title}',
         'read'                 => 'Soma: {title}',
@@ -234,7 +234,7 @@
         ],
         'promise' => [
             'eyebrow'     => 'Isezerano ryacu',
-            'p1'          => 'SORWATOM yiyemeje kugeza ku isoko ibiribwa bifite ubuziranenge bw’indashyikirwa, yubahiriza ibipimo bikomeye by’ubuziranenge kuri buri ntambwe. Umuguzi ni we shingiro ry’ibyo dukora byose: tumubera abo kwizerwa n’inyangamugayo, kandi duhora twita byimazeyo ku by’ingenzi kurusha ibindi ku bo dukorera.',
+            'p1'          => 'SORWATOM yiyemeje kugeza ku isoko ibiribwa bifite ubuziranenge bw’indashyikirwa, yubahiriza ibipimo bikomeye by’ubuziranenge kuri buri ntambwe. Umuguzi ni we shingiro ry’ibyo dukora byose tumubera abo kwizerwa n’inyangamugayo, kandi duhora twita byimazeyo ku by’ingenzi kurusha ibindi ku bo dukorera.',
             'p2'          => 'Twiyemeje ko abakiriya bacu banyurwa by’ukuri, kandi tukabaha ibiribwa bifite agaciro keza kurusha ibindi muri aka karere, binyuze muri serivisi zizewe, kuboneka buri gihe n’ibiciro bidahenze — byose tutigomwe ubuziranenge. Uku kwiyemeza gukubiyemo umubano ukomeye w’ubucuruzi dufitanye n’abafatanyabikorwa n’ubufasha bwihariye duha abadandaza, ibyo bigatuma ibicuruzwa byacu bigera byoroshye kuri buri rugo, kandi abaguzi bakabyishimira byimazeyo.',
             'p3'          => 'Intsinzi yacu ishingiye ku bunararibonye bw’imyaka irenga 60 duhuriyeho mu bucuruzi bushingiye ku buhinzi muri Afurika no mu bumenyi bw’ibicuruzwa bikenerwa buri munsi (FMCG), kandi ishyigikiwe n’imikorere ya kinyamwuga mu bikorwa byacu mu Rwanda, mu Burundi no mu Burasirazuba bwa RDC.',
             'btn_partner' => 'Korana natwe',
@@ -353,9 +353,9 @@
 
     'contact' => [
         'hero' => [
-            'eyebrow'   => 'TUVUGANE',
-            'title'     => 'Reka <em>tuganire.</em>',
-            'subtitle'  => 'Gukwirakwiza ibicuruzwa, kohereza mu mahanga cyangwa ubufatanye mu bucuruzi — itsinda ryacu rikorera mu Rwanda, mu Burundi no muri RDC ryiteguye gufasha ubucuruzi bwawe gutera imbere.',
+            'eyebrow'   => 'Twandikire',
+            'title'     => '<em>Twandikire.</em>',
+            'subtitle'  => 'Gukwirakwiza ibicuruzwa, kohereza mu mahanga cyangwa ubufatanye mu bucuruzi — itsinda ryacu rikorera mu Rwanda, mu Burundi mu burasirazuba bwa RDC ryiteguye gufasha ubucuruzi bwawe gutera imbere.',
             'countries' => [
                 'rw' => 'U Rwanda',
                 'bi' => 'U Burundi',
