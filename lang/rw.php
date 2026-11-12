@@ -353,7 +353,7 @@
 
     'contact' => [
         'hero' => [
-            'eyebrow'   => 'Twandikire',
+            'eyebrow'   => '',
             'title'     => '<em>Twandikire.</em>',
             'subtitle'  => 'Gukwirakwiza ibicuruzwa, kohereza mu mahanga cyangwa ubufatanye mu bucuruzi — itsinda ryacu rikorera mu Rwanda, mu Burundi mu burasirazuba bwa RDC ryiteguye gufasha ubucuruzi bwawe gutera imbere.',
             'countries' => [
