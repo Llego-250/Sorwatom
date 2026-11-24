@@ -7,7 +7,6 @@
  * so its rows name only the issuer.
  */
 $escc  = 'Egyptian Swiss Company for Concentrates';
-$njoro  = 'Njoro Canning Factory (Kenya) Limited';
 $zwft   = 'Zhejiang Willing Foreign Trading Co., Ltd.';
 
 return [
@@ -33,8 +32,5 @@ return [
     ]],
     ['name' => 'KEBS', 'logo' => 'KEBS.webp', 'certs' => [
         ['label_key' => 'kebs', 'company' => $njoro],
-    ]],
-    ['name' => 'Njoro Canning', 'logo' => 'Njoro_canning.webp', 'company' => $njoro, 'certs' => [
-        ['label_key' => 'kebs'],
     ]],
 ];
