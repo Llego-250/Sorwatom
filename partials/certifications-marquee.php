@@ -13,7 +13,7 @@ foreach ($cert_groups as &$group) {
 }
 unset($group);
 
-$e = fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+$e = fn(?string $s): string => htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8');
 ?>
 <section class="section certifications-section" id="certifications" aria-labelledby="certifications-heading">
   <div class="container certifications-section__header">
@@ -58,8 +58,8 @@ $e = fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
                     $detail = isset($cert['issuer']) ? __r('about.certifications.issued_by_only', ['issuer' => $cert['issuer']]) : '';
                 } else {
                     $detail = isset($cert['issuer'])
-                        ? __r('about.certifications.issued_by', ['company' => $cert['company'], 'issuer' => $cert['issuer']])
-                        : $cert['company'];
+                        ? __r('about.certifications.issued_by', ['company' => $cert['company'] ?? '', 'issuer' => $cert['issuer']])
+                        : ($cert['company'] ?? '');
                 }
               ?>
               <li class="cert-logo__spec">

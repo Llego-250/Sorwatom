@@ -7,7 +7,8 @@
  * so its rows name only the issuer.
  */
 $escc  = 'Egyptian Swiss Company for Concentrates';
-$zwft   = 'Zhejiang Willing Foreign Trading Co., Ltd.';
+$njoro = 'Njoro Canning Factory (Kenya) Limited';
+$zwft  = 'Zhejiang Willing Foreign Trading Co., Ltd.';
 
 return [
     ['name' => 'ISO', 'logo' => 'ISO.webp', 'certs' => [
