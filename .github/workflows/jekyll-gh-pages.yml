@@ -72,6 +72,8 @@ jobs:
           #   secrets     smtp_config.php / secrets.php if they were put inside the site folder
           #   cPanel      SSL certificate checks (.well-known), cgi-bin, PHP settings
           #               (.user.ini, php.ini) and Google Search Console verification files
+          #   other apps  folders in public_html that aren't this site (webapp/ is the
+          #               SORWATOM Administration Panel) — also skipped by .htaccess
           lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" << EOF
           set ftp:ssl-allow yes
           set ssl:verify-certificate no
@@ -96,6 +98,12 @@ jobs:
             --exclude-glob .user.ini \
             --exclude-glob php.ini \
             --exclude-glob google*.html \
+            --exclude-glob apps/ \
+            --exclude-glob dashboard*/ \
+            --exclude-glob devs/ \
+            --exclude-glob ftpsorwatom/ \
+            --exclude-glob sub/ \
+            --exclude-glob webapp/ \
             . "$REMOTE_DIR"
           bye
           EOF

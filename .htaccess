@@ -14,9 +14,13 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteRule ^(.*)$ https://www.sorwatom.com/$1 [R=301,L]
 RewriteOptions inherit
 
+# Other apps that live in public_html on GoDaddy (webapp/ is the SORWATOM
+# Administration Panel) keep working as before: none of the rules below touch
+# them. The deploy workflow leaves the same folders alone.
+RewriteRule ^(?:apps|dashboard[^/]*|devs|ftpsorwatom|sub|webapp)(?:/|$) - [L]
+
 # ── Security headers ────────────────────────────────────────
 <IfModule mod_headers.c>
-    Header always set X-Frame-Options "DENY"
     Header always set X-Content-Type-Options "nosniff"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set X-XSS-Protection "1; mode=block"
@@ -28,7 +32,12 @@ RewriteOptions inherit
     # never runs. The one hash allows the newsletter-cron ping at the end of
     # partials/footer.php exactly as written; if that script changes, its new hash
     # is printed by: php -r 'preg_match("#<script>(.*?)</script>#s", file_get_contents("partials/footer.php"), $m); echo "sha256-", base64_encode(hash("sha256", $m[1], true)), PHP_EOL;'
+    # These two are for this site only: the other apps in public_html (webapp/ and
+    # co.) were built without them and could stop working under them.
+    <If "%{REQUEST_URI} !~ m#^/(apps|dashboard[^/]*|devs|ftpsorwatom|sub|webapp)(/|$)#">
+    Header always set X-Frame-Options "DENY"
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-JqMJFdcjSrl5xgKf5tiLz6Bin7xMsjIQIXUez24nSEI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    </If>
 </IfModule>
 
 # ── Block direct access to sensitive / deployment files ─────

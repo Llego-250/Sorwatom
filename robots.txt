@@ -7,5 +7,6 @@ Disallow: /data/
 Disallow: /lang/
 Disallow: /partials/
 Disallow: /lang-switch
+Disallow: /webapp/
 
 Sitemap: https://www.sorwatom.com/sitemap.xml
