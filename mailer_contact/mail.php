@@ -24,7 +24,11 @@ if (!defined('SMTP_HOST')) {
 const MAIL_ERROR_LOG = __DIR__ . '/../data/mail-errors.txt';
 
 // Port 465 expects TLS from the first byte; 587/25 start plain and upgrade with
-// STARTTLS. SMTP_SECURE in smtp_config.php overrides ('ssl' or 'tls').
+// STARTTLS. SMTP_SECURE in smtp_config.php overrides ('ssl', 'tls', or '' for none).
+//
+// GoDaddy cPanel hosting blocks outgoing SMTP to other servers (Gmail included);
+// mail goes through its own relay instead, with no login and no encryption:
+//   SMTP_HOST 'localhost', SMTP_PORT 25, SMTP_SECURE '', no SMTP_PASSWORD.
 function smtp_encryption(): string {
     if (defined('SMTP_SECURE')) return SMTP_SECURE;
     return (int) (defined('SMTP_PORT') ? SMTP_PORT : 587) === 465 ? 'ssl' : 'tls';
@@ -66,7 +70,11 @@ class mail {
                 $mail->isSMTP();
                 $mail->Timeout    = 10;
                 $mail->SMTPSecure = smtp_encryption();
-                $mail->SMTPAuth   = true;
+                // No encryption asked for: don't upgrade on our own either (the local
+                // relay's certificate doesn't match "localhost", so it would fail)
+                $mail->SMTPAutoTLS = $mail->SMTPSecure !== '';
+                // Log in only when there is a password (a relay like GoDaddy's takes none)
+                $mail->SMTPAuth   = defined('SMTP_PASSWORD') && SMTP_PASSWORD !== '';
                 $mail->Host       = SMTP_HOST;
                 $mail->Port       = SMTP_PORT;
                 $mail->Username   = defined('SMTP_USERNAME') ? SMTP_USERNAME : (defined('SMTP_EMAIL') ? SMTP_EMAIL : '');

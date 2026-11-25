@@ -18,6 +18,10 @@
     $canonical = $seo_url($LANG_CODE);
     $noindex   = !empty($page_noindex) || http_response_code() >= 400;
     $locales   = ['en' => 'en_GB', 'rw' => 'rw_RW'];
+    // Link previews and search engines need a full address; site paths like
+    // /assets/img/blog/… (how blog images are stored) get the site in front.
+    $seo_abs   = static fn(string $u): string => str_starts_with($u, '/') && !str_starts_with($u, '//') ? $seo_base . $u : $u;
+    $og_image  = $seo_abs($og_image ?? '/assets/img/slider/hero-tomato.jpg');
   ?>
   <?php if ($noindex): ?>
   <meta name="robots" content="noindex">
@@ -33,7 +37,7 @@
   <meta property="og:type"        content="<?= htmlspecialchars($og_type        ?? 'website') ?>">
   <meta property="og:title"       content="<?= htmlspecialchars($og_title       ?? $page_title ?? 'Sorwatom') ?>">
   <meta property="og:description" content="<?= htmlspecialchars($og_description ?? $page_description ?? '') ?>">
-  <meta property="og:image"       content="<?= htmlspecialchars($og_image       ?? $seo_base . '/assets/img/slider/hero-tomato.jpg') ?>">
+  <meta property="og:image"       content="<?= htmlspecialchars($og_image) ?>">
   <meta property="og:url"         content="<?= htmlspecialchars($og_url         ?? $canonical) ?>">
   <meta property="og:site_name"   content="Sorwatom">
   <meta property="og:locale"      content="<?= $locales[$LANG_CODE] ?? 'en_GB' ?>">
@@ -82,6 +86,8 @@
             ], array_keys($breadcrumb), $breadcrumb),
         ];
     }
+    // Anything else a page describes (e.g. a blog post) — set $json_ld_extra = [[…], …]
+    foreach ($json_ld_extra ?? [] as $item) $json_ld_items[] = $item;
   ?>
   <?php if ($json_ld_items): ?>
   <script type="application/ld+json"><?= json_encode(['@context' => 'https://schema.org', '@graph' => $json_ld_items], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script>

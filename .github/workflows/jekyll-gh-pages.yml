@@ -1,4 +1,18 @@
-name: Deploy to InfinityFree
+name: Deploy to GoDaddy
+
+# Uploads the site to GoDaddy cPanel hosting over FTP on every push to main.
+#
+# Settings (GitHub → Settings → Secrets and variables → Actions):
+#   Secrets    FTP_SERVER    ftp.sorwatom.com, or the server IP shown in cPanel
+#              FTP_USERNAME  the cPanel username (or an FTP account made in cPanel)
+#              FTP_PASSWORD  its password
+#   Variables  FTP_REMOTE_DIR  where the site lives on the server: /public_html/ for
+#                              the cPanel account, or / for an FTP account whose
+#                              folder is already public_html.
+#              SITE_URL        optional, defaults to https://www.sorwatom.com
+#
+# Nothing is deployed until FTP_REMOTE_DIR exists — the first deploy replaces the
+# old site, so back it up in cPanel first (see the deployment checklist).
 
 on:
   push:
@@ -9,6 +23,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    if: vars.FTP_REMOTE_DIR != ''
 
     steps:
       - name: Checkout
@@ -31,31 +46,39 @@ jobs:
       - name: Install lftp
         run: sudo apt-get install -y lftp
 
+      # TLS keeps the FTP password off the wire. cPanel's certificate is issued to
+      # the server's own name, not ftp.sorwatom.com, so it isn't checked.
       - name: Test FTP connection
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
         run: |
-          lftp -d -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" \
-            -e "set ftp:ssl-allow no; set ftp:passive-mode yes; set net:timeout 15; ls; bye"
+          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" \
+            -e "set ftp:ssl-allow yes; set ssl:verify-certificate no; set ftp:passive-mode yes; set net:timeout 15; set net:max-retries 2; cd \"$REMOTE_DIR\" && ls; bye"
 
       - name: Deploy via FTP
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
         run: |
-          # Files that exist only on the server are excluded, otherwise --delete would
-          # remove them: blog images uploaded through the admin (assets/img/blog/YYYYMMDD-*),
-          # the scheduled newsletter's run state (data/newsletter-cron.*), rate limiting
-          # (data/rate-limits.json) and secrets.php if it was put in config/.
-          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" << 'EOF'
-          set ftp:ssl-allow no
+          # --delete removes server files that aren't in the repository (the old
+          # site's pages included). Files that must survive are excluded:
+          #   site data   blog images uploaded through the admin (assets/img/blog/YYYYMMDD-*),
+          #               the newsletter's run state, rate limits, inquiries/subscribers (data/*.txt)
+          #   secrets     smtp_config.php / secrets.php if they were put inside the site folder
+          #   cPanel      SSL certificate checks (.well-known), cgi-bin, PHP settings
+          #               (.user.ini, php.ini) and Google Search Console verification files
+          lftp -u "$FTP_USER","$FTP_PASS" "$FTP_SERVER" << EOF
+          set ftp:ssl-allow yes
+          set ssl:verify-certificate no
           set ftp:passive-mode yes
           set net:timeout 30
           set net:max-retries 3
-          mirror -R --delete --verbose=3 \
+          mirror -R --delete --verbose=1 \
             --exclude-glob .git/ \
             --exclude-glob .github/ \
             --exclude-glob Dockerfile \
@@ -63,10 +86,37 @@ jobs:
             --exclude-glob router.php \
             --exclude-glob data/*.txt \
             --exclude-glob smtp_config.php \
+            --exclude-glob secrets.php \
             --exclude-glob config/secrets.php \
             --exclude-glob data/rate-limits.json \
             --exclude-glob assets/img/blog/20*-* \
             --exclude-glob data/newsletter-cron.* \
-            . /htdocs/
+            --exclude-glob .well-known/ \
+            --exclude-glob cgi-bin/ \
+            --exclude-glob .user.ini \
+            --exclude-glob php.ini \
+            --exclude-glob google*.html \
+            . "$REMOTE_DIR"
           bye
           EOF
+
+      - name: Check the live site
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://www.sorwatom.com' }}
+        run: |
+          bad=""
+          for path in / /products /product-tomato-paste /about /contact /blog /sitemap.xml /robots.txt; do
+            code=$(curl -sS -o /dev/null -m 30 -w '%{http_code}' "$SITE_URL$path" || echo 000)
+            echo "$code $SITE_URL$path"
+            [ "$code" = 200 ] || bad=1
+          done
+          # Old addresses must forward (301) to the new pages
+          for path in /about-us.php /contact-us.php /products.php /index.php; do
+            code=$(curl -sS -o /dev/null -m 30 -w '%{http_code}' "$SITE_URL$path" || echo 000)
+            echo "$code $SITE_URL$path"
+            [ "$code" = 301 ] || bad=1
+          done
+          if [ -n "$bad" ]; then
+            echo "::error::Some pages did not answer as expected. On GoDaddy, check cPanel → Select PHP Version is 8.2 or newer, then the error_log file in public_html."
+            exit 1
+          fi

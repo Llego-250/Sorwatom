@@ -50,7 +50,7 @@ function email_check_hint(string $error): string {
     if (preg_match('/\b535\b|534|Username and Password not accepted|BadCredentials|credentials invalid|authenticat/i', $error))
         return 'The SMTP server rejected the login. For Gmail, the password must be a 16-character App Password (Google Account → Security → 2-Step Verification → App passwords), and SMTP_USERNAME must be the full Gmail address.';
     if (preg_match('/refused|timed? ?out|unreachable|Failed to connect|Could not connect|Connection failed|getaddrinfo/i', $error))
-        return 'This server could not open a connection to the SMTP server. Check SMTP_HOST, then try the other port (465 ↔ 587). If neither connects, the host is blocking outgoing mail and an HTTP-based email service is needed.';
+        return 'This server could not open a connection to the SMTP server. Check SMTP_HOST, then try the other port (465 ↔ 587). On GoDaddy, outside SMTP servers such as Gmail are blocked: use SMTP_HOST \'localhost\', SMTP_PORT 25, SMTP_SECURE \'\' and no SMTP_PASSWORD.';
     if (preg_match('/EHLO|STARTTLS|SSL|TLS|certificate/i', $error))
         return 'The secure connection failed. Use port 465 or 587 — the encryption is picked automatically from the port.';
     return '';

@@ -19,9 +19,12 @@ $app_secret = static fn(string $key, string $default = ''): string
     => (string) (getenv($key) ?: ($app_secrets[$key] ?? $default));
 
 // ─── Database ─────────────────────────────────────────────────────────────────
-define('DB_HOST',    $app_secret('DB_HOST', 'sql306.infinityfree.com'));
-define('DB_NAME',    $app_secret('DB_NAME', 'if0_42285005_sorwatom_blog'));
-define('DB_USER',    $app_secret('DB_USER', 'if0_42285005'));
+// GoDaddy (cPanel): MySQL runs on the same server, so the host is localhost; the
+// database name and user are the ones made in cPanel → MySQL Databases, both
+// starting with the cPanel username (e.g. abc123_sorwatom). Set them in secrets.php.
+define('DB_HOST',    $app_secret('DB_HOST', 'localhost'));
+define('DB_NAME',    $app_secret('DB_NAME'));
+define('DB_USER',    $app_secret('DB_USER'));
 define('DB_PASS',    $app_secret('DB_PASS'));
 define('DB_CHARSET', 'utf8mb4');
 

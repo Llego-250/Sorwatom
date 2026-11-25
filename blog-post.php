@@ -13,8 +13,9 @@ if (!$post) {
 
 $related = blog_get_related((int) $post['id'], (int) $post['category_id']);
 
-$page_title       = htmlspecialchars($post['title']) . ' — ' . __r('meta.blog_post_suffix');
-$page_description = htmlspecialchars($post['excerpt'] ?? '');
+// Plain text here — partials/_head.php escapes it (escaping twice shows "&amp;" in Google)
+$page_title       = $post['title'] . ' — ' . __r('meta.blog_post_suffix');
+$page_description = $post['excerpt'] ?? '';
 $page_css         = ['pages/blog.css'];
 $page_js          = ['blog-post.js'];
 $body_class       = 'page-blog-post';
@@ -24,26 +25,31 @@ $current_page     = 'blog';
 $og_type        = 'article';
 $og_title       = $post['title'];
 $og_description = $post['excerpt'] ?? '';
-$og_image       = !empty($post['image_url']) ? $post['image_url'] : SITE_URL . '/assets/img/logo.png';
+$og_image       = !empty($post['image_url']) ? $post['image_url'] : '/assets/img/logo.png'; // made absolute in _head.php
 $og_url         = SITE_URL . '/blog/' . $post['slug'];
 
-include 'partials/_head.php';
-
-// JSON-LD structured data
-$json_ld = [
-    '@context'      => 'https://schema.org',
-    '@type'         => 'Article',
-    'headline'      => $post['title'],
-    'description'   => $post['excerpt'] ?? '',
-    'datePublished' => $post['published_at'],
-    'dateModified'  => $post['updated_at'] ?? $post['published_at'],
-    'author'        => ['@type' => 'Person', 'name' => $post['author_name'] ?? 'Sorwatom'],
-    'publisher'     => ['@type' => 'Organization', 'name' => 'Sorwatom',
-                        'logo' => ['@type' => 'ImageObject', 'url' => SITE_URL . '/assets/img/logo.png']],
+// Structured data for Google (output inside <head> by partials/_head.php).
+// Dates carry Kigali's offset, e.g. 2026-10-21T09:00:00+02:00.
+$iso_date  = static fn(?string $d): ?string => $d ? date('c', strtotime($d)) : null;
+$abs_url   = static fn(string $u): string => str_starts_with($u, '/') ? SITE_URL . $u : $u;
+$post_ld   = [
+    '@type'            => 'BlogPosting',
+    'headline'         => $post['title'],
+    'description'      => $post['excerpt'] ?? '',
+    'datePublished'    => $iso_date($post['published_at']),
+    'dateModified'     => $iso_date($post['updated_at'] ?? $post['published_at']),
+    'mainEntityOfPage' => $og_url,
+    'author'           => !empty($post['author_name'])
+                            ? ['@type' => 'Person', 'name' => $post['author_name']]
+                            : ['@type' => 'Organization', 'name' => 'Sorwatom', 'url' => SITE_URL . '/'],
+    'publisher'        => ['@type' => 'Organization', '@id' => SITE_URL . '/#organization', 'name' => 'Sorwatom',
+                           'logo' => ['@type' => 'ImageObject', 'url' => SITE_URL . '/assets/img/logo.png']],
 ];
-if (!empty($post['image_url'])) $json_ld['image'] = $post['image_url'];
+if (!empty($post['image_url'])) $post_ld['image'] = $abs_url($post['image_url']);
+$json_ld_extra = [$post_ld];
+
+include 'partials/_head.php';
 ?>
-<script type="application/ld+json"><?= json_encode($json_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script>
 <body class="<?= htmlspecialchars($body_class) ?>">
 
 <?php include 'partials/nav.php'; ?>

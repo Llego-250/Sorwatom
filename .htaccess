@@ -21,7 +21,9 @@ RewriteOptions inherit
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    # No includeSubDomains: mail., calendar. and docs.sorwatom.com point at Google
+    # and only answer over plain HTTP, so browsers would refuse them for a year.
+    Header always set Strict-Transport-Security "max-age=31536000"
     # Scripts only from files on this site, so injected <script> or onclick="…" code
     # never runs. The one hash allows the newsletter-cron ping at the end of
     # partials/footer.php exactly as written; if that script changes, its new hash
@@ -83,6 +85,9 @@ RewriteRule ^about-us(?:\.php)?/?$     /about    [R=301,L,NC]
 RewriteRule ^about-vision(?:\.php)?/?$ /about    [R=301,L,NC]
 RewriteRule ^about-team(?:\.php)?/?$   /about    [R=301,L,NC]
 RewriteRule ^contact-us(?:\.php)?/?$   /contact  [R=301,L,NC]
+# Its product photos (img/product/…), which Google Images may list
+RewriteRule ^img/product/(ketchup|masala|vinegar|tomatoes_paste_(?:50|70|800)g)\.png$ /assets/img/products/$1.png [R=301,L,NC]
+RewriteRule ^img/product/logo\.png$    /assets/img/logo.png [R=301,L,NC]
 RewriteCond %{THE_REQUEST} \s/+index(?:\.php)?[\s?] [NC]
 RewriteRule ^ / [R=301,L]
 
